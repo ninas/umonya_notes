@@ -1,0 +1,134 @@
+1. x%y == 0
+
+2. (on_vip_list != True) and (on_staff_list != True)
+
+3. 1 is not equal to '1' because 1 is an integer, and '1' is a string.
+
+4. --- quotient_two.py ---
+a = int(raw_input("Enter a number: "))
+b = int(raw_input("Enter a number: "))
+if b != 0:
+	print a/b
+else:
+	print "Cannot divide by zero"
+--- end quotient_two.py ---
+
+5. --- smallest_of_five.py ---
+smallest = "strings are always larger than integers"
+number = int(raw_input("Enter a number: "))
+if number < smallest:
+	smallest = number
+number = int(raw_input("Enter a number: "))
+if number < smallest:
+	smallest = number
+number = int(raw_input("Enter a number: "))
+if number < smallest:
+	smallest = number
+number = int(raw_input("Enter a number: "))
+if number < smallest:
+	smallest = number
+number = int(raw_input("Enter a number: "))
+if number < smallest:
+	smallest = number
+print smallest
+--- end smallest_of_five.py ---
+
+6. --- largest_of_five.py ---
+largest = -2147483547
+number = int(raw_input("Enter a number: "))
+if number > largest:
+	largest = number
+number = int(raw_input("Enter a number: "))
+if number > largest:
+	largest = number
+number = int(raw_input("Enter a number: "))
+if number > largest:
+	largest = number
+number = int(raw_input("Enter a number: "))
+if number > largest:
+	largest = number
+number = int(raw_input("Enter a number: "))
+if number > largest:
+	largest = number
+print largest
+--- end largest_of_five.py ---
+
+7. --- average_of_five.py ---
+total = 0
+total += int(raw_input("Enter a number: "))
+total += int(raw_input("Enter a number: "))
+total += int(raw_input("Enter a number: "))
+total += int(raw_input("Enter a number: "))
+total += int(raw_input("Enter a number: "))
+print total/5.0
+--- end average_of_five.py ---
+
+8. --- leapyear.py ---
+year = int(raw_input("Enter a four digit year: "))
+if (year % 4 == 0 and year % 100 != 0) or year % 400 == 0:
+	print year, "is a leap year"
+--- end leapyear.py ---
+
+9. --- alpha_sort.py ---
+#!/usr/bin/python
+
+#Write a program that asks the user to enter 3 names, then outputs them sorted
+#alphabetically.
+
+print "Please enter three names"
+
+name1 = raw_input("> ")
+name2 = raw_input("> ")
+name3 = raw_input("> ")
+
+if name1 > name2 and name1 > name3:
+	#largest = name1
+	if name2 > name3:
+		print name3
+		print name2
+	else:
+		print name2
+		print name3
+	print name1
+elif name2 > name1 and name2 > name3:
+	#name2 is largest
+	if name1 > name3:
+		print name3
+		print name1
+	else:
+		print name1
+		print name3
+	print name2
+elif name3 > name1 and name3 > name2:
+	#name3 is largest
+	if name1 > name2:
+		print name2
+		print name1
+	else:
+		print name1
+		print name2
+	print name3
+--- end alpha_sort.py ---
+
+10. --- divisible.py ---
+number = int(raw_input("Enter a number: "))
+print number, "is divisble by 1"
+if number % 2 == 0:
+	print number, "is divisible by 2"
+if number % 3 == 0:
+	print number, "is divisible by 3"
+if number % 4 == 0:
+	print number, "is divisible by 4"
+if number % 5 == 0:
+	print number, "is divisible by 5"
+if number % 6 == 0:
+	print number, "is divisible by 6"
+if number % 7 == 0:
+	print number, "is divisible by 7"
+if number % 8 == 0:
+	print number, "is divisible by 8"
+if number % 9 == 0:
+	print number, "is divisible by 9"
+if number % 10 == 0:
+	print number, "is divisible by 10"
+--- end divisible.py ---

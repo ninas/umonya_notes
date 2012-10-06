@@ -1,0 +1,415 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Introductory Programming in Python: Using Vim as an Editor</title>
+	<link rel='stylesheet' type='text/css' href='style.css' />
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	<script src="animation.js" type="text/javascript">
+	</script>
+</head>
+
+<body onload="animate_loop()">
+	<div class="page">
+
+		<h1>Introductory Programming in Python<br />
+		Using Vim as an Editor</h1>
+
+		<div class="centered">
+			[<a href="index.html">Course Outline</a>]
+		</div>
+
+		<h2>What is Vim?</h2>
+
+		<p><a href="http://www.vim.org">Vim</a> is a text editor standard on
+		nearly all *nix distributions. The only two distributions I know of
+		that don't have Vim standard are gentoo and linux from scratch. Vim
+		stands for 'vi improved' as Vim is based on the original visual (as
+		opposed to line oriented) editor for unix, called 'vi'. Vi, and thus
+		Vim, represent a fundamentally different way of editing files, as
+		compared to the now more common methods employed by editors such as
+		EMACS, Notepad, Kate, and pretty much every other editor out there. The
+		difference lies in the fact that Vim operates in various 'modes',
+		meaning different key strokes do different things at different times.
+		This allows us to use only the standard alphanumeric and punctuation
+		keys to perform all our tasks, because when we are not in insert mode,
+		they can be used for something else. This is important, historically
+		because keyboards used not be standardised beyond the alphanumeric and
+		punctuation keys, and because even today, when remotely connected to
+		another computer via telnet or ssh, there are only limited character
+		sets (primarily employing only alphanumeric and punctuation characters)
+		available on the connection protocol.</p>
+
+		<p>It's important to realise that Vim is incredibly powerful, and really
+		huge (in terms of learning quantity). I've been using it for eight
+		years as my primary editor, and still find things I don't know about,
+		and that I actually would start using daily. Never mind all the stuff in
+		the help system I know I don't know about! This document serves only to
+		introduce the very basics of Vim. If you want to know more, in general
+		or about a specific command, and trust me, there's more to know, use
+		Vim's help system.</p>
+
+		<h2>Starting Vim?</h2>
+
+		<p>We start Vim in a *nix environment simply by typing <code>vim</code>
+		at the command prompt.</p>
+
+		<pre class='listing'>
+sirlark@hephaestus ~ $ vim
+</pre>
+
+		<p>Alternatively, we can choose a file to edit immediately, by
+		specifying it as an argument on the command line</p>
+
+		<pre class='listing'>
+sirlark@hephaestus ~ $ vim myfile.txt
+</pre>
+
+		<p>We can in fact specify any number of filenames, and Vim will open
+		them all, although only the first will be visible upon starting Vim.
+		Files that already exist are loaded from disk into a
+		<strong>buffer</strong> in Vim for editing. Buffers may not be visible,
+		but are still in memory. Changes made to a buffer (changes you make to
+		a file are in fact only made in memory) are only saved to disk when Vim
+		is instructed to write the buffer. Filenames that do not exist create
+		empty buffers, and the file itself is only created upon buffer
+		write.</p>
+
+		<h2>Command/Normal Mode</h2>
+
+		<p>Vim starts in 'Command' (aka 'Normal' mode). In this mode keystrokes
+		are <strong>not</strong> inserted into files, but rather they are used
+		to issue large (or small) scale editing commands, such as cut, paste,
+		delete line, jump to beginning of file, etc... Additionally, entering
+		the character ':' allows us to type more complex commands on a Vim
+		command line. A number of Vim commands use the concept of a motion.
+		Simply put, a motion is a movement of the cursor from one point in the
+		file to another. The motion is considered to be the contents of the
+		file between the cursor's starting point and it's end point. The really
+		important keystrokes you will need are</p>
+
+		<ul>
+
+			<li><code>w</code> moves to the beginning of the next word, where a
+			word is considered an alphnumeric sequence of characters, i.e.
+			punctuation breaks up words.</li>
+
+			<li><code>W</code> moves to the beginning of the next word, where a
+			word is considered an sequence of characters not broken by
+			whitespace. Synonyms: <code>CTRL-Right</code></li>
+
+			<li><code>e</code> moves to the next end of word
+			(alphanumeric).</li>
+
+			<li><code>E</code> moves to the next end of word (whitespace).</li>
+
+			<li><code>r&lt;character&gt;</code> replaces the character under
+			the cursor with the character entered.</li>
+
+			<li><code>R</code> enters Insert Mode in overwrite or replace
+			sub-mode.</li>
+
+			<li><code>CTRL-R</code> redoes the last action undone by an undo
+			comamnd.</li>
+
+			<li><code>y&lt;motion&gt;</code> yanks (or copies) the motion for
+			later pasting. If the motion is across multiple lines, all lines
+			involved are copied in their entirety, linewise.</li>
+
+			<li><code>yy</code> copies the entire contents of the current line,
+			linewise.</li>
+
+			<li><code>u</code> undoes the last action.</li>
+
+			<li><code>i</code> enters Insert mode at the point in the file
+			where the cursor is postioned. Synonyms: <code>INS</code></li>
+
+			<li><code>o</code> enters Insert Mode by inserting a new blank line
+			beneath the line the cursor is currently on. Upon entering insert
+			mode, the cursor is positioned at the beginning of the newly
+			inserted blank line.</li>
+
+			<li><code>O</code> enters Insert Mode by inserting a new blank line
+			above the line the cursor is currently on. Upon entering insert
+			mode, the cursor is positioned at the beginning of the newly
+			inserted blank line.</li>
+
+			<li><code>p</code> pastes the most recently deleted or copied text
+			at the position after the cursor. Linewise cuts and copies will
+			always paste entire lines, splitting the current line to the right
+			of cursor, and pasting complete lines between the two
+			sections.</li>
+
+			<li><code>p</code> pastes the most recently deleted or copied text
+			before the character under the cursor. Linewise cuts and copies
+			will always paste entire lines, splitting the current line at the
+			character under the cursor, and pasting complete lines between the
+			two sections.</li>
+
+			<li><code>a</code> enters Insert mode just after the character
+			under the cursor.</li>
+
+			<li><code>A</code> enters Insert mode at the end of the current
+			line.</li>
+
+			<li><code>d&lt;motion&gt;</code> deletes from the cursor to the end
+			of the motion specified. If the motion crosses multiple lines, all
+			lines involved are deleted in their entirety, linewise. Deleted
+			text is stored for later pasting.</li>
+
+			<li><code>D</code> deletes from the cursor to the end of the
+			current line. Deleted text is stored for later pasting.</li>
+
+			<li><code>dd</code> deletes the current line linewise.</li>
+
+			<li><code>gg</code> moves the cursor to the very beginning of the
+			file.</li>
+
+			<li><code>gq&lt;motion&gt;</code> formats the motion specified (use
+			'ap' as a motion to indicate the entire paragraph, being a section
+			of text from the last blank line to the next blank line) to fit the
+			current maximum column width (usually 80, set with <code>:set
+			tw=80</code>) obeying initial indentation according to the first
+			line of the paragraph.</li>
+
+			<li><code>G</code> moves the cursor to the first column on the last
+			line of the file.</li>
+
+			<li><code>h</code> moves the cursor one character to the left.
+			Synonyms:<code>Left</code></li>
+
+			<li><code>j</code> moves the cursor one line up.
+			Synonyms:<code>Up</code></li>
+
+			<li><code>J</code> joins the line after that which the cursor is on
+			to the end of the current line, stripping any of the precedeing
+			white space on the lower line.</li>
+
+			<li><code>k</code> moves the cursor one line down.
+			Synonyms:<code>Down</code></li>
+
+			<li><code>K</code> displays the man page for the word under the
+			cursor.</li>
+
+			<li><code>l</code> moves the cursor one character to the right.
+			Synonyms:<code>Right</code></li>
+
+			<li><code>x</code> deletes the character under the cursor, storing
+			it for later pasting. Synonyms: <code>DEL</code></li>
+
+			<li><code>X</code> deletes the character to the left of the cursor,
+			storing it for later pasting. Synonyms: <code>BACKSPACE</code></li>
+
+			<li><code>c&lt;motion&gt;</code> deletes the motion, and goes into
+			Insert Mode, thus allowing the 'changing' or replacement of a
+			section of text.</li>
+
+			<li><code>C</code> deletes from the cursor to the end of the
+			current line, and goes into Insert Mode.</li>
+
+			<li><code>v</code> starts visual mode.</li>
+
+			<li><code>V</code> starts line oreiented visual mode.</li>
+
+			<li><code>CTRL-v</code> start rectangular or block visual
+			mode.</li>
+
+			<li><code>b</code> moves the cursor to the beginning of the current
+			word (alphanumeric) or the beginning of the previous word if
+			already at the beginning of the current word.</li>
+
+			<li><code>B</code> moves the cursor to the beginning of the current
+			word (whitespace) or the beginning of the previous word if already
+			at the beginning of the current word.</li>
+
+			<li><code>n</code> searches for the next (in the direction of the
+			current search) occurence of pattern.</li>
+
+			<li><code>{</code> moves the cursor to the beginning of the current
+			paragraph. When editing code, depending on the language, often
+			jumps to the beginning of the code block.</li>
+
+			<li><code>}</code> moves the cursor to the end of the current
+			paragraph. When editing code, depending on the language, often
+			jumps to the end of the code block.</li>
+
+			<li><code>/</code> prompts for a pattern for which to search, and
+			searches forwards for the next occurence of it in the file.</li>
+
+			<li><code>?</code> prompts for a pattern for which to search, and
+			searches backwards for the next occurence of it in the file.</li>
+
+			<li><code>.</code> performs the last action again.</li>
+
+		</ul>
+
+		<p>One of the cooler things about Vim is the ability to specify counts.
+		We can for example specify that one of the above actions indicated by
+		keystroke be performed multiple times by prepending the keystroke with
+		a number. For example if we wanted to insert exactly 72 '*' characters,
+		instead of going into Insert Mode and counting, we simply type
+		<code>72i*&lt;ESC&gt;</code>. Similarly we can replace the next 7
+		characters with 'z's (<code>7rz</code>), etc...</p>
+
+		<p>Also, in Command Mode, we have the ability to enter more complex
+		commands by using the ':' key. The ':' key present us with a command
+		prompt at the bottom left of the screen (':'), where we can type more
+		complex commands, some of which are</p>
+
+		<ul>
+
+			<li><code>:q</code> quits Vim if there are no modified
+			buffers.</li>
+
+			<li><code>:w [&lt;filename&gt;]</code> writes the contents of the
+			current buffer to the filename given, if one is given, otherwise
+			back to the file from which the buffer was loaded.</li>
+
+			<li><code>:e &lt;filename&gt;</code> opens a new buffer and loads
+			the file specified into it for editing. If a buffer already exists
+			for that file, then jumps to that buffer. If the current buffer has
+			not been saved, an error message is produced, and the command does
+			nothing.</li>
+
+			<li><code>:read &lt;filename&gt;</code> reads the contents of the
+			file specified and inserts them into the buffer after the current
+			line, linewise.</li>
+
+			<li><code>:help [&lt;command&gt;]</code> starts the help system,
+			either at the table of contents if no command is specified, or at
+			the page for the command given.</li>
+
+			<li><code>:buffers</code> lists all the buffers open in Vim.</li>
+
+			<li><code>:bn</code> switches to the next buffer if the current
+			buffer hasn't been modified since the last save.</li>
+
+			<li><code>:bp</code> switches to the previous buffer if the current
+			buffer hasn't been modified since the last save.</li>
+
+			<li><code>:bd</code> removes the current buffer, i.e. stops editing
+			the current file, if the buffer hasn't been modified since the
+			save.</li>
+
+			<li>
+
+				<code>:s/&lt;search pattern&gt;/&lt;replace
+				pattern&gt;/&lt;options&gt;</code> searches for the first
+				occurence of pattern on every line within the given range (or
+				the current line only, if no range is given) and replaces it
+				with the replacement pattern. Options can be
+
+				<ul>
+				
+					<li><code>g</code> replace every pattern on a line, not
+					just the first</li>
+
+					<li><code>c</code> prompt for confirmation before repacing
+					each pattern.</li>
+				
+				</ul>
+
+			</li>
+
+			<li><code>:source [&lt;filename&gt;]</code> loads and runs a script
+			of vim commands from the file specified. This is how vim plugins
+			are loaded.</li>
+
+			<li><code>:!&lt;shell command&gt;</code> runs the shell command
+			specified. If a range is given, the lines speicifed in the range
+			will be piped to the shell command, and it's output will replace
+			those lines.</li>
+
+		</ul>
+
+		<p>You will have noticed the concept of range in some some of the
+		commands above. In general, we can specify that a particular command
+		should be applied only to a certain range of lines, by entering that
+		range as a pair of line numbers, comma separated as in <code>&lt;from
+		line&gt;,&lt;to line&gt;</code>. '%' reflects the entire file as a
+		range. Type ':help range' for more details, and there are lots more
+		details.</p>
+
+		<h2>Insert/Replace Mode</h2>
+
+		<p>Insert Mode acts just as any other editor. What you type gets put
+		into your file. The arrow keys work as normal, delete and backspace
+		work as normal. The only two keys you need to worry about are
+		<strong>Escape</strong> and <strong>Insert</strong>.  Escape takes you
+		back to Command Mode. Insert will toggle between Insert proper and
+		Replace or Overwrite Mode. When in Insert Mode you will always see the
+		message "-- INSERT --" or "-- REPLACE --" displayed at the bottom left
+		of the screen, depending on whether you are inserting or
+		overwriting.</p>
+
+		<p>A useful shortcut when in Insert Mode is <code>CTRL-X,CTRL-f</code>
+		attempts to complete the word under the cursor as if it were a
+		filename. The first available completion is used. You can cycle though
+		available completions by holding down CTRL and pressing 'f' repeatedly.
+		In versions 7 and higher of Vim, a little drop down menu is actually
+		displayed when this happens.</p>
+
+		<h2>Visual/Selection Mode</h2>
+
+		<p>From Command mode one can highlight or select text to operate on
+		using the visual ro selection modes, of which there are three. All oF
+		them operate by highlighting from the cursor position when the mode is
+		entered to the current cursor position, and show the message '-- VISUAL
+		--' in the bottom left corner of the screen when we are in them.
+		Exiting the mode by pressing Escape aborts the selection. Essentially
+		the visual modes allow us to specify a range for ':' commands, or
+		keystroke commands from command mode to work on. The three visual modes
+		are</p>
+
+		<ul>
+
+			<li>Character Visual: where we can select from one character to any other character.</li>
+
+			<li>Line Visual: where entire lines are selected.</li>
+
+			<li>Block Visual: where a rectangular block on screen is selected.</li>
+		
+		</ul>
+
+		<p>To exit any visual mode without doing anything we simply press
+		Escape. However, we can also issue any of the commands from command
+		mode when in visual mode. The command specified will be executed and
+		then we will be returned to command mode. If that command operates only
+		on entire lines, then all the lines selected, even if only partially
+		selected, will be operated on. Otherwise the interactions of commands
+		and selections are to lengthly to describe, although they tend to be
+		resonably intuitive. All I can say is experiment.</p>
+
+		<h2>Getting Help</h2>
+
+		<p>The first place to get help for Vim is in Vim itself, using the
+		<code>:help</code> command. Go though the tutorial at least once, and
+		learn how to navigate the help system. Alternatively, an internet
+		online copy is maintained at <a class="doclink"
+		href="http://vimdoc.sf.net/">http://vimdoc.sf.net</a>. Other places
+		include your local Vim guru, who may charge you in pizza or drinks
+		(caffeinated or alcoholic). Finally, there's a whole collection of Vim
+		gurus who sit on the #vim IRC channel on freenode.org. If you don't
+		know how to use IRC, learn!</p>
+
+		<h2>The Vim Debugger Plugin</h2>
+
+		<p>I have written a plugin for Vim (shameless punting here, I know!)
+		that makes Vim act like an IDE for the purposes of debugging python
+		code. It's still under development, but is pretty stable, and should
+		work fine. I use it regularly, without any issues. You can download it
+		from <a
+		href="http://www.vim.org/scripts/script.php?script_id=1703">here</a>.
+		Read the quick start file and go from there.</p>
+
+		<div class="centered">
+			[<a href="index.html">Course Outline</a>]
+		</div>
+	</div>
+
+	<div class="pagefooter">
+		Copyright &copy; James Dominy 2007-2008; Released under the <a href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License</a><br />
+		<a href="intropython.tar.gz">Download the tarball</a>
+	</div>
+</body>
+</html>

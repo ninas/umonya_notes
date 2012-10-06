@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Introductory Programming in Python: Basic Output</title>
+	<link rel='stylesheet' type='text/css' href='style.css' />
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	<script src="animation.js" type="text/javascript">
+	</script>
+</head>
+
+<body onload="animate_loop()">
+	<div class="page">
+
+		<h1>Introductory Programming in Python: Lesson 3<br />
+		Basic Output</h1>
+
+		<div class="centered">
+			[<a href="invocation.html">Prev: Running Python and Python Code</a>]&nbsp;[<a href="index.html">Course Outline</a>]&nbsp;[<a href="basic_input.html">Next: Basic Input</a>]
+		</div>
+
+		<h2>The print Statement</h2>
+
+		<p>The most basic statement in Python is "print". The <a
+		class="doclink" href="http://docs.python.org/ref/print.html">print
+		statement</a> causes whatever follows it to be outputted to the screen.
+		We've already encountered it previously, now it's time to understand
+		how it works. Start up the python interactive shell, and let's explore.
+		Type the following:</p>
+
+		<pre class='listing'>
+Python 2.6.4 (r264:75706, Dec 7 2009, 18:43:55) [MSC v.1310 32 bit (Intel)] on win32 
+[GCC 3.4.6 (Gentoo 3.4.6-r1, ssp-3.4.5-1.0, pie-8.7.9)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt; print 1
+1
+&gt;&gt;&gt; print 173+92
+265
+&gt;&gt;&gt; print 173+92.0
+265.0
+&gt;&gt;&gt; print "hello"
+hello
+&gt;&gt;&gt;
+</pre>
+
+		<p>As one can see, the print statement outputs the
+		<strong>value</strong> of the expression immediately following it to
+		the screen, and moves to the next line. Note that the third print
+		statement produces slightly different output, namely the extra '.0'.
+		This is because 92.0 and 92 are different to a computer. 92 is an
+		integer, whilst 92.0 is a real number, or in computing terms a
+		<strong>floating point number</strong> or float for short. The
+		differences will be covered later.</p>
+
+		<p>Also of importance is the expression "hello" (note the double
+		quotes). The value of "hello" is <em>hello</em>, and this is what is
+		outputted to the screen by the print statement. <em>hello</em> is
+		designated as a <strong>string</strong> by enclosing it in quotes. Try
+		to print hello without the quotes and see what happens.</p>
+
+		<pre class='listing'>
+&gt;&gt;&gt; print hello
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in ?
+NameError: name 'hello' is not defined
+&gt;&gt;&gt;
+</pre>
+
+		<p>What's going on? Welcome to your first bug! We will soon learn to dissect and
+		understand what all that means, but for the moment it is sufficient to
+		understand that something has gone wrong. But what? Recall from basic
+		concepts we were able to store values in 'labels' or 'variables'.
+		Python consists of a limited set of key words that have special
+		meaning. These key words form the list of atomic statements and
+		expressions that python knows how to handle. Whenever python encounters
+		a word is doesn't recognise, it treats this as a label name. So it
+		obviously doesn't recognise hello as a statement, it thus treats it as
+		a <strong>variable</strong>. Variables must have a value, because
+		variables are expressions in and of themselves. But we haven't told
+		python what the value of hello is, hence it complains "'hello' is not
+		defined".</p>
+
+		<p>The print statement is not so plain and boring as it seems. It can
+		do a few more things that bear mention. Try entering <code>print "Jane
+		has", 7, "apples."</code></p>
+
+		<pre class='listing'>
+&gt;&gt;&gt; print "Jane has", 7, "apples"
+Jane has 7 apples
+&gt;&gt;&gt;
+</pre>
+
+		<p>Of course we could just as easily use <code>print "Jane has 7
+		apples"</code> and get the same result. However, separating the number
+		7 out illustrates two important things about the print statement.
+		Firstly, we can in fact output the values of any number of expressions
+		in a comma separated list, and secondly the outputs of each of the
+		expressions in the comma separated list are separated by a single space
+		each.</p>
+
+		<p>Finally, you will notice that the print statement always ends off
+		the line, and starts a new one. Simply leaving a comma on the end
+		prevents this, e.g. <code>print "Enter your name:",</code>. In summary:</p>
+
+		<ul>
+			
+			<li>The print statement prints out the <em>values</em> that follow
+			it and then prints a new line</li>
+
+			<li>An empty print statement ends the current line and starts a new
+			one.</li>
+
+			<li>The print statement can print multiple expressions if they are
+			given in a <em>comma separated</em> list. In this case, a space is
+			included between each expression's outputted value.</li>
+
+			<li>The automatic newline outputted by print can be avoided by
+			putting a trailing comma in the expression list. This will print a
+			trailing space instead.</li>
+
+			<li>If a print statement with a trailing comma is followed by an
+			<em>empty</em> print statement, the trailing space is
+			suppressed.</li>
+
+		</ul>
+
+		<h2>Some String Basics</h2>
+
+		<p>Python treats all text in units called strings. A string is formed
+		by enclosing some text in quotes. Double quotes, or single quotes may
+		be used. There is a small limitation to this however, being that a
+		string cannot be broken across multiple lines.</p>
+
+		<pre class='listing'>
+'this is a string of text'
+"this is also a string of text"
+'this string will
+    cause an error, because it spans multiple lines'
+</pre>
+
+		<p>Trying to enter the third string into the interactive shell yields</p>
+
+		<pre class='listing'>
+&gt;&gt;&gt; 'this string will
+    File "&lt;stdin&gt;", line 1
+            'this string will
+                            ^
+SyntaxError: EOL while scanning single-quoted string
+&gt;&gt;&gt;
+</pre>
+
+		<p>EOL meaning End Of Line. If we want to introduce line breaks into
+		strings we can use two methods. The first, and simplest, is to use
+		'triple quotes' meaning three double or three single quotes to indicate
+		both the beginning and the end of the string, as in</p>
+
+		<pre class='listing'>
+&gt;&gt;&gt; """this string will not
+...  cause an error
+...    just because it is split over three lines"""
+'this string will not\n  cause an error\n    just because it is split over three lines'
+&gt;&gt;&gt;
+</pre>
+
+		<p>The immediately obvious disadvantage is that everything between the
+		triple quotes is taken as-is, meaning the second and third lines of my
+		string which I indented to line up with the beginning of the first line
+		are indented in the string itself in the form of three spaces after
+		those '\n' thingies. Speaking of which, what the hell are those things?
+		Why does our string contain stuff we didn't put there? Well let's try
+		to print the string out ...</p>
+
+		<pre class='listing'>
+&gt;&gt;&gt; print """this string will not
+...    cause an error
+...    just because it is split over three lines"""
+this string will not
+   cause an error
+   just because it is split over three lines
+&gt;&gt;&gt;
+</pre>
+
+		<p>Well the '\n's are gone, but what were they? Strings are sequences
+		of characters and are one dimensional. They have no
+		<strong>implicit</strong> way to specify a line break, or relative
+		position, or which characters are where relative to which other
+		characters in the string in two dimensions, as displayed on a screen.
+		Hence we get the second method of specifying line breaks within a
+		string. There are special characters known as <strong>escape
+		characters</strong> which mean special things inside strings. They all
+		start with a backslash '\' which escapes the following character from
+		the string, or in layman's terms means the following character in the
+		string is not a 'normal character' and should be treated specially.
+		Some important escape characters are</p>
+
+		<dl>
+			<dt>\n</dt>
+
+			<dd>line break or New line (n from the n in new line)</dd>
+
+			<dt>\t</dt>
+
+			<dd>tab</dd>
+
+			<dt>\\</dt>
+
+			<dd>a plain backslash</dd>
+		</dl>
+
+		<p>You will see that because a backslash already has a special meaning,
+		namely "treat the next character specially", we can't simply put a
+		backslash into our string. So we escape the backslash with a second
+		backslash, meaning we actually want a backslash and not a special
+		character.</p>
+
+		<p>Finally, how do we actually put quotes inside a string since they
+		indicate the <strong>end</strong> of a string. The easiest solution is
+		to mix your quotes. If you want a single quote in a string, define the
+		string with double quotes, e.g.  <code>"I've got this escape thing all
+		figured out!"</code>. Alternatively, you can actually escape quotes
+		within strings, to give them the special meaning that they don't end
+		the string, e.g. <code>'I\'ve got this escaped thing totally figured
+		out!'</code></p>
+
+		<h2>Exercises</h2>
+
+		<ol>
+
+			<li>What does the print statement do generally?</li>
+
+			<li>Start the python interactive interpreter:
+				<ol>
+
+					<li>Output your first name.</li>
+
+					<li>Output your surname.</li>
+
+					<li>Output your first name followed by a space followed by
+					your surname.</li>
+
+					<li>Create a variable called 'firstname' and put your first
+					name into it.</li>
+
+					<li>Create a variable called 'surname' and put your surname
+					into it.</li>
+
+					<li>Using only the variables you have created, print your
+					first name and surname again, making sure there is exactly
+					one space between your two names.</li>
+
+				</ol>
+				Quit the python interactive interpreter.</li>
+			</li>
+
+			<li>What special rules does the print statement adhere to regarding
+			trailing spaces and newlines?</li>
+
+		</ol>
+
+		<p>Consider the following code...</p>
+
+		<pre class='listing'>print "MUCH madness is divinest sense,"
+print "To a discerning eye;"
+print "Much sense the starkest madness."
+print "'T is the majority", "In this, as all, prevails."
+print "Assent, and you are sane;"
+print "Demur,-you're straightway dangerous",
+print
+print "And handled with a chain."</pre>
+
+		<ol start='4'>
+
+			<li>What output, exactly, does the above code produce? Indicate
+			space with underscores.</li>
+
+			<li>Write a program that prints "Hello".</li>
+
+			<li>Write a program that outputs favourite piece of poetry or other
+			prose, over multiple lines.</li>
+
+			<li>How can you print a value stored in the variable 'x'?</li>
+
+			<li>How can you print the values of multiple expressions on one line?</li>
+
+			<li>Write a program that outputs your name, age, and height in
+			metres in the following format. Make sure age is an integer, and
+			height is a float, and not simply part of your string.<br />
+			<code class='value'>My name is James, I am 30 years old and 1.78 metres
+			tall.</code></li>
+
+			<li>Explain three possible ways to print a string containing an
+			apostrophe, for example the string<br /> <code class='value'>The cat's
+			mat</code>.</li>
+
+		</ol>
+
+		<div class="centered">
+			[<a href="invocation.html">Prev: Running Python 
+and Python Code</a>]&nbsp;[<a href="index.html">Course 
+Outline</a>]&nbsp;[<a href="basic_input.html">Next: Basic Input</a>]
+		</div>
+	</div>
+
+	<div class="pagefooter">
+		Copyright &copy; James Dominy 2007-2008; Released under the <a href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License</a><br />
+		<a href="intropython.tar.gz">Download the tarball</a>
+	</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+1. We must use brackets around the elements of the tuple?
+
+2. Concatenation produces a tuple consisting of all the elements from the
+original two tuples with the elements of the second tuple after the elements of
+the first. Addition produces a tuple of the same length as the original two
+tuples, whose elements are the sum of the elements from the original two tuples
+in the same respective positions.
+
+3. If we think of the variables in alphabetic order; a, b, c. Then their values
+will rotate on position left which each execution of the statement
+
+a, b, c = b, c, a
+
+4. --- tuple_add.py ---
+a = ()
+b = ()
+
+i = raw_input('Enter a number for vector a: ')
+while i != '':
+	a += (i, )
+	i = int(raw_input('Enter a number for vector a: '))
+
+for j in range(len(a)):
+	b += (int(raw_input('Enter a number for vector b: ')), )
+
+c = ()
+for i in range(len(a)):
+	c += (a[i]+b[i], )
+--- end tuple_add.py ---
+
+5. --- zip_lists.py ---
+names = []
+ages = []
+
+name = raw_input('Enter a name: ')
+while name != '':
+	names.append(name)
+	age = int(raw_input('Enter age for '+name+': '))
+	ages.append(age)
+	name = raw_input('Enter a name: ')
+
+result = []
+for i in range(len(names)):
+	result.append((names[i], ages[i]))
+
+print result
+--- end zip_lists.py ---

@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Introductory Programming in Python: Classes and Objects</title>
+	<link rel='stylesheet' type='text/css' href='style.css' />
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	<script src="animation.js" type="text/javascript">
+	</script>
+</head>
+
+<body onload="animate_loop()">
+	<div class="page">
+
+		<h1>Introductory Programming in Python: Lesson 28<br />
+
+		Classes and Objects</h1>
+
+		<div class="centered">
+			[<a href="recursion.html">Prev: Recursion</a>]&nbsp;[<a href="index.html">Course Outline</a>]&nbsp;[<a href="queues.html">Next: Advanced Data Structures: Queues</a>]
+		</div>
+
+		<h2>The Philosophers Bun Fight</h2>
+
+		<p>The Greek philosopher Plato proposed that there was a perfect world,
+		an ideal world, in which were to be found the true forms of things. The
+		true form of a horse would exist in that world, free of defects, and
+		free of deviations from the <em>idea</em>(l) of a horse (known as the
+		'exemplar'). Horses to be found on our world, he considered only pale
+		reflections or poor quality imitations of the perfect horse. And thus
+		the class was born. Plato's student Aristotle later challenged his
+		mentor's theory, counter-proposing that instead ideal forms were
+		distilled from our observations of common attributes of objects, e.g.
+		the 'ideal' horse has four legs, a long nose, etc... because this is
+		common to all horses. Thus the class was refined, and this is the
+		concept of class that we use today in a mathematical sense. We say
+		objects, which are individual instances, are members of a class, by
+		virtue of the fact that the objects have particular attributes and
+		behaviours. The story of Plato and Aristotle not only set the precedent
+		for the discussion of classes, but also for grad-students thumbing
+		their noses at their supervisor's work, stealing large quantities of
+		it, and publishing a paper that completely repudiates it.</p>
+
+		<h2>Classes and Instances</h2>
+
+		<p>In programming, a class refers specifically to a data structure
+		which has functions bound to it. More esoterically, a
+		<strong>class</strong> defines a set of <strong>objects</strong> which
+		have certain attributes, or data values, associated with them, and
+		exhibit certain behaviours, i.e. have functions associated with them.
+		Individual <strong>instances</strong> of a class can be created (or
+		<strong>instantiated</strong>) in the form of objects.</p>
+
+		<p>In python we can define a class using the 'class statement', which
+		looks similar to the 'def statement' used to define functions.</p>
+
+<pre class='definition'>class &lt;class name&gt; (&lt;parent class&gt;):
+    &lt;def statement&gt;
+    [def statement]
+    [...]
+</pre>
+
+		<p>The 'class name' is a name of our choosing, by which the class shall
+		be known, and the 'parent class' is the name of another already defined
+		class, indicating our newly defined class is a descendant or sub-class
+		of the parent class. The class 'object' is the ultimate mother class
+		from which all python classes descend, so we can use 'object' in place
+		of 'parent class' for our own class definitions.</p>
+
+		<p>As an example, let's define a class 'Student'. We say that students
+		have the following properties; a name, a field of study, a degree, a
+		blood-alcohol level, an amount of time spent as a student, and an
+		amount of time spent actually studying. The behaviours a person can
+		exhibit are to study, which increases the amount of time spent as a
+		student and the amount of time spent studying inversely proportionally
+		to their current blood-alcohol level, and reduces their blood alcohol
+		level. Persons can also goof off, which increases the amount of time
+		spent studying, and increases blood alcohol level. Finally a student
+		can graduate once they have accumulated enough months of actual study
+		time, if they haven't accumulated too much time spent studying.</p>
+
+<pre class='listing'>class Student(object):
+    def __init__(self, name, field, degree):
+        self.name = name
+        self.field = field
+        self.degree = degree
+        self.time_as_student = 0
+        self.time_studied = 0
+        self.bloodalcohol = 0
+    
+    def study(self):
+        self.time_as_student += 1
+        self.time_studied += 1-self.bloodalcohol
+        self.bloodalcohol -= 0.1
+        if self.bloodalcohol &lt; 0:
+            self.bloodalcohol = 0
+
+    def goof_off(self):
+        self.time_as_student += 1
+        self.bloodalcohol += 0.1
+        if self.bloodalcohol > 0.4:
+            print "Hospitalised!"
+            self.bloodalcohol = 0
+            self.time_as_student += 3
+
+    def graduate(self):
+        if degree == "MSc":
+            if self.time_as_student > 18:
+                print "%s exceeded maximum time, FAIL!"%(self.name)
+            elif self.time_studied > 12:
+                print "%s graduates!"%(self.name)
+            else:
+                print "Keep studying %s"%(self.name)
+        elif degree == "PhD":
+            if self.time_as_student > 24:
+                print "%s exceeded maximum time, FAIL!"%(self.name)
+            elif self.time_studied > 18:
+                print "%s graduates!"%(self.name)
+            else:
+                print "Keep studying %s"%(self.name)
+</pre>
+
+		<p>Wow, okay, that's a lot of new stuff. Looking at what we've done, we
+		see from the first line that we are defining a new class called
+		'Student' descended from 'object'. Inside, i.e. indented from the class
+		definition, we see function definitions. The fact that these function
+		definitions occur within a class definition makes these functions
+		methods of the newly defined class. A method of a class is called using
+		dot notation from an object of that class. We'll deal with this
+		shortly.</p>
+
+		<p>If we look at the first function definition, we see we've defined a
+		method called '__init__'. Why the hell would we choose a name so
+		cumbersome as '__init__'? The truth is, python has chosen it for us.
+		All classes in python have some methods implicitly defined. These
+		methods are for the most part are empty, be they can be redefined, as we do
+		with '__init__' above. The method '__init__' is known as a
+		<strong>constructor</strong>, meaning it is called every time an object
+		of the class in question is created. Newly created objects in python
+		have no attributes or properties, i.e. no variables within the object.
+		We must create these attributes in the constructor, which is why we
+		redefine it.</p>
+
+		<p>Note how the first parameter of every method within a class is
+		something called 'self'. The 'self' parameter refers to the object of
+		the class that called the method. This allows a method to operate on
+		only a particular objects attributes, and not get confused between
+		multiple objects of the same class. Time for more example code.</p>
+
+<pre class='listing'>james = Student("James", "Biochemistry", "MSc")
+james.name += " Dominy"
+james.goof_off()
+</pre>
+
+		<p>The above lines of code will create a new object (assigned to the
+		variable 'james'). On the first line, the '__init__' function is called
+		with the newly created object passed to the parameter self, meaning all
+		those <code>self.</code> references refer to the newly created object.
+		In the last line, when we call the 'goof_off' method. Note how we pass no
+		parameters, but the method takes one parameter; This is because python
+		implicitly passes the object calling the method as the self parameter,
+		i.e. the self parameter is passed the object 'james'.</p>
+
+		<p>There are a number of specially recognised method names, all of
+		which begin and end with double underscores. They are called at various
+		times, implicitly. Mostly they are used to define how new classes work
+		with arithmetic operators like '+', '-', etc... but one other one
+		stands out in importance: the '__del__' method. This method is called
+		when the object is destroyed, garbage collected, or deleted, and is
+		used to ensure the object cleans up after itself correctly, closing any
+		files it opened, or database connections, etc...</p>
+
+		<p>The '__repr__' function is called whenever the value of the object
+		is required for printing. The '__repr__' method must return a string,
+		and is generally used to return a nicely formatted list of the object's
+		attributes and their current values.</p>
+
+		<h2>Encapsulation</h2>
+
+		<p>The four design principles of using classes and objects, a system
+		commonly referred to as <strong>object oriented programming</strong>, are
+		encapsulation, modularity, inheritance, and polymorphism.
+		<strong>Encapsulation</strong> refers to the desire to hide certain
+		implementation details from other parts of the program. For example if
+		we define a class that stores a vector, we could choose a number of
+		internal data structures to store said vector, three separate
+		attributes accessed via dot notation, or a list, or a tuple, or even a
+		dictionary. If we later choose to use a different storage structure, we
+		would normally need to change many lines of code that reference that
+		structure directly throughout our program. The principle of
+		encapsulation is that we define some interface that does not change,
+		using a class and a collection of methods to extract the data from
+		objects of that class. We can then use objects all over our code, and
+		if we later decide that dictionaries are in fact better than lists, we
+		change this inside the class, not affecting the rest of our program,
+		which is using the still unchanged interface of methods.</p>
+
+		<h2>Modularity</h2>
+
+		<p><strong>Modularity</strong> is an ideal that aids our laziness.
+		Classes allow us to split up our programming into distinct sections.
+		Once we've written a class, we can use that class over ad over in
+		different code, much like a function in a module.  But better, if we
+		write a class, we can test it without having to have a whole program
+		surrounding it. Testing a class and determining that it works
+		correctly, means that when we start writing code that uses that class
+		that suddenly doesn't work, we know the bug is not in the class, but in
+		the new code.</p>
+
+		<h2>Inheritance</h2>
+
+		<p><strong>Inheritance</strong> has two uses. Firstly it allows us to
+		specify a relationship between two classes. Secondly, we can avoid
+		duplicating code. For example, consider a mortal. We might define a
+		mortal to exhibit various behaviours, represented by methods, and
+		properties. Mortals die, and generally agonise over this fact, when
+		their existential angst levels get too high. So we write two methods,
+		called 'die' and 'agonise' in the class 'mortal'. But a student is a
+		mortal too. A student has all the properties of mortals, and exhibits
+		all the same behaviours. Instead of rewriting and redefining all these
+		things for the class student, can can simply derive student from
+		mortal. Now all students have all the properties and methods of a
+		mortal, in addition to whatever additional stuff we define for a
+		student.</p>
+
+<pre class='listing'>class mortal(object):
+    def __init__(self):
+        self.angst = 0
+    
+    def agnonise(self):
+        print "Oh... %w is me"%(", ".join(["woe"]*self.angst))
+
+    def die(self):
+        print "The salmon mouse!"
+
+class Student(mortal):
+    def __init__(self, name, field, degree):
+        mortal.__init__(self)
+        self.name = name
+        self.field = field
+        self.degree = degree
+        self.time_as_student = 0
+        self.time_studied = 0
+        self.bloodalcohol = 0
+    
+    def study(self):
+        self.time_as_student += 1
+        self.angst += 0.1
+        if self.angst > 1:
+            print "Nervous break down"
+            self.time_as_student += 6
+            self.bloodalcohol = 0
+            self.angst = 0
+        else:
+            self.time_studied += 1-self.bloodalcohol
+            self.bloodalcohol -= 0.1
+            if self.bloodalcohol &lt; 0:
+                self.bloodalcohol = 0
+        print "%s has studied %i months, and has %f angst points"%
+              (self.name, self.time_studied, self.angst)
+
+    def goof_off(self):
+        self.time_as_student += 1
+        self.bloodalcohol += 0.1
+        self.angst -= 1
+        if self.bloodalcohol > 0.6:
+            self.die()
+            return
+        if self.bloodalcohol > 0.4:
+            print "Hospitalised!"
+            self.bloodalcohol = 0
+            self.time_as_student += 3
+        print ("%s has spent another month goofing off, and has %f angst points, "+
+               "and a blood-alcohol of %f")%(self.name, self.angst, self.bloodalcohol)
+
+    def graduate(self):
+        if degree == "MSc":
+            if self.time_as_student > 18:
+                print "%s exceeded maximum time, FAIL!"%(self.name)
+            elif self.time_studied > 12:
+                print "%s graduates!"%(self.name)
+            else:
+                print "Keep studying %s"%(self.name)
+        elif degree == "PhD":
+            if self.time_as_student > 24:
+                print "%s exceeded maximum time, FAIL!"%(self.name)
+            elif self.time_studied > 18:
+                print "%s graduates!"%(self.name)
+            else:
+                print "Keep studying %s"%(self.name)
+
+Socrates = Student("Socrates", "Philosophy", "PhD")
+Socrates.study()
+Socrates.goof_off()
+Socrates.study()
+Socrates.die() #Socrates forced to take Hemlock
+
+Aristotle = mortal()
+Aristotle.study() #breaks because Aristotle isn't a student
+</pre>
+
+		<h2>Polymorphism</h2>
+
+		<p><strong>Polymorphism</strong> is not as important to us in python as
+		it is in strictly typed languages. Python implements dynamic typing
+		using something 'duck-typing', meaning if it looks like a duck, and
+		acts like a duck, assume it's a duck. This is why we can pass many
+		functions a tuple in place of list, and <i>vice versa</i>. Because a
+		tuple looks like a list, i.e. it's a sequence of elements, and acts
+		like a list, i.e. we extract individual elements from both tuples and
+		lists in the same way, using <code>seq[index]</code>.</p>
+
+		<h2>Exercises</h2>
+
+		<div class="centered">
+			[<a href="recursion.html">Prev: Recursion</a>]&nbsp;[<a href="index.html">Course Outline</a>]&nbsp;[<a href="queues.html">Next: Advanced Data Structures: Queues</a>]
+		</div>
+	</div>
+
+	<div class="pagefooter">
+		Copyright &copy; James Dominy 2007-2008; Released under the <a href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License</a><br />
+		<a href="intropython.tar.gz">Download the tarball</a>
+	</div>
+</body>
+</html>

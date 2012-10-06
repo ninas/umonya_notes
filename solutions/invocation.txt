@@ -1,0 +1,8 @@
+1. The interpreter will output the value of a/b which is 3.
+
+2. Running as script produces no output, because python does not implicitly
+output the values of expression when running a script, as it does when running
+in interactive mode.
+
+3. We need to change the third line ('a/b') to 'print a/b'. This will cause the
+value of a/b to be outputted.

@@ -1,0 +1,292 @@
+body {
+	font-family: sans-serif;
+}
+
+div.page {
+	width: 50em;
+	margin: 0 auto 10px auto;
+}
+
+div.pagefooter {
+	background-color: #FFFFE0;
+	width: 50em;
+	border: dotted thin black;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h1 {
+	font-family: Comic Sans MS, sans-serif;
+	text-decoration: underline;
+	color: #000020;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h2 {
+	font-family: Comic Sans MS, sans-serif;
+	text-decoration: underline;
+	color: #000020;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+a {
+	text-decoration: none
+}
+
+a:HOVER {
+	text-decoration: underline
+}
+
+a[href^='http'] {
+	background-image: url(images/external_link.png);
+	background-repeat: no-repeat;
+	background-position: right center;
+	padding-right: 13px;
+	background-color: #F0FFF0;
+}
+
+dt {
+	font-size: 0.9em;
+	font-weight: bold;
+}
+
+dd {
+	font-size: 0.9em;
+	margin-bottom: 0.5em;
+}
+
+em {
+	color: #101080;
+}
+
+.red {
+	color: red;
+}
+
+.green {
+	color: green;
+}
+
+.blue {
+	color: blue;
+}
+
+.yellow {
+	color: #E8B800;
+}
+
+.darkgray {
+	color: #808080;
+}
+
+.purple {
+	color: #D000D0;
+}
+
+.monospaced {
+	font-family: monospace;
+}
+
+.centered {
+	text-align: center;
+}
+
+pre {
+	width: 95%;
+	margin: 0.5em auto 0.5em auto;
+}
+
+.listing {
+	white-space: pre;
+	border: solid thin silver;
+	background: #FFFFD0;
+}
+
+div.syncode {
+	background-color: #FFFFE0;
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+	border: dotted #000020 thin;
+	font-family: monospace; 
+	text-align: left;
+	display: block
+}
+
+div.syncode div {
+	border: dotted thin #000020;
+	margin-left: 2em;
+	margin-right: 2em;
+}
+
+div.syncode > div {
+	background-color: #E0E0FF;
+}
+
+div.syncode > div > div {
+	background-color: #E0FFE0;
+}
+
+span.indent {
+	margin-left: 2em;
+	display: block;
+}
+
+.definition {
+	border: solid thin lime;
+	background: #D0FFD0;
+}
+
+code {
+	font-family: Courier New, monospace;
+	background-color: silver;
+	padding: 0 0.5em;
+}
+
+code.value {
+	font-family: Courier New, monospace;
+	background-color: white;
+	color: #101080;
+	font-weight: normal;
+	padding: 0;
+}
+
+div.summary {
+	width: 80%;
+	margin: 0 auto;
+	padding: 0.5em;
+	border: solid thin lime;
+	background: #D0FFD0;
+	text-align: center;
+}
+
+blockquote {
+	width: 90%;
+	margin: 0 auto;
+	padding: 0.5em;
+}
+
+span.group {
+	border-top: dotted thin black;
+	border-bottom: dotted thin black;
+}
+
+.problem {
+	border: solid thin cyan;
+	background: #D0D0FF;
+}
+
+img {
+	width: 85%;
+	margin: 1em auto;
+	display: block;
+}
+
+img.breakdown {
+	width: 95%;
+	border: solid thin black;
+	background-color: white;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+img.tree {
+	width: auto;
+}
+
+img.anibutton {
+	width: auto;
+	display: inline;
+}
+
+table {
+	border: solid thin black;
+	background-color: #000020;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 1em;
+}
+
+div.sidebyside {
+	clear: both;
+	margin: 0 auto;
+	width: 90%;
+}
+
+div.sidebyside table {
+	float: left;
+	width: 45%;
+	margin: 0 2.5%;
+}
+
+div.sidebyside+* {
+	padding-top: 1em;
+	clear:left;
+}
+
+caption {
+	color: #000020;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: sans-serif;
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+
+thead>tr:FIRST-CHILD th{
+	border-top: solid black thin;
+}
+
+thead>tr:LAST-CHILD th{
+	border-bottom: solid black 2px;
+}
+
+thead>tr th:LAST-CHILD {
+	border-right: solid black thin;
+}
+
+tr {
+	background-color: white;
+}
+
+th {
+	background-color: #80FF80;
+	font-family: sans-serif;
+	font-weight: bold;
+	border-left: solid thin black;
+}
+
+td {
+	text-align: center;
+	border-left: solid thin black;
+	border-bottom: solid thin black;
+}
+
+td.prikey {
+	background-color: #FFFFE0;
+}
+
+tbody>tr td:LAST-CHILD {
+	border-right: solid black thin;
+}
+
+li {
+	margin-bottom: 0.5em;
+}
+
+sub {
+	font-size: 0.6em;
+	vertical-align: bottom
+}
+
+sup {
+	font-size: 0.5em;
+	vertical-align: top
+}

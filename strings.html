@@ -1,0 +1,477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Introductory Programming in Python: Strings in Depth</title>
+	<link rel='stylesheet' type='text/css' href='style.css' />
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	<script src="animation.js" type="text/javascript">
+	</script>
+</head>
+
+<body onload="animate_loop()">
+	<div class="page">
+
+		<h1>Introductory Programming in Python: Lesson 11<br />
+
+		Strings in Depth</h1>
+
+		<div class="centered">
+			[<a href="for_loops.html">Prev: Flow Control: Sequential Loops</a>]&nbsp;[<a href="index.html">Course Outline</a>]&nbsp;[<a href="functions.html">Next: Flow Control: Functions</a>]
+		</div>
+
+		<h2>Strings as Sequences</h2>
+
+		<p>Strings can be thought of as sequences (as lists are sequences) of
+		characters. As such many of the methods that work on lists work on
+		strings. Strings in fact have more functionality associated with them,
+		by virtue of the fact that in manipulating text, many more tasks
+		involving character (as opposed to values of arbitrary type) are common
+		and useful. We'll start with the ones familiar from lists. Note that
+		the complete list of methods associated with strings is available <a
+		class="doclink"
+		href="http://docs.python.org/lib/string-methods.html">in the python
+		documentation</a>, which describes additional optional parameters not
+		discussed here for the sake of brevity.</p>
+
+		<ul>
+
+			<li><code>&lt;string&gt;.count(&lt;substring&gt;)</code> returns
+			the number of times substring occurs within the string.</li>
+
+			<li><code>&lt;string&gt;.find(&lt;substring&gt;)</code> returns the
+			index within the string of the first (from the left) occurrence of
+			'substring'. Returns -1 if substring cannot be found.</li>
+
+			<li><code>&lt;string&gt;.rfind(&lt;substring&gt;)</code> returns
+			the index within the string of the last (from the right) occurrence
+			of 'substring'. Returns -1 if substring cannot be found.</li>
+
+			<li><code>&lt;string&gt;.index(&lt;substring&gt;)</code> returns
+			the index within the string of the first (from the left) occurrence
+			of 'substring'. Causes an error if substring cannot be found.</li>
+
+			<li><code>&lt;string&gt;.rindex(&lt;substring&gt;)</code> returns
+			the index within the string of the last (from the right) occurrence
+			of 'substring'. Causes an error if substring cannot be found.</li>
+
+		</ul>
+
+		<pre class='listing'>
+Python 2.6.4 (r264:75706, Dec 7 2009, 18:43:55) [MSC v.1310 32 bit (Intel)] on win32 
+[GCC 3.4.6 (Gentoo 3.4.6-r1, ssp-3.4.5-1.0, pie-8.7.9)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt; s = "The quick brown fox jumps slowly over the lazy cow"
+&gt;&gt;&gt; s.count("ow")
+3
+&gt;&gt;&gt; s.find("brown")
+10
+&gt;&gt;&gt; s.find("not here")
+-1
+&gt;&gt;&gt; s.find("ow")
+12
+&gt;&gt;&gt; s.rfind("ow")
+48
+&gt;&gt;&gt; s.index("ow")
+12
+&gt;&gt;&gt; s.rindex("ow")
+48
+&gt;&gt;&gt; s.rindex("not here")
+Traceback (most recent call last):
+    File "&gt;stdin&lt;", line 1, in ?
+    ValueError: substring not found
+&gt;&gt;&gt;
+</pre>
+
+		<h2>Formatting Strings using String Methods</h2>
+
+		<p>The most commonly used methods on strings are those to change the
+		format of text. With these methods we can change the case of various
+		characters in the text, according to common patterns, pad the text with
+		spaces on the left and right to justify it appropriately or even center
+		it across a given width, and strip out whitespace in various ways.</p>
+
+		<ul>
+
+			<li><code>&lt;string&gt;.capitalize()</code> returns a copy of the
+			string with only the first character in uppercase.</li>
+
+			<li><code>&lt;string&gt;.swapcase()</code> returns a copy of the
+			string with every character's case inverted.</li>
+
+			<li><code>&lt;string&gt;.center(&lt;width&gt;)</code> returns a
+			string of width 'width' with the original string centered, i.e.
+			equally padded with spaces on the left and right, within it.</li>
+
+			<li><code>&lt;string&gt;.ljust(&lt;width&gt;)</code> returns the
+			original string left justified within a string of width 'width',
+			i.e. padded with spaces up to length 'width'.</li>
+
+			<li><code>&lt;string&gt;.rjust(&lt;width&gt;)</code> returns the
+			original string right justified within a string of width 'width',
+			i.e. padded on the left with spaces to make a string of length
+			'width'.</li>
+
+			<li><code>&lt;string&gt;.lower()</code> returns a copy of the
+			original string, but with all characters in lowercase.</li>
+
+			<li><code>&lt;string&gt;.upper()</code> returns a copy of the
+			original string, but with all characters in uppercase.</li>
+
+			<li><code>&lt;string&gt;.strip()</code> returns a copy of the
+			string with all whitespace at the beginning and end of the string
+			stripped away.</li>
+
+			<li><code>&lt;string&gt;.lstrip()</code> returns a copy of the
+			string with all whitespace at the beginning of the string stripped
+			away.</li>
+
+			<li><code>&lt;string&gt;.rstrip()</code> returns a copy of the
+			string with all whitespace at the end of the string stripped
+			away.</li>
+
+			<li><code>&lt;string&gt;.replace(&lt;old&gt;, &lt;new&gt;)</code>
+			returns a copy of the string in which all non-overlapping instances
+			of 'old' are replaced by 'new'.</li>
+
+		</ul>
+
+		<pre class='listing'>
+&gt;&gt;&gt; "a sentence poorly capitalized".capitalize()
+'A sentence poorly capitalized'
+&gt;&gt;&gt;
+&gt;&gt;&gt; "aBcD".swapcase()
+'AbCd'
+&gt;&gt;&gt;
+&gt;&gt;&gt; "center me please".center(60)
+'                      center me please                      '
+&gt;&gt;&gt;
+&gt;&gt;&gt; "I need some justification here".ljust(60)
+'I need some justification here                              '
+&gt;&gt;&gt;
+&gt;&gt;&gt; "No! Real Justification, the RIGHT justification".rjust(60)
+'             No! Real Justification, the RIGHT justification'
+&gt;&gt;&gt;
+&gt;&gt;&gt; "LOWER me Down".lower()
+'lower me down'
+&gt;&gt;&gt;
+&gt;&gt;&gt; "raise Me UP".upper()
+'RAISE ME UP'
+&gt;&gt;&gt;
+&gt;&gt;&gt; "     I put my whitespace left, I put my whitespace right     ".strip()
+'I put my whitespace left, I put my whitespace right'
+&gt;&gt;&gt;
+&gt;&gt;&gt; "Sung to the tune of 'The h0ky p0ky'".replace("0ky","okey")
+"Sung to the tune of 'The hokey pokey'"
+&gt;&gt;&gt;
+&gt;&gt;&gt; "     Losing whitespace on the left.      ".lstrip()
+'Losing whitespace on the left.     '
+&gt;&gt;&gt;
+&gt;&gt;&gt; "      Losing whitespace on the right.     ".rstrip()
+"      Losing whitespace on the right." 
+&&gt;&gt;&gt;
+</pre>
+
+		<h2>Formatting Strings using the Interpolation Operator</h2>
+
+		<p>After all that, let's cut to the chase. The <a class="doclink"
+		href="http://docs.python.org/lib/typesseq-strings.html">interpolation
+		operator on strings</a>. This provides the majority of string
+		formatting operations in a single consistent pattern.  Learn it,
+		understand it, appreciate its inner beauty!</p>
+
+		<p>Formally put, the interpolation operator interpolates a sequence of
+		values (i.e. a list, tuple, or in some special cases a dictionary) into
+		a string containing interpolation points (Placeholders). Wowsers we
+		say? Again in English? The interpolation operator combines a string
+		containing certain codes and a sequence containing values, such that
+		those values are inserted into their respective positions within the
+		string, defined by the position of the codes, formatted according to
+		the specification of those codes, and replacing those codes... Example
+		time</p>
+
+		<pre class='listing'>
+&gt;&gt;&gt; s = "My very %s monkey jumps swiftly under %i planets" % ("energetic", 9)
+&gt;&gt;&gt; s
+'My very energetic monkey jumps swiftly under 9 planets'
+&gt;&gt;&gt;
+</pre>
+
+		<p>Examining the above example, we had a string containing two strange
+		% thingies, and a tuple containing 2 elements. Spot the correlation! 2
+		% thingies, 2 elements. When combined using the '%' operator, the
+		contents of the tuple were 'merged into' the string at the points where
+		the % thingies were, at their respective positions (by relative
+		position left to right), replacing the % thingies.</p>
+
+		<p>Time to get technical. And thingie is not a technical term, except
+		amongst electrical engineers and biochemists. So firstly, the % thingie
+		in the string is called a <strong>conversion specification</strong>.
+		This is because all values in the sequence are converted to strings
+		during the merge. It has a specific format, namely it starts with a '%'
+		symbol, and must be at least two characters. It's easier to show the
+		complete format in point form, so here it is...</p>
+
+		<ol>
+
+			<li><code>%</code><br />
+			
+			Conversion specifications <strong>must</strong> start with the '%'
+			symbol.</li>
+
+			<li><code>(&lt;mapping/key name&gt;)</code>&nbsp;*optional<br />
+			
+			The '%' may be optionally followed by a key name from a dictionary
+			used in the interpolation (i.e. instead of a tuple or list). This
+			is <strong>required</strong> if you use a dictionary to
+			interpolate, as dictionary key order is not defined, so order
+			cannot be used to relate conversion specifications to their
+			respective elements in the dictionary.</li>
+
+			<li><code>#</code>, <code>0</code>, <code>-</code>,
+			<code>&nbsp;</code>, <code>+</code>&nbsp;*optional<br />
+			
+			An optional conversion flag may be used to specify justification
+			and signedness options. Any number of '0', '-', '+', and '&nbsp;'
+			can be used in a given conversion specification, and the important
+			ones are;
+
+				<ul>
+
+					<li>'0': left pad with zeroes, useful for month
+					numbers</li>
+
+					<li>'-': right pad with spaces, overrides '0' if both
+					given</li>
+
+					<li>'+': force the use of a plus sign in front of positive
+					numbers</li>
+
+					<li>'&nbsp;': insert a space in front of positive numbers
+					(used to line up with negative numbers where a minus is
+					placed in front.)</li>
+
+				</ul>
+
+			</li>
+
+			<li><code>&lt;field width&gt;</code>&nbsp;*optional<br />
+
+			An optional minimum field width. Whatever value is merged in at
+			this point in the string, is converted to a string that is at least
+			as wide as the field width, specified as an integer. Note, because
+			the number is inside a string it must be hard coded, and cannot be
+			an expression.</li>
+
+			<li><code>.&lt;precision&gt;</code>&nbsp;*optional<br />
+			
+			An optional precision level can be specified (in digits). This will
+			ensure that the precision of floats is truncated to this length.
+			Floats will not be padded.</li>
+
+			<li> <code>&lt;Conversion Type&gt;</code>&nbsp;mandatory<br />
+			
+				The conversion type character is a single character specifying
+				the type of value to convert into a string and how the
+				conversion should happen. The complete list of valid characters
+				can be found on the documentation page, but the important ones
+				are
+
+				<ul>
+
+					<li>'i': convert an integer</li>
+
+					<li>'e': convert a float to scientific notation</li>
+
+					<li>'f': convert a float to decimal notation</li>
+
+					<li>'s': convert a string</li>
+
+					<li>'%': convert nothing, just insert a '%'</li>
+
+				</ul>
+
+			</li>
+
+		</ol>
+
+		<pre class='listing'>
+&gt;&gt;&gt; "An integer with field width of three: %3i"%(5,)
+'An integer with field width of three:   5'
+&gt;&gt;&gt;
+&gt;&gt;&gt; "An integer left justified: %-3i"%(5,)
+'An integer left justified: 5  '
+&gt;&gt;&gt;
+&gt;&gt;&gt; "An integer with leading zeros: %03i"%(5,)
+'An integer with leading zeros: 005'
+&gt;&gt;&gt;
+&gt;&gt;&gt; "An integer right justified with forced +: %+3i"%(5,)
+'An integer right justified with forced +:  +5'
+&gt;&gt;&gt;
+&gt;&gt;&gt; "A float: %f"%2.5
+'A float: 2.500000'
+&gt;&gt;&gt;
+&gt;&gt;&gt; "A float: %.1f"%2.5
+'A float: 2.5'
+&gt;&gt;&gt;
+&gt;&gt;&gt; "A float: %4.1f"%2.5
+'A float:  2.5'
+&gt;&gt;&gt;
+&gt;&gt;&gt; "A float: %04.1f"%2.5
+'A float: 02.5'
+&gt;&gt;&gt;
+&gt;&gt;&gt; "A float in sci notation: %06.1e"%(0.0000025)
+'A float in sci notation: 2.5e-06'
+&gt;&gt;&gt;
+&gt;&gt;&gt; "A percentage symbol: %% %s"%(" ")
+'A percentage symbol: %  '
+&gt;&gt;&gt;
+</pre>
+
+		<h2>Miscellaneous String Methods</h2>
+
+		<p>Finally, there are a few miscellaneous methods that prove very
+		useful when dealing with strings. These include</p>
+
+		<ul>
+
+			<li><code>&lt;string&gt;.isupper()</code> return True if the string
+			contains only uppercase characters.</li>
+
+			<li><code>&lt;string&gt;.islower()</code> return True if the string
+			contains only lowercase characters.</li>
+
+			<li><code>&lt;string&gt;.isalpha()</code> return True if the string
+			contains only alphabetic characters.</li>
+
+			<li><code>&lt;string&gt;.isalnum()</code> return True if the string
+			contains only alphabetic characters and/or digits.</li>
+
+			<li><code>&lt;string&gt;.isdigit()</code> return True if the string
+			contains only digits.</li>
+
+			<li><code>&lt;string&gt;.isspace()</code> return True if the string
+			contains only white space characters.</li>
+
+			<li><code>&lt;string&gt;.endswith(&lt;substring&gt;)</code> returns
+			True if the string ends with the substring 'substring'.</li>
+
+			<li><code>&lt;string&gt;.startswith(&lt;substring&gt;)</code>
+			returns True is the string starts with the substring
+			'substring.</li>
+
+			<li><code>&lt;string&gt;.join(&lt;sequence&gt;)</code> returns the
+			elements of 'sequence' (which must be strings) concatenated in
+			order with the string between each element.</li>
+
+			<li><code>&lt;string&gt;.split([substring])</code> returns a list
+			of strings, such that the string is split by 'substring' and each
+			portion is an element of the returned list. If substring is not
+			specified, the string is split on whitespace.</li>
+
+			<li><code>&lt;string&gt;.rsplit([substring])</code>; the same as
+			split, but the search for the split string is performed from right
+			to left</li>
+
+		</ul>
+
+		<pre class='listing'>
+&gt;&gt;&gt; "The quick brown fox".endswith("dog")
+False
+&gt;&gt;&gt;
+&gt;&gt;&gt; "The quick brown fox".endswith("fox")
+True
+&gt;&gt;&gt;
+&gt;&gt;&gt; "The quick brown fox".startswith("A")
+False
+&gt;&gt;&gt;
+&gt;&gt;&gt; "The quick brown fox".startswith("The ")
+True
+&gt;&gt;&gt;
+&gt;&gt;&gt; ", ".join(['1', '2', '3', '4'])
+'1, 2, 3, 4'
+&gt;&gt;&gt; 
+&gt;&gt;&gt; "a, b, c, d".split(',')
+['a', ' b', ' c', ' d']
+&gt;&gt;&gt;
+&gt;&gt;&gt; "a, b, c, d".split(', ')
+['a', 'b', 'c', 'd']
+&gt;&gt;&gt; 
+&gt;&gt;&gt; "abababa".split("bab")
+['a', 'aba']
+&gt;&gt;&gt;
+&gt;&gt;&gt; "abababa".rsplit("bab")
+['aba', 'a']
+&gt;&gt;&gt;
+</pre>
+
+		<h2>Exercises</h2>
+
+                <ol>
+			
+                        <li>Strings are immutable - the value of a string
+                        cannot be modified, but a new string can be created and
+                        assigned to the same variable name.  How would one thus
+                        change a string variable, to for example to insert '-)'
+                        after every colon?</li>
+
+                        <li>If we try to use the interpolation operator with a
+                        tuple, the tuple must have the same number of elements
+                        as there are '%' characters in the string. Is this the
+                        case with dictionaries?  Why?</li>
+
+                        <li>Write a program that reads in names until a blank
+                        line is encountered, after which it prints out an
+                        English style list, i.e. a comma separated list, where
+                        the last name is preceded by the word 'and' instead of
+                        a comma.</li>
+
+			<li>Write a program that reads in a line of space separated names,
+			after which it prints out an English style list, i.e. a comma
+			separated 
+
+			<li>What is the value of <code>"Laziness is a
+			%s."%("virtue")</code>?</li>
+
+			<li>What is the value of <code>"%i days hath %s, %s, %s and %s. I
+			use my %s for the other %i, because I can't remember this rhyme for
+			%s"%(30, "September", "April", "June", "November", "knuckles", 8,
+			"...")</code>?</li>
+
+			<li>What is the value of
+			<code>"%02i/%02i/%04i"%(10,3,2009)</code>?</li>
+
+			<li>What is the value of <code>"%5.3f"%(3.1415)</code>?</li>
+
+			<li>How would you print a column of numbers so the line up right
+			justified for convenient addition?</li>
+
+			<li>How would you print a user entered string centered in the
+			middle of the console?</li>
+
+			<li>Write a program that reads in the name, price, and quantity of
+			an item, and stores it in a list of tuples, repeating until a blank
+			product name is entered. It should then print out each item in a
+			nicely formatted manner, using string interpolations.</li>
+
+                        <li>Tougher Problem: Modify your answer to question 11
+                        to use products from a dictionary of product codes
+                        mapped to product descriptions. Invalid codes should
+                        print a warning, and product codes should be integers.
+                        The print out at the end should print the full name of
+                        the item, followed in brackets by it's code, as well as
+                        price and quantity.</li>
+
+		</ol>
+
+		<div class="centered">
+			[<a href="for_loops.html">Prev: Flow Control: Sequential Loops</a>]&nbsp;[<a href="index.html">Course Outline</a>]&nbsp;[<a href="functions.html">Next: Flow Control: Functions</a>]
+		</div>
+	</div>
+
+	<div class="pagefooter">
+		Copyright &copy; James Dominy 2007-2008; Released under the <a href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License</a><br />
+		<a href="intropython.tar.gz">Download the tarball</a>
+	</div>
+</body>
+</html>

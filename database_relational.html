@@ -1,0 +1,1069 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Introductory Programming in Python: Realtional Databases</title>
+	<link rel='stylesheet' type='text/css' href='style.css' />
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	<script src="animation.js" type="text/javascript">
+	</script>
+</head>
+
+<body onload="animate_loop()">
+	<div class="page">
+
+		<h1>Introductory Programming in Python: Lesson 33<br />
+		Relational Databases</h1>
+		
+		<div class="centered">
+			[<a href="database_theory.html">Prev: Database Theory</a>]&nbsp;[<a href="index.html">Course Outline</a>]&nbsp;[<a href="database_SQL.html">Next: Structured Query Language</a>]
+		</div>
+
+		<h2>How Scientists Store Data: or Why Spreadsheets are a Bad Idea</h2>
+
+		<p>Ahh ... Scientists! The brightest of the bright, smartest of the
+		smart; Capable of amazing intellectual feats, excluding anything to do
+		with a VCR, or apparently sensible data storage. It has long been known
+		(read: The author is to lazy to look up the original reference, or any
+		reference at all for that matter) that most non-computer science
+		students and academics store their experimental/empirical data in the
+		form of an Excel spreadsheet. This is quite possibly the
+		<strong>worst</strong> way to store data. First let's examine why Excel
+		is such a popular choice:</p>
+		
+		<ol>
+
+			<li>Excel is a GUI.</li>
+
+			<li>People are familiar with Excel.</li>
+
+			<li>Excel gives the illusion of structure being imposed on the data
+			stored in the form of column names.</li>
+
+			<li>Excel can create pretty pictures.</li>
+
+			<li>Excel can perform rudimentary data manipulation, e.g.
+			sorting.</li>
+
+			<li>Excel can perform rudimentary analysis on the data, e.g.
+			regression.</li>
+
+		</ol>
+		
+		<p>Now let's look at the reasons Excel is a bad choice:</p>
+
+		<ol>
+
+			<li>Excel is a GUI... its primary purpose is not to store and
+			structure data but to analyse it.</li>
+
+			<li>Excel does not in fact impart any structure to the data.
+			Regardless of what I name the column, the cells under those
+			columns can contain any data of any data type.</li>
+
+			<li>More importantly, Excel does not <em>enforce</em> any structure
+			on the data.</li>
+
+			<li>It's ridiculously easy to make large scale incorrect changes to
+			data... Have you ever sorted by a column and discovered the other
+			columns didn't sort with it?</li>
+
+			<li>Excel doesn't keep data together in an <em>identifiable</em>
+			structured manner.</li>
+
+		</ol>
+
+		<h2>Why Unique Identifiers are Useful</h2>
+		
+		<p>Most scientists make an attempt to organise their data. They label
+		all their physical specimens carefully and explicitly. First mistake!
+		The label 'Blood Sample Joe Blogs 2008-03-14 Stage 3 infection' is
+		probably very helpful to someone looking at the name on a computer
+		screen, but try finding that vial of blood when you have only 10 seconds
+		to read the label while it is out of the liquid nitrogen before it thaws
+		too much to be viable. Sure, the label is explicit, and tells one
+		everything one needs to know about the sample, but one can't physically
+		order a bunch of samples with labels of that form, which means the
+		physical sample cannot be found quickly, nor worked with conveniently in
+		electronic form. Also, it can be very difficult to tell 'Blood Sample
+		Joe Blogs 2008-03-14 Stage 3 infection' apart from 'Blood Sample Joe
+		Blogs 2008-03-18 Stage 3 infection', or 'Blood Sample Joe Blags
+		2008-03-14 Stage 3 infection'.</p>
+
+		<p>Thus we introduce the case for the <strong>unique
+		identifier</strong>. A unique identifier need bear no semantic relation
+		to the thing it identifies. It is just a number, usually, and can always
+		be mapped to a number. This gives one two distinct advantages:</p>
+
+		<ul>
+
+			<li><strong>Uniqueness:</strong> every structured item of data, i.e.
+			record, is identifiably different from every other, even if all the structured
+			information it contains, i.e. the fields, is identical.</li>
+
+			<li><strong>Relative Order:</strong> structured data items can be
+			ordered and referenced regardless of data type(s).</li>
+
+		</ul>
+
+		<p>To such a unique identifier, we can attach additional attributes or
+		information, which brings us back to the concept of records (now
+		indexed by a unique identifier) and fields.</p>
+
+		<h2>The Relational Database Model: Tables and Columns</h2>
+
+		<p>The relational database model deals with abstract data management
+		and storage. Most of the abstraction involves changing terminology so
+		it doesn't sound like every other database model. A relational database
+		consists of one or more <strong>tables</strong> (more formally known as
+		<strong>relations</strong>). Each table has <strong>rows</strong>
+		(records, or formally <strong>tuples</strong>), and each row in a given
+		table has identical <strong>columns</strong> (fields, or formally
+		<strong>attributes</strong>) to all other rows in the same table. So we
+		have something that looks like a spreadsheet, but with some important
+		differences. In a spreadsheet one row may use more or less columns than
+		another, whereas a relational database table does not allow this. Also,
+		all columns in a table have a type, e.g.  text, integer, float, etc...
+		This is a property of the column as a whole, not a field in an
+		individual row, meaning all data values stored in a particular column
+		in a particular table are of the same type.</p>
+
+		<p>Consider the case of a medical trial. The trials need to keep
+		records of the patients involved, the medications administered, the
+		date of administrations, contact details, and their states of health at
+		various time points. For the moment we'll just look at the patients
+		themselves.</p>
+
+		<table cellspacing='0'>
+			<caption>The 'Patient' Table</caption>
+			<thead>
+				<tr>
+					<th>patient_id</th>
+					<th>surname</th>
+					<th>firstname</th>
+					<th>initials</th>
+					<th>phone</th>
+					<th>address</th>
+				</tr>
+				<tr>
+					<th>integer</th>
+					<th>char(64)</th>
+					<th>char(64)</th>
+					<th>char(6)</th>
+					<th>char(12)</th>
+					<th>text</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>Smith</td>
+					<td>Alice</td>
+					<td>C</td>
+					<td>0123456789</td>
+					<td>1 The Dung Heap, Putney, 4231</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>Black</td>
+					<td>Barry</td>
+					<td>J</td>
+					<td>0239876543</td>
+					<td>42 Enigma Lane, Illford, 5017</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>Johnson</td>
+					<td>Charles</td>
+					<td>NULL</td>
+					<td>0192837465</td>
+					<td>32 Bit Boulevard, Heartfordshire, 4870</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p>Examining the table above, we can observe a number of things.
+		Firstly, there is a unique identifier, namely the 'patient_id'. The
+		patient themselves may never know this number, but it allows the
+		database system to distinguish between two different Alice C. Smith's,
+		if the case were to arise.</p>
+
+		<h2>Primary Keys</h2>
+
+		<p>Each table in a relational database can have a primary key. The
+		primary key is always unique amongst the rows of the table, and is thus
+		a unique identifier. It is usually a number, but can be any sortable
+		type. It can consists of multiple columns too, but we'll get to that
+		later. Depending on the database software being used, primary keys that
+		are of numeric type can be automatically generated as new rows are
+		created, leaving the hassle of determining a new unique primary key for a
+		row up to the database software and not the programmer. Methods for
+		doing this are implementation specific. In our example above we would
+		choose 'patient_id' as our primary key for the table.</p>
+
+		<h2>Relationships Between Tables and Foreign Keys</h2>
+
+		<p>Considering the information we want to store, the patient table is
+		woefully inadequate. What about their state of health, or their
+		medication records? Well, we could add columns to the patient table, for
+		example a column named 'medication_date', and another, 'dosage'. But
+		this would be the wrong approach. We would either limit ourselves to
+		exactly one administration of medication, or alternatively duplicate
+		data, and end up with diverging information about the 'same' record.</p>
+
+		<p>Let's consider the first option. If we wanted to store multiple
+		administration events, we would have to add columns to some rows, as
+		those events happened, leaving other rows alone. But this violates the
+		principle that all rows in a table have exactly the same columns. No
+		dice! If we extended the entire table, we would have a number of rows
+		with missing data &mdash; less of a problem &mdash; but also not
+		desirable.</p>
+
+		<p>The second option is to make each row its own administration event.
+		So every time Barry Black gets dosed, he gets a row in the table, with
+		the additional columns 'dosage' and 'medication_date'. Two rows means
+		he's been dosed twice, three rows, thrice, etc... The problem here is
+		that each time we create a new row for Barry, there's a chance for human
+		error. Barry Black might have been dosed three times, but the system
+		reflects only twice, while the mysterious Barry Block has also been
+		dosed (according to the system), but no one knows who he is.</p>
+
+		<p>The solution, of course, is to create another table. Let's call it
+		'Dose'. It records the date of a dose, an arbitrary unique id for the
+		dose (for example a vial bar code), the dosage amount, and of course to
+		whom the dose was given.</p>
+
+		<table cellspacing='0'>
+			<caption>The 'Dose' Table</caption>
+			<thead>
+				<tr>
+					<th>dose_id</th>
+					<th>date</th>
+					<th>amount</th>
+					<th>patient</th>
+				</tr>
+				<tr>
+					<th>integer</th>
+					<th>date</th>
+					<th>float</th>
+					<th>integer (Patient)</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>2008/08/02</td>
+					<td>3.2</td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>2008/08/02</td>
+					<td>3.2</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>2008/08/02</td>
+					<td>3.2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>2008/08/12</td>
+					<td>2.5</td>
+					<td>2</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p>So we see from this table that everyone arrived on 2008/08/02 for
+		their initial dose, but that so far only Barry Black has arrived for his
+		second dose, 10 days later, and that the second dose is less than the
+		first (presumably to suit the purposes of the trial).</p>
+
+		<p>The biggest concept to grasp here is that of the <strong>foreign
+		key</strong>. Note the fourth column, 'patient', has type integer, and
+		is 'tagged' as pointing to the Patient table. In relational database
+		terms such a column is called a foreign key, and this implies a number
+		of things:</p>
+
+		<ul>
+
+			<li>Any value stored in a foreign key column, must exist as a value
+			in the primary key column of the table specified as the foreign
+			table, in our case 'Patient'. Implicitly this means only one foreign
+			row can be indicated, since primary keys must be unique.</li>
+
+			<li>The row in the foreign table ('Patient') with the primary key
+			equal to the value of the foreign key column in the local table
+			('Dose') can be linked, or rather <strong>joined</strong> to the
+			local row.</li>
+
+			<li>The values in a foreign key column need not be unique, e.g. Barry
+			Black can have multiple doses administered.</li>
+
+			<li>By the way, there is no limit to the number of different columns
+			in a table which can be foreign keys. Nor must a foreign key always
+			point into a different table. Consider the example of representing
+			genetic lineage. In the organism table, each row records its mother
+			and father, assuming an organism the reproduces sexually. Both
+			mother and father are organisms too, and have all the rights of
+			organisms accorded to them. So we need two foreign keys, mother and
+			father, which point to another row in the same table ('organism').
+			In the case of an original organism, i.e. the first of its kind, we
+			might want to leave mother and father as NULL. In fact this is most
+			likely the case, since we are at some point not going to know the
+			lineage of a particular organism unless we are able to catalogue the
+			entire species.</li>
+
+		</ul>
+
+		<p>Foreign keys and the separation of data into various tables provide
+		us with a number of pros over the other two possible methods suggested
+		before. Firstly, when we create a new row in Dose, we simply 'link' it
+		to the appropriate patient, meaning there's far less chance of human
+		error. In fact the only human error that can occur is that a dose may be
+		linked to the wrong patient, or perhaps have the amount or date recorded
+		incorrectly. Secondly, the number of columns in both tables remains the
+		same, both for every row in each table respectively, and for each table
+		over time. We don't have to change the structure of our data.</p>
+
+		<p>Using foreign keys and an appropriate structure for our data, we can
+		answer a number of questions simply and quickly, for example:</p>
+
+		<ol>
+
+			<li>How many doses has patient X received? (count number of rows in
+			'Dose' where patient = X)</li>
+
+			<li>If, for example, every even numbered dose is a placebo, then
+			which patients received placebos? (list rows from Patient where
+			patient_id = Dose.patient and dose_id is even)</li>
+
+			<li>How may doses were given out between specified dates?</li>
+
+			<li>On what dates did patient X receive their doses?</li>
+
+		</ol>
+
+		<h2>Joining Tables to Query Data</h2>
+
+		<p>If we look at question 2 immediately above, we see something a little
+		strange, namely the comparison of a value in a single row (patient_id)
+		to all the values in a particular column of an entire table
+		(Dose.patient). Well, that's what it looks like because of the way we
+		phrased the question, but in actual fact particular rows in Dose are
+		chosen for comparison implicitly. Technically, what happens is a
+		<strong>join</strong>ing of the two tables on certain conditions, in
+		this case the condition that Patient.patient_id = Dose.patient.</p>
+
+		<p>A join involves the implicit creation of a temporary table, with 
+		columns from both source tables, and rows filled out with data from the
+		rows of the source tables that match specified conditions. This is best
+		explained by example.</p>
+
+		<p>Rephrasing question 2, let's display all rows from Dose where the
+		dose_id is even (i.e. they're placebo doses) and append the information
+		from the Patient table of the patient whose patient_id matches the
+		value in the patient column of each found row from dose. Now, reading
+		from left to right, we first get rows 2 and 4 from Dose. Let's put these
+		rows into a new table called 'Result'.</p>
+		
+		<table cellspacing='0'>
+			<caption>The 'Result' Table</caption>
+			<thead>
+				<tr>
+					<th>dose_id</th>
+					<th>date</th>
+					<th>amount</th>
+					<th>patient</th>
+				</tr>
+				<tr>
+					<th>integer</th>
+					<th>date</th>
+					<th>float</th>
+					<th>integer (Patient)</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>2</td>
+					<td>2008/08/02</td>
+					<td>3.2</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>2008/08/12</td>
+					<td>2.5</td>
+					<td>2</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p>Continuing, we want to append information from the Patient Table. For
+		the moment we are only interested in names. So let's add the column's to
+		'Result'.</p>
+		
+		<table cellspacing='0'>
+			<caption>The new 'Result' Table</caption>
+			<thead>
+				<tr>
+					<th>dose_id</th>
+					<th>date</th>
+					<th>amount</th>
+					<th>patient</th>
+					<th>firstname</th>
+					<th>surname</th>
+				</tr>
+				<tr>
+					<th>integer</th>
+					<th>date</th>
+					<th>float</th>
+					<th>integer (Patient)</th>
+					<th>char(64)</th>
+					<th>char(64)</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>2</td>
+					<td>2008/08/02</td>
+					<td>3.2</td>
+					<td>1</td>
+					<td>NULL</td>
+					<td>NULL</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>2008/08/12</td>
+					<td>2.5</td>
+					<td>2</td>
+					<td>NULL</td>
+					<td>NULL</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p>Now that we have added the columns, we need to fill them with the
+		correct data, replacing the NULLs. Relational databases all have a
+		special value 'NULL' which is similar to None in python. It is typeless,
+		and as such any column can have NULL values regardless of its type. You can
+		specify the NULL values are not allowed in certain columns, and this is
+		implicit in some cases, e.g. primary keys cannot be NULL. Technically,
+		the NULL values are never created during an actual join, and are visible
+		here only for illustrative purposes.</p>
+
+		<p>We need to fill in the NULLs with the information from rows from the
+		Patient table whose patient_id matches the value of the column 'patient'
+		in the row we are trying to fill in. So, for the first row's NULLs we
+		take the first name and surname from row 1 of Patient, i.e. Alice Smith.
+		Similarly, for the second row of the Result table, we fill in 'Barry' and
+		'Black'.</p>
+
+		<table cellspacing='0'>
+			<caption>The final 'Result' Table</caption>
+			<thead>
+				<tr>
+					<th>dose_id</th>
+					<th>date</th>
+					<th>amount</th>
+					<th>patient</th>
+					<th>firstname</th>
+					<th>surname</th>
+				</tr>
+				<tr>
+					<th>integer</th>
+					<th>date</th>
+					<th>float</th>
+					<th>integer (Patient)</th>
+					<th>char(64)</th>
+					<th>char(64)</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>2</td>
+					<td>2008/08/02</td>
+					<td>3.2</td>
+					<td>1</td>
+					<td>Alice</td>
+					<td>Smith</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>2008/08/12</td>
+					<td>2.5</td>
+					<td>2</td>
+					<td>Barry</td>
+					<td>Black</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p>You might be surprised at some point by what looks like the creation
+		of extra rows out of nowhere when performing a join, or rather, you
+		might get more rows than you expect. For example, what if one wanted to
+		see the information about Barry Black, and his dosage history. We might
+		expect one row, since we're only interested in one patient. But Barry
+		has been dosed twice. The complete joined result table would look like
+		this:</p>
+
+		<table cellspacing='0'>
+			<caption>Barry Black's Resultant Join</caption>
+			<thead>
+				<tr>
+					<th>patient_id</th>
+					<th>surname</th>
+					<th>firstname</th>
+					<th>initials</th>
+					<th>phone</th>
+					<th>address</th>
+					<th>dose_id</th>
+					<th>date</th>
+					<th>amount</th>
+					<th>patient</th>
+				</tr>
+				<tr>
+					<th>integer</th>
+					<th>char(64)</th>
+					<th>char(64)</th>
+					<th>char(6)</th>
+					<th>char(12)</th>
+					<th>text</th>
+					<th>integer</th>
+					<th>date</th>
+					<th>float</th>
+					<th>integer (Patient)</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>2</td>
+					<td>Black</td>
+					<td>Barry</td>
+					<td>J</td>
+					<td>0239876543</td>
+					<td>42 Enigma Lane, Illford, 5017</td>
+					<td>1</td>
+					<td>2008/08/02</td>
+					<td>3.2</td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>Black</td>
+					<td>Barry</td>
+					<td>J</td>
+					<td>0239876543</td>
+					<td>42 Enigma Lane, Illford, 5017</td>
+					<td>4</td>
+					<td>2008/08/12</td>
+					<td>2.5</td>
+					<td>2</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p>Clearly, there are two rows for one patient. The alternative would be
+		to have one row with a variable number of columns, but this presents
+		problems. Firstly, we might have multiple columns with the same names,
+		and no way to tell which columns should be grouped together, e.g. which
+		dose id belongs to which date. Also, it is programatically simpler to
+		deal with multiple rows with a consistent number of columns, than the
+		opposite. In addition, the above example highlights some important
+		points about joining tables:</p>
+
+		<ul>
+
+			<li>Column types are transfered during joins.</li>
+
+			<li>Primary keys, foreign keys, and other uniqueness constraints are
+			not transferred.</li>
+
+			<li>Resultant tables have no primary key!</li>
+
+		</ul>
+
+		<h2>Cardinality of Relationships</h2>
+
+		<p>When designing our data structure and choosing which tables we will
+		use, what they will contain, and how they will be linked, it is
+		important to understand how the information in various tables is
+		related. While this is often obvious in a particular case, more
+		abstractly there are only three possible types of relationships that can
+		exist between any two given tables, and relational databases can only
+		really represent two of these.</p>
+
+		<dl>
+
+			<dt>One-to-one:</dt>
+
+			<dd>One row in Table A is linked to at most one row in Table B.
+			This is represented using a foreign key in Table B that points to
+			the primary key of Table A, and has a uniqueness constraint placed
+			on the foreign key in Table B. The foreign key may allow NULL
+			values, or may not. This type of relationship is most often used to
+			represent some form of class inheritance of attributes, e.g. Given
+			three tables to record information about staff, namely Staff,
+			Doctors, Nurses. We want to store the same basic information about
+			both nurses and doctors, but for each type there are profession
+			specific details as well. Both the doctors and nurses table link to
+			staff in a one-to-one manner, as a staff member cannot exist twice,
+			but the doctors and nurses tables respectively store the profession
+			specific information required.</dd>
+
+			<dt>One-to-Many</dt>
+
+			<dd>One row in Table A is linked to potentially multiple rows in
+			Table B. This is represented using a foreign key in Table B that
+			points to the primary key of Table A, with no uniqueness constraint.
+			Again NULL values for the foreign key may or may not be allowed on a
+			case by case basis. Our previous example of dosage and patients is a
+			one-to-many relationship.</dd>
+
+			<dt>Many-to-Many</dt>
+
+			<dd>Potentially multiple rows in Table A are linked to potentially
+			multiple rows in Table B. Continuing with the medical theme of
+			examples, a doctor treats many patients, represented by a foreign
+			key in the Patient table to the primary key of the Doctor Table.
+			However, a single patient may be treated by many doctors over the
+			long term.</dd>
+
+		</dl>
+
+		<p>The many-to-many case cannot be directly represented in a relational
+		databases. If we put the foreign key in the Doctor table, that means
+		patients doctors can only treat one patient, without using a dynamic
+		number of columns in a table; an idea which we've hopefully left behind
+		to rot on the wayside. Similarly, putting the foreign key in the Patient
+		table means a patient can be treated by only one doctor.</p>
+
+		<p>The solution is to create a third intermediate table, often called a
+		<strong>link table</strong>. In this table we have two foreign keys. One
+		to doctor, and one to patient. The presence of a row in the link table
+		pointing to some doctor D and some patient P, means that patient P has
+		been treated by doctor D. Should D treat another patient Q, we simply
+		add a row to the link table (D:Q). Similarly, should patient P be
+		treated by a second doctor (E), we add a row (E:P) to the link
+		table. Because both the doctor and patient columns in the link table are
+		foreign keys, the same doctor can appear multiple times, and the same
+		patient can appear multiple times.</p>
+
+		<p>In fact, we can store additional information in link tables. We
+		might, for instance, want to store the dates of treatments. In this case
+		the link table would have the two foreign key columns and a date column.
+		But now what if a patient is treated by the same doctor multiple times.
+		No problem. Create another row with the same doctor/patient pairing, and
+		a different date. It is useful in this case to create an additional
+		column to act as primary key for the link table.</p>
+
+		<p>There are also times when we might want to indicate only that two
+		item are linked in some way. An artist may record multiple songs, and
+		similarly a song may be performed by multiple artists in a single
+		recording. We are not interested in how many times a particular artist
+		performed a song though. So we would have the three tables Artist, Song,
+		and PerformedBy. PerformedBy would have only two columns, artist (a
+		foreign key) and song (another foreign key). We want to ensure that we
+		don't record more than once the fact that some artist A has performed
+		the song S. We could make either of the two foreign keys a primary key
+		as well, but that causes problems. If we make artist the primary key,
+		the we can only record one song performance for any given artist.
+		Instead, we can make the primary key consist of both columns in the
+		table. This means the we can have many rows with the same artist, as
+		long as each row has a different song as the other foreign key.
+		Likewise, each sing can appear multiple times as long as each artist
+		paired with it is unique. This combination means we never record the
+		fact that an artist has performed a song more than once.</p>
+
+		<h2>Normalisation</h2>
+
+		<p>As always, real life intrudes rudely on the ideals on computational
+		theory. The fact of the matter is that databases change. Not only their
+		contents change, we expect that, and that's what they're designed to
+		deal with anyway. But over time, we might require that their structures
+		be modified to. Due to some change in the law we might suddenly need to
+		keep additional business records about certain types of transactions,
+		for example. Since the inception of relational databases though, we have
+		also had the concept of <strong>normalisation</strong>, which is a
+		method to reduce to work involved in making structural changes to
+		database.</p>
+
+		<p>If we explore the example of a law being changed or introduced
+		requiring additional record keeping, we can quickly tell how difficult
+		it becomes to modify database structure once data already exists. We
+		have a very simple database originally, with only one table, which
+		records the sale of products: product name, price, and time of sale.
+		Sometimes, the additional information we need to record can be added
+		simply. Tax amount? We can simply add a column that records the taxable
+		amount of the sale. But what if the problem is more complex. Suppose we
+		run a hardware store selling some products that are regulated by the
+		government, e.g. detonators for industrial explosives. Currently we are
+		required to keep a record of to whom the sale of such an item was made,
+		and we record it in a column in the sales table. Now, the law changes,
+		and retailers are required not only to record to whom the sale is made,
+		but also to limit the number of detonators a single customer may buy to
+		one per day. Now we're stuck. We can't make the purchaser field unique,
+		because that would mean a particular customer could only but a detonator
+		once, and never again. Also, what about the other products they might
+		want to buy? What we need to do is now separate the purchasers out into
+		their own table, and instead use a link table where we can specify a
+		primary key over the columns: purchaser, sale, and date. Rows are only
+		added to the link table for detonator purchases. Now the same person
+		trying to purchase multiple detonators on the same date will be
+		disallowed by the database system. Perfect solution, but it requires
+		some fairly extensive restructuring of the actual database structure,
+		the creation of new tables, the removal of columns from one table and
+		their inclusion into another, and all this without losing any data,
+		either directly, or implicit, like the fact that the purchaser being
+		moved came originally from the sale with id X on date Y.</p>
+
+		<p>Now that we understand the nastiness of getting things wrong, how do
+		we get them right. Enter, the <strong>normal forms</strong>. The normal
+		forms are each a collection of criteria for your database structure,
+		that if fulfilled will generally ensure that structural changes are
+		restricted to additions instead of deletions, or worse rearrangements
+		and movements. Followed stepwise and in order, and applied to every
+		table, they are as follows:</p>
+
+		<h3>The First Normal Form</h3>
+
+		<ol>
+			
+			<li>Each row is unique, i.e. no two rows in a table are entirely
+			identical. Easily done by making sure every table has a primary
+			key.</li>
+
+			<li>All columns in a table consist of value of consistent
+			type/kind. Normally taken care of database software enforcing typing
+			on columns.</li>
+
+			<li>All columns are single-valued, i.e. no column has tuple like or
+			similarly compound data.</li>
+
+			<li>The order of the rows is insignificant.</li>
+
+			<li>The order of the columns is insignificant.</li>
+
+		</ol>
+
+		<table cellspacing='0'>
+			<caption>Before First Normal form</caption>
+			<thead>
+				<tr>
+					<th>Accession</th>
+					<th>Species</th>
+					<th>Seq</th>
+					<th>Accession</th>
+					<th>Species</th>
+					<th>Seq</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>AF111167</td>
+					<td>Homo sapiens</td>
+					<td>ACTGGTAG</td>
+					<td>AY82998</td>
+					<td>Rattus norvegicus</td>
+					<td>TGGGTGGCA</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table cellspacing='0'>
+			<caption>After First Normal form</caption>
+			<thead>
+				<tr>
+					<th>Accession</th>
+					<th>Species</th>
+					<th>Seq</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>AF111167</td>
+					<td>Homo sapiens</td>
+					<td>ACTGGTAG</td>
+				</tr>
+				<tr>
+					<td>AY82998</td>
+					<td>Rattus norvegicus</td>
+					<td>TGGGTGGCA</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h3>The Second Normal Form</h3>
+
+		<p>From the first normal form, separate out into different tables any
+		columns in any tables that are not dependant on the whole primary key of
+		their table.</p>
+
+		<table cellspacing='0'>
+			<caption>Before Second Normal Form</caption>
+			<thead>
+				<tr>
+					<th>Experiment</th>
+					<th>Accession</th>
+					<th>Species</th>
+					<th>Seq</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class='prikey'>A</td>
+					<td class='prikey'>AF111167</td>
+					<td>Homo sapiens</td>
+					<td>ACTGGTAG</td>
+				</tr>
+				<tr>
+					<td class='prikey'>A</td>
+					<td class='prikey'>AY828998</td>
+					<td>Rattus norvegicus</td>
+					<td>TGGGTGGCA</td>
+				</tr>
+				<tr>
+					<td class='prikey'>B</td>
+					<td class='prikey'>AY828999</td>
+					<td>Rattus norvegicus</td>
+					<td>TGGCCAT</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<hr />
+
+		<div class='sidebyside'>
+			<table cellspacing='0'>
+				<caption>Sequences: After Second Normal Form</caption>
+				<thead>
+					<tr>
+						<th>Experiment</th>
+						<th>Accession</th>
+						<th>Seq</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class='prikey'>A</td>
+						<td class='prikey'>AF111167</td>
+						<td>ACTGGTAG</td>
+					</tr>
+					<tr>
+						<td class='prikey'>A</td>
+						<td class='prikey'>AY828998</td>
+						<td>TGGGTGGCA</td>
+					</tr>
+					<tr>
+						<td class='prikey'>B</td>
+						<td class='prikey'>AY828999</td>
+						<td>TGGCCAT</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table cellspacing='0'>
+				<caption>Species: After Second Normal Form</caption>
+				<thead>
+					<tr>
+						<th>Accession</th>
+						<th>Species</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class='prikey'>AF111167</td>
+						<td>Homo sapiens</td>
+					</tr>
+					<tr>
+						<td class='prikey'>AY828998</td>
+						<td>Rattus norvegicus</td>
+					</tr>
+					<tr>
+						<td class='prikey'>AY828999</td>
+						<td>Rattus norvegicus</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<ul>
+
+			<li>Primary key columns are designated with pale yellow
+			backgrounds.</li>
+
+		</ul>
+
+		<p>In this example the problem is that species is dependant only on the
+		accession column, not on the entire primary key. This situation rarely
+		comes up.</p>
+		
+		<h3>The Third Normal Form</h3>
+
+		<p>From the second normal form, separate out into their own respective
+		tables, groups of columns that collectively depend on each other but not
+		on the primary key or alternative candidate keys columns.</p>
+
+		<table cellspacing='0'>
+			<caption>Before Third Normal Form</caption>
+			<thead>
+				<tr>
+					<th>Accession</th>
+					<th>Species</th>
+					<th>Seq</th>
+					<th>TaxId</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>AF111167</td>
+					<td>Homo sapiens</td>
+					<td>ACTGGTAG</td>
+					<td>9606</td>
+				</tr>
+				<tr>
+					<td>AY828998</td>
+					<td>Rattus norvegicus</td>
+					<td>TGGGTGGCA</td>
+					<td>10166</td>
+				</tr>
+				<tr>
+					<td>AY828999</td>
+					<td>Rattus norvegicus</td>
+					<td>TGGCCAT</td>
+					<td>10166</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<hr />
+
+		<div class='sidebyside'>
+			<table cellspacing='0'>
+				<caption>Sequence: After Third Normal Form</caption>
+				<thead>
+					<tr>
+						<th>Accession</th>
+						<th>TaxId</th>
+						<th>Seq</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>AF111167</td>
+						<td>9606</td>
+						<td>ACTGGTAG</td>
+					</tr>
+					<tr>
+						<td>AY828998</td>
+						<td>10166</td>
+						<td>TGGGTGGCA</td>
+					</tr>
+					<tr>
+						<td>AY828999</td>
+						<td>10166</td>
+						<td>TGGCCAT</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table cellspacing='0'>
+				<caption>Species: After Third Normal Form</caption>
+				<thead>
+					<tr>
+						<th>TaxId</th>
+						<th>Species</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>9606</td>
+						<td>Homo sapiens</td>
+					</tr>
+					<tr>
+						<td>10166</td>
+						<td>Rattus norvegicus</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3>Further Reading</h3>
+
+		<p>For a way more in depth technical discussion on the normal forms
+		(there are more than 3, but only the first three are generally
+		important, no matter what your local database systems lecturer
+		insists), take a look at the <a
+		href='http://en.wikipedia.org/wiki/Database_normalization'>the
+		wikipedia entry</a> on database normalisation.</p>
+
+		<h2>The Client/Server Model</h2>
+
+		<p>Most relational database software is implemented using a
+		client/server model, where the database software runs as a server, and
+		accepts connections on which the client can send instructions to either
+		examine or modify the contents of the database. This approach has a
+		number of advantages:</p>
+
+		<ul>
+
+			<li>The complexity of managing a relation database, and all the
+			other features provided (backup services, multiple concurrent users,
+			transaction processing, security and access control, etc...) need
+			not be present in every piece of client software.</li>
+
+			<li>A crash on the client machine won't corrupt the database on the
+			server.</li>
+
+			<li>Remote connection over network or even the Internet.</li>
+
+			<li>Multiple users or programs, or most often instances
+			of a program, can access the database server concurrently, allowing
+			for the creation of standardised distributed applications, e.g.
+			Point of Sale Terminals, Airline ticketing and check in systems,
+			etc...</li>
+
+		</ul>
+
+		<p>What this means to us as budding python programmers is that in order
+		to use a relational database, which is presently the industry standard
+		model for databases, we need to have a relational database server
+		installed where we can reasonably access one. For the remainder of this
+		course we're going to use PostgreSQL as our example software, just
+		because the author of these notes happens to like it better. Where
+		possible, i.e. where the author can actually remember them, MySQL syntax
+		differences will be noted. MySQL is the most widely adopted open source
+		relational database server software, but PostgreSQL is the better for
+		educational purposes and general standards compliance, plus it actually
+		implements cool stuff like triggers, and implicit constraints, and
+		rules, ooh and ...</p>
+
+		<p>It is beyond the scope of this material... blah blah blah. We're not
+		going to cover installation of a database server because it tends to be
+		an arcane black art that is highly distribution and OS dependant. Get
+		you're local IT guru to help you out, have pizza and beer on hand for
+		payment.</p>
+
+		<h2>Exercises</h2>
+
+		<div class="centered">
+			[<a href="database_theory.html">Prev: Database Theory</a>]&nbsp;[<a href="index.html">Course Outline</a>]&nbsp;[<a href="database_SQL.html">Next: Structured Query Language</a>]
+		</div>
+
+	</div>
+
+	<div class="pagefooter">
+		Copyright &copy; James Dominy 2007-2008; Released under the <a href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License</a><br />
+		<a href="intropython.tar.gz">Download the tarball</a>
+	</div>
+</body>
+</html>
