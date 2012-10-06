@@ -1,0 +1,47 @@
+1. There are 6 elements in the list; len(l)
+
+2. 9000000 is the only non-string element and is at index 2.
+
+3. ['are', 9000000, 'bicycles']
+
+4. --- month_by_number.py ---
+month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+print month[int(raw_input("Enter a number from 1 to 12: "))-1]
+--- end month_by_number.py ---
+
+5. --- divisible.py ---
+n = int(raw_input('Please enter a number: '))
+for i in range(1,11):
+	if n%i == 0:
+		print n, "is divisible by", i
+--- end divisible.py ---
+
+6. --- triangle1.py ---
+h = None
+
+while h != "":
+	h = raw_input("Enter triangle height: ")
+	if h == "":
+		break
+	for i in range(int(h)):
+		line = "*"
+		for j in range(i):
+			line += "*"
+		print line
+--- end triangle1.py ---
+
+7. --- triangle2.py ---
+h = None
+
+while h != "":
+	h = raw_input("Enter triangle height: ")
+	if h == "":
+		break
+	for i in range(int(h)):
+		line = " "*i
+		for j in range(int(h)-i):
+			line += "*"
+		print line
+--- end triangle2.py ---

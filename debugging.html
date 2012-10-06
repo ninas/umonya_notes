@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Introductory Programming in Python: Debugging</title>
+	<link rel='stylesheet' type='text/css' href='style.css' />
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	<script src="animation.js" type="text/javascript">
+	</script>
+</head>
+
+<body onload="animate_loop()">
+	<div class="page">
+
+		<h1>Introductory Programming in Python: Lesson 26<br />
+
+		Debugging</h1>
+
+		<div class="centered">
+			[<a href="exceptions.html">Prev: Flow Control: Exceptions</a>]&nbsp;[<a href="index.html">Course Outline</a>]&nbsp;[<a href="recursion.html">Next: Flow Control: Recursion</a>]
+		</div>
+
+		<h2>The Universal Method (a.k.a. The Quick and Dirty Method)</h2>
+
+		<p>Tracking down bugs in our programs is a difficult and labour
+		intensive task. Doing so requires knowledge of the execution flow up to
+		the point of the bug, and the values of a number of variables that may
+		have either influenced the flow of execution (e.g. the variable's value
+		is tested in and 'if statement'), or be involved directly in producing
+		the bug (e.g. an expression on the line causing the error refers to the
+		variable directly). We've already learnt about the call stack and the
+		traceback, which helps us when a fatal error occurs, but we often find
+		our programs not causing errors, but doing the wrong thing nonetheless.
+		Such logical errors, on our parts as programmers, still constitute bugs
+		in the program, and must be ruthlessly exterminated!</p>
+
+		<p>But without a traceback, how can we determine the flow of execution?
+		Well, we could put a whole lot of print statements into or code along
+		the lines of "Reached point xyz". Similarly, we can print the value of
+		relevant variables out whenever we need to. This method of debugging is
+		surprisingly effective, and more importantly, works universally. It
+		works in any programming language, in any editor, with any version of
+		python ... anywhere.</p>
+
+		<h2>The Universal Quick and Slightly Cleaner Method</h2>
+
+		<p>Obviously, once we've found the bug, we would want to remove all
+		those print statements, so that our eventual user doesn't see all that
+		'debugging junk'. Which means we have to trawl through all our code
+		removing debug lines, and putting them all back again for the next bug.
+		We could of course just comment the print statements out. But there are
+		better ways of doing it, although they require more work on our part
+		initially, the payoff in the long is generally worth it.</p>
+
+		<p>The <a class="doclink"
+		href="http://docs.python.org/ref/assert.html">assert statement</a> is a
+		statement in python that checks whether a condition is True or not. If
+		the condition is False, then an error is forced immediately. The
+		benefit of the assert statement is that we can tell python to ignore
+		them for when the user runs our program, by requesting that python run
+		in optimised mode using the '-O' argument. We use the assert statement
+		as follows</p>
+
+		<pre class='definition'>
+assert &lt;expression&gt;
+</pre>
+
+		<p>When python runs your script in non-optimised mode, and the assert
+		statement is encountered, the expression is evaluated. If it evaluates
+		to anything other than True, an AssertionError is caused.</p>
+
+		<p>The drawback of assertions is that if the user is left to run our
+		script, and forgets to run it with <code>python -O</code>, the
+		assertions are not ignored. So how about making our own version of
+		assertions, in such a way, that they can be turned on and off at one
+		place in the code, and even better, dump output to a file, instead of
+		the screen. That way, a user could even run our program with debugging
+		statements still active, and not have debug output interfere with their
+		normal running of the program. If an error does occur, they could email
+		us the debug log, which gives us a complete record of how the program
+		arrived at the error state.</p>
+
+		<p>We start with a function. And the function shall be called
+		'debuglog'. In debug log, we want to open the debug log file, append
+		the chosen debug message to the file, and close it again, so that it's
+		contents are flushed to disk, in case an error occurs before flushing.
+		In addition, it must only do all this if a global variable
+		'debug_logging' is set to True.</p>
+
+		<pre class='listing'>
+debug_logging = True
+
+def debug_log(expr):
+    if debug_logging:
+        f = open(".debug_log","a")
+        f.write("%r\n"%expr)
+        f.close()
+</pre>
+
+		<p>With these five simple lines of code, we can now go absolutely ape
+		with debug_log calls all over our code. And all we ever have to do,
+		when we don't want debugging any more, is to change the first line to
+		<code>debug_logging = False</code>. This method of debugging will also
+		work in any programming language, on any OS, in any editor, etc...</p>
+
+		<h2>Using PDB -- The Python Debugger</h2>
+
+		<p>There will be times when the universal methods just aren't
+		sufficient, or are simply to cumbersome to use. For example, the debug
+		log produced might be thousands of lines long, in which case, tracking
+		through it would be tedious and not generally worthwhile. It is for
+		this purpose that so called 'debuggers' were built. Python's debugger
+		is called <a class="doclink"
+		href='http://docs.python.org/lib/module-pdb.html'>pdb</a>, and is
+		invoked by running python with the '-m pdb' option.</p>
+
+		<pre class='listing'>
+sirlark@hephaestus ~ $ python -m pdb myprog.py
+</pre>
+
+		<p>A complete run down of pdb and its abilities would go on for pages,
+		and would be more completely described in the python documentation
+		anyway. Instead, we will just explore the very basics of using a
+		debugger. When pdb is started, we are presented with</p>
+
+		<pre class='listing'>
+sirlark@hephaestus ~/scratch $ python -m pdb hannoi.py 
+&gt; /home/sirlark/scratch/hannoi.py(2)?()
+-&gt; import sys
+(Pdb) 
+</pre>
+
+		<p>What a debugger does is allow us to 'step' through our program one
+		line at a time. After each line, our program is paused, and the
+		debugger gives us the ability to examine the state of the program.
+		After each line of code executed, we are told two things, the current
+		location in our program as far as execution is concerned, which is the
+		line starting with '&gt;'. This line tells us the file and line number
+		of execution. The line starting with '-&gt;' displays the contents of
+		the line <strong>that will be executed next</strong>. Finally we are
+		prompted to enter a command. The commands we are most interested in
+		are</p>
+
+		<ul>
+
+			<li><code>step</code>: steps into the next line, i.e. if there are
+			any function calls on the line, we will dive into those functions,
+			and process them line by line.</li>
+
+			<li><code>next</code>: steps over the next line, i.e. functions on
+			the line are called, but we do not process them step by step.</li>
+
+			<li><code>list</code>: prints out some context code, from five
+			lines before the next line to be executed, to five lines after that
+			line. We are thus able to get a better idea of where in our code we
+			are currently.</li>
+
+			<li><code>break [file:]&lt;lineno&gt; [, condition]</code>: sets a
+			breakpoint at specified line in file (or the current file if file
+			is not specified). A break point means that program execution
+			<strong>will</strong> pause when this line is reached, even if we
+			are not stepping through our code at the time. If a condition is
+			specified, e.g. x == 7, then execution will only pause if that
+			condition is True when the line is reached. Conditions are normal
+			python expressions that we might use in our code directly, and have
+			access to all the variables in our program using the same scope
+			rules. If no line number is specified, then a list of all currently
+			set breakpoints and their numbers is printed out.</li>
+
+			<li><code>clear &lt;bp-number&gt;</code>: unsets the breakpoint
+			numbered 'bp-number'. To see a breakpoint's number, type
+			<code>break</code> without any arguments.</li>
+
+			<li><code>continue</code>: continues execution normally, preventing
+			pausing at the next line. The program will continue execution until
+			a break point is reached, an error occurs, or the program
+			terminates normally.</li>
+
+			<li><code>quit</code>: Obvious, but important to know!</li>
+
+		</ul>
+
+		<p>In addition, pdb returns the value of any python expression we care
+		to enter into its command line, within the context of the program being
+		debugged. So, if our program had a variable 'x', we could determine
+		'x's value at a the current point of execution by simply entering 'x'
+		and pdb's prompt. This provides with all we need to literally see how
+		our program executes, line by line, and what the state of any
+		particular variable is at any given point in program execution.</p>
+
+		<h2>The Ideal Solution -- Using an Integrated Debugger</h2>
+
+		<p>The python debugger (pdb) is nice, but as debuggers go it is pretty
+		klunky. It was put into python as an afterthought, and it shows. The
+		interface leaves a lot to be desired, but more importantly, it leaves
+		out some fairly important tools such as being able to split the output
+		of the debugger from that of our program.</p>
+
+		<p>The ideal solution, although a completely non-standard, non-portable
+		one, is to use an integrated debugger. By this we mean a debugger that
+		runs within the editor of your choice. Not all editors have this
+		functionality, and of those that do, not all implement it in the same
+		way. The keys used to perform different debugging tasks are generally
+		totally different from one editor to another. That having been said, if
+		you use such an editor, its integrated debugger is the easiest and most
+		powerful way to debug your program! The best thing about an integrated
+		debugger is the visual feedback you receive. Being able to see the
+		execution line move as you step to the next line of code, and monitor
+		the values of chosen variables or expressions as execution progresses
+		is an invaluable tool. Debugging terminology is thankfully pretty
+		standard, so search your editors menus and documentation for mention
+		of</p>
+
+		<ul>
+
+			<li><strong>step into:</strong> equivalent to step in pdb</li>
+
+			<li><strong>step over:</strong> equivalent to next in pdb</li>
+
+			<li><strong>add watch:</strong> add a new expression to the list of
+			expressions to monitor</li>
+
+			<li><strong>continue:</strong> equivalent to continue in pdb</li>
+
+			<li><strong>set/toggle breakpoint:</strong> equivalent to break or
+			clear in pdb, applied to the line the cursor is currently on</li>
+
+		</ul>
+
+		<h2>Exercises</h2>
+
+		<div class="centered">
+			[<a href="exceptions.html">Prev: Flow Control: Exceptions</a>]&nbsp;[<a href="index.html">Course Outline</a>]&nbsp;[<a href="recursion.html">Next: Flow Control: Recursion</a>]
+		</div>
+	</div>
+
+	<div class="pagefooter">
+		Copyright &copy; James Dominy 2007-2008; Released under the <a href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License</a><br />
+		<a href="intropython.tar.gz">Download the tarball</a>
+	</div>
+</body>
+</html>

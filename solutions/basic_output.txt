@@ -1,0 +1,45 @@
+1. The print statement outputs the value of each expression following it,
+each value being separated by a single space. Expressions may be listed as a
+comma separated list. After all expressions have been outputted, a final newline
+is emitted.
+
+2. There are three rules:
+ - If a print statement end with a comma and no following expression, the final
+   newline is suppressed.
+ - If such a print statement is followed by another non empty print statement, a
+   space is outputted prior to outputting the values of the second print
+   statement.
+ - If the second print statement is empty, then a newline is printed, without
+   the trailing space.
+
+3. Output follows between ---
+
+---
+MUCH_madness_is_divinest_sense,
+To_a_discerning_eye;
+Much_sense_the_starkest_madness.
+'T_is_the_majority_In_this,_as_all,_prevails.
+Assent,_and_you_are_sane;
+Demur,-you're_straightway_dangerous
+And_handled_with_a_chain.
+---
+
+4. --- prose.py ---
+print "MUCH madness is divinest sense"
+print "To a discerning eye;\nMuch sense the starkest madness."
+print """'T is the majority	
+In this, as all, prevails.
+Assent, and you are sane;	
+Demur,-you're straightway dangerous,
+And handled with a chain."""
+--- end prose.py ---
+
+5. --- introduction.py ---
+print "My name is James, I am", 28, "years old and", 1.78, "metres tall."
+--- end introduction.py ---
+
+6. We can either use double quotes around the string in it's entirety, which
+means the single quote won't end the string, as in "The cat's mat".
+Alternatively, we can escape the single quote withint th string and use single
+quotes around the string, as in 'The cat\'s mat'. Finally we can triple quotes
+of either style, e.g. '''The cat's mat''' or """The cat's mat"""

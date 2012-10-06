@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Introductory Programming in Python: Operating System Functionality</title>
+	<link rel='stylesheet' type='text/css' href='style.css' />
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	<script src="animation.js" type="text/javascript">
+	</script>
+</head>
+
+<body onload="animate_loop()">
+	<div class="page">
+
+		<h1>Introductory Programming in Python: Lesson 21<br />
+
+		Operating System Functionality</h1>
+
+		<div class="centered">
+			[<a href="parsing.html">Prev: Basic Parsing</a>]&nbsp;[<a href="index.html">Course Outline</a>]&nbsp;[<a href="datetime.html">Next: Handling Dates and Times</a>]
+		</div>
+
+		<h2>An Overview of the os Module</h2>
+
+		<p>The <a class='doclink'
+		href='http://docs.python.org/lib/module-os.html'>os module</a> provides
+		a large set of functions with which we can both query and manipulate
+		the environment within which our program runs, and the file systems
+		within which it operates. The functions are provided in the os module,
+		which we can access by importing os.</p>
+
+		<pre class='listing'>
+Python 2.6.4 (r264:75706, Dec 7 2009, 18:43:55) [MSC v.1310 32 bit (Intel)] on win32 
+[GCC 3.4.6 (Gentoo 3.4.6-r1, ssp-3.4.5-1.0, pie-8.7.9)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt; import os
+&gt;&gt;&gt;
+</pre>
+
+		<h2>Process Parameters and Environment</h2>
+
+		<p>The following functions can be used to determine or change the
+		environment (in a computer sense) in which our programs run.</p>
+
+		<ul>
+
+			<li><code>os.getpid()</code> returns the current process' id.</li>
+
+			<li><code>os.getppid()</code> returns the parent process' id.</li>
+
+			<li><code>os.getuid()</code> returns the current process' user
+			id.</li>
+
+			<li><code>os.getpuid()</code> returns the parent process' user
+			id.</li>
+
+			<li><code>os.getgid()</code> returns the current process' group
+			id.</li>
+
+			<li><code>os.getpgid()</code> returns the parent process' group
+			id.</li>
+
+			<li><code>os.getenv(envname[, value])</code> returns the value of
+			an environment variable set in the operating system. If 'value' is
+			specified and no environment variable of that name has been set in
+			the operating system, then the value of 'value' is returned as a
+			default.</li>
+
+			<li><code>os.chdir(path)</code> changes the current working
+			directory to 'path'</li>
+
+			<li><code>os.getcwd()</code> returns a string containing the path
+			of the current working directory.</li>
+
+		</ul>
+
+		<h2>Files and Directories</h2>
+
+		<p>In addition there are a variety of functions which can be used to
+		manipulate files and directories without opening them. These functions
+		are powerful, and have effects outside of your program, and beyond its
+		runtime. Use them with care, especially rename, remove, and rmdir.</p>
+
+		<ul>
+
+			<li><code>os.chmod(path, mode)</code> changes the permissions of
+			'path' to those indicated in 'mode'. 'mode' may be specified as a
+			decimal or octal value (i.e. a number prefixed with a 0) and it
+			will act on linux and mac as the chmod command does on the shell.
+			Otherwise, for greater portability, the os module specifies a
+			number of constants (available in the documentation) which can be
+			bitwise or'd together to form a valid mode.</li>
+
+			<li><code>os.chown(path, uid, gid)</code> changes the owning user
+			and group of 'path' to the user with uid 'uid', and the group with
+			gid 'gid' respectively.</li>
+
+			<li><code>os.listdir(path)</code> returns a list of the names of
+			all directories and files (excluding the '.' and '..') in the
+			directory 'path'.</li>
+
+			<li><code>os.mkdir(path)</code> creates a new directory on disk,
+			named 'path'. If 'path' is not an absolute path, the directory will
+			be created in the current working directory.</li>
+
+			<li><code>os.remove(path)</code> deletes the file named 'path' from
+			disk. If 'path' is not an absolute path, the directory will be
+			created in the current working directory.</li>
+
+			<li><code>os.rmdir(path)</code> removes the directory named 'path'
+			from disk, if it is empty. If 'path' is not an absolute path, the
+			directory will be created in the current working directory.</li>
+
+			<li><code>os.rename(source, dest)</code> renames the file named
+			'source' to 'dest'. This may have the effect of moving the file
+			from one directory to another, if 'dest' specifies a file name in
+			different directory to 'source'. 'dest' cannot be a directory name.
+			If a file named 'dest' already exists, it will be silently
+			overwritten.</li>
+
+		</ul>
+
+		<h2>Path String Management</h2>
+
+		<p>The path manipulation functions in os.path are also very useful.
+		os.path can be accessed as a sub-module of os, by importing os, or
+		directly, by importing os.path, as in</p>
+
+		<pre class='listing'>
+&gt;&gt;&gt; import os.path
+&gt;&gt;&gt;
+</pre>
+
+		<ul>
+
+			<li><code>os.path.basename(path)</code> returns a string containing
+			the last element of 'path' (i.e. the filename or directory name
+			after the last '/' or '\')</li>
+
+			<li><code>os.path.dirname(path)</code> returns a string containing
+			everything up to the last '/' or '\' in 'path'</li>
+
+			<li><code>os.path.exists(path)</code> returns True if a file or
+			directory named 'path' exists, otherwise False.</li>
+
+			<li><code>os.path.getsize(path)</code> returns the size in bytes of
+			the file or directory named 'path'.</li>
+
+			<li><code>os.path.isdir(path)</code> returns True is 'path' exists
+			and is a directory, otherwise False.</li>
+
+			<li><code>os.path.isfile(path)</code> returns True is 'path' exists
+			and is a regular file, otherwise False.</li>
+
+		</ul>
+
+		<h2>Exercises</h2>
+
+		<div class="centered">
+			[<a href="parsing.html">Prev: Basic Parsing</a>]&nbsp;[<a href="index.html">Course Outline</a>]&nbsp;[<a href="datetime.html">Next: Handling Dates and Times</a>]
+		</div>
+	</div>
+
+	<div class="pagefooter">
+		Copyright &copy; James Dominy 2007-2008; Released under the <a href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License</a><br />
+		<a href="intropython.tar.gz">Download the tarball</a>
+	</div>
+</body>
+</html>

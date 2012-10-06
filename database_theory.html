@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Introductory Programming in Python: Database Theory</title>
+	<link rel='stylesheet' type='text/css' href='style.css' />
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	<script src="animation.js" type="text/javascript">
+	</script>
+</head>
+
+<body onload="animate_loop()">
+	<div class="page">
+
+		<h1>Introductory Programming in Python: Lesson 32<br />
+		Database Theory</h1>
+
+		<div class="centered">
+			[<a href="trees.html">Prev: Advanced Data Structures: Trees</a>]&nbsp;[<a href="index.html">Course Outline</a>]&nbsp;[<a href="database_relational.html">Next: Relational Databases</a>]
+		</div>
+
+		<h2>The Need for Databases</h2>
+
+		<p>Technically, the word '<a
+		href="http://en.wikipedia.org/wiki/Database">database</a>' refers to
+		any collection of structured data stored on a permanent medium. Early
+		on in the programming days, it was realised that a whole bunch of time
+		and effort was spent dealing with the recurring problem of permanent
+		storage of data, and its efficient retrieval. Every program that
+		required permanent storage of some sort would have to have specialised
+		code written to deal with the low level management of the physical
+		device, e.g. magnetic tape, disk drive, etc... It was soon recognised
+		that an abstracted method of dealing with off-line storage was required
+		and thus the concept of the database was born. The first 'databases'
+		barely qualified to hold the name, and were in fact nothing but flat
+		unstructured file systems managed by operating systems. These days the
+		word 'database' implies a separate piece of software that manages a
+		structured method of storage on top of any underlying file system, but
+		those initial flat file systems were the beginning of the abstraction
+		process. With them in place, programmers no longer needed to deal with
+		writing to and from specific sectors of a tape or disk themselves, they
+		could let the operating system handle it. It was very quickly
+		discovered, however, that the flat file system model was insufficient,
+		and at this point the evolution of databases split into two primary
+		paths. The first path being the so called 'flat' model, which is
+		basically an extension of the flat file system, and the second being
+		the hierarchical model.</p>
+		
+		<h2>The Flat Model</h2>
+
+		<p>In a flat file system each unit of data could be stored in it's own
+		file, e.g. each customer's details could be stored in it's own file
+		using the customer's account number as the file name. This approach is
+		capable of dealing with a single dataset reasonably well, but provides
+		no way to distinguish between multiple datasets. Consider the customer
+		record example again, but now extend the idea to managing those records
+		over a number of years. If we wanted to break the financials of the
+		business into financial years for tax purposes, we have no way to
+		determine which customer record file belongs in which year, or which
+		transaction file belongs in which year. There are methods to make the
+		distinction, but they are complex and unwieldy at best. Instead the
+		concept of the structured file was developed. Using structured files,
+		one could store multiple records within a single file, and then separate
+		datasets, e.g. financial years, from one another by collecting multiple
+		records belonging to a particular dataset into a single structured file,
+		and each dataset would be in it's own file. This provided two major
+		advantages. Firstly, the logical separation was useful to both programmers
+		and users alike. Secondly, dealing with smaller datasets provides marked
+		speed increases.</p>
+
+		<p>Structured files come in a variety of <strong>formats</strong>. All
+		formats however share some common concepts, although individual
+		implementations may differ. All structured files need some way of
+		specifying when a record ends and a new one begins, and also a method of
+		specifying within a record when a field, or attribute, ends and another
+		begins. Some formats extend the second principle by allowing attributes
+		to be named flexibly, as in the case of the first database
+		applications, a la Dbase.</p>
+
+		<p>Structured formats tend to be in human readable form, i.e. they are
+		text files obeying certain formatting conventions, but they may be binary
+		as well. Text based files have a number of advantages:</p>
+
+		<ul>
+
+			<li>They are human readable, and human editable, usually by manner
+			of white space delimiters.</li>
+
+			<li>They are operating system and platform independent.</li>
+
+			<li>They are machine readable, and machine processable, by manner of
+			specific field/record delimiters.</li>
+
+		</ul>
+
+		<p>On the other hand, they have a number of disadvantages too:</p>
+
+		<ul>
+
+			<li>Writing parsers for text formats can become arbitrarily complex,
+			depending on the format.</li>
+
+			<li>Implementing higher level structure (above that of fields and
+			records) is difficult, and drastically increases parser complexity,
+			and processing time.</li>
+
+			<li>Difficult to maintain effective cross-referencing and record
+			identification. Consider the effects of using a species name
+			somewhere; one record may record species as 'hippo', another as
+			'hippopotamus', yet another might use the taxonomic name, and of
+			course human error must always be taken into account: 'hippoppotamus'.</li>
+
+		</ul>
+
+		<p>A number of these problems can be dealt with indirectly; standardised
+		parsers can written, formats can be agreed upon in standards
+		committees, and controlled vocabularies or ontologies created to
+		'enforce' consistent usage of terminologies. But human error cannot be
+		eliminated.</p>
+
+		<p>The bioinformatics field, in particular, uses delimited files
+		extensively, with a bewildering number of different formats. EMBL,
+		Genbank, protein databank and a fasta files are but a few examples of
+		such structured formats.</p>
+
+		<h2>Spreadsheets</h2>
+
+		<p>While originally developed for accounting and financial purposes, the
+		spreadsheet has been co-opted for alternative use far more than any
+		other generic 'office application'. The reason for this is that they
+		visually represent the tabular structure of records and fields as rows
+		and columns respectively. While each different spreadsheet application
+		uses it's own format, they are generally capable of importing and
+		exporting flat textual files in the form of 'comma separated values'
+		(CSV) files and tab (or other special character) delimited files. In
+		addition the spreadsheet applications themselves provide basic tools for
+		manipulating the dataset, including easy editing of particular fields
+		without worrying about underlying text formats, sorting, filtering, and
+		basic mathematics. We'll learn more about spreadsheets as databases and
+		why they're a bad idea shortly.</p>
+		
+		<h2>XML</h2>
+
+		<p>In recent years, the eXtensibile Markup Language (<a
+		href='http://www.w3.org/XML' class='doclink'>XML</a>) format has become
+		a de facto standard for textual database storage. It extends the true
+		flat textual format from simple records and fields to a hierarchical
+		textual format, using 'tags' which can enclose (and hence imply
+		containment, and thence hierarchy) text or other tags. Tags may in
+		addition have arbitrary attributes associated with them, imparting
+		meta-information about the tag itself, or even actual data.</p>
+
+		<p>An extensive look at XML and its uses is not worth repeating in these
+		notes, as the topic is well covered elsewhere. An excellent tutorial on
+		the practicalities of coding XML by hand, written by spiderpro is
+		available <a href='data/kickstart_xml_tutorial.pdf'
+		class='doclink'>here</a>.</p>
+
+		<h2>The Hierarchical Model</h2>
+		
+		<p>The second path of evolution from simple flat file systems was the
+		hierarchical database. It provided a means of partitioning sub-datasets
+		in the form of identifiable records, and expressing in a limited, but
+		explicit, manner the relationships between records by grouping
+		collections of records together, subordinate to parent records. Each
+		group could then be further grouped together with similar groups, and
+		with additional meta data about those groups in higher level groups;
+		e.g.  each customer had a file, and these files were grouped together
+		by the customer's home branch (a directory), which were in turn grouped
+		together in regions.  The hierarchical model provided a simple way to
+		allow speedy navigation of the database by ordered partitioning.  It's
+		easier to find customer Blogs' file amongst the 30 or so files in his
+		home branch, rather than in amongst the thousands of files in the
+		organisation as a whole, as with the flat file system model. To this
+		day, the hierarchical model is helping people store, organise, and lose
+		their data, in the familiar form of your operating system file system
+		structure.</p>
+
+		<p>Although the hierarchical model provides much greater flexibility
+		than flat models, it is limited in the nature of the relationships it
+		can model. It is supremely capable of representing hierarchical
+		relationships (hence the name), as in parent/child,
+		container/contained, or category/object relationships. Such
+		relationships are often called 'one-to-many' relationships, there being
+		one record to which many others are subordinate. Hierarchical models
+		cannot represent (without some form of link or pointer extensions)
+		multiple inheritance, or so-called 'many-to-many' relationships.
+		Consider the case of a child; All children have two parents, and may
+		have an arbitrary number of children themselves. In a hierarchical
+		model, the child record cannot be in both the mother's collection of
+		children and the father's collection of children, unless it exists
+		twice as record.  If we allow records to have multiple instances, we
+		vastly increase the complexity of the database logic. Which record is
+		the actual record? I must search for and update/modify duplicates when
+		changes are made. If I ask for a summation from many records, do I
+		count duplicates only once, and if so how do I detect them as
+		duplicates? It was these inadequacies that gave rise to the relational
+		database model.</p>
+
+		<h2>Exercises</h2>
+
+		<div class="centered">
+			[<a href="trees.html">Prev: Advanced Data Structures: Trees</a>]&nbsp;[<a href="index.html">Course Outline</a>]&nbsp;[<a href="database_relational.html">Next: Relational Databases</a>]
+		</div>
+	</div>
+
+	<div class="pagefooter">
+		Copyright &copy; James Dominy 2007-2008; Released under the <a href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License</a><br />
+		<a href="intropython.tar.gz">Download the tarball</a>
+	</div>
+</body>
+</html>

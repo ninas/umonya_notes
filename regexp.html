@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta name="generator" content="HTML Tidy for Linux/x86 (vers 1 September 2005), see www.w3.org" />
+
+	<title>Introductory Programming in Python: Regular Expressions</title>
+	<link rel='stylesheet' type='text/css' href='style.css' />
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+<script src="animation.js" type="text/javascript">
+</script>
+</head>
+
+<body onload="animate_loop()">
+	<div class="page">
+
+		<h1>Introductory Programming in Python: Lesson 19<br />
+
+		Regular Expressions</h1>
+
+		<div class="centered">
+			[<a href="files.html">Prev: Files for Input and Output</a>]&nbsp;[<a href="index.html">Course Outline</a>]&nbsp;[<a href="parsing.html">Next: Basic Parsing</a>]
+		</div>
+
+		<h2>Patterns Defining Sets of Strings</h2>
+
+		<p>Take the sentence "To collect your e-ticket you will need your ID document and/or your passport.". Congratulations, you've just seen and understood a regular expression. A regular expression is simply a pattern that defines a set of strings. Any
+		string that fits the specified pattern is said to <strong>match</strong> the pattern, i.e. both "To collect your e-ticket you will need your ID document or your passport." and "To collect your e-ticket you will need your ID Document and your passport"
+		match the pattern specified.</p>
+
+		<p>We can specify patterns in natural languages, e.g. The word 'apples', followed by a comma, and then either the word 'banana' or 'beer', optionally followed by a comma, followed any number (including zero) of the word 'chips'. Intuitively we
+		understand that all of the following strings, among others, match this pattern</p>
+
+		<ul>
+			<li>"apples,banana"</li>
+
+			<li>"apples,beer,chips"</li>
+
+			<li>"apples,banana,chips"</li>
+
+			<li>"apples,beerchipschipschips"</li>
+		</ul>
+
+		<p>Already we can see that our pattern could expressed more concisely, and more importantly more accurately, using a few symbols, e.g. "apples,banana/beer[,][chips][...]". This is still somewhat ambiguous. And here we get to the point where regular
+		expressions become useful. The difference between a regular expression and a simple pattern specification is the fact that the regular expression uses a <strong>well defined standardised grammar</strong>...</p>
+
+		<h2>Regular Expression Syntax</h2>
+
+		<p><a class="doclink" href="http://docs.python.org/lib/module-re.html">Regular expressions</a> have been around since the forties, and as such their syntax has evolved over time. In formal mathematics the syntax is very different from the practical
+		syntaxes used in many computer languages. The most common form of regular expression syntax today is based on that used in the PERL language, and is known as PCRE (PERL Compatible Regular Expression) syntax. Originally regular expressions were
+		developed to describe programming languages by defining the complete set of valid programs, however they were soon appropriated for the purposes of more general pattern matching. Python uses a slight variant of PCRE syntax.</p>
+
+		<p>Regular expressions are exactly that, <strong>expressions</strong>, meaning they can be composed using various operators from simpler regular expressions, so let's deal with the simplest regular expressions first ...</p>
+
+		<p>The simplest regular expression is a single character. This expression matches that character and only that character, e.g. the regular expression <b>a</b> matches "a" and only "a". Regular expressions are of course <strong>case sensitive</strong>.
+		This in and of itself isn't very useful; even string equivalence tests are more advanced than this, so the next thing we want to be able to do is to extend the length of the pattern. The <strong>concatenation operator</strong> of regular expressions
+		is implicit, meaning the pattern <b>hello</b> matches "hello", and is the concatenation of 5 separate regular expressions, namely <b>h</b>, <b>e</b>, <b>l</b>, <b>l</b>, and <b>o</b>.</p>
+
+		<p>So far so good, as far as understanding goes, but usefulness we still find lacking. So let's introduce a few special regular expressions that do stuff a little more fun.</p>
+
+		<dl>
+			<dt>.</dt>
+
+			<dd>Matches any single character except "\n", e.g. "a", "A", "?", ".", "z", "7", etc... all match.</dd>
+
+			<dt>^</dt>
+
+			<dd>Matches the beginning of the line or string, e.g. <b>^abc</b> matches "abc" at the beginning of a line or string only.</dd>
+
+			<dt>$</dt>
+
+			<dd>Matches the end of the line or string, e.g. <b>xyz$</b> matches "xyz" only at the end of a line or string.</dd>
+
+			<dt>[&lt;character list&gt;]</dt>
+
+			<dd>Matches any single character in the character list, e.g. <b>[abc]</b> matches "a", or "b", or "c". The inversion of the character list can be obtained using the caret ('^') in the first position of the character list, e.g. <b>[^abc]</b> matches
+			any single character <strong>except</strong> "a", "b", or "c". The caret is obviously not included in the character list. If you wish to include a caret in a character list, place it in some position other than the first, e.g. <b>[ab^]</b>, or for
+			an inversion <b>[^ab^]</b>. In addition all characters in a range can be specified in a character list using the '-' character, e.g. <b>[a-z]</b> includes all the lowercase letters. If you wish to include the '-' character in the list, put it
+			last.</dd>
+
+			<dt>\d</dt>
+
+			<dd>Matches any decimal digit; Equivalent to <b>[0-9]</b></dd>
+
+			<dt>\w</dt>
+
+			<dd>Matches any 'word' character, i.e. alphanumeric and the '_' character; Equivalent to <b>[a-zA-z0-9_]</b></dd>
+
+			<dt>\s</dt>
+
+			<dd>Matches any white space character; Equivalent to <b>[ \t\n\r\v\f]</b></dd>
+		</dl>
+
+		<p>Right, that's more like it! We can now start doing some interesting stuff, e.g. <b>^Mary had a ...... [Ll]amb$</b> would match "Mary had a little lamb", "Mary had a little Lamb", and "Mary had a large_ lamb" amongst others. "Poem: Mary had a little
+		lamb" would not match. Nor would "Mary had a little lamb.". Even searching for the regular expression within a larger string, the latter two examples would fail, because of the "^" and the "$", specifying essentially that the whole string must
+		match.</p>
+
+		<p>The true power tools of the regular expression world, however, are the <strong>repetition operators</strong>.</p>
+
+		<dl>
+			<dt>?</dt>
+
+			<dd>Matches if the preceding regular expression occurs zero or one times in a row, e.g. <b>a?</b> matches "" or "a".</dd>
+
+			<dt>*</dt>
+
+			<dd>Matches if the preceding regular expression occurs zero or more times in a row, e.g. <b>a*</b> matches "", "a", "aa", "aaa", ...</dd>
+
+			<dt>+</dt>
+
+			<dd>Matches if the preceding regular expression occurs one or more times in a row, e.g. <b>a+</b> matches "a", "aa", "aaa", ...</dd>
+
+			<dt>{&lt;m&gt;}</dt>
+
+			<dd>Matches if the preceding regular expression occurs exactly <em>m</em> times in a row, e.g. <b>a{7}</b> matches "aaaaaaa".</dd>
+
+			<dt>{&lt;m&gt;,&lt;n&gt;}</dt>
+
+			<dd>Matches if the preceding regular expression occurs at least <em>m</em> times and no more than <em>n</em> times in a row, e.g. <b>a{3,7}</b> matches "aaa", "aaaa", "aaaaa", "aaaaaa", and "aaaaaaa".</dd>
+		</dl>
+
+		<p>And or course we need a way to specify alternatives of more than one character in length.</p>
+
+		<dl>
+			<dt>&lt;a&gt;|&lt;b&gt;</dt>
+
+			<dd>Matches either the regular expression <em>a</em> or the regular expression <em>b</em>.</dd>
+		</dl>
+
+		<p>Just as with arithmetic expressions, regular expressions have a precedence of operators, listed below from highest precedence to lowest precedence</p>
+
+		<ol>
+			<li>repetition operators</li>
+
+			<li>alternative operator</li>
+
+			<li>concatenation operator</li>
+		</ol>
+
+		<p>The practical upshot of this is that if we want to specify alternative words, e.g. ID document or passport, we must parenthesize them so the concatenation operators override the alternative operator, e.g. <b>(ID Document)|(passport)</b> is what
+		we want. <b>ID Document|passport</b> matches "ID Documentassport" or "ID Documenpassport".</p>
+
+		<p>Of course, since we are now using various characters to indicate operators, we come across the familiar problem of matching those characters themselves. The, by now familiar, solution is of course to escape those characters using '\', to remove their
+		special meaning. As a result '\\' is used to match a backslash.</p>
+
+		<p>The outline of operators listed here is by no means complete, but it does cover most of the PCRE standard. Python includes a number of python specific extensions to the standard, which can be explored at leisure in the <a class="doclink" href=
+		"http://docs.python.org/lib/re-syntax.html">python docs</a>.</p>
+
+		<h2>Greedy Versus Non-greedy</h2>
+
+		<p>When using a repetition operator in a regular expression, we introduce an ambiguity, which is somewhat ... distasteful. The purpose of regular expressions was to eliminate ambiguities, and to formally define grammars. This ambiguity is best
+		illustrated by example. Suppose we had a regular expression <b>a[ab]*ab[ab]*</b>. Checking the pattern against a given string "abbabbabbaab", we suddenly want to know which sub-expressions match which bits of the string. Let's make the sub-expressions
+		more obvious with colours.</p>
+
+		<p><b><span class='darkgray monospaced'>a</span>[ab]*<span class='blue monospaced'>ab</span><span class='purple monospaced'>[ab]*</span></b><br />
+		Some possible match methods in our given string ("abbabbabbaab") are</p>
+
+		<ol>
+			<li><span class='red monospaced'><span class='darkgray monospaced'>a</span>bb<span class='blue monospaced'>ab</span><span class='purple monospaced'>babbaab</span></span></li>
+
+			<li><span class='red monospaced'><span class='darkgray monospaced'>a</span>bbabb<span class='blue monospaced'>ab</span><span class='purple monospaced'>baab</span></span></li>
+
+			<li><span class='red monospaced'><span class='darkgray monospaced'>a</span>bbabbabba<span class='blue monospaced'>ab</span></span></li>
+		</ol>
+
+		<p>The question is which of these matches is the correct one. By definition, regular expressions are considered <strong>greedy</strong>. Greedy means that a particular regular expression (or sub-expression) will match as much as it possibly can,
+		whilst still allowing the possibility of an overall match. Which means in our example, the red expression will favour match set 3, where the amount matched by red is largest. In the case where multiple repetition operators compete, the left most
+		operator takes precedence.</p>
+
+		<p>Python gives us the ability to specify that a particular repetition operator should be <strong>non-greedy</strong> (i.e. favour match set 1), by suffixing the repetition operator with a '?' character. So</p>
+
+		<p><b><span class='darkgray monospaced'>a</span>[ab]*?<span class='blue monospaced'>ab</span><span class='purple monospaced'>[ab]*</span></b><br />
+		&nbsp; &nbsp; &nbsp; &nbsp; has the following match set<br />
+		<span class='red monospaced'><span class='darkgray monospaced'>a</span>bb<span class='blue monospaced'>ab</span><span class='purple monospaced'>babbaab</span></span></p>
+
+		<p>Match set 2 from the original list is left out of the equation, as regular expression syntax doesn't give us the opportunity to choose arbitrary levels of greediness. Given a longer string of 'a's and 'b's there would most likely be many possible
+		match sets between least greedy and most greedy, and it would not be possible to enumerate these in advance, thus making it impossible to reference them, thus making it impossible to specify them in a regular expression.</p>
+
+		<h2>The re Module</h2>
+
+		<p>Python's regular expression tools are provided in the standard module "re". So the first thing we would normally do would be to import it.</p>
+		<pre class='listing'>
+Python 2.6.4 (r264:75706, Dec 7 2009, 18:43:55) [MSC v.1310 32 bit (Intel)] on win32 
+[GCC 3.4.6 (Gentoo 3.4.6-r1, ssp-3.4.5-1.0, pie-8.7.9)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt; import re
+&gt;&gt;&gt; 
+</pre>
+
+		<p>Because of the complexity of dealing with regular expressions, it often behoves us to compile the regular expression prior to use. If the regular expression is only going to be used once, we can safely ignore compilation, but using the same regular
+		expression more than once begs compilation. We can compile a regular expression by using</p>
+		<pre class='listing'>
+&gt;&gt;&gt; regexpobj = re.compile("a[ab]*ab[ab]*")
+&gt;&gt;&gt;
+</pre>
+
+		<p>The compile function returns a <strong>regular expression object</strong>. Regular expression objects have the following methods</p>
+
+		<ul>
+			<li><code>&lt;regular expression object&gt;.match(&lt;string&gt;)</code> returns a <strong>match object</strong> if the entire string matches the pattern compiled into the regular expression object, otherwise returns <em>None</em>.</li>
+
+			<li><code>&lt;regular expression object&gt;.search(&lt;string&gt;)</code> returns a <strong>match object</strong> if a portion of the string matches the pattern compiled into the regular expression object, otherwise return <em>None</em>.</li>
+
+			<li><code>&lt;regular expression object&gt;.findall(&lt;string&gt;)</code> returns a <strong>list</strong> of all non-overlapping portions of the string that match the pattern compiled into the regular expression object. If no portions match, an
+			empty list is returned. Note however that empty matches are returned, i.e. <b>a*</b> would return '' in between two 'b's ("bb") because technically a has appeared zero times which matches the 'zero or more' repetition.</li>
+
+			<li><code>&lt;regular expression object&gt;.sub(&lt;replacement&gt;,&lt;string&gt;)</code> returns the string with every non-overlapping occurrence of the pattern compiled into the regular expression object (counted from the left) replaced by the
+			replacement string. There's a lot more to this method, so read the python docs when you are ready.</li>
+		</ul>
+
+		<p>For one-shot uses of regular expressions, the re module provides
+		each of these methods as a function in the module for our convenience,
+		where an additional parameter is expected (inserted in the first
+		position) which is the regular expression. This regular expression is
+		compiled, then has the appropriate method called on the given
+		parameters, and the result is returned, e.g.
+		<code>re.match("a[ab]*ab[ab]*","abbabbabbaab")</code>.</p>
+
+		<h2>Using Groups</h2>
+
+		<p><code>re.match</code> and <code>re.search</code> both return match objects. Their returning something other than None, means a successful match was made, but there is even more to the match object, and to regular expressions. In PCRE syntax, the
+		brackets affect not only precedence, but perform a grouping function too. Whilst a regular expression is being evaluated over as string, when ever an open round bracket ('(') is encountered, a new group is formed, into which are placed all succeeding
+		matching characters. Groups within groups are allowed, and outer groups have the characters matched within inner groups appended too. Once again, examples are probably easier to grasp. Given the regular expression <b>((a)b(c))</b> and the string
+		"abc", we obtain three groups, numbered 1 through 3. Group 1 contains "abc", being everything matched between the first open bracket and it's paired closing bracket. Group 2 contains only "a", being everything matched between the second open bracket
+		and its paired close bracket. Similarly, group 3, contains only "b", from the third pair of brackets.</p>
+		<pre class='listing'>
+&gt;&gt;&gt; r = re.compile("((a)b(c))")
+&gt;&gt;&gt; m = r.match("abc")
+&gt;&gt;&gt; m.groups()
+('abc', 'a', 'c')
+&gt;&gt;&gt; m.group(1)
+'abc'
+&gt;&gt;&gt; m.group(2)
+'a'
+&gt;&gt;&gt; m.group(3)
+'c'
+&gt;&gt;&gt;
+</pre>
+
+		<p>There are two uses for groups. Firstly, within a regular expression we can refer to groups already encountered, using <b>\&lt;number&gt;</b> (where number is the number of a group from 1 to 99). So the regular expression <b>a(.)c\1</b> translates
+		to: an "a", followed any character 'x', followed by a "c", followed by 'x' again.</p>
+		<pre class='listing'>
+&gt;&gt;&gt; m = re.match("a(.)c\\1","abcb")
+&gt;&gt;&gt; m
+&gt;&gt;&gt; m.groups()
+('b',)
+&gt;&gt;&gt; m.group(0)
+'abcb'
+&gt;&gt;&gt; m = re.match("a(.)c\\1","abcd")
+&gt;&gt;&gt; print m
+None
+&gt;&gt;&gt;
+</pre>
+
+		<p>The second use for groups, is that they allow us in python to match lines of text, and extract sub-sections of those lines out using groups, in a single function call. We can access the groups of a match object using the following syntax</p>
+
+		<ul>
+			<li><code>&lt;match object&gt;.groups()</code> returns a tuple containing the groups as strings in the order they were in the regular expression. Group order is defined as the order in which their open brackets are encountered from left to
+			right.</li>
+
+			<li><code>&lt;match object&gt;.group(&lt;number&gt;)</code> returns the string of the group numbered 'number'. If 'number' is 0, then the entire match is returned.</li>
+		</ul>
+
+		<div class="centered">
+			[<a href="files.html">Prev: Files for Input and Output</a>]&nbsp;[<a href="index.html">Course Outline</a>]&nbsp;[<a href="parsing.html">Next: Basic Parsing</a>]
+		</div>
+	</div>
+
+	<div class="pagefooter">
+		Copyright &copy; James Dominy 2007-2008; Released under the <a href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License</a><br />
+		<a href="intropython.tar.gz">Download the tarball</a>
+	</div>
+</body>
+</html>

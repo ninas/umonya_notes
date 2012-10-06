@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Introductory Programming in Python: Variable Scope</title>
+	<link rel='stylesheet' type='text/css' href='style.css' />
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	<script src="animation.js" type="text/javascript">
+	</script>
+</head>
+
+<body onload="animate_loop()">
+	<div class="page">
+
+		<h1>Introductory Programming in Python: Lesson 14<br />
+
+		Variable Scope</h1>
+
+		<div class="centered">
+			[<a href="functions.html">Prev: Flow Control: Functions</a>]&nbsp;[<a href="index.html">Course Outline</a>]&nbsp;[<a href="importing_modules.html">Next: Importing Standard Modules</a>]
+		</div>
+
+		<h2>The Concept of Scope</h2>
+
+		<p>The concept of scope refers to the idea that variables have a
+		limited availability according to the block of statements in which they
+		were originally defined. We could say that the structure of blocks of
+		statements in a python program resembles set of bulleted lists lying
+		variously within one another. On the outside we have our number list
+		(our 'main block'), and all other lists (blocks), are contained
+		therein, either directly or sub-contained within another inner
+		block.</p>
+
+		<div class="centered">
+
+			<strong>The scope of a variable is the set of blocks within which
+			it is available, i.e. defined.</strong>
+
+		</div>
+
+		<p>The outermost block, i.e. our main program, or everything beginning
+		in column 1 of our code, is generally referred to as <strong>the global
+		scope</strong>.</p>
+
+		<h2>Pythons Golden Exception err... Rule</h2>
+
+		<p>Python in general sets the scope of a variable to be the block in
+		which it is defined and consequently all blocks inside of that block,
+		to any arbitrary level.  This means that if some variable 'a' has been
+		defined in a block, and I wish to use it's value in that block or any
+		other block inside of that block, I can. 'a' will be there.</p>
+
+		<p>One analogy is that of the program as a large open room. Variables
+		are slips of paper on which values are written on one side, and the
+		variables' names on the other. Whenever we need the value of a
+		variable, for example when a variable is referenced in an expression,
+		we can quickly scan through the papers in the room for the one with the
+		right name, and read the value off the other side. But when we call a
+		function, it's like putting up a wall of one way glass that divides the
+		room in half, behind us as we walk into the function's area. We can
+		look back through the glass, and still see all the papers that were in
+		the room originally, and thus their names and values, but someone
+		standing on the other side can't see any papers we may use inside the
+		function enclosure, i.e. variables assigned values in the function.
+		When we exit the function, and take down the glass wall in doing so, we
+		also destroy all the papers used on the inside of the wall.</p> 
+
+		<p>More <a class="doclink"
+		href="http://docs.python.org/ref/naming.html">formally</a> speaking,
+		when a name (i.e. not a reserved word, number, string or symbol) is
+		encountered python looks for the most recent definition of the
+		variable, object, or function that has that name in the current block
+		(i.e. the block in which execution is currently happening), and failing
+		finding a definition in the current block will search outwardly in a
+		block wise fashion to the outermost block.</p>
+
+		<p>Note that the fact that the <strong>most recent</strong> definition
+		is searched for means that if an assignment is made (essentially a
+		re-definition) in the current block (<strong>known as the local
+		block</strong>) overrides a definition or value assigned in an outer
+		block, <strong>even before the assignment is encountered</strong>.</p>
+
+		<div class="syncode">
+			<span class='blue'>#!/usr/bin/python<br />
+			#A script to illustrate variable scope in python</span><br />
+			<br />
+			<span class='yellow'>total_height</span> = 0<br />
+			<br />
+			<strong>def</strong> triangle():<br />
+
+			<div>
+				<strong>def</strong> inc_total_height():<br />
+
+				<div>
+					<span class='green'>total_height</span> = <span class='yellow'>total_height</span> + <span class='yellow'>height</span><br />
+				</div><br />
+				<strong>for</strong> <span class='blue'>i</span> <strong>in</strong> range(<span class='yellow'>height</span>):<br />
+				<span class='indent'><strong>print</strong> "*" * <span class='blue'>i</span><br /></span> inc_total_height()<br />
+				<strong>print</strong><br />
+			</div><br />
+			<strong>def</strong> square():<br />
+
+			<div>
+				<strong>def</strong> inc_total_height():<br />
+
+				<div>
+					<span class='green'>total_height</span> = <span class='yellow'>total_height</span> + <span class='yellow'>height</span><br />
+				</div><br />
+				<strong>for</strong> <span class='blue'>i</span> <strong>in</strong> range(<span class='yellow'>height</span>):<br />
+				<span class='indent'><strong>print</strong> "*" * <span class='yellow'>height</span><br /></span> inc_total_height()<br />
+				<strong>print</strong><br />
+			</div><br />
+			<span class='yellow'>height</span> = 3<br />
+			triangle()<br />
+			<span class='yellow'>height</span> = 4<br />
+			square()<br />
+			<span class='yellow'>height</span> = 5<br />
+			triangle()<br />
+		</div>
+
+		<p>In the example above we are looking at the variables and their
+		respective scope. The scope of a variable is indicated by its colour.
+		Variables of a particular colour are available only in the block of
+		that colour, and that block's inner blocks. The two inner blue blocks
+		are separate from one another, as are their respective inner green
+		blocks. In the green blocks, when the variable 'height' is encountered,
+		python tries to find height's value within the green block. When it
+		can't find it, it tries the next block outwards, namely the blue block,
+		and failing there, finally tries the last block (the yellow one, where
+		it finds height. If python fails to find a value in the outermost
+		block, it cause an error, stating that the variable has not been
+		defined.  Hence, 'height', for example, is yellow, because it was
+		defined in the yellow block by it's initial assignment. Similarly 'i'
+		is blue, and <strong>unavailable</strong> in the yellow block, and the
+		other blue block. 'total_height' is yellow, except in the green blocks,
+		where it occurs in yellow and green, but why? The assignment statement
+		in the green blocks causes 'total_height' to be redefined, so python
+		knows to look for its value only in the green block in question, and
+		when it can't find it there causes an error ('total_height' not
+		defined) because it assume you are try to access 'total_height's value
+		before assigning it an initial value. In fact the fact that there is an
+		assignment in the green block causes 'total_height' to become a totally
+		new variable unrelated to the original one, which only exists in the
+		green block.  This effect is consistent throughout the green block,
+		even before the assignment statement has been executed.</p>
+
+		<h2>Forcing Global Scope for a Particular Variable</h2>
+
+		<p>To override python's redefinition effect applied to 'total_height'
+		we can tell python explicitly to use the 'total_height' variable from
+		outside the local block. We do this by declaring that variable name to
+		be global, using the <strong>global statement</strong>, which takes the
+		form <code>global &lt;variable name&gt;</code>. The global statement
+		tells python to use the innermost variable of the given name, instead
+		of creating a new locally available variable. So let's change our
+		program slightly so does what we expect, i.e. doesn't break, and counts
+		the total number of lines outputted as a square or triangle.</p>
+
+		<div class="syncode">
+			<span class='blue'>#!/usr/bin/python<br />
+			#A script to illustrate variable scope in python</span><br />
+			<br />
+			<span class='yellow'>total_height</span> = 0<br />
+			<br />
+			<strong>def</strong> triangle():<br />
+
+			<div>
+				<strong>def</strong> inc_total_height():<br />
+
+				<div>
+					<strong>global</strong> <span class='yellow'>total_height</span><br />
+					<span class='yellow'>total_height</span> = <span class='yellow'>total_height</span> + <span class='yellow'>height</span><br />
+				</div><br />
+				<strong>for</strong> <span class='blue'>i</span> <strong>in</strong> range(<span class='yellow'>height</span>):<br />
+				<span class='indent'><strong>print</strong> "*" * <span class='blue'>i</span><br /></span> inc_total_height()<br />
+				<strong>print</strong><br />
+			</div><br />
+			<strong>def</strong> square():<br />
+
+			<div>
+				<strong>def</strong> inc_total_height():<br />
+
+				<div>
+					<strong>global</strong> <span class='yellow'>total_height</span><br />
+					<span class='yellow'>total_height</span> = <span class='yellow'>total_height</span> + <span class='yellow'>height</span><br />
+				</div><br />
+				<strong>for</strong> <span class='blue'>i</span> <strong>in</strong> range(<span class='yellow'>height</span>):<br />
+				<span class='indent'><strong>print</strong> "*" * <span class='yellow'>height</span><br /></span> inc_total_height()<br />
+				<strong>print</strong><br />
+			</div><br />
+			<span class='yellow'>height</span> = 3<br />
+			triangle()<br />
+			<span class='yellow'>height</span> = 4<br />
+			square()<br />
+			<span class='yellow'>height</span> = 5<br />
+			triangle()<br />
+		</div><br />
+
+		<!-- <h2>Exercises</h2> -->
+
+		<div class="centered">
+			[<a href="functions.html">Prev: Flow Control: Functions</a>]&nbsp;[<a href="index.html">Course Outline</a>]&nbsp;[<a href="importing_modules.html">Next: Importing Standard Modules</a>]
+		</div>
+	</div>
+
+	<div class="pagefooter">
+		Copyright &copy; James Dominy 2007-2008; Released under the <a href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License</a><br />
+		<a href="intropython.tar.gz">Download the tarball</a>
+	</div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Introductory Programming in Python: Parallel Processing</title>
+	<link rel='stylesheet' type='text/css' href='style.css' />
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	<script src="animation.js" type="text/javascript">
+	</script>
+</head>
+
+<body onload="animate_loop()">
+	<div class="page">
+
+		<h1>Introductory Programming in Python: Lesson 36<br />
+		Parallel Processing</h1>
+		
+		<div class="centered">
+			[<a href="database_coding.html">Prev: Interfacing with Databases using Python</a>]&nbsp;[<a href="index.html">Course Outline</a>]&nbsp;[<a href="event_oriented.html">Next: Event Oriented Flow Control</a>]
+		</div>
+
+		<h2>Terminology</h2>
+
+		<p>So far we have been writing programs that have a single flow of
+		execution. Even though there might be many potential paths of execution
+		through your program, only one will be taken, completely determined by
+		the input the program receives. Such programs are considered to
+		<strong>execute in series</strong>. There are however, many other ways
+		in which program can be executed, and, collectively, such methods are
+		called by a variety of names, e.g. concurrent programming, parallel
+		processing, asynchronous programming, etc... The specifics of each of
+		these names and what exactly they refer to is unimportant, and often
+		changes relative to the day of the week, and your proximity to recently
+		sacrificed black chickens. There are however some basic concepts that do
+		conform to some consistent terminology, and are critical to any
+		understanding of non-serial programming.</p>
+
+		<h2>Synchronous versus Asynchronous</h2>
+
+		<p>One of the earliest concepts we grasp when learning to speak as
+		children, is the concept of turn taking. We learn very quickly that in
+		order to conduct a meaningful conversation we must in fact let the
+		other participant have a chance to get a word in edgewise, so to speak.
+		If we consider a conversation as an abstract method of information
+		handling, in which we issue a command by sending a message, and receive
+		the result of that command as a reply message, we can consider the
+		conversation to flow in series, or rather
+		<strong>synchronously</strong>. If we use the idea that a program is a
+		person, and the user is another person, we can think of the conversation
+		between them as a series of print and raw_input lines. Whenever the
+		program is speaking, we print out what it says, and whenever it is the
+		user's turn to speak, the program sits patiently waiting for input via a
+		raw_input statement.</p>
+
+		<p>Of course, the concept of turn taking relies on the assumption that
+		a reply will be received before we get bored. However, what happens if
+		we ask for a reply that may take some time, for e.g. "Please make me a
+		cup of tea?". The person we were talking to would then, in an ideal
+		world, wander off and make us a cup of tea. Their reply to this command
+		would only appear, in the form of a cup of tea, some time in the
+		future, and in a synchronous conversation we would be forced to sit
+		around waiting for said beverage. However, in reality, we would send off
+		our lackey, and continue conversation with other nearby lackeys. Then at
+		some point the original lackey arrives with a cup of tea, interrupting
+		my current conversation.</p>
+
+		<p>This means that if we wish issue a command asynchronously, we must be
+		prepared to accept the reply/results of that command at any time even if
+		it might interrupt our present activities. So why would we want to
+		introduce this level of complexity. In a word, <strong>speed</strong>.
+		Many activities may take a significant amount of time but do not
+		necessarily imply activity. The majority of a programs time is spent
+		waiting for user input, and second on the list is time spent waiting for
+		I/O operations to start, e.g. accessing a file which is presently locked
+		for use by another program. Conversely, in certain programs, we might
+		want to perform lengthy, complex, and processor intensive calculations
+		while allowing the user to interact with our program in the meanwhile.
+		This is especially true of GUIs.</p>
+
+		<h2>Race Conditions and Data Clobber</h2>
+
+		<h2>Signals and Handlers<h2>
+
+		<h2>Explicit Synchronisation using Mutexes</h2>
+
+		<h2>Deadlock</h2>
+
+
+
+		<div class="centered">
+			[<a href="database_coding.html">Prev: Interfacing with Databases using Python</a>]&nbsp;[<a href="index.html">Course Outline</a>]&nbsp;[<a href="event_oriented.html">Next: Event Oriented Flow Control</a>]
+		</div>
+
+	</div>
+
+	<div class="pagefooter">
+		Copyright &copy; James Dominy 2007-2008; Released under the <a href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License</a><br />
+		<a href="intropython.tar.gz">Download the tarball</a>
+	</div>
+</body>
+</html>

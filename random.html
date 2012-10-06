@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Introductory Programming in Python: Random Numbers</title>
+	<link rel='stylesheet' type='text/css' href='style.css' />
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	<script src="animation.js" type="text/javascript">
+	</script>
+</head>
+
+<body onload="animate_loop()">
+	<div class="page">
+
+		<h1>Introductory Programming in Python: Lesson 17<br />
+
+		Random Numbers</h1>
+
+		<div class="centered">
+			[<a href="commandline_arguments.html">Prev: More on Command Line Arguments</a>]&nbsp;[<a href="index.html">Course Outline</a>]&nbsp;[<a href="files.html">Next: Files for Input and Output</a>]
+		</div>
+
+		<h2>Exploring the random Module Further</h2>
+
+		<p>Although nearly everything the <a class="doclink"
+		href='http://docs.python.org/lib/module-random.html'>random module</a>
+		does is based on obtaining a single random number, the module provides
+		us with a number of convenience functions, that take the tedium from
+		doing common 'random' tasks. Functions are provided which return random
+		integers in given ranges, random choices from sequences, or produce
+		random permutations of a sequence. In addition there are some fairly
+		useful distribution functions, which pull random number from chosen
+		distributions with specified parameters.</p>
+
+		<p>Let's deal with the integers first.</p>
+
+		<ul>
+
+			<li><code>random.randrange([start,] &lt;stop&gt;[, step])</code>
+			returns a single random integer from <em>start</em> to
+			<em>stop</em>-1. If <em>start</em> is not specified, it defaults to
+			0. If <em>step</em> is specified, only integers in increments of
+			<em>step</em> from <em>start</em> will be chosen.</li>
+
+			<li><code>random.randint(&lt;start&gt;, &lt;stop&gt;)</code>
+			returns a single random integer from <em>start</em> to
+			<em>stop</em> (inclusive).</li>
+
+		</ul>
+
+		<p>The true convenience of the random module becomes apparent with the
+		three sequence functions.</p>
+
+		<ul>
+
+			<li><code>random.choice(&lt;sequence&gt;)</code> returns a single
+			random element from the sequence</li>
+
+			<li><code>random.shuffle(&lt;sequence&gt;)</code> shuffles the
+			elements in sequence, in place, so they are in random order.</li>
+
+			<li><code>random.sample(&lt;sequence&gt;, &lt;k&gt;)</code> returns
+			<em>k</em> randomly chosen elements from the sequence. This is
+			sampling without replacement, i.e. a single element from the
+			sequence can be chosen at most once.</li>
+
+		</ul>
+
+		<h2>Exercises</h2>
+
+		<div class="centered">
+			[<a href="commandline_arguments.html">Prev: More on Command Line Arguments</a>]&nbsp;[<a href="index.html">Course Outline</a>]&nbsp;[<a href="parsing.html">Next: Basic Parsing</a>]
+		</div>
+	</div>
+
+	<div class="pagefooter">
+		Copyright &copy; James Dominy 2007-2008; Released under the <a href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License</a><br />
+		<a href="intropython.tar.gz">Download the tarball</a>
+	</div>
+</body>
+</html>

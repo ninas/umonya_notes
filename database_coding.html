@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Introductory Programming in Python: Interfacing with Databases using Python</title>
+	<link rel='stylesheet' type='text/css' href='style.css' />
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+	<script src="animation.js" type="text/javascript">
+	</script>
+</head>
+
+<body onload="animate_loop()">
+	<div class="page">
+
+		<h1>Introductory Programming in Python: Lesson 35<br />
+		Interfacing with Databases using Python</h1>
+		
+		<div class="centered">
+			[<a href="database_SQL.html">Prev: Structured Query Language</a>]&nbsp;[<a href="index.html">Course Outline</a>]&nbsp;[<a href="parallel_processing.html">Next: Parallel Processing</a>]
+		</div>
+
+		<p>Now that we have a grip on SQL and its use via a database client, we
+		want to be able to do the thing from within a python script. Ideally we
+		we would like to extract information from the database into native
+		python data structures, rather than as text we have to parse, and in
+		fact there are a variety of python modules available that allow us to do
+		exactly this. Different modules are required for different RDBMSs, but
+		python has defined a standard interface for such modules, called the
+		Python DB API. All modules subscribing to this interface standard
+		operate in a nearly manner.</p>
+
+		<h2>Opening a Connection to the Database</h2>
+
+		<p>We're going to look at three database interface modules; psycopg,
+		pypgsql, and mysqldb. The first two interface with PostgreSQL, and the
+		third with MySQL. None of these modules comes standard with python, but
+		the installation details are once again dependant on OS and
+		distribution. Despite having just claimed the database interfaces are
+		standardised in Python, the exception that proves the rule is of course
+		the first thing we have to deal with. As mentioned previously, different
+		RDBMSs use different authentication methods, and as a result connection
+		methods are fundamentally different. Let's connect to our library
+		example database. We assume that the database is called 'library', and
+		that we are connecting to a database server running locally.</p>
+
+<pre class='listing'>
+&gt;&gt;&gt; import psycopg2
+&gt;&gt;&gt; conn = psycopg2.connect(user='james', password='james', database='library')
+</pre>
+
+<pre class='listing'>
+&gt;&gt;&gt; from pyPgSQL import PgSQL
+&gt;&gt;&gt; conn = PgSQL.connect(user='james', password='james', database='library')
+</pre>
+
+<pre class='listing'>
+&gt;&gt;&gt; import MySQLdb
+&gt;&gt;&gt; conn = MySQLdb.connect(user='james', passwd='james')
+&gt;&gt;&gt; conn.select_db("library")
+</pre>
+
+		<p>Here we can see that calling the connect function from our chosen
+		database module returns what is known as a connection object.</p>
+
+		<p>We can also connect to remote database servers by passing the extra
+		keyword argument 'host' and giving a hostname as the value, and if the
+		server is running on a non-default port, we can use the 'port' keyword
+		specify a port.</p>
+
+		<h2>Cursors</h2>
+
+		<p>While RDBMSs are capable of treating collections of rows as singular
+		units, procedural languages like python are often forced to deal with
+		such collections rows by row. The concept of a <strong>cursor</strong>
+		was introduced, which provides a method of iterating through collections
+		of rows. For the most part the technicalities of cursors are
+		unimportant, their just a way for python to get rows one at a time.</p>
+
+		<p>We still need to create a cursor to use though, which we do by using
+		the connection object to instantiate a cursor object.</p>
+
+<pre class='listing'>
+&gt;&gt;&gt; curs = conn.cursor()
+</pre>
+		
+		<h2>Executing Queries</h2>
+
+		<p>Using the cursor object we can now send SQL commands as a string.
+		Let's ask for the titles of all books in the fiction category.</p>
+
+<pre class='listing'>
+&gt;&gt;&gt; curs.execute('SELECT title FROM Book WHERE category = 1')
+</pre>
+		
+		<p>Cursors act as generators, which are initially empty. A generator in
+		python is an object that acts similarly to a list, in that we can loop
+		over it using a for loop. When we use a cursor to execute a query, the
+		generator 'fills up' with the rows returned by the database. When we
+		extract these rows, using a for loop for example (indexing does not work
+		with generators), they are returned as tuples. Cursors also provide
+		methods to extract the next row, and all remaining rows.<p>
+
+<pre class='listing'>
+&gt;&gt;&gt; curs.fetchone()
+('Pride & Prejudice',)
+&gt;&gt;&gt; curs.fetchall()
+[('The Time Machine',), ('Day of the Triffids',)]
+>>> curs.fetchall()
+[]
+</pre>
+
+		<p>We can see that after we have fetched all the rows from the database,
+		the cursor returns an empty list. We have to issue a new query to
+		produce more results to fetch.</p>
+
+<pre class='listing'>
+&gt;&gt;&gt; curs.execute('SELECT * FROM Book as B 
+... JOIN Authorship as A ON A.book = B.id AND A.author = 1')
+&gt;&gt;&gt; for row in curs:
+...     print row
+... 
+(1, 'Introductory Programming in Python', 2, 1, 1)
+(3, 'Advanced Programming Techniques', 2, 1, 3)
+</pre>
+
+		<h2>Executing Modification Queries</h2>
+
+		<p>Queries that effect changes to the database are not automatically
+		run. We must 'commit' them. This is done to allow for referential
+		integrity across multiple queries. More simply put, if we have many
+		queries, each updating or inserting information in(to) the database, and
+		we are changing or creating foreign keys specifically, we want some
+		queries to be treated as a single transaction. For example, we don't
+		want to create a book entry, but then have the connection cut before an
+		associated authorship entry is created. The python DB API does not
+		automatically commit any queries that change the database until we
+		explicitly tell it do so by using the commit method of the connection
+		object. First we'll look at the PostgreSQL method, then the MySQL metod.</p>
+
+<pre class='listing'>
+&gt;&gt;&gt; curs.execute("INSERT INTO Book (name) VALUES ('Stanger in a Strange Land')")
+&gt;&gt;&gt; curs.execute("SELECT * FROM currval('Book_id_seq')")
+&gt;&gt;&gt; bookid = curs.next()[0]
+&gt;&gt;&gt; curs.execute("INSERT INTO Author (surname, firstname)
+... VALUES ('Heinlein', 'Robert A')")
+&gt;&gt;&gt; curs.execute("SELECT * FROM currval('Author_id_seq')")
+&gt;&gt;&gt; authorid = curs.next()[0]
+&gt;&gt;&gt; curs.execute("""INSERT INTO Authorship (book, author)
+... VALUES (%i, %i)""")%(bookid, authorid)
+&gt;&gt;&gt; conn.commit()
+&gt;&gt;&gt;
+</pre>
+
+<pre class='listing'>
+&gt;&gt;&gt; curs.execute("INSERT INTO Book (name) VALUES ('Stanger in a Strange Land')")
+&gt;&gt;&gt; bookid = conn.insert_id()
+&gt;&gt;&gt; curs.execute("INSERT INTO Author (surname, firstname)
+... VALUES ('Heinlein', 'Robert A')")
+&gt;&gt;&gt; authorid = conn.insert_id()
+&gt;&gt;&gt; curs.execute("""INSERT INTO Authorship (book, author)
+... VALUES (%i, %i)""")%(bookid, authorid)
+&gt;&gt;&gt; conn.commit()
+&gt;&gt;&gt;
+</pre>
+
+		<p>Again we see a difference in the way the database servers choose to
+		implement certain functionality. One of the other reasons for
+		transactions is avoid problems with concurrent usage. When we insert the
+		Authorship link, we need to know the primary key ids of the Book and
+		Author rows we have just inserted. RDBMSs provide methods to obtain this
+		information in various ways. PostgreSQL for examples automatically
+		creates a sequence object whenever a column of type SERIAL is created.
+		This sequence is named '&lt;table name&gt;_&lt;column name&gt;_seq' and
+		its current value can be accessed using the query <code>SELECT
+		currval('&lt;sequence name&gt;');</code>. PostgreSQL chooses this method
+		because a single table may may multiple serial columns. MySQL, on the
+		other hand, only allows a single AUTO_INCREMENT column, which must be a
+		primary key. As a result, a MySQL cursor object in python has the method
+		<code>&lt;cursor object&gt;.insert_id()</code> which is an integer equal
+		to the integer primary key of the last row inserted by the cursor
+		object.<p>
+
+		<p>The problem comes in when multiple users are using the database at
+		the same time. Suppose we insert a rows, but before we can query the
+		insertion id, someone else inserts a row. We would end up getting the
+		wrong insertion id. Transactions avoid this, by guaranteeing that our
+		entire set of commands are executed in an atomic fashion, i.e.
+		completely or not at all, <strong>and</strong> in an exclusive manner,
+		i.e. no other transaction can interrupt our own.</p>
+
+		<p>Until the call to the commit method is made, nothing is changed in
+		the database. If the connection is broken, no changes are made, all
+		'changes' are lost. We will still receive appropriate error messages
+		from that database engine, meaning we can use this technique to test
+		whether a set of queries will work, and if not, cancel them all at once,
+		by simply closing the cursor with <code>&lt;cursor
+		object&gt;.close()</code> method. Once an error has occurred 'in' a
+		particular cursor object, any attempt at execution via that object will
+		raise an exception to the effect that the transaction has been
+		aborted. Close the cursor, and start again!</p>
+		
+		<p>Executing a read-only query automatically commits any pending
+		queries.</p>
+
+		<h2>Rollbacks</h2>
+
+		<p>The connection object has a method <code>&lt;connection
+		object&gt;.rollback()</code>. When called, this performs what is known
+		as a rollback, essentially undoing any modification made to the database
+		by this connection.<p>
+
+		<h2>Closing Connections</h2>
+
+		<p>Finally, when we are done, we must close our any open cursors and our
+		connection to the database. This is vitally important, as the database
+		engine itself maintains resources on the other side of the connection,
+		so if we don't inform the engine we are closing the connection, those
+		resources may be kept, wasting memory. Closing the connection does not
+		automatically commit any pending queries.</p>
+
+<pre class='listing'>
+&gt;&gt;&gt; curs.close()
+&gt;&gt;&gt; conn.close()
+&gt;&gt;&gt;
+</pre>
+
+		<div class="centered">
+			[<a href="database_SQL.html">Prev: Structured Query Language</a>]&nbsp;[<a href="index.html">Course Outline</a>]&nbsp;[<a href="parallel_processing.html">Next: Parallel Processing</a>]
+		</div>
+
+	</div>
+
+	<div class="pagefooter">
+		Copyright &copy; James Dominy 2007-2008; Released under the <a href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License</a><br />
+		<a href="intropython.tar.gz">Download the tarball</a>
+	</div>
+</body>
+</html>
