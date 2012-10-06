@@ -1,6 +1,0 @@
-1. A program is a sequence of imperative statements that transform some input
-data into some output data.
-
-2. Expressions always have a value. They may also do something, but not
-necessarily. Statements have no value, but do something, e.g. they alter program
-state or issue output.
