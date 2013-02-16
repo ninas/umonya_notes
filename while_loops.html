@@ -27,13 +27,12 @@
 		inputs! What if we wanted a hundred inputs.  Cutting and pasting would
 		work, but making those small changes to each section of code dealing
 		with a specific number would be tedious at best, and error prone at
-		worst. Fortunately, computers excel at repetitive tasks. Small things
-		amuse small minds, I suppose. Enter the <a class="doclink"
-		href="http://olympiad.cs.uct.ac.za/docs/python-docs-2.6/reference/compound_stmts.html#while">while statement</a>.</p>
+		worst. Fortunately, computers excel at repetitive tasks.
+    Enter the while statement:</p>
 
 		<p>The while statement executes a statement, or block of statements,
-		repeatedly, as long as a given expression is True. So let's rethink out
-		previous problem. Formerly we would have described the problem so</p>
+		repeatedly, as long as a given expression is True. So let's rethink our
+		previous problem. Previously, we would have described the problem as:</p>
 
 		<blockquote class='problem'>
 
@@ -86,7 +85,7 @@
 
 			<dt>enter</dt>
 
-			<dd>Relates to input -- raw_input()</dd>
+			<dd>Relates to input -- input()</dd>
 
 			<dt>until</dt>
 
@@ -119,11 +118,11 @@
 		</blockquote>
 
 		<p>Looking at the keywords and their hints, we want to use the
-		raw_input here. This is true of any input from the keyboard generally.
+		input function here. This is true of any input from the keyboard generally.
 		Thus, our first line of code will be</p>
 
 		<pre class='listing'>
-number = raw_input("Enter a number: ")
+number = input("Enter a number: ")
 </pre>
 
 		<blockquote class='problem'>
@@ -146,9 +145,9 @@ number = raw_input("Enter a number: ")
 		we've already got to produce</p>
 
 		<pre class='listing'>
-number = raw_input("Enter a number: ")
+number = input("Enter a number: ")
 while number != '':
-    number = raw_input("Enter another number (or nothing to finish): ")
+    number = input("Enter another number (or nothing to finish): ")
 </pre>
 
 		<p>Note the prompt has changed to tell the user what to do to exit the
@@ -168,9 +167,9 @@ while &lt;expression&gt;:
 		True, will execute those indented statements once, after which it will
 		check the expression again, and execute the statements etc ... If the
 		expression is ever False, execution of the program continues at the
-		first unindented statement after the indented block.</p>
+		first un-indented statement after the indented block.</p>
 
-		<p>There's a little to more to the while loop that pure syntax. Every
+		<p>There's a little more to the while loop that pure syntax. Every
 		loop needs three things; A start point, an end point, and a way to get
 		from one point to another. More importantly there needs to be a
 		relationship between these three things, in the form of a variable. The
@@ -183,9 +182,9 @@ while &lt;expression&gt;:
 		means the value of the counter variable must change
 		<strong>inside</strong> the repeated block of statements, otherwise
 		value of the loop condition won't change, and the loop will repeat
-		forever. Commonly, the statement that changes the counter variable's
-		value is placed at the <em>end</em> of the repeated black of
-		statements, because this mean it is changed immediately before the
+		forever. Commonly, the statement that changes the counter's
+		value is placed at the <em>end</em> of the repeated block of
+		statements, because this means it is changed immediately before the
 		counter variable is checked in the loop condition again. This gives us
 		the pattern:</p>
 
@@ -195,13 +194,13 @@ while &lt;expression&gt;: #&lt;expression&gt; specifies when the loop will stop 
     statement
     statement
     ...
-    counter = &lt;new value of counter&lt; #changes the value of counter
+    counter = &lt;new value of counter&gt; #changes the value of counter
 </pre>
 
 		<blockquote class='problem'>
 
-			After a blank line has been entered the program outputs the number
-			of numbers entered by the user which were even,
+			After a blank line has been entered the program outputs the total amount
+			of numbers entered by the user which were even.
 
 		</blockquote>
 
@@ -220,9 +219,9 @@ while &lt;expression&gt;: #&lt;expression&gt; specifies when the loop will stop 
 
 		<pre class='listing'>
 even = 0
-number = raw_input("Enter a number: ")
+number = input("Enter a number: ")
 while number != '':
-    number = raw_input("Enter another number (or nothing to finish): ")
+    number = input("Enter another number (or nothing to finish): ")
 </pre>
 
 		<p>Now at the end of our program we still have 0 even numbers, because
@@ -231,19 +230,19 @@ while number != '':
 		(increase by one) every time an even number is entered. Firstly, how do
 		we distinguish even numbers from odd? We use an if statement, because
 		this is a condition. Secondly, where to we actually place the counting
-		statements. Here's a suggestion</p>
+		statements. Here's a suggestion:</p>
 
 		<pre class='listing'>
 even = 0
-number = raw_input("Enter a number: ")
+number = input("Enter a number: ")
 while number != '':
     if int(number) % 2 == 0: #if number is even
         even = even + 1
-    number = raw_input("Enter another number (or nothing to finish): ")
+    number = input("Enter another number (or nothing to finish): ")
 </pre>
 
 		<p>A few things about our two new lines deserve mention. Firstly, as we
-		are already familiar with, raw_input() returns a string, so we need to
+		are already familiar with, input() returns a string, so we need to
 		type cast to an integer before we can test whether it is even. Then
 		there's the condition itself. The definition of an even number is a
 		number divisible exactly by 2, i.e. without remainder. The '%' operator
@@ -252,7 +251,7 @@ while number != '':
 		the division is 0, the number is even. Also we have nested the if
 		statement within the while statement, so it may be executed multiple
 		times, one each time a number is entered, to test the number. We have
-		put it <strong>before</strong> the raw_input function within the while
+		put it <strong>before</strong> the input function within the while
 		statement because we don't want to test an empty string (blank line)
 		for evenness in the case where the user has not entered a number and
 		wishes to finish up. This way the while statement's expression tests
@@ -272,20 +271,20 @@ while number != '':
 		<pre class='listing'>
 even = 0
 negative = 0
-number = raw_input("Enter a number: ")
+number = input("Enter a number: ")
 while number != '':
     if int(number) % 2 == 0: #if number is even
         even = even + 1
         if int(number) &lt; 0:
             negative = negative + 1
-    number = raw_input("Enter another number (or nothing to finish): ")
-print "There were ", even, "even numbers, of which", negative, "were also negative"
+    number = input("Enter another number (or nothing to finish): ")
+print("There were", even, "even numbers, of which", negative, "were also negative")
 </pre>
 
 		<p>So we've included a new variable, 'negative', which counts the
 		number of negative entries, but only if those entries are even. Why is
-		this? We haven't specified <code>int(number) % 2 == 0 and int(number)
-		&lt; 0</code>. Instead we have nested the test for negativity inside
+		this? We haven't specified (<code>int(number) % 2 == 0 and int(number)
+		&lt; 0</code>). Instead we have nested the test for negativity inside
 		the test for evenness. This means a number will only be tested, and
 		thus potentially counted, for negativity if it has already been found
 		to be even.</p>
@@ -297,8 +296,7 @@ print "There were ", even, "even numbers, of which", negative, "were also negati
 		<strong>loop</strong>, we can't get out of the loop except when the
 		expression after 'while' (or <strong>loop condition</strong>) is False.
 		Python provides us with a statement for breaking out of a loop,
-		conveniently called <a class="doclink"
-		href="http://olympiad.cs.uct.ac.za/docs/python-docs-2.6/reference/simple_stmts.html#break">break</a>. Suppose we
+		conveniently called break. Suppose we
 		wanted our program for counting even numbers to end not only when a
 		blank line was entered, but also if the user enters the string 'quit'.
 		We could simply add two lines ...</p>
@@ -306,7 +304,7 @@ print "There were ", even, "even numbers, of which", negative, "were also negati
 		<pre class='listing'>
 even = 0
 negative = 0
-number = raw_input("Enter a number (or nothing or 'quit' to quit): ")
+number = input("Enter a number (or nothing or 'quit' to quit): ")
 while number != '':
     if number == 'quit':
         break
@@ -314,8 +312,8 @@ while number != '':
         even = even + 1
         if int(number) &lt; 0:
             negative = negative + 1
-    number = raw_input("Enter another number (or nothing to finish): ")
-print "There were ", even, "even numbers, of which", negative, "were also negative"
+    number = input("Enter another number (or nothing to finish): ")
+print("There were", even, "even numbers, of which", negative, "were also negative")
 </pre>
 
 		<p>Again we check what the user has entered, and if it is the string
@@ -329,9 +327,7 @@ print "There were ", even, "even numbers, of which", negative, "were also negati
 		negative. We can't simply break out of the loop, because the user may
 		want to enter more numbers after the '0'. We could enclose the entire
 		test for evenness in an if statement that makes sure the number entered
-		is not 0, but python provides us with a more elegant solution, the <a
-		class="doclink"
-		href="http://olympiad.cs.uct.ac.za/docs/python-docs-2.6/reference/simple_stmts.html#continue">continue statement</a>.
+		is not 0, but python provides us with a more elegant solution, the continue statement.
 		The continue statement jumps the flow of execution immediately back to
 		the loop condition, at which point normal loop execution flow
 		resumes.</p>
@@ -339,28 +335,26 @@ print "There were ", even, "even numbers, of which", negative, "were also negati
 		<pre class='listing'>
 even = 0
 negative = 0
-number = raw_input("Enter a number (or nothing or 'quit' to quit): ")
+number = input("Enter a number (or nothing or 'quit' to quit): ")
 while number != '':
     if number == 'quit':
         break
     if number == '0':
-        number = raw_input("Enter another number (or nothing or 'quit' to quit): ")
+        number = input("Enter another number (or nothing or 'quit' to quit): ")
         continue
     if int(number) % 2 == 0: #if number is even
         even = even + 1
         if int(number) &lt; 0:
             negative = negative + 1
-    number = raw_input("Enter another number (or nothing or 'quit' to quit): ")
-print "There were ", even, "even numbers, of which", negative, "were also negative"
+    number = input("Enter another number (or nothing or 'quit' to quit): ")
+print("There were", even, "even numbers, of which", negative, "were also negative")
 </pre>
 
 		<h2>else Clauses in while loops</h2>
 
 		<p>'while loop' statements may also have an else clause, which is
 		executed when the loop terminates when the condition becomes False, but
-		not when the loop is terminated by a break statement. A nice example of
-		this can be found <a class="doclink"
-		href='http://olympiad.cs.uct.ac.za/docs/python-docs-2.6/tutorial/controlflow.html#break-and-continue-statements-and-else-clauses-on-loops'>here</a>.</p>
+		not when the loop is terminated by a break statement.
 
 		<pre class='definition'>
 while &lt;expression&gt;:
@@ -379,9 +373,9 @@ else:
 i = 1
 while i < 32:
     if 32%i == 0:
-        print i, "is a factor of 32"
+        print(i, "is a factor of 32")
     else:
-        print i, "is not a factor of 32"
+        print(i, "is not a factor of 32")
 </pre>
 
 		<ol>
@@ -407,10 +401,6 @@ while i < 32:
 			prints the sum of numbers from the lowest number entered to the
 			highest number entered.</li>
 
-			<!--<li>Write a program that asks the user for a nucleotide
-			sequence in any case (including mixed case). Output the
-			sequence in lower case, on a single line, without spaces.</li>-->
-
 			<li>Write a program that asks the user to enter a sequence of
 			numbers, ending with a blank line. Print out the smallest of those
 			numbers.</li>
@@ -419,41 +409,10 @@ while i < 32:
 			numbers, ending with a blank line. Print out the average of those
 			numbers.</li>
 
-			<!--<li>Write a program that asks the user for a list of names
-			ending with a blank line. The program then outputs a neat list
-			containing the following, each on their own line, labelled: The
-			first name alphabetically. The last name alphabetically, the
-			shortest name, and the longest name.</li>-->
-
 			<li>Write a program that prints the numbers from 1 to 100, 10
 			per each line.</li>
 
-			<!--<li>Modify your solution to question 10 so that instead of printing
-			the average and then terminating when a blank line is entered, it
-			prints the average and then asks if the user wants to repeat the
-			process. If the user answers 'y' the process is repeated, otherwise
-			the program terminates.</li>-->
-
-			<!--<li>Write a program that asks the user to enter two different
-			phrases, and a single letter. Count the number of occurrences
-			of the inputed letter in each phrase and output the phrase with
-			the most occurrences.</li>-->
-
-			<!--<li>Write a program that asks the user for a sequence of
-			floats, ending in a blank line. The user is then allowed to
-			give one of the following commands:<ul>
-				<li>mean: prints the mean of the numbers</li>
-				<li>sum: prints the sum of the numbers</li>
-				<li>quit: exits the program</li>
-			</ul>
-			If 'mean' or 'sum' are entered, the program responds and then
-			waits for more input.</li>-->
-
 		</ol>
-
-		<div class="centered">
-			[<a href="conditionals.html">Prev: Flow Control: Conditionals</a>]&nbsp;[<a href="index.html">Course Outline</a>]&nbsp;[<a href="lists.html">Next:  Lists</a>]
-		</div>
 	</div>
 
 	<div class="pagefooter">
