@@ -23,9 +23,9 @@
 
 		<p><a href="http://www.vim.org">Vim</a> is a text editor standard on
 		nearly all *nix distributions. The only two distributions I know of
-		that don't have Vim standard are gentoo and linux from scratch. Vim
+		that don't have Vim standard are Gentoo and Linux from scratch. Vim
 		stands for 'vi improved' as Vim is based on the original visual (as
-		opposed to line oriented) editor for unix, called 'vi'. Vi, and thus
+		opposed to line oriented) editor for Unix, called 'vi'. Vi, and thus
 		Vim, represent a fundamentally different way of editing files, as
 		compared to the now more common methods employed by editors such as
 		EMACS, Notepad, Kate, and pretty much every other editor out there. The
@@ -91,7 +91,7 @@ sirlark@hephaestus ~ $ vim myfile.txt
 		<ul>
 
 			<li><code>w</code> moves to the beginning of the next word, where a
-			word is considered an alphnumeric sequence of characters, i.e.
+			word is considered an alphanumeric sequence of characters, i.e.
 			punctuation breaks up words.</li>
 
 			<li><code>W</code> moves to the beginning of the next word, where a
@@ -110,7 +110,7 @@ sirlark@hephaestus ~ $ vim myfile.txt
 			sub-mode.</li>
 
 			<li><code>CTRL-R</code> redoes the last action undone by an undo
-			comamnd.</li>
+			command</li>
 
 			<li><code>y&lt;motion&gt;</code> yanks (or copies) the motion for
 			later pasting. If the motion is across multiple lines, all lines
@@ -122,7 +122,7 @@ sirlark@hephaestus ~ $ vim myfile.txt
 			<li><code>u</code> undoes the last action.</li>
 
 			<li><code>i</code> enters Insert mode at the point in the file
-			where the cursor is postioned. Synonyms: <code>INS</code></li>
+			where the cursor is positioned Synonyms: <code>INS</code></li>
 
 			<li><code>o</code> enters Insert Mode by inserting a new blank line
 			beneath the line the cursor is currently on. Upon entering insert
@@ -182,7 +182,7 @@ sirlark@hephaestus ~ $ vim myfile.txt
 			Synonyms:<code>Up</code></li>
 
 			<li><code>J</code> joins the line after that which the cursor is on
-			to the end of the current line, stripping any of the precedeing
+			to the end of the current line, stripping any of the preceding
 			white space on the lower line.</li>
 
 			<li><code>k</code> moves the cursor one line down.
@@ -209,7 +209,7 @@ sirlark@hephaestus ~ $ vim myfile.txt
 
 			<li><code>v</code> starts visual mode.</li>
 
-			<li><code>V</code> starts line oreiented visual mode.</li>
+			<li><code>V</code> starts line oriented visual mode.</li>
 
 			<li><code>CTRL-v</code> start rectangular or block visual
 			mode.</li>
@@ -223,7 +223,7 @@ sirlark@hephaestus ~ $ vim myfile.txt
 			at the beginning of the current word.</li>
 
 			<li><code>n</code> searches for the next (in the direction of the
-			current search) occurence of pattern.</li>
+			current search) occurrence of pattern.</li>
 
 			<li><code>{</code> moves the cursor to the beginning of the current
 			paragraph. When editing code, depending on the language, often
@@ -234,10 +234,10 @@ sirlark@hephaestus ~ $ vim myfile.txt
 			jumps to the end of the code block.</li>
 
 			<li><code>/</code> prompts for a pattern for which to search, and
-			searches forwards for the next occurence of it in the file.</li>
+			searches forwards for the next occurrence of it in the file.</li>
 
 			<li><code>?</code> prompts for a pattern for which to search, and
-			searches backwards for the next occurence of it in the file.</li>
+			searches backwards for the next occurrence of it in the file.</li>
 
 			<li><code>.</code> performs the last action again.</li>
 
@@ -295,7 +295,7 @@ sirlark@hephaestus ~ $ vim myfile.txt
 
 				<code>:s/&lt;search pattern&gt;/&lt;replace
 				pattern&gt;/&lt;options&gt;</code> searches for the first
-				occurence of pattern on every line within the given range (or
+				occurrence of pattern on every line within the given range (or
 				the current line only, if no range is given) and replaces it
 				with the replacement pattern. Options can be
 
@@ -304,7 +304,7 @@ sirlark@hephaestus ~ $ vim myfile.txt
 					<li><code>g</code> replace every pattern on a line, not
 					just the first</li>
 
-					<li><code>c</code> prompt for confirmation before repacing
+					<li><code>c</code> prompt for confirmation before replacing
 					each pattern.</li>
 				
 				</ul>
@@ -316,7 +316,7 @@ sirlark@hephaestus ~ $ vim myfile.txt
 			are loaded.</li>
 
 			<li><code>:!&lt;shell command&gt;</code> runs the shell command
-			specified. If a range is given, the lines speicifed in the range
+			specified. If a range is given, the lines specified in the range
 			will be piped to the shell command, and it's output will replace
 			those lines.</li>
 
@@ -352,7 +352,7 @@ sirlark@hephaestus ~ $ vim myfile.txt
 		<h2>Visual/Selection Mode</h2>
 
 		<p>From Command mode one can highlight or select text to operate on
-		using the visual ro selection modes, of which there are three. All oF
+		using the visual or selection modes, of which there are three. All of
 		them operate by highlighting from the cursor position when the mode is
 		entered to the current cursor position, and show the message '-- VISUAL
 		--' in the bottom left corner of the screen when we are in them.
@@ -377,8 +377,8 @@ sirlark@hephaestus ~ $ vim myfile.txt
 		then we will be returned to command mode. If that command operates only
 		on entire lines, then all the lines selected, even if only partially
 		selected, will be operated on. Otherwise the interactions of commands
-		and selections are to lengthly to describe, although they tend to be
-		resonably intuitive. All I can say is experiment.</p>
+		and selections are too lengthy to describe, although they tend to be
+		reasonably intuitive. All I can say is: experiment.</p>
 
 		<h2>Getting Help</h2>
 
