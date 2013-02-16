@@ -146,7 +146,7 @@ def       for       lambda    try
 		<p><code>numOfPeople>5 <strong>and</strong> numOfPeople&lt;40 <strong>and</strong> (day=='Friday' <strong>or</strong> day=='Saturday')</code></p>
 		<p> This will produce true if the party has between 5 and 40 people, and it is either a Friday or a Saturday. <strong>Note the brackets around the parts next to the or</strong>. Brackets are used here to define which expression to evaluate first. This is because the evaluation of boolean algebra also follows a hierarchy system, </strong>BODMASCNAO.</strong> Your standard BODMAS operations on numbers and variables come first. Then comes your conditions (>,==,<,in) then comes <strong>not</strong> then <strong>and</strong> and finally comes <strong>or</strong>. So if we left out the brackets and only had: </P
 		<p><code>numOfPeople>5 <strong>and</strong> numOfPeople&lt;40 <strong>and</strong> day=='Friday' <strong>or</strong> day=='Saturday'</code></p>
-		<p> This could be interpreted as yes if the party has between 5 and 40 people and its a Friday, or its a Saturday (In which case the number of people doesn't matter). Hence its very important to get your BODMAS right else you're going to be going to lame parties with only 2 other people, just because its a Saturday. Lets look at some examples:</p>
+		<p> This could be interpreted as yes if the party has between 5 and 40 people and its a Friday, or if its a Saturday (In which case the number of people doesn't matter). Hence its very important to get your BODMAS right else you're going to be going to lame parties with only 2 other people, just because its a Saturday. Lets look at some examples:</p>
 		<pre class='listing'>		
 >>> 3>4 and 25==20
 False
