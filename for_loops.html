@@ -21,7 +21,7 @@
 
 		<h2>Loops over Lists</h2>
 
-    <p>In <a href="lists.html">lesson 8</a> we introduced the concept of lists. </p>
+    <p>In lesson 8 we introduced the concept of lists. </p>
 
 		<p>A list is a type of variable that contains other elements. For instance we could create a shopping list. </p>
 
@@ -39,7 +39,7 @@
 <pre class='listing'>
 >>> index=0
 >>> while (index&lt;len(shopping)):
-...     print shopping[index]
+...     print(shopping[index])
 ...     index+=1
 ... 
 Milk
@@ -52,10 +52,9 @@ Jacket
 </pre>
 
 		<p>That works, but, once again python provides us a better tool for the job in the form of
-		the <a class="doclink" href="http://olympiad.cs.uct.ac.za/docs/python-docs-2.6/reference/compound_stmts.html#for">for
-		statement</a>.</p>
+		the <strong>for</strong> statement.</p>
 
-		<p>The for statement is also a looping statement, like the while statement, except that it loops
+		<p>The <strong>for</strong> statement is also a looping statement, like the while statement, except that it loops
 		over the elements of a list rather than until a boolean expression is false. It looks like this</p>
 
 		<pre class='definition'>
@@ -67,11 +66,11 @@ for &lt;element&gt; in &lt;list&gt;:
 
 		<p>Where 'element' is a variable name (not necessarily 'element'),
 		which may be as yet unassigned (the for statement will assign a value
-		to it), or may be an already extant variable, in which case a new value
+		to it), or may be an already existing variable, in which case a new value
 		will be assigned to that variable by the for statement. 'list' is an
 		expression whose value is of type list.</p>
 
-		<p>What this does exactly is execute the indented statements
+		<p>What this does exactly is execute the statements
 		<strong>once for each element in the list 'list'</strong>. Each time
 		the statements are executed, the variable in the position of 'element'
 		is assigned the value of the next element in 'list', starting with the
@@ -83,7 +82,7 @@ for &lt;element&gt; in &lt;list&gt;:
 #a small program to display your shopping list
 shopping=['Milk','Bread','Eggs','Motherboard','Cheese','Jacket']
 for i in shopping:
-	print "Item:",i
+	print("Item:",i)
 </pre>
 		<p>produces the following output</p>
 		<pre class='listing'>
@@ -101,7 +100,7 @@ indexes=[0,1,2,3,4,5]
 shopping=['Milk','Bread','Eggs','Motherboard','Cheese','Jacket']
 prices=['8','6','10','800','30','150']
 for i in indexes:
-	print "Item number",i,"is",shopping[i],"and it costs R",prices[i]
+	print("Item number",i,"is",shopping[i],"and it costs R",prices[i])
 </pre>
 		produces the following output
 
@@ -113,12 +112,11 @@ Item number 3 is Motherboard and it costs R 800
 Item number 4 is Cheese and it costs R 30
 Item number 5 is Jacket and it costs R 150
 </pre>
-		<p><i>Note that if you were printing this for your mother, she might not understand why milk is the 0th item and not the 1st, so you might want to <strong>print i+1</strong> so that it seems to start at 1.</i></p><p> That works alright. But if we were dealing with larger lists,
+		<p><i>Note that if you were printing this for your mother, she might not understand why milk is the 0th item and not the 1st, so you might want to <strong>print(i+1)</strong> so that it seems to start at 1.</i></p><p> That works alright. But if we were dealing with larger lists,
 		like of 19 items, or even thousands of items, we really don't
 		want to have to type out the list of possible indexes ([0, 1, 2, ...,
 		19]) every time. Python again comes to the rescue with another built in
-		function, <a class="doclink"
-		href="http://olympiad.cs.uct.ac.za/docs/python-docs-2.6/library/functions.html">range</a>.
+		function, <strong>range</strong>.
 		'range' returns a list of numbers within a given range, and defined as
 		follows</p>
 
@@ -152,12 +150,12 @@ range([start,] stop [, step])
 #a small program to display a numbered shopping list
 shopping=['Milk','Bread','Eggs','Motherboard','Cheese','Jacket']
 for i in range(len(shopping)):
-	print "Item number",i,"is",shopping[i]
+	print("Item number",i,"is",shopping[i])
 </pre>
 		<p>The 'for loop' isn't only used with lists. The 'for loop' can be used with any iterable structure, ie. any structure which can be indexed. One such structure is the string, which you'll examine in depth in the next chapter. As has been mentioned previously, the string is basically a list of characters, and hence you can use a 'for loop' to iterate through those characters. So for example to print every letter of a word on a new line:
 		<pre class='listing'>
 >>> for i in "Any Word":
-...     print i
+...     print(i)
 ... 
 A
 n
@@ -171,28 +169,28 @@ d
 		<p> The 'for loop' also works on parts sections of lists, and edited lists, here are some examples:</p>
 		<pre class='listing'>
 >>> for i in ["Ford","Mercedes","BMW","Audi","Toyota","Nissan"][2:5]:
-...     print i
+...     print(i)
 ... 
 BMW
 Audi
 Toyota
 >>> for i in "Experts Exchange"[6:10]:
-...     print i,
+...     print(i,)
 ... 
 s   E x
 >>> for i in ["Animals",3,"blah"]+[2,True,"for you"]:
-...     print i, " | ",
+...     print(i, " | ",)
 ... 
 Animals  |  3  |  blah  |  2  |  True  |  for you  | 
 >>> for i in "Hello how are you doing?"[::2]:
-...     print i,
+...     print(i,)
 ... 
 H l o h w a e y u d i g
 </pre>
 
 		<h2>else Clauses in for loops</h2>
 
-		<p>'for loop' statements may also have an else clause, which is
+		<p>'for loop' statements may also have an 'else' clause, which is
 		executed when the list is exhausted, but not when the loop is
 		terminated by a break statement.</p>
 
@@ -215,13 +213,13 @@ else:
 			<li>Write a program that asks the user for their name, and a
 			number, then prints out the user's name, with some motivational comment, that many times.</li>
 
-			<li>What is an expression using the range function that yields a
+			<li>What is an expression, using the range function, that yields a
 			list of 10 consecutive integers starting at 0?</li>
 
-			<li>What is an expression using the range function that yields a
+			<li>What is an expression, using the range function, that yields a
 			list of 100 consecutive integers starting from 1?</li>
 
-			<li>What is an expression using the range function that yields a
+			<li>What is an expression, using the range function, that yields a
 			list of 100 consecutive <strong>even</strong> integers starting
 			from 2?</li>
 
