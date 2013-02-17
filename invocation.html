@@ -60,7 +60,7 @@ IDLE 2.6.4      ==== No Subprocess ====
 		built, and on what system it is running. The third line lists some
 		commands you can use to get more information. Whilst in the interactive
 		shell, you can enter python expressions and see their results
-		immediately. Try it now, type in a simple mathematical expression such
+		immediately. Try it now: type in a simple mathematical expression such
 		as <code>4 + 7</code>.</p>
 
 		<pre class='listing'>
@@ -69,9 +69,10 @@ IDLE 2.6.4      ==== No Subprocess ====
 &gt;&gt;&gt;
 </pre>
 
-		<p>As you can see, the answer or result of the expression, is printed
-		out, and you are returned to the prompt "&gt;&gt;&gt;" Now try
-		something different; type in <code>a = 2 + 7</code>.</p>
+		<p>As you can see, the answer or result of the expression is printed
+		out, and you are returned to the prompt "&gt;&gt;&gt;". Now try
+		something different: type in <code>a = 2 + 7</code>.  Then, on the
+		next line, type just <code>a</code>.</p>
 
 		<pre class='listing'>
 &gt;&gt;&gt; a = 2 + 7
@@ -87,24 +88,24 @@ IDLE 2.6.4      ==== No Subprocess ====
 		always prints out the value of expressions, but not of statements. This
 		means however that the labels to which we assign values, more correctly
 		called <strong>variables</strong>, are expressions that evaluate to a
-		value.</p>
+		value, which is why it printed out <code>9</code> when we input <code>
+		a</code>.</p>
 
 
-		<h2>Running a saved python Script</h2>
+		<h2>Running a saved python script</h2>
 
 		<p>Whilst ideal as a calculator and for exploring new ideas quickly, it
 		would be pretty tedious if we had to re-enter our program into the
 		interactive shell every time we wanted to run it. So instead we can,
 		and in fact most often will, save our program code to a file. Program
 		source code is plain raw text. As such word processors like Microsoft
-		Word, Wordperfect, Open Office etc... are not suitable to the task. We will
+		Word, Wordperfect and Open Office are not suitable to the task. We will
 		look for Idle which is specifically geared towards creating python programs,
-		and comes with
-		python. </p>
+		and comes with python. </p>
 
 		<p>So now, instead of running the interactive shell, let's write our
-		first python program, this is also known as a script. Open up the fist
-		window again and do the following</p>
+		first python program (also known as a 'script'). Open up the first
+		window again and do the following:</p>
 
 		<ol>
 			<li>Click on <strong>"File" > "Save"</strong></li>
@@ -133,31 +134,31 @@ Hello World!
 		<p>This is a very simple program, but it should help you get the 
 		idea. The computer is only following the instructions you provided
 		to it. Lets convert the test we did on the Interpreter to a program.
-		save it as 'second.py'
+		Save it as 'second.py'
 		</p>
 
 
 
 		<pre class='listing'>
-#My second python program
-4 + 7 #This should add two numbers and output the result
+# My second python program
+4 + 7 # This should add two numbers and output the result
 a = 2 + 7
 a
 </pre>
 
 		<p>Notice the first and second lines. They contain what are called
-		<strong>comments</strong>. Any text following a hash character on a
+		<strong>comments</strong>. Any text following a hash character ("#") on a
 		line in a python program is a comment, including the hash itself.
 		Comments are completely ignored by python, and are there purely to
 		annotate code and make things easier for humans reading the code. We
 		use comments to place small reminders within the code for ourselves, or
-		explain the logic behind particularly tricky sections, etc... As we
-		progress through the course, you will find the code examples used
+		explain the logic behind particularly tricky sections. As we
+		progress through the course, you will find the code examples used are
 		sprinkled more and more liberally with comments explaining how they
 		work.</p>
 
 		<p>Now it would be reasonable to expect that if we ran this program we
-		would get the same results as given to us by the interactive shell. So
+		would get the same results as given to us by the interactive shell. So,
 		let's try it. 
 
 		<pre class='listing'>
@@ -166,15 +167,15 @@ a
 </pre>
 
 		<p>No output? Nothing? The python interpreter (python), when called
-		without a file name following, starts up in the interactive shell. Only
+		without a file name following it, starts up in the interactive shell. Only
 		then will it output the results of expressions entered. When invoked
-		with a file name following, and that file contains python code, python
-		will only produce output if explicitly told to do so. So lets use a trick 
-		from our first program. Modify the code so it looks like the following</p>
-		
+		with the name of a file containing python code, python will only
+		produce output if explicitly told to do so. So, let's use a trick from
+		our first program. Modify the code so it looks like the following:</p>
+
 		<pre class='listing'>
-#My second python program
-4 + 7 #This should add two numbers and output the result
+# My second python program
+4 + 7 # This should add two numbers and output the result
 a = 2 + 7
 print a
 </pre>
@@ -194,19 +195,19 @@ print a
 		same, as illustrated below ...</p>
 		
 		<pre class='listing'>
-#This program illustrates how python is case sensitive
+# This program illustrates how python is case sensitive
 
-a = 3 #assign a the value 3
-A = "Hi" #assign A the value "Hi"
+a = 3 # assign a the value 3
+A = "Hi" # assign A the value "Hi"
 
-#check whether assigning to A has changed a
+# Check whether assigning to A has changed a
 print a
 
-#check that A and a are still different
+# Check that A and a are still different
 print "A = ", A, " and  a = ", a
 </pre>
 
-		<p>which produces as output</p>
+		<p>Running this produces the output:</p>
 		
 <pre class='listing'>
 3
@@ -217,9 +218,9 @@ A = Hi  and  a = 3
 
 		<ol>
 
-				<li>Start the Python Interpreter? </li>
+				<li>Start the Python interpreter </li>
 
-				<li>Try using the Interpretor as a calculator? </li>
+				<li>Try using the interpreter as a calculator </li>
 
 				<li>Write the Hello World program. </li>
 
@@ -229,7 +230,7 @@ A = Hi  and  a = 3
 
 		</ol>
 
-		<p>Consider the following lines code...</p>
+		<p>Consider the following lines of code:</p>
 
 		<pre class='listing'>a = 9
 b = 3
