@@ -21,28 +21,19 @@
 
 		<h2>The Concept of State</h2>
 
-		<p>As we know, programs execute statements in sequential order. They
-		flow through your code, left to right, top to bottom. As statements are
-		executed, things happen; output is issued, calculations are done, and
-		the <strong>state</strong> of your program changes. But what is state?
+		<p>As we know, programs execute statements in sequential order. They flow through your code, left to right, top to bottom. As statements are executed, things happen: output is issued, calculations are done, and the <strong>state</strong> of your program changes. But what is state?
 		Loosely put, state refers to all the data your program is dealing with
 		and their <strong>current</strong> values at the point in time when a
-		particular statement is about to be executed. Since the entire point of
-		a program is to transform input data into some meaningful output data,
-		it stands to reason that the program will modify the values of the data
-		it is dealing with. This occurs in a stepwise fashion, statement by
-		executed statement. But we need a way to record the state of our
-		program in conveniently manageable units, which we shall call
-		<strong>variables</strong>, as their value may vary over the course of
-		program execution.</p>
+		particular statement is about to be executed. Since the entire point of a program is to transform input data into some meaningful output data, it stands to reason that the program's state will change as it executes statements. We need a way to record the state of our program in manageable units. We shall call these units
+		<strong>variables</strong>, since their values may vary as our program executes.</p>
+
 
 		<p>Variables each have a name, a type, and a value. A name is simply
-		the name we choose to call a particular piece of data. For example, we
+		what we choose to call a particular piece of data. For example, we
 		previously called the bit of data representing the total number of
-		apples held by everyone 'apples'. The value of apples started at 0, and
-		as more people were inputed into the problem, the number of apples
-		increased and so, accordingly, did the value of our variable
-		'apples'.</p>
+		apples held by everyone 'apples'. We stored a number in 'apples', so this would be its type. The value of 'apples' started at 0. As more people were input into the problem, the number of apples
+		increased. Accordingly, the value of our variable
+		'apples' changed.</p>
 
 		<p><strong>Type</strong> refers to the type of value a variable can
 		have. Text is not the same as a number, thus they are considered
@@ -69,14 +60,13 @@
 
 			<dt>None</dt>
 
-			<dd>None is both a value and a type specifying a value that is not
-			of any type nor has any actual value.</dd>
+			<dd>None is used to specify a variable which has no type or actual value.</dd>
 		
 		</dl>
 
 		<h2>Assignment Statements</h2>
 
-		<p>To create a new variable for use we simply <strong>assign</strong>
+		<p>To create a new variable, we simply <strong>assign</strong>
 		it a value, by giving it a name and setting the name equal to the
 		value. We do this by using the <strong>assignment statement</strong>
 		which takes the form</p>
@@ -86,17 +76,14 @@
 		</div>
 
 		<pre class='listing'>
-Python 2.6.4 (r264:75706, Dec 7 2009, 18:43:55) [MSC v.1310 32 bit (Intel)] on win32 
-[GCC 3.4.6 (Gentoo 3.4.6-r1, ssp-3.4.5-1.0, pie-8.7.9)] on linux2
-Type "help", "copyright", "credits" or "license" for more information.
 &gt;&gt;&gt; name = "James"
 &gt;&gt;&gt;
 </pre>
 
 		<p>Here we have created a new variable, whose name is 'name', and which
-		has the value <em>James</em>. We did not explicitly state the type of
-		'name' to be a string, as python takes care of this for us. When
-		assigning a value to a variable, python automatically sets the type of
+		has the value <em>James</em>. Note, we did not explicitly state the type of
+		'name' to be a string. When
+		assigning a value to a variable, Python automatically sets the type of
 		variable being assigned to the type of the value being assigned. If we
 		go on to assign name again, this time with a different value</p>
 
@@ -105,11 +92,11 @@ Type "help", "copyright", "credits" or "license" for more information.
 &gt;&gt;&gt;
 </pre>
 
-		<p>The value of 'name' has changed. If we want to see what the value of
+		<p>the value of 'name' will be changed. If we want to see what the value of
 		a variable is we can simply print it:</p>
 
 		<pre class='listing'>
-&gt;&gt;&gt; print name
+&gt;&gt;&gt; print("name")
 Jimbo
 &gt;&gt;&gt;
 </pre>
@@ -124,12 +111,12 @@ Jimbo
 &gt;&gt;&gt; i = 1
 &gt;&gt;&gt; j = i
 &gt;&gt;&gt; i = 2
-&gt;&gt;&gt; print "i =", i, "and j =", j
+&gt;&gt;&gt; print("i =", i, "and j =", j)
 i = 2 and j = 1
 &gt;&gt;&gt;
 </pre>
 
-		<p>So let's look at what we've done, step by step.</p>
+		<p>Let's look at what we've done, step by step.</p>
 
 		<ol>
 
@@ -152,7 +139,7 @@ i = 2 and j = 1
 			We assign a new value to 'i'. The old value of 'i' is
 			discarded.</li>
 
-			<li><code>print "i =", i, "and j =", j</code><br />
+			<li><code>print("i =", i, "and j =", j)</code><br />
 
 			We output the current values of 'i' and 'j' respectively.</li>
 
@@ -162,9 +149,9 @@ i = 2 and j = 1
 		assignment statement does something very specific. It changes the
 		current value of the variable being assigned to the value of the
 		expression to the right of the equals. This means that the value of the
-		expression must be determined before actually changing the value of the
+		expression is determined before actually changing the value of the
 		variable. As you can see from the output produced by our little
-		program, assignments do not 'hold true' over time in the same way as a
+		program, assignments do not behave in the same way as a
 		similar statement in maths does. <code>j = i</code> does not mean that
 		'j' and 'i' are always equivalent. The only thing that can be certainly
 		said about the relationship between 'j' and 'i' is that they will be
@@ -190,10 +177,7 @@ i = 2 and j = 1
 
 			<li><code>x = x + 1</code><br />
 
-			The value of the expression 'x + 1' is determined. Since 'x' is 1,
-			and complex expressions are built out of simple atomic expressions
-			using operators like '+', we can transform the expression into '1 +
-			1' since variables are considered in expressions to be their
+			The value of the expression 'x + 1' is determined. Since 'x' is 1, we can transform the expression into '1 + 1' since variables in expressions are considered to have their
 			current value.</li>
 
 			<li><code>x = 1 + 1</code><br />
@@ -202,7 +186,7 @@ i = 2 and j = 1
 			2.</li>
 
 			<li><code>x = 2</code><br />
-
+	
 			2 is assigned as the <strong>new</strong> value of 'x'.</li>
 
 		</ol>
@@ -212,10 +196,7 @@ i = 2 and j = 1
 		<p>Obviously we want to be able do more than simply assign values to
 		variables. We need to be able to manipulate and combine them in various
 		ways. For integers and floats this leads directly to arithmetic
-		notation, and its representations in python.  Also how can we determine
-		how variables of different types act when manipulated arithmetically.
-		In general basic arithmetic expressions can be formed in much the same
-		way as one would express them mathematically. If 'x' and 'y' are either
+		notation, and its representations in Python. In general, basic arithmetic expressions can be formed in much the same way as one would express them mathematically. If 'x' and 'y' are either
 		integers or floats then</p>
 
 		<ul>
@@ -236,32 +217,32 @@ i = 2 and j = 1
 		be used to form arithmetic expressions. But, suppose we have the
 		expression <code>2+3*4</code>. Which of the addition or the
 		multiplication operators is applied first? One might think the
-		operators are applied simply left to right, but as in maths, instead we
+		operators are applied simply left to right, but as in maths, we
 		have a well defined order of <strong>precedence</strong> specifying
-		which operators are applied and in what order. The complete list of
-		python operators and their precedence can be found <a class="doclink"
+		the order in which operators are applied. The complete list of
+		Python operators and their precedence can be found <a class="doclink"
 		href="http://olympiad.cs.uct.ac.za/docs/python-docs-2.6/reference/expressions.html#summary">here</a>. In general
-		python arithmetic operates exactly as it would in normal
+		Python arithmetic operates exactly as it would in normal
 		mathematics.</p>
 
-		<p>In the same way variables have a type, so too do expressions have a
+		<p>In the same way variables have a type, so too expressions have a
 		type associated with their value. The type of the value of an
 		expression is generally determined by the types comprising the
 		expression. For example, adding one integer to another in an expression
-		always yields an integer, so the expression has type integer. But what
-		happens when you mix two, or more, types in an expression? In general
+		always yields an integer, so the expression's type is integer. But what
+		happens when you mix two, or more, types in an expression? In general,
 		all participating sub-expressions have their type promoted to the most
 		general type. By general, we mean 'most capable of representing all
 		types involved'. For example, the value 0.5 cannot be represented by an
-		integer, but the value 3 can be represented by a float as in 3.0. Hence
+		integer, but the value 3 can be represented by a float as 3.0. Hence
 		adding a float to an integer means the integer gets promoted to a float
-		and the type of the value of the expression as a whole will be a float.
+		and the type of the expression's value as a whole will be a float.
 		Division however acts slightly differently:</p>
 
 		<pre class='listing'>
-&gt;&gt;&gt; print 4/2
+&gt;&gt;&gt; print(4/2)
 2
-&gt;&gt;&gt; print 5/2
+&gt;&gt;&gt; print(5/2)
 2
 &gt;&gt;&gt;
 </pre>
@@ -276,19 +257,19 @@ i = 2 and j = 1
 		float:</p>
 
 		<pre class='listing'>
-&gt;&gt;&gt; print 5/2.0
+&gt;&gt;&gt; print(5/2.0)
 2.5
 &gt;&gt;&gt;
 </pre>
 
-		<p>However, often we actually want the integer part of a division only,
-		and equally so the remainder. Python provides us with an operator to
+		<p>However, we often actually want the integer part of a division only,
+		or the remainder. Python provides us with an operator to
 		get the remainder, namely modulo:</p>
 
 		<pre class='listing'>
-&gt;&gt;&gt; print 5 % 2
+&gt;&gt;&gt; print(5 % 2)
 1
-&gt;&gt;&gt; print "5 divided by 2 is ", 5/2, "remainder", 5 % 2
+&gt;&gt;&gt; print("5 divided by 2 is ", 5/2, "remainder", 5 % 2)
 5 divided by 2 is 2 remainder 1
 &gt;&gt;&gt;
 </pre>
@@ -301,7 +282,7 @@ i = 2 and j = 1
 
 		<ul>
 			<li><code>s1 + s2</code> yields Concatenation<br />
-			The joining of two strings in the order they are listed as operands
+			This joining of two strings in the order they are listed as operands
 			to from a single string; e.g. <code>"a"+"b"</code> yields "ab"</li>
 
 			<li><code>s1 * i</code> yields Repetition<br />
@@ -321,11 +302,11 @@ i = 2 and j = 1
 			the character in the i'th position and continuing until the
 			character just prior to the j'th position, extracting only every
 			k'th character, where positions are numbered from 0, and negative
-			number mean distance from end of string. Any of i, j, or k may be
-			omited, in which case they are treated as 0, the string length, and
-			1 respectively.  A k value of 1 means all characters in the
-			specified range are extracted. If 'j' is omitted, the extraction is
-			from the 'i'th position to the end of the string.  Examples:<br />
+			numbers mean distance from end of string. Any of i, j, or k may be
+			omitted, in which case i is treated as 0, j as the string length, and
+			k as 1.  A k value of 1 means all characters in the
+			specified range are extracted. If j is omitted, the extraction is
+			from the i'th position to the end of the string.  Examples:<br />
 
 			<code>"The <b>quick brown fox</b>"[4:]</code> yields "quick brown fox"<br />
 			<code>"The quick brown<b> fox</b>"[-4:]</code> yields " fox"<br />
@@ -341,7 +322,7 @@ i = 2 and j = 1
 
 		<h2>Formalisation of the Concepts of Statements and Expressions</h2>
 
-		<p>To recap, in a more formal way.</p>
+		<p>To recap:</p>
 
 		<ol>
 			<li>Programs consist of sequences of statements</li>
@@ -363,7 +344,7 @@ i = 2 and j = 1
 			
 			<li>What does the assignment statement do?</li>
 
-			<li>What are the five basic variable types in python?</li>
+			<li>What are the five basic variable types in Python?</li>
 
 			<li>If the integer variable <em>i</em> has the value 7, then what is
 			the value of the expression <code class='value'>7/4</code>. Why?</li>
@@ -378,11 +359,11 @@ i = 2 and j = 1
 			<li>Write a program that outputs the letter "x" 1000 times on a
 			single line, without intervening spaces.</li>
 
-			<li>If <em>s</em> is a sting variable with the value "Harry's Hippie
+			<li>If <em>s</em> is a string variable with the value "Harry's Hippie
 			Hoedown", then what is the value of<br /><code class='value'>s + ": tickets only
 			$5"</code></li>
 
-			<li>If <em>s</em> is a sting variable with the value "Harry's Hippie
+			<li>If <em>s</em> is a string variable with the value "Harry's Hippie
 			Hoedown", then what is the value of<br /><code class='value'>s + ": tickets only
 			$" + "5"*3</code></li>
 
