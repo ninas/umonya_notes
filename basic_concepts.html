@@ -102,10 +102,12 @@ AT the t-junction TURN LEFT
 
 		<p>You will note that some (in fact a hell of a lot) of the words in
 		the directions to my place are capitalised. In the language of giving
-		directions, these are pretty much our atomic instructions. The portion
+		directions, these are pretty much our most basic instructions. That is, they are the <strong>atomic</strong> instructions of the program. This means that each of these instructions cannot be divided into a combination of more basic instructions For example, LEFT, on it's own doesn't make sense. Likewise, TURN alone is vague. Thus TURN LEFT would be considered an atomic instruction, which along with other atomic instructions could be used to build up a more complex program of instructions.</p>
+    
+    <p>The portion
 		of the directions left in lowercase are labels or names for things that
 		are not common to all sets of directions, most often places specific to
-		the set of directions being given. These have value, and would be our
+		the set of directions being given. These have values, and would be our
 		expressions.</p>
 		
 		<p>Examining the directions we have</p>
@@ -142,9 +144,9 @@ AT the t-junction TURN LEFT
 		recall that computers, the machines executing your programming
 		instructions, have an IQ of 0. They are not intelligent, fiendishly
 		annoying at times perhaps, but never intelligent, never aware, never
-		capable of the massive amounts of inference and contextualization done
-		by the human brain. They are designed and built to understand and
-		execute only specific atomic steps. So what is implicit in the
+		capable of the massive amounts of understanding and contextualization done
+		by the human brain in order to draw logical conclusions. They are designed and built to understand and
+		execute only specific very basic steps. So what is implicit in the
 		instructions contained in a set of directions given to us, must be
 		explicitly defined for a computer.</p>
 
@@ -158,20 +160,20 @@ AT the t-junction TURN LEFT
 		only with numbers. The pictures you see on screen, the text you are
 		reading, the sound you hear when playing MP3's are all numbers. The
 		actual physical devices attached to the computer are what are
-		responsible for transforming the numbers with which the CPU deals into
+		responsible for transforming the numbers with which the Central Processing Unit, or 'brain' of a computer, deals into
 		humanly recognisable phenomena such as sound waves and images. Until
 		the screen, or the speakers, are reached, everything is numbers.  So it
 		stands to reason that the most basic, atomic, unit of data in a
 		computer is a number. Fortunately, modern programming languages are
 		capable of dealing with numbers and sequences of numbers in a few
-		different ways. Integers, and Reals can be considered atomic data units
+		different ways. Integers, and Reals (positive numbers) can be considered atomic data units
 		in almost every modern computer language, as can text in the form of a
 		string of characters in sequence.</p>
 
 		<p>As programs are usually written to solve problems occurring in the
 		real world, it falls to the programmer to translate the problem being
 		solved into something the computer can deal with, i.e. numbers. This is
-		reminiscent of those annoying word problems we encountered in junior
+		a bit like those annoying word problems we encountered in junior
 		school mathematics.</p>
 
 		<blockquote class='problem'>
@@ -195,7 +197,7 @@ AT the t-junction TURN LEFT
 		Working it out in your head becomes a tedious task, but the basic
 		process you followed in your head for three people applies equally well
 		to the case of a thousand people. And so for our first exercise in
-		programming let us translate the word problem into the atomic
+		programming let us translate the word problem into the atomic (most basic)
 		statements and atomic data units that can be used to provide us with
 		the answer. Assume we are provided with only the following statements
 		and expressions to work with, and that statements are numbered from 1
@@ -203,7 +205,7 @@ AT the t-junction TURN LEFT
 
 		<ul>
 
-			<li>EXPRESSION -- raw_input(): get a number from input</li>
+			<li>EXPRESSION -- input(): get a number from input</li>
 
 			<li>STATEMENT -- labelname = #: Assign the value of number to
 			a label for storage</li>
@@ -221,13 +223,13 @@ AT the t-junction TURN LEFT
 			<li>STATEMENT -- labelname /= #: Division of the number stored
 			in labelname by '#'</li>
 
-			<li>STATEMENT -- print #: Output of a number to the
+			<li>STATEMENT -- print(#): Output of a number to the
 			screen</li>
 		
 		</ul>
 
 		<p>Note that "#" can be either an actual number, the name of a
-		label storing a number, or the instruction "raw_input()" which is the
+		label storing a number, or the instruction "input()" which is the
 		number received as input.</p>
 
 		<blockquote class='problem'>
@@ -255,14 +257,14 @@ AT the t-junction TURN LEFT
 <pre class='listing'>
  1: apples = 0
  2: people = 0
- 3: a = raw_input()
+ 3: a = input()
  4: people += 1
  5: if a != 0 {
  6:     apples += a
  7:     GOTO 3
     }
  8: apples /= people
- 9: print apples
+ 9: print(apples)
 </pre>
 
 		<h2>Exercises</h2>

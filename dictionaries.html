@@ -26,9 +26,10 @@
 		including "associative arrays" and "mappings". The latter being perhaps
 		the more explanatory term. Dictionaries are basically a set of mappings
 		from a <strong>key</strong> to a <strong>value</strong>. Keys can be of
-		any non-mutable type, and values can be of any type including other
+		any non-mutable (not changeable) type, and values can be of any type including other
 		dictionaries, lists, or tuples. Dictionaries specify a set of key:value
-		pairs, such that when the dictionary is subscripted using a key it
+		pairs. In this sense, their name is quite descriptive. When thinking of a dictionary of words, each entry contains the word - or key, and it's explanation - or value.
+    Thus, knowing the key allows access to its value. In the case of Python, when the dictionary is accessed using a key it
 		contains, the value associated with that pair is returned.</p>
 
 		<h2>Forming a Dictionary</h2>
@@ -53,7 +54,8 @@
 		the format <code>&lt;key&gt; : &lt;value&gt;</code> within a comma
 		separated list within curly braces. Note how keys can be of multiple
 		different types within the same dictionary. <strong>Key order is not
-		guaranteed by python</strong>. Similarly values can be of any type, and
+		guaranteed by Python</strong>. In other words, it doesn't matter what order you put items into the dictionary, as this order is not maintained.
+    Similarly values can be of any type, and
 		types can be mixed within one dictionary. Also note the existence of
 		the empty dictionary ...</p>
 
@@ -107,8 +109,7 @@ even tuples'}
 &gt;&gt;&gt;
 </pre>
 
-		<p>It is important to realise, that this implicit replacement of the
-		values of already extant keys ensures that keys are unique. Also, note
+		<p>It is important to realise that adding a new key:value pair, where the key already exists, means that the value is simply replaced. This means that all key values in a dictionary are unique - that is, no two keys are the same. Also, note
 		that attempting to access a key that doesn't exist causes an
 		error...</p>
 
@@ -134,29 +135,32 @@ KeyError: 3
 
 		<ul>
 
-			<li><code>a == b</code> yields Equivalence. True only if both
+			<li><code>a == b</code> is True (that is, they are seen as equalivalent) only if both
 			'a'and 'b' contain exactly the same set of key:value pairs.</li>
-
-			<li><code>a &lt; b</code>, <code>a &lt;= b</code> yield Less
-			Than<br /> Since the order of the keys in a dictionary are not
-			guaranteed, I'm not sure how this is useful, or how the comparison
-			is done. Suffice it to say it is possible, but I've never seen it
-			used.</li>
-
-			<li><code>a &gt; b</code>, <code>a &gt;= b</code> yield Greater
-			Than<br /> See 'Less Than'</li>
 
 			<li><code>a is b</code> is True only if 'a' and 'b' are synonyms
 			for the same dictionary.</li>
 
 		</ul>
+    <p>This is demonstrated below:</p>
+    <code>
+      a = { "hello": "world" }
+      b = { "hello": "world" }
+      a == b # True
+      a is b # False
+
+      c = a
+      d = c
+      a == d # True
+      a is d # True
+    </code>
 
 		<p>We can loop over the keys of a dictionary, using a for
 		statement.</p>
 
 		<pre class='listing'>
 &gt;&gt;&gt; for k in a:
-...     print k
+...     print(k)
 ... 
 0
 1
@@ -171,7 +175,7 @@ new
 
 		<pre class='listing'>
 &gt;&gt;&gt; for k in a:
-...     print k, ":", a[k]
+...     print(k, ":", a[k])
 ... 
 0 : This is the value for key 0
 1 : This is the value for key 1
@@ -188,48 +192,61 @@ new : a new pair has been added
 
 			<li>
 
-				<code>&lt;dictionary&gt;.values()</code> returns a list
-				containing all values in the dictionary. The order of these
+				<code>&lt;dictionary&gt;.values()</code> returns a view of 
+				all values in the dictionary. The order of these
 				values is not guaranteed.
 
 				<pre class='listing'>
 &gt;&gt;&gt; a.values()
-['This is the value for key 0', 'This is the value for key 1', 'Told you keys
-could also be strings', 'a new pair has been added', 'Or even tuples']
+dict_values(['This is the value for key 0', 'This is the value for key 1', 'Told you keys
+could also be strings', 'a new pair has been added', 'Or even tuples'])
 &gt;&gt;&gt;
 </pre>
 			</li>
 
 			<li>
 
-				<code>&lt;dictionary&gt;.keys()</code> returns a list
+				<code>&lt;dictionary&gt;.keys()</code> returns a view
 				containing all keys in the dictionary. The order of these keys
 				is not guaranteed.
 
 				<pre class='listing'>
 &gt;&gt;&gt; a.keys()
-[0, 1, '3', 'new', (4, 5)]
+dict_keys([0, 1, '3', 'new', (4, 5)])
 &gt;&gt;&gt;
 </pre>
 			</li>
 
 			<li>
 
-				<code>&lt;dictionary&gt;.items()</code> returns a list
+				<code>&lt;dictionary&gt;.items()</code> returns a view
 				containing tuples of all key:value pairs in the dictionary,
 				where key is the first element of the tuple, and value the
 				second. The order of these pairs is not guaranteed.
 
 				<pre class='listing'>
 &gt;&gt;&gt; a.items()
-[(0, 'This is the value for key 0'), (1, 'This is the value for key 1'), ('3',
+dict_items([(0, 'This is the value for key 0'), (1, 'This is the value for key 1'), ('3',
 'Told you keys could also be strings'), ('new', 'a new pair has been added'),
-((4, 5), 'Or even tuples')]
+((4, 5), 'Or even tuples')])
 &gt;&gt;&gt;
 </pre>
 			</li>
 
 		</ul>
+
+    <p>a.keys(), a.values() and a.items() all return a view of the data. This view is basically a window into the dictionary, that allows you to view parts of it in a specific way. It also means that any changes done to a view, are also performed on the dictionary.</p>
+
+    <code>
+      k = a.keys()
+      k
+      dict_keys([0, 1, '3', 'new', (4, 5)])
+      a["new key!"] = "new value!"
+      k
+      dict_keys([0, 1, '3', 'new key!', 'new', (4, 5))
+    </code>
+
+    <p>As you can see in the example above, changing the values in the dictionary a, changed the values returned by the view k, even though you haven't directly changed k. </p>
 
 		<h2>Exercises</h2>
 
@@ -269,7 +286,7 @@ d = {
 				<ol>
 				
 					<li>How do you create this set as a dictionary in
-					python?</li>
+					Python?</li>
 
 					<li>How do you find which book in the 'trilogy', i.e. what
 					number, "The Restaurant at the End of the Universe"
@@ -315,8 +332,8 @@ d = {
 			interested in a customer's most recent comments, and doesn't want
 			store old comments. So repeat customer's must be able to update
 			their previous comments. When a repeat customer types in their name,
-			their previous comment is displayed back to them, and they are
-			afforded the opportunity to enter a new comment. Should they enter a
+			their previous comment is displayed back to them, and they can
+      enter a new comment. Should they enter a
 			blank line instead of a comment, their previous comment is
 			preserved. Also, if instead of a customer name the special command
 			'quit' is entered, the program exits. Similarly the command
