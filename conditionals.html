@@ -369,8 +369,8 @@ There were 2 even numbers and 1 of those were negative
 		the if statement on line 11. Thus these lines form a block of
 		statements. Since this block is immediately after an if statement, all
 		the statements in the block will only be executed if the if statement's
-		expression is True. For the first number we gave as input (2), this is
-		the case, so we start executing the block. When we get to line 14 we
+		expression is True. For the first number we gave as input (2), this means the first
+                if statement evaluates to True, so we start executing the block. When we get to line 14 we
 		encounter a second if statement. This second if statement is
 		<strong>nested</strong> inside the first, because it will only be
 		executed if the outer if statement (line 11) has an expression that
@@ -410,9 +410,9 @@ True
 if numOfPeople>5:
 	if numOfPeople&lt;40:
 		if day=='Friday':
-			print "Go to party"
+			print ("Go to party")
 		if day=='Saturday':
-			print "Go to party"
+			print ("Go to party")
 		</pre>
 		<p> This method will work, but it is cumbersome. Too many nested if's can lead to confusion, and if you wanted to change your program later so that it printed "You should go to the party", you might change it in one place but not the other. As such it would be much better to write that algorithm as follows:</p>
 		<pre class='listing'>
