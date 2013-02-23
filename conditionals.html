@@ -264,7 +264,7 @@ if dark and lightSwitch='off':
 			<li>English: If the premises contain more than 3 persons and no
 			children or pets - <i>This is actually a very ambiguous statement</i><br>
 			<span class='red'>
-				Wrong: if adults > 3 and children or pets =	0
+				Wrong: if adults > 3 and children or pets ==	0
 			</span><br />
 			<span class='green'>
 				Correct: if persons > 3 and (children == 0 and pets == 0)
@@ -281,9 +281,8 @@ if dark and lightSwitch='off':
 
 		</ul>
 
-		<p>Check out the <a class="doclink"
-		href="http://olympiad.cs.uct.ac.za/docs/python-docs-2.6/reference/expressions.html#Booleans">python documentation
-		page on boolean operators</a> for more detailed information.</p>
+		<p>Why is this the case? Well, rememeber BODMASCNAO? The boolean operations ('not', 'and', 'or') have the lowest priority of all Python operations so they
+                will happen last.</p>
 
 		<h2>Executing Multiple Statements Conditionally</h2>
 
