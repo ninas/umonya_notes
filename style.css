@@ -1,5 +1,6 @@
 body {
-	font-family: sans-serif;
+	font-size: 11px;
+        font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 }
 
 div.page {
@@ -17,7 +18,7 @@ div.pagefooter {
 }
 
 h1 {
-	font-family: Comic Sans MS, sans-serif;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	text-decoration: underline;
 	color: #000020;
 	text-align: center;
@@ -26,7 +27,7 @@ h1 {
 }
 
 h2 {
-	font-family: Comic Sans MS, sans-serif;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 	text-decoration: underline;
 	color: #000020;
 	text-align: center;
