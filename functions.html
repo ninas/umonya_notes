@@ -130,7 +130,7 @@ TypeError: unsupported operand type(s) for /: 'str' and 'int'
 		functions and how they handle parameters. Firstly, the 'def statement'
 		is executed and 'minutes' is created as a function 'object', as
 		evidenced by the value returned after typing in 'minutes'. When we call 'minutes' by typing 'minutes(71)', Python
-		executes the statements in the function definition.
+		executes all the statements contained in the function 'minutes'.
 		The first statement in the definition prints out the value of seconds
 		as 71. But where did the value 71 come from?</p>
 
@@ -153,7 +153,9 @@ TypeError: unsupported operand type(s) for /: 'str' and 'int'
 		actually causes an error, which makes sense since we cannot divide a
 		string by the integer 60. In the error case, we see that the first
 		statement in the function definition (<code>print(seconds)</code>) is
-		executed without error, and that the error occurs later. This means we can differentiate where within a particular function execution flows, and that functions are not treated as atomic.</p>
+		executed without error, and that the error occurs later. This means we can see the order of execution within a function.
+    More than that, functions are not atomic. This means that if there's an error in your function, all the 
+    statements before the error will be executed regardless.</p> 
 
 		<p>The concepts of parameter passing are best illustrated in the case
 		of multiple parameters. For example, let us define a function which
@@ -182,7 +184,7 @@ TypeError: unsupported operand type(s) for /: 'str' and 'int'
 		the line <code>a, b = &lt;passed in tuple&gt;</code> in as the first
 		line, where the passed in tuple is formed by the function call itself,
 		rather than the function definition. Next we notice that we can branch
-		execution flow using an 'if' statement within a function definition. We
+		execution flow using an <strong>if</strong> statement within a function definition. We
 		can also loop, in fact we can do pretty much anything we want within a
 		function definition. Finally let's focus on the 'return statement'.
 		Each return statement exits the function immediately, and replaces the
@@ -205,13 +207,13 @@ TypeError: unsupported operand type(s) for /: 'str' and 'int'
 
 		<pre class='listing'>
 def getcoords():
-    x = raw_input("Enter an X coordinate: ")
-    y = raw_input("Enter a Y coordinate: ")
-    print("The smaller coordinate is %i" % ( minimum(int(x), int(y)) ))
+    x = input("Enter an X coordinate: ")
+    y = input("Enter a Y coordinate: ")
+    print("The smaller coordinate is {0}".format( minimum(int(x), int(y)) ))
     return x, y
 </pre>
 
-		<p>So here we have called both a built in function (raw_input) and our
+		<p>So here we have called both a built in function (input) and our
 		own previously defined function (minimum) within the function
 		definition. Also note that we form a tuple in our return statement. We
 		wish to return two values, but the 'return statement' can only return
@@ -226,15 +228,15 @@ def getcoords():
 		of x. Similarly in Python we could say</p>
 
 		<pre class='listing'>
-print(minimum(5, minimum(int(raw_input("&gt; ")), 8)))
+print(minimum(5, minimum(int(input("&gt; ")), 8)))
 </pre>
 
 		<p>Remember that expressions are evaluated inside to outside, so the
-		value of raw_input is determined first, then it is converted to an
+		value of input is determined first, then it is converted to an
 		integer, then compared against 8 in the inner minimum function, and
 		finally the value of the inner minimum function is compared against 5
 		in the outer minimum function. Thus we have composed minimum with
-		itself, and further with raw_input.</p>
+		itself, and further with input.</p>
 
 		<p>In the same way that the range of 'g(b)' must fall within the domain
 		of 'f(a)', so too must we ensure in Python when doing our function
@@ -437,7 +439,7 @@ def apply(f, l):
         ret.append(f(e))
     return ret
 
-#imagine we had received four 'numbers' from raw_input calls, which means they
+#imagine we had received four 'numbers' from input calls, which means they
 #are in fact strings
 inputs = ["1", "2", "3", "4"]
 
