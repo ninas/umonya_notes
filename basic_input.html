@@ -52,7 +52,7 @@ else:
 #Are False and "False" the same?
 </pre>
 
-		<h2>The raw_input() Function</h2>
+		<h2>The input() Function</h2>
 
 		<p>It's not very helpful to us if we must change our programs every
 		time we want to change the data they work with. So instead we want to
@@ -60,22 +60,22 @@ else:
 		place to get input from is the keyboard, in the form of text entered by
 		the user. Python provides a <strong>function</strong> to do just this,
 		called <a class="doclink"
-		href="http://docs.python.org/lib/built-in-funcs.html">raw_input</a>:</p>
+		href="http://docs.python.org/lib/built-in-funcs.html">input</a>:</p>
 
 		<pre class='listing'>
 Python 2.6.4 (r264:75706, Dec 7 2009, 18:43:55) [MSC v.1310 32 bit (Intel)] on win32 
 [GCC 3.4.6 (Gentoo 3.4.6-r1, ssp-3.4.5-1.0, pie-8.7.9)] on linux2
 Type "help", "copyright", "credits" or "license" for more information.
-&gt;&gt;&gt; name = raw_input("What is your name? ")
+&gt;&gt;&gt; name = input("What is your name? ")
 What is your name? James
 &gt;&gt;&gt; print name
 James
 &gt;&gt;&gt;
 </pre>
 
-		<p>We've seen 'raw_input' before in the basic concepts section, and
+		<p>We've seen 'input' before in the basic concepts section, and
 		there really isn't much to it. Just a few things to note really.
-		Firstly, raw_input is a function. A function is a defined collection of
+		Firstly, input is a function. A function is a defined collection of
 		statements that produce or <strong>return</strong> a value when
 		executed. You could think of them as a way of turning a small set of
 		statements into an expression. We will learn how to define our own
@@ -85,14 +85,14 @@ James
 
 		<ul>
 
-			<li><code>raw_input</code> is the name of the function. Like
+			<li><code>input</code> is the name of the function. Like
 			variables, functions have names to identify them. Like a variable,
 			a function name is a label that points to the collection of
 			statements to be executed.</li>
 
 			<li>To execute the statements in a function, better known as
 			<strong>calling a function</strong> we write the function's name
-			followed by round brackets. <code>raw_input()</code></li>
+			followed by round brackets. <code>input()</code></li>
 
 			<li>Using the name just by itself treats the function like a
 			variable. <!--Functions, when not called, are also expressions and
@@ -118,12 +118,12 @@ James
 			floats. Functions usually specify the <em>number</em> of parameters
 			they accept. Often functions may accept less parameters than they
 			specifically ask for, by substituting default values for the
-			parameters not provided. Such is the case with 'raw_input',
+			parameters not provided. Such is the case with 'input',
 			speaking of which, we digress.</li>
 
 		</ul>
 
-		<p>Back to 'raw_input'! 'raw_input' captures a single line of text from
+		<p>Back to 'input'! 'input' captures a single line of text from
 		the keyboard, as entered by the user. It returns a string containing
 		the captured text, leaving out the "\n" produced when the user hits the
 		Enter key. In addition, it takes one optional parameter, which is
@@ -152,7 +152,7 @@ James
 
 					<li>Print 's'.</li>
 
-					<li>Use raw_input() to prompt the user for a number, get that number, and assign it to a variable called 'n'.</li>
+					<li>Use input() to prompt the user for a number, get that number, and assign it to a variable called 'n'.</li>
 
 					<li>Print double the value of the variable 'n'.</li>
 

@@ -86,7 +86,7 @@
 
 			<dt>enter</dt>
 
-			<dd>Relates to input -- raw_input()</dd>
+			<dd>Relates to input -- input()</dd>
 
 			<dt>until</dt>
 
@@ -119,11 +119,11 @@
 		</blockquote>
 
 		<p>Looking at the keywords and their hints, we want to use the
-		raw_input here. This is true of any input from the keyboard generally.
+		input here. This is true of any input from the keyboard generally.
 		Thus, our first line of code will be</p>
 
 		<pre class='listing'>
-number = raw_input("Enter a number: ")
+number = input("Enter a number: ")
 </pre>
 
 		<blockquote class='problem'>
@@ -146,9 +146,9 @@ number = raw_input("Enter a number: ")
 		we've already got to produce</p>
 
 		<pre class='listing'>
-number = raw_input("Enter a number: ")
+number = input("Enter a number: ")
 while number != '':
-    number = raw_input("Enter another number (or nothing to finish): ")
+    number = input("Enter another number (or nothing to finish): ")
 </pre>
 
 		<p>Note the prompt has changed to tell the user what to do to exit the
@@ -220,9 +220,9 @@ while &lt;expression&gt;: #&lt;expression&gt; specifies when the loop will stop 
 
 		<pre class='listing'>
 even = 0
-number = raw_input("Enter a number: ")
+number = input("Enter a number: ")
 while number != '':
-    number = raw_input("Enter another number (or nothing to finish): ")
+    number = input("Enter another number (or nothing to finish): ")
 </pre>
 
 		<p>Now at the end of our program we still have 0 even numbers, because
@@ -235,15 +235,15 @@ while number != '':
 
 		<pre class='listing'>
 even = 0
-number = raw_input("Enter a number: ")
+number = input("Enter a number: ")
 while number != '':
     if int(number) % 2 == 0: #if number is even
         even = even + 1
-    number = raw_input("Enter another number (or nothing to finish): ")
+    number = input("Enter another number (or nothing to finish): ")
 </pre>
 
 		<p>A few things about our two new lines deserve mention. Firstly, as we
-		are already familiar with, raw_input() returns a string, so we need to
+		are already familiar with, input() returns a string, so we need to
 		type cast to an integer before we can test whether it is even. Then
 		there's the condition itself. The definition of an even number is a
 		number divisible exactly by 2, i.e. without remainder. The '%' operator
@@ -252,7 +252,7 @@ while number != '':
 		the division is 0, the number is even. Also we have nested the if
 		statement within the while statement, so it may be executed multiple
 		times, one each time a number is entered, to test the number. We have
-		put it <strong>before</strong> the raw_input function within the while
+		put it <strong>before</strong> the input function within the while
 		statement because we don't want to test an empty string (blank line)
 		for evenness in the case where the user has not entered a number and
 		wishes to finish up. This way the while statement's expression tests
@@ -272,13 +272,13 @@ while number != '':
 		<pre class='listing'>
 even = 0
 negative = 0
-number = raw_input("Enter a number: ")
+number = input("Enter a number: ")
 while number != '':
     if int(number) % 2 == 0: #if number is even
         even = even + 1
         if int(number) &lt; 0:
             negative = negative + 1
-    number = raw_input("Enter another number (or nothing to finish): ")
+    number = input("Enter another number (or nothing to finish): ")
 print "There were ", even, "even numbers, of which", negative, "were also negative"
 </pre>
 
@@ -306,7 +306,7 @@ print "There were ", even, "even numbers, of which", negative, "were also negati
 		<pre class='listing'>
 even = 0
 negative = 0
-number = raw_input("Enter a number (or nothing or 'quit' to quit): ")
+number = input("Enter a number (or nothing or 'quit' to quit): ")
 while number != '':
     if number == 'quit':
         break
@@ -314,7 +314,7 @@ while number != '':
         even = even + 1
         if int(number) &lt; 0:
             negative = negative + 1
-    number = raw_input("Enter another number (or nothing to finish): ")
+    number = input("Enter another number (or nothing to finish): ")
 print "There were ", even, "even numbers, of which", negative, "were also negative"
 </pre>
 
@@ -339,18 +339,18 @@ print "There were ", even, "even numbers, of which", negative, "were also negati
 		<pre class='listing'>
 even = 0
 negative = 0
-number = raw_input("Enter a number (or nothing or 'quit' to quit): ")
+number = input("Enter a number (or nothing or 'quit' to quit): ")
 while number != '':
     if number == 'quit':
         break
     if number == '0':
-        number = raw_input("Enter another number (or nothing or 'quit' to quit): ")
+        number = input("Enter another number (or nothing or 'quit' to quit): ")
         continue
     if int(number) % 2 == 0: #if number is even
         even = even + 1
         if int(number) &lt; 0:
             negative = negative + 1
-    number = raw_input("Enter another number (or nothing or 'quit' to quit): ")
+    number = input("Enter another number (or nothing or 'quit' to quit): ")
 print "There were ", even, "even numbers, of which", negative, "were also negative"
 </pre>
 

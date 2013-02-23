@@ -212,13 +212,13 @@ TypeError: unsupported operand type(s) for /: 'str' and 'int'
 
 		<pre class='listing'>
 def getcoords():
-    x = raw_input("Enter an X coordinate: ")
-    y = raw_input("Enter a Y coordinate: ")
+    x = input("Enter an X coordinate: ")
+    y = input("Enter a Y coordinate: ")
     print "The smaller coordinate is %i" % ( minimum(int(x), int(y)) )
     return x, y
 </pre>
 
-		<p>So here we have called both a built in function (raw_input) and our
+		<p>So here we have called both a built in function (input) and our
 		own previously defined function (minimum) within the function
 		definition. Also note that we form a tuple in our return statement. We
 		wish to return two values, but the 'return statement' can only return
@@ -233,15 +233,15 @@ def getcoords():
 		of x. Similarly in python we could say,</p>
 
 		<pre class='listing'>
-print minimum(5, minimum(int(raw_input("&gt; ")), 8))
+print minimum(5, minimum(int(input("&gt; ")), 8))
 </pre>
 
 		<p>Remember that expressions are evaluated inside to outside, so the
-		value of raw_input is determined first, then it is converted to an
+		value of input is determined first, then it is converted to an
 		integer, then compared against 8 in the inner minimum function, and
 		finally the value of the inner minimum function is compared against 5
 		in the outer minimum function. Thus we have composed minimum with
-		itself, and further with raw_input.</p>
+		itself, and further with input.</p>
 
 		<p>In the same way that the range of 'g(b)' must fall within the domain
 		of 'f(a)', so too must we ensure in python when doing our function
@@ -444,7 +444,7 @@ def apply(f, l):
         ret.append(f(e))
     return ret
 
-#imagine we had received four 'numbers' from raw_input calls, which means they
+#imagine we had received four 'numbers' from input calls, which means they
 #are in fact strings
 inputs = ["1", "2", "3", "4"]
 

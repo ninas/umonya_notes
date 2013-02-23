@@ -5,8 +5,8 @@
 3. 1 is not equal to '1' because 1 is an integer, and '1' is a string.
 
 4. --- quotient_two.py ---
-a = int(raw_input("Enter a number: "))
-b = int(raw_input("Enter a number: "))
+a = int(input("Enter a number: "))
+b = int(input("Enter a number: "))
 if b != 0:
 	print a/b
 else:
@@ -15,19 +15,19 @@ else:
 
 5. --- smallest_of_five.py ---
 smallest = "strings are always larger than integers"
-number = int(raw_input("Enter a number: "))
+number = int(input("Enter a number: "))
 if number < smallest:
 	smallest = number
-number = int(raw_input("Enter a number: "))
+number = int(input("Enter a number: "))
 if number < smallest:
 	smallest = number
-number = int(raw_input("Enter a number: "))
+number = int(input("Enter a number: "))
 if number < smallest:
 	smallest = number
-number = int(raw_input("Enter a number: "))
+number = int(input("Enter a number: "))
 if number < smallest:
 	smallest = number
-number = int(raw_input("Enter a number: "))
+number = int(input("Enter a number: "))
 if number < smallest:
 	smallest = number
 print smallest
@@ -35,19 +35,19 @@ print smallest
 
 6. --- largest_of_five.py ---
 largest = -2147483547
-number = int(raw_input("Enter a number: "))
+number = int(input("Enter a number: "))
 if number > largest:
 	largest = number
-number = int(raw_input("Enter a number: "))
+number = int(input("Enter a number: "))
 if number > largest:
 	largest = number
-number = int(raw_input("Enter a number: "))
+number = int(input("Enter a number: "))
 if number > largest:
 	largest = number
-number = int(raw_input("Enter a number: "))
+number = int(input("Enter a number: "))
 if number > largest:
 	largest = number
-number = int(raw_input("Enter a number: "))
+number = int(input("Enter a number: "))
 if number > largest:
 	largest = number
 print largest
@@ -55,16 +55,16 @@ print largest
 
 7. --- average_of_five.py ---
 total = 0
-total += int(raw_input("Enter a number: "))
-total += int(raw_input("Enter a number: "))
-total += int(raw_input("Enter a number: "))
-total += int(raw_input("Enter a number: "))
-total += int(raw_input("Enter a number: "))
+total += int(input("Enter a number: "))
+total += int(input("Enter a number: "))
+total += int(input("Enter a number: "))
+total += int(input("Enter a number: "))
+total += int(input("Enter a number: "))
 print total/5.0
 --- end average_of_five.py ---
 
 8. --- leapyear.py ---
-year = int(raw_input("Enter a four digit year: "))
+year = int(input("Enter a four digit year: "))
 if (year % 4 == 0 and year % 100 != 0) or year % 400 == 0:
 	print year, "is a leap year"
 --- end leapyear.py ---
@@ -77,9 +77,9 @@ if (year % 4 == 0 and year % 100 != 0) or year % 400 == 0:
 
 print "Please enter three names"
 
-name1 = raw_input("> ")
-name2 = raw_input("> ")
-name3 = raw_input("> ")
+name1 = input("> ")
+name2 = input("> ")
+name3 = input("> ")
 
 if name1 > name2 and name1 > name3:
 	#largest = name1
@@ -111,7 +111,7 @@ elif name3 > name1 and name3 > name2:
 --- end alpha_sort.py ---
 
 10. --- divisible.py ---
-number = int(raw_input("Enter a number: "))
+number = int(input("Enter a number: "))
 print number, "is divisble by 1"
 if number % 2 == 0:
 	print number, "is divisible by 2"

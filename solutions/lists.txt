@@ -23,11 +23,11 @@ grid = [row[:], row[:], row[:], row[:], row[:]]
 
 for i in range(5):
 	print "Please enter a pair of coordinates (x:y), leave x blank to terminate sequence."
-	x = raw_input("X> ")
+	x = input("X> ")
 	if x == '':
 		break
 	x = int(x)
-	y = int(raw_input("Y> "))
+	y = int(input("Y> "))
 	grid[y][x] = ' '
 
 for y in range(5):

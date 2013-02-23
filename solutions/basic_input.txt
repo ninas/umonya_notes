@@ -8,25 +8,25 @@ itself, as python can use functions as first-order variables, the second has the
 value return by the execution of 'f'.
 
 3. --- sum_two.py ---
-a = int(raw_input("Enter a number: "))
-b = int(raw_input("Enter a number: "))
+a = int(input("Enter a number: "))
+b = int(input("Enter a number: "))
 print "The sum of ", a, "and", b, "is", a+b
 --- end sum_two.py ---
 
 4. --- diff_two.py ---
-a = int(raw_input("Enter a number: "))
-b = int(raw_input("Enter a number: "))
+a = int(input("Enter a number: "))
+b = int(input("Enter a number: "))
 print "The difference between", a, "and", b, "is", a-b
 --- diff_two.py ---
 
 5. --- mul_two.py ---
-a = int(raw_input("Enter a number: "))
-b = int(raw_input("Enter a number: "))
+a = int(input("Enter a number: "))
+b = int(input("Enter a number: "))
 print "The product of", a, "and", b, "is", a*b
 --- end mul_two.py ---
 
 6. --- repeat_str.py ---
-n = int(raw_input("Enter a number: "))
-t = raw_input("Enter some text to repeat: ")
+n = int(input("Enter a number: "))
+t = input("Enter some text to repeat: ")
 print n*t
 --- end repeat_str.py ---

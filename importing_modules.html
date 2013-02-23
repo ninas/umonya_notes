@@ -174,10 +174,10 @@ Type "help", "copyright", "credits" or "license" for more information.
 #!/usr/bin/python
 
 #ask the user for a variable name
-vname = raw_input("Enter a variable name: ")
+vname = input("Enter a variable name: ")
 
 #ask the user for a value
-value = raw_input("Enter a value for %s: "%vname)
+value = input("Enter a value for %s: "%vname)
 locals()[vname] = value
 
 print "vname: ", vname
@@ -278,17 +278,17 @@ sirlark@hephaestus ~ $ python my_file.py
 		quotes and thus a string.</p>
 
 		<p>So now we have a really convenient way of passing small amounts of
-		input into our programs, instead of prompting the user with raw_input
+		input into our programs, instead of prompting the user with input
 		calls all the time. Command line arguments are especially useful for
 		the purposes of specifying filenames and options the influence how our
-		program processes data, and preferable to raw_input statements for two
+		program processes data, and preferable to input statements for two
 		reasons. First, when entering filenames, command line arguments allow
 		the user to use shell expansions and tab completions. Second, our
 		program can be run without user intervention if it's likely to take a
 		long time to run, e.g. the user can specify a number of files to
 		process on the command line (probably using a '*.fasta' or similar) and
 		walk away. Assuming each file would take 20 or more minutes to process,
-		if we were using raw_input statements to prompt for the next file, if
+		if we were using input statements to prompt for the next file, if
 		the user came back the next morning, our program would have processed
 		the first file, and be waiting for the entry of the second filename.
 		Command line arguments avoid this issue neatly.</p>
@@ -340,7 +340,7 @@ sirlark@hephaestus ~/scratch $
 		('|'). Similarly our programs output could be redirected to a file, or
 		piped into the input of another process. However, all these effects are
 		transparent to us ... the print statement actually writes to stdout,
-		the raw_input function reads from stdin. If we want to write to stderr
+		the input function reads from stdin. If we want to write to stderr
 		however, we must do so explicitly. The three standard streams are all
 		accessible via the sys module as</p>
 

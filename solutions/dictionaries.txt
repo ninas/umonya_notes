@@ -3,19 +3,19 @@ induces a warning about recursion, and stops immediately.
 
 2. --- unique_count.py ---
 d = {}
-s = raw_input('Enter a name: ')
+s = input('Enter a name: ')
 while s != '':
 	if s in d:
 		d[s] += 1
 	else:
 		d[s] = 1
-	s = raw_input('Enter a name: ')
+	s = input('Enter a name: ')
 print d
 --- end unique_count.py ---
 
 3. --- string_dict.py ---
 d = {}
-s = raw_input('Enter a key:value pair> ')
+s = input('Enter a key:value pair> ')
 while s != '':
 	p = s.find(':')
 	if p != -1:
@@ -27,7 +27,7 @@ while s != '':
 	if key in d:
 		print d[key]
 	d[key] = value
-	s = raw_input('Enter a key:value pair> ')
+	s = input('Enter a key:value pair> ')
 
 for k, v in d.items():
 	print k, ":", v
@@ -38,7 +38,7 @@ for k, v in d.items():
 
 database = {}
 
-name = raw_input("Please enter your name: ")
+name = input("Please enter your name: ")
 while name != 'quit':
 	if name == 'showcomments':
 		for customer in database:
@@ -47,8 +47,8 @@ while name != 'quit':
 		if name.lower() in database:
 			print "Welcome back", name.capitalize()
 			print "\t%s"%(database[name.lower()])
-		comment = raw_input("Please enter your comment: ")
+		comment = input("Please enter your comment: ")
 		if comment != "":
 			database[name.lower()] = comment
-	name = raw_input("Please enter your name: ")
+	name = input("Please enter your name: ")
 --- end guestbook.py ---

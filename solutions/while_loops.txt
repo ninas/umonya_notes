@@ -6,11 +6,11 @@ the while loop.
 3. --- smallest.py ---
 smallest = "strings are always larger than integers"
 print "Enter a sequence of numbers:"
-line = raw_input("> ")
+line = input("> ")
 while line != "":
 	if int(line) < smallest:
 		smallest = int(line)
-	line = raw_input("> ")
+	line = input("> ")
 print smallest
 --- end average.py ---
 
@@ -18,11 +18,11 @@ print smallest
 print "Enter a sequence of numbers:"
 total = 0
 count = 0
-line = raw_input("> ")
+line = input("> ")
 while line != "":
 	total += int(line)
 	count += 1
-	line = raw_input("> ")
+	line = input("> ")
 print float(total)/count
 --- end average.py ---
 
@@ -32,11 +32,11 @@ while answer == 'y':
 	print "Enter a sequence of numbers:"
 	total = 0
 	count = 0
-	line = raw_input("> ")
+	line = input("> ")
 	while line != "":
 		total += int(line)
 		count += 1
-		line = raw_input("> ")
+		line = input("> ")
 	print float(total)/count
-	answer = raw_input('Would you like to calculate the average of another sequence (y/n): ')
+	answer = input('Would you like to calculate the average of another sequence (y/n): ')
 --- end average_loop.py ---
