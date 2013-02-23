@@ -22,7 +22,7 @@
 
 		<h2>Abstracting Common Tasks with Functions</h2>
 
-		<p>So now we've been programming nearly two days, you've just started to come
+		<p>So now we've been programming for nearly two days. You've probably come
 		across a number of tedious tasks that we must 'program repeatedly', as
 		opposed to 'program to repeat'; e.g. looping until a blank line is
 		entered. Often these common tasks are similar, but not exactly the
@@ -36,7 +36,7 @@
 
 		<h2>Defining New Functions</h2>
 
-		<p>We define a new function using the <strong>def statement</strong>,
+		<p>We define a new function using the <strong>def</strong> statement,
 		which takes the form</p>
 
 		<pre class='definition'>
@@ -46,7 +46,7 @@ def &lt;funcname&gt;([parameter name][, parameter name][, ...]):
     [...]
 </pre>
 
-		<p>When this 'def' statement is executed, a new object with the name
+		<p>When this statement is executed, a new object with the name
 		'funcname' is created. Whenever this object is used followed by pair of
 		round braces, the statements listed in the 'def' statement, commonly
 		called the <strong>function definition</strong>, are executed, and once
@@ -62,9 +62,9 @@ def &lt;funcname&gt;([parameter name][, parameter name][, ...]):
 		dive, more of an in and out form of control.</p>
 
 		<p>Of great use is that functions can return a value. In fact in
-		python, all functions return a value, even if not given a value to
+		Python, all functions return a value, even if not given a value to
 		return (in which case the return value is None). This is done by the
-		use of the <strong>return statement</strong>. The return statement,
+		use of the <strong>return</strong> statement. The return statement,
 		when used within a function definition, simply causes that function to
 		return the value of the expression immediately following the 'return'.
 		Formally, return statements take the form</p>
@@ -78,19 +78,19 @@ def &lt;funcname&gt;([parameter name][, parameter name][, ...]):
 
 		<pre class='listing'>
 def triangle3():
-    print "*"
-    print "**"
-    print "***"
+    print("*")
+    print("**")
+    print("***")
 </pre>
 
-		<p>Henceforth, whenever python encounters <code>triangle3()</code> the
+		<p>Henceforth, whenever Python encounters <code>triangle3()</code> the
 		three print statements will be executed. Note the brackets! They
 		indicate triangle3 should be called, rather than treated as a variable.
-		Looking at triangle three, there's nothing we couldn't do without cut
+		Looking at triangle3, there's nothing we couldn't do without cut
 		and paste, so why bother? Well recall that way back in the Basic Input
 		section we said that functions are like mini-programs, in that they
-		take input and produce output. Well that would mean a function would
-		produce different output depending on its input, but how do we give a
+		take input and produce output. Well that would mean a function could
+		produce different output depending on its input. How do we give a
 		function input?</p>
 
 		<h2>Passing and Receiving Parameters by Position</h2>
@@ -99,17 +99,14 @@ def triangle3():
 		given in a comma separated list (i.e. a tuple) when calling the
 		function, and are unpacked within the function automatically. We have
 		to define how many parameters a function takes, and what each ones
-		names would be, so we can give a function appropriate parameters later
-		on. For example let's define a function that accepts one parameter,
-		called 'seconds' and returns how many complete minutes are in that many
-		seconds, and then call it...</p>
+		name is, so we can give a function appropriate parameters later
+		on. For example, let's define a function that accepts one parameter,
+		called 'seconds', and returns how many complete minutes are in that many
+		seconds.</p>
 
 		<pre class='listing'>
-Python 2.6.4 (r264:75706, Dec 7 2009, 18:43:55) [MSC v.1310 32 bit (Intel)] on win32 
-[GCC 3.4.6 (Gentoo 3.4.6-r1, ssp-3.4.5-1.0, pie-8.7.9)] on linux2
-Type "help", "copyright", "credits" or "license" for more information.
 &gt;&gt;&gt; def minutes(seconds):
-...    print seconds
+...    print(seconds)
 ...    return seconds/60
 ...
 &gt;&gt;&gt; minutes
@@ -132,9 +129,8 @@ TypeError: unsupported operand type(s) for /: 'str' and 'int'
 		<p>In the above example we can already see a number of things about
 		functions and how they handle parameters. Firstly, the 'def statement'
 		is executed and 'minutes' is created as a function 'object', as
-		evidenced by the value returned after typing in 'minutes'. Note however
-		when we call it by typing 'minutes(71)', instead python actually
-		executes the statements in the definition of the function 'minutes'.
+		evidenced by the value returned after typing in 'minutes'. When we call 'minutes' by typing 'minutes(71)', Python
+		executes the statements in the function definition.
 		The first statement in the definition prints out the value of seconds
 		as 71. But where did the value 71 come from?</p>
 
@@ -145,7 +141,7 @@ TypeError: unsupported operand type(s) for /: 'str' and 'int'
 		function definition is executed, the tuple created by calling the
 		function is unpacked using the names in the function definition's
 		parameter list <strong>in order</strong>. In our case this creates an
-		implicit line before <code>print seconds</code> which looks like</p>
+		implicit line before <code>print(seconds)</code> which looks like</p>
 
 		<pre class='listing'>
 		seconds, = 71,
@@ -155,21 +151,18 @@ TypeError: unsupported operand type(s) for /: 'str' and 'int'
 		'seconds' changes according to the type of the value used in the
 		function. In fact in the third function call made, the type used
 		actually causes an error, which makes sense since we cannot divide a
-		string by an integer (60). In the error case, we see that the first
-		statement in the function definition (<code>print seconds</code>) is
-		executed without error, and that the error occurs later, meaning we are
-		able to differentiate where within a particular function execution
-		flows, and the functions are not treated as atomic.</p>
+		string by the integer 60. In the error case, we see that the first
+		statement in the function definition (<code>print(seconds)</code>) is
+		executed without error, and that the error occurs later. This means we can differentiate where within a particular function execution flows, and that functions are not treated as atomic.</p>
 
 		<p>The concepts of parameter passing are best illustrated in the case
-		of multiple parameters. For example, if we define a function which
-		takes two parameters, prints out both (solely for the purpose of
-		example), and returns the smaller of the two parameters ...</p>
+		of multiple parameters. For example, let us define a function which
+		takes two parameters, prints out both and returns the smaller of the two parameters ...</p>
 
 		<pre class='listing'>
 &gt;&gt;&gt; def minimum(a, b):
-...    print a
-...    print b
+...    print(a)
+...    print(b)
 ...    if a &lt; b:
 ...        return a
 ...    else:
@@ -189,7 +182,7 @@ TypeError: unsupported operand type(s) for /: 'str' and 'int'
 		the line <code>a, b = &lt;passed in tuple&gt;</code> in as the first
 		line, where the passed in tuple is formed by the function call itself,
 		rather than the function definition. Next we notice that we can branch
-		execution flow using an 'if statement' within a function definition. We
+		execution flow using an 'if' statement within a function definition. We
 		can also loop, in fact we can do pretty much anything we want within a
 		function definition. Finally let's focus on the 'return statement'.
 		Each return statement exits the function immediately, and replaces the
@@ -199,14 +192,14 @@ TypeError: unsupported operand type(s) for /: 'str' and 'int'
 		'a' and 'b' to 9 and 3 respectively via the implicit tuple unpacking,
 		prints 'a', prints 'b', and never executes <code>return a</code> but
 		instead executes <code>return b</code>, at which point execution leaves
-		the function definition, and returns (hence the name return) to the
-		point of the function call, and making the value of the function call
+		the function definition, and returns to the
+		point of the function call. The value of the function call is thus
 		<em>3</em>.</p>
 
 		<h2>Composition of Functions in the Definition</h2>
 
-		<p>Of course, since we can do 'pretty much anything' in a function
-		definition, we can also call other functions, both python built in
+		<p>Of course, since we can do pretty much anything in a function
+		definition, we can also call other functions, both Python built in
 		functions, and our own defined ones, as in an example to get two
 		coordinates from the user.</p>
 
@@ -214,7 +207,7 @@ TypeError: unsupported operand type(s) for /: 'str' and 'int'
 def getcoords():
     x = raw_input("Enter an X coordinate: ")
     y = raw_input("Enter a Y coordinate: ")
-    print "The smaller coordinate is %i" % ( minimum(int(x), int(y)) )
+    print("The smaller coordinate is %i" % ( minimum(int(x), int(y)) ))
     return x, y
 </pre>
 
@@ -230,10 +223,10 @@ def getcoords():
 		<p>Just as expressions can be composed to form more complex expression,
 		so can functions be composed in the strict mathematical sense, i.e.
 		given two functions 'f(a)' and 'g(b)', we can obtain a value for f of g
-		of x. Similarly in python we could say,</p>
+		of x. Similarly in Python we could say</p>
 
 		<pre class='listing'>
-print minimum(5, minimum(int(raw_input("&gt; ")), 8))
+print(minimum(5, minimum(int(raw_input("&gt; ")), 8)))
 </pre>
 
 		<p>Remember that expressions are evaluated inside to outside, so the
@@ -244,7 +237,7 @@ print minimum(5, minimum(int(raw_input("&gt; ")), 8))
 		itself, and further with raw_input.</p>
 
 		<p>In the same way that the range of 'g(b)' must fall within the domain
-		of 'f(a)', so too must we ensure in python when doing our function
+		of 'f(a)', so too must we ensure in Python when doing our function
 		compositions that the results of inner functions are of appropriate
 		type and value for use as parameters to outer functions.</p>
 

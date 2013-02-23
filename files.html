@@ -26,34 +26,27 @@
 
 		<p>The concept of a file is fairly intuitive, but as with all things
 		programming, intuition is not enough. Let us briefly explore exactly
-		what a file is. Microsoft has served, as always, to confuse and
-		obfuscate the concept of a file. A file is interchangeably called a
-		document, a file, a song, a movie, a spreadsheet, etc... It is
-		important to understand that the multiple names used in common parlance
-		for a file are in fact references to the <em>use</em> to which that
+		what a file is. In everyday use, documents, songs, video clips, movies etc are often referred to as files. It is
+		important to understand that these names are in fact references to the <em>use</em> to which a
 		file is put, rather than the idea of what a file actually is. So what
 		is a file?  Simply put, a file is an ordered collection of data
-		associated with a name and location by a filesystem on a particular
-		device. The device might be a hard drive, a flash disk, a CD-ROM, or
+		associated with a name and location by a filesystem on a device. The device might be a hard drive, a flash disk, a CD-ROM, or
 		even your cellphone. The same file may be used for many different
-		things, e.g. I can read my .mp3 file as text. It makes very little
+		things. I can try read my .mp3 file as a text file, for example. It makes very little
 		sense, but it is possible. Alternatively, one could attempt to play the
 		contents of a large spreadsheet through one's sound card. Again, it
-		won't make much sense, in fact it'll just sound like a burst of static,
+		won't make much sense, and in fact it'll just sound like a burst of static,
 		but it is possible.</p>
 
 		<div class="centered">
 			<strong>A file is a name associated with an ordered collection of data on some storage medium</strong>
 		</div>
 
-		<p>Another concept that the GUI's of the 90's onwards have eroded
-		significantly is the idea of the filesystem. Viewed on a physical
-		storage device, we encounter a number of problems dealing directly with
-		files. Firstly, a single file need not be stored in a single contiguous
-		area; it can be <em>fragmented</em>. Secondly, there's no apparent
-		structure or order to where files are stored relative to one another.
-		Your word processing documents might be stored right next to, or even
-		intermeshed with, files belonging to the operating system, your music
+		<p>Another concept that the GUIs of the 90s onwards have eroded
+		significantly is the idea of the filesystem. 
+		
+		Viewed on a physical storage device, we encounter a number of problems dealing directly with
+		files. This is caused by the way files are stored on the storage device. A single file is not always stored in one big chunk. Rather, it can be <em>fragmented</em>. This means that bits of the file are stored in different places. A second problem is that files aren't stored in any particular order. Your word processing documents might be stored right next to, or even mixed with, files belonging to the operating system, your music
 		collection, or your applications. Clearly we need a way of imposing a
 		logical structure onto a collection of files. So we introduce a method
 		of grouping arbitrary files together, namely the
@@ -61,23 +54,25 @@
 		Generally, any file can be put into any directory, but cannot exist in
 		multiple directories at once. Thus we have given files a
 		<strong>location</strong>. However, directories can also contain other
-		directories, introducing a hierarchical structure of files within
-		directories, within other directories, within ... oh hell.  Where does
+		directories. This forms an ordered structure of files within
+		directories, within other directories, and so on.
+		
+		Where does
 		it end? It does end, or rather it <em>starts</em> somewhere!</p>
 		
 		<div class="centered">
 			<strong>A directory is an arbitrary unordered grouping of files</strong>
 		</div>
 
-		<p>Every filesystem has a starting point called the
-		<strong>root</strong>. In MS-DOS, Windows, Symbian and some other
-		cellphone OS's, each filesystem is assigned it's own root using a
+		<p>Modern GUI operating systems make it very easy for us to navigate through folders on our computers, but how does a program see directories and files? Every filesystem has a starting point called the
+		<strong>root</strong>. All directories on the filesystem will use this root to describe their location.
+		In Windows for example, each filesystem is assigned its own root using a
 		letter from the alphabet, as in <code>C:\</code>. Note the backslash!
-		In linux, unix and any other POSIX complaint OS, the root is simply
+		In other operating systems like Linux, the root is simply
 		called <code>/</code>, and other filesystems can be placed inside the
 		root, much like directories can be placed inside one another. So now we
 		have a way to specify a particular file exactly, even if two files
-		might have the name name, no two files can have exactly the same
+		might have the same name, no two files can have exactly the same
 		location. The location of a file is always specified from the root down
 		through each directory to the file, including the name of the file,
 		eg.</p>
@@ -88,7 +83,7 @@
 		<p>Note how in both cases we start with the root, and name each
 		directory successively, zeroing in on the directory containing the file
 		of interest. We separate the directory names with <code>\</code> in the
-		case of windows/MS-DOS, or <code>/</code> in the case of Linux/POSIX.
+		case of Windows/MS-DOS, or <code>/</code> in the case of Linux.
 		The explicit sequence from root to name is known as the <strong>full
 		path</strong> of the file, as we have followed the full path from root
 		through each directory to the file.</p>
@@ -98,11 +93,11 @@
 		<p>Of course specifying the full path of every file every time we wish
 		to use it is inconvenient. Many operating systems thus include the idea
 		of a <strong>working directory</strong>. Working directories are tied
-		to login sessions, and are not readily apparent in GUI's. When a user
+		to login sessions, and are not readily apparent in GUIs. When a user
 		logs in to a system, their working directory for that login session is
-		usually set to their home directory. Various OS commands can change or
+		usually set to their home directory. You may have noticed this when you save a document from your word processor: the default directory it saves to is the working directory. Since programs can't use the GUI to change the working directory we need another method. Various OS commands can change or
 		print out the working directory. <code>cd</code> is used to change the
-		working directory to another one. Whenever a file or directory is
+		working directory to another one (it stands for 'change directory').  Whenever a file or directory is
 		specified, and the specification is not a full path, the file is
 		considered relative to the current working directory. For example,
 		specifying only a name for a file, implies the file we are looking for
@@ -122,7 +117,7 @@ I have nothing to do!
 
 		<p>Note how the final command specifies an incomplete path
 		'james/todo.txt', and not the full path. Because a full path was not
-		specified, the working directory ('/home' at the time) is prepended to
+		specified, the working directory ('/home' at the time) is added to the start of
 		the name, yielding '/home/james/todo.txt'. Thus we are able to specify
 		files and directories lower down in the directory hierarchy in a
 		relative manner.</p>
@@ -169,14 +164,14 @@ I have nothing to do!
 
 		<h2>Opening Files</h2>
 
-		<p>Opening a file in python is simple. We use the <a class="doclink"
+		<p>Opening a file in Python is simple. We use the <a class="doclink"
 		href='http://docs.python.org/lib/built-in-funcs.html'>open
 		function</a>. The open function returns a <a class="doclink"
 		href='http://docs.python.org/lib/bltin-file-objects.html'>file
 		object</a>, given a path to a file in the form of string, and a string
 		specifying whether to open the file for reading or writing.</p>
 
-		<p>All files in python are treated as text files, meaning they are
+		<p>All files in Python are treated as text files, meaning they are
 		broken up into units called lines. However, there is also a concept
 		called a <strong>file pointer</strong>. A file pointer is like a cursor
 		in a word processor, which sits between characters in a file. When we
@@ -187,9 +182,7 @@ I have nothing to do!
 		necessary. Both reading and writing a file, reposition the file pointer
 		at the end of the sequence read or written.</p>
 
-<pre class='listing'>Python 2.6.4 (r264:75706, Dec 7 2009, 18:43:55) [MSC v.1310 32 bit (Intel)] on win32 
-[GCC 3.4.6 (Gentoo 3.4.6-r1, ssp-3.4.5-1.0, pie-8.7.9)] on linux2
-Type "help", "copyright", "credits" or "license" for more information.
+<pre class='listing'>
 &gt;&gt;&gt; f = open("input.txt","r")
 &gt;&gt;&gt; f
 &lt;open file 'input.txt', mode 'r' at 0xb7dacentered&gt;
@@ -341,7 +334,7 @@ The Salmon Mousse</pre>
 		<p>We see from the first two calls to 'write' that we have to supply
 		our own newline characters to force line breaks in the output. And
 		finally that closing our files is a good idea when they are opened for
-		writing. Technically, python's garbage collector usually takes care of
+		writing. Technically, Python's garbage collector usually takes care of
 		this for us, closing file objects before they are collected, but it is
 		considered good practice to explicitly close files.</p>
 
