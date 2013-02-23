@@ -52,7 +52,7 @@
 		the middle somewhere, everyone who got in after you must briefly step
 		out, to let you out, then go back in. This is exactly what happens with
 		the <em>call stack</em>. As functions are called, their names are placed on the
-		stack, and as they return, their names are removed.</p>
+		stack, and as they finish, their names are removed.</p>
 
                 <p>The <em>traceback</em> presents us with the list of called function, from the first called to
 		the most recent called (<code>most recent call last</code>). It gives us the following information:
@@ -81,7 +81,7 @@ UnboundLocalError: local variable 'total_height' referenced before assignment
 		'inc_total_height' was called. Within 'inc_total_height' and error
 		occurred on line 8.</p>
 
-		<h2>The Nature of The Problem</h2>
+		<h2>So what went wrong?</h2>
 
 		<p>The last line, or sometimes two lines, of the traceback describe
 		what actually went wrong. In Python, all errors are given a class, e.g.
@@ -99,7 +99,122 @@ UnboundLocalError: local variable 'total_height' referenced before assignment
 		description following is usually sufficient to point you in the right
 		direction. At least now you can track down exactly what line is causing
 		the problem, and how the program got there.</p>
+                
+                <h2>Error types</h2>
 
+                <p>As mentioned before, Python errors are divided into classes - lots of them!
+                Luckily only a handful are very common. These are listed here, in alphabetical order,
+                so that you can figure out what you did wrong when you encounter one of these errors. Remember that
+                there are various things that cause these errors. Only the most common reasons are mentioned here. Copy and paste the error message
+                right into a Google search and you are sure to find an answer. And don't worry - 
+                everyone, even experienced software engineers, run into these on a regular basis.</p>
+                
+                <h3>IndentationError</h3>
+                <h4>Example:</h4>
+                <pre class="listing">
+for i in range(0, 10):
+...     b = i
+...   print i
+  File "<stdin>", line 3
+    print i
+          ^
+IndentationError: unindent does not match any outer indentation level</pre>
+                
+                <p>IndentationError is actually a special type of SyntaxError. You get this error when your indentation is not consistent. In the 
+                example <code>b = i</code> has 4 leading spaces but <code>print i</code> only has 2. If <code>print i</code> needs to be executed
+                for every iteration of the 'for' loop, then it needs to have the same level of indentation as the inner block, i.e. the same as <code>b = i</code>.
+                Otherwise, if it is only meant to execute after the 'for' loop, it needs to have 0 leading spaces.</p>
+
+                <h3>NameError</h3>
+                <h4>Example:</h4>
+                <pre class="listing">
+print(variable)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'variable' is not defined</pre>
+                
+                <p>A 'NameError' occurs when you try to use a variable which does not exist in the current <em>scope</em>. In other words
+                it has not been defined in the scope you are trying to use it in. Perhaps you haven't defined it at all, or
+                perhaps you misspelt the variable name.</p>
+
+                <h3>IndexError</h3>
+                <h4>Example:</h4>
+                <pre class="listing">
+i = ['hello', 'world']
+i[2]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list index out of range</pre>
+                
+                <p>This error is an easy one to understand. In the example the list 'i' only has 2 elements. Those elements
+                have index 0 and 1 (or -2 and -1 if you use reverse indices). Thus index 2 is 'out of range' because it is too large.
+                IndexError will happen for any index that is too large or too small.</p>
+
+                <h3>SyntaxError</h3>
+                <h4>Example:</h4>
+                <pre class="listing">
+print('hello world!)
+  File "<stdin>", line 1
+    print('hello world!)
+                       ^
+SyntaxError: EOL while scanning string literal</pre>
+                <pre class="listing">
+answer = ((1 + 3) * 5 / 6.0 ;
+  File "<stdin>", line 1
+    answer = ((1 + 3) * 5 / 6.0 ;
+                                ^
+SyntaxError: invalid syntax</pre>
+                <p>Syntax errors occur when Python cannot understand your code because you didn't use the correct 'grammar'. While you can
+                get away with the occasional grammar mistake in English, the same cannot be said of computer languages. Things have to be
+                exactly right. Luckily syntax errors are easy to solve if you understand the error message. The '^' character in the error message
+                points to the place where Python encountered the error. In the
+                first example above, a closing single quote is missing. In the second example it is a closing bracket that is missing.
+                Always check that you having matching closing and opening brackets and quotes.</p>
+                
+                <h4>Example:</h4>
+                <pre class="listing">
+File "Desktop/errors.py", line 1
+    for i in range(0, 10)
+                        ^
+SyntaxError: invalid syntax</pre>
+
+                <p>Another common syntax error is leaving out the colon (':') at the start of a code block. 'if', 'for' and 'while' statements, as well as function
+                definitions, all start new code blocks. So those lines have to end with a colon.</p>
+                <h3>TypeError</h3>
+                <h4>Example:</h4>
+                <pre class="listing">
+'ab' * 'ab'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: can't multiply sequence by non-int of type 'str'</pre>
+                <pre class="listing">
+def multiply(a, b):
+    return a * b
+
+multiply(10)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: multiply() takes exactly 2 arguments (1 given)</pre>
+                
+                <p>When you use the wrong type of variable for something in Python, you will get a TypeError. In the first example, Python
+                cannot multiply two variables that are strings. At least one of them needs to be a number. The second example is an altogether
+                different TypeError. The function <code>def multiply(a, b)</code> needs two arguments to be passed to it, e.g. <code>multiply(10, 15)</code>.
+                Too many or too few arguments will also cause a TypeError.</p>
+
+                <h3>ValueError</h3>
+                <h4>Example:</h4>
+                
+                <pre class="listing">
+int('abc')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: invalid literal for int() with base 10: 'abc'</pre>
+                
+                <p>Value errors can occur for many different reasons. It means that there is something 'wrong' about the value of a variable or 
+                literal. In the example above the value in question is 'abc' and the program is trying to turn 'abc' into an integer. How does one
+                turn 'abc' into a number? I don't know and neither does Python. That is why a ValueError pops up.</p>
+                
+                <p><strong>Remember, if you cannot find an answer here, just copy-paste the error message into Google!</strong></p>
 		<div class="centered">
 			[<a href="writing_errors.html">Prev: Writing Meaningful Error Messages</a>]&nbsp;[<a href="index.html">Course Outline</a>]&nbsp;[<a href="exceptions.html">Next: Flow Control: Exceptions</a>]
 		</div>
