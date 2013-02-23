@@ -417,7 +417,7 @@ if numOfPeople>5:
 		<p> This method will work, but it is cumbersome. Too many nested if's can lead to confusion, and if you wanted to change your program later so that it printed "You should go to the party", you might change it in one place but not the other. As such it would be much better to write that algorithm as follows:</p>
 		<pre class='listing'>
 if numOfPeople>5 and numOfPeople&lt;40 and (day=='Friday' or day=='Saturday):
-	print "Go to the party"
+	print ("Go to the party")
 		</pre>
 		<p> This is a much more elegant solution, and is preferable. You would only use nesting when you want to do slightly different things depending on the situation. When programming, less is more. <strong>You should almost always strive for less code</strong> (so long as the program still does what it should).<p>
 		<h2>Specifying Execution Code for Alternate Conditions</h2>
@@ -431,9 +431,9 @@ if numOfPeople>5 and numOfPeople&lt;40 and (day=='Friday' or day=='Saturday):
 		<pre class='listing'>
 1: first = int(raw_input("Enter a number: "))
 2: if first % 2 == 0:
-3:     print first, "is even"
+3:     print (first, "is even")
 4: else:
-5:     print first, "is odd"
+5:     print (first, "is odd")
 </pre>
 
 		<p>Now, if 'first' is not even, the program will print a message saying
