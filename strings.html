@@ -23,28 +23,28 @@
 		<h2>Strings as Sequences</h2>
 
 		<p>Strings can be thought of as sequences (as lists are sequences) of
-		characters. As such many of the methods that work on lists work on
+		characters. As such, many of the methods that work on lists work on
 		strings. Strings in fact have more functionality associated with them,
-		by virtue of the fact that in manipulating text, many more tasks
+		because when manipulating text, many more tasks
 		involving character (as opposed to values of arbitrary type) are common
 		and useful. We'll start with the ones familiar from lists. Note that
 		the complete list of methods associated with strings is available <a
 		class="doclink"
-		href="http://docs.python.org/lib/string-methods.html">in the python
+		href="http://docs.python.org/lib/string-methods.html">in the Python
 		documentation</a>, which describes additional optional parameters not
-		discussed here for the sake of brevity.</p>
+		discussed here.</p>
 
 		<ul>
 
 			<li><code>&lt;string&gt;.count(&lt;substring&gt;)</code> returns
-			the number of times substring occurs within the string.</li>
+			the number of times substring (portion of the string) occurs within the string.</li>
 
 			<li><code>&lt;string&gt;.find(&lt;substring&gt;)</code> returns the
-			index within the string of the first (from the left) occurrence of
+			index (position) within the string of the first (from the left) occurrence of
 			'substring'. Returns -1 if substring cannot be found.</li>
 
 			<li><code>&lt;string&gt;.rfind(&lt;substring&gt;)</code> returns
-			the index within the string of the last (from the right) occurrence
+			the index within the string of the last (from the left) occurrence
 			of 'substring'. Returns -1 if substring cannot be found.</li>
 
 			<li><code>&lt;string&gt;.index(&lt;substring&gt;)</code> returns
@@ -52,7 +52,7 @@
 			of 'substring'. Causes an error if substring cannot be found.</li>
 
 			<li><code>&lt;string&gt;.rindex(&lt;substring&gt;)</code> returns
-			the index within the string of the last (from the right) occurrence
+			the index within the string of the last (from the left) occurrence
 			of 'substring'. Causes an error if substring cannot be found.</li>
 
 		</ul>
@@ -97,18 +97,19 @@ Traceback (most recent call last):
 			string with only the first character in uppercase.</li>
 
 			<li><code>&lt;string&gt;.swapcase()</code> returns a copy of the
-			string with every character's case inverted.</li>
+			string with every character's case inverted (swapped).</li>
 
 			<li><code>&lt;string&gt;.center(&lt;width&gt;)</code> returns a
 			string of width 'width' with the original string centered, i.e.
-			equally padded with spaces on the left and right, within it.</li>
+      the string in the middle of an equal number of spaces on the left
+      and right.</li>
 
 			<li><code>&lt;string&gt;.ljust(&lt;width&gt;)</code> returns the
-			original string left justified within a string of width 'width',
+			original string left justified (on the left) within a string of width 'width',
 			i.e. padded with spaces up to length 'width'.</li>
 
 			<li><code>&lt;string&gt;.rjust(&lt;width&gt;)</code> returns the
-			original string right justified within a string of width 'width',
+			original string right justified (on the right) within a string of width 'width',
 			i.e. padded on the left with spaces to make a string of length
 			'width'.</li>
 
@@ -131,8 +132,8 @@ Traceback (most recent call last):
 			away.</li>
 
 			<li><code>&lt;string&gt;.replace(&lt;old&gt;, &lt;new&gt;)</code>
-			returns a copy of the string in which all non-overlapping instances
-			of 'old' are replaced by 'new'.</li>
+			returns a copy of the string where all occurences of 'old'
+      have been replaced with 'new'.</li>
 
 		</ul>
 
@@ -172,61 +173,77 @@ Traceback (most recent call last):
 &&gt;&gt;&gt;
 </pre>
 
-		<h2>Formatting Strings using the Interpolation Operator</h2>
+		<h2>Advanced String Formatting</h2>
 
-		<p>After all that, let's cut to the chase. The <a class="doclink"
-		href="http://docs.python.org/lib/typesseq-strings.html">interpolation
-		operator on strings</a>. This provides the majority of string
+		<p>After all that, let's cut to the chase. The .format() fucntion.
+		This allows us to use interpolation (which is explained below) and provides the majority of string
 		formatting operations in a single consistent pattern.  Learn it,
 		understand it, appreciate its inner beauty!</p>
 
-		<p>Formally put, the interpolation operator interpolates a sequence of
+		<p>This is done using the .format() function. Formally put, this interpolates (or inserts) a sequence of
 		values (i.e. a list, tuple, or in some special cases a dictionary) into
-		a string containing interpolation points (Placeholders). Wowsers we
-		say? Again in English? The interpolation operator combines a string
+		a string containing interpolation points (placeholders). Wowsers we
+		say? Again in English? The .format() function combines a string
 		containing certain codes and a sequence containing values, such that
 		those values are inserted into their respective positions within the
 		string, defined by the position of the codes, formatted according to
-		the specification of those codes, and replacing those codes... Example
-		time</p>
+		the specification of those codes, and replacing those codes... Ok, perhaps just an example
+		then...</p>
 
 		<pre class='listing'>
-&gt;&gt;&gt; s = "My very %s monkey jumps swiftly under %i planets" % ("energetic", 9)
+&gt;&gt;&gt; s = "My very {0} monkey jumps swiftly under {1} planets".format("energetic", 9)
 &gt;&gt;&gt; s
 'My very energetic monkey jumps swiftly under 9 planets'
 &gt;&gt;&gt;
 </pre>
 
-		<p>Examining the above example, we had a string containing two strange
-		% thingies, and a tuple containing 2 elements. Spot the correlation! 2
-		% thingies, 2 elements. When combined using the '%' operator, the
-		contents of the tuple were 'merged into' the string at the points where
-		the % thingies were, at their respective positions (by relative
-		position left to right), replacing the % thingies.</p>
+		<p>Examining the above example, we had a string containing two {number} thingies. 
+    The format function was called on this, with two parameters. 
+		This function served to merge the string at the points where
+		the {number} thingies were, with the first parameter replace {0}, the second {1} and so on.
+    </p>
+
+    <p>However, instead of having to put parameters in the exact order you wanted to insert
+    them, you can also use named variables, and let Python figure it out for you. </p>
+
+    <pre class='listing'>
+>>> s = "My very {mood} monkey jumps swiftly under {number} planets".format(number=5, mood="sad")
+>>> s
+'My very sad monkey jumps swiftly under 5 planets'
+</pre>
 
 		<p>Time to get technical. And thingie is not a technical term, except
-		amongst electrical engineers and biochemists. So firstly, the % thingie
-		in the string is called a <strong>conversion specification</strong>.
-		This is because all values in the sequence are converted to strings
-		during the merge. It has a specific format, namely it starts with a '%'
-		symbol, and must be at least two characters. It's easier to show the
-		complete format in point form, so here it is...</p>
+		amongst electrical engineers and biochemists. The .format() function converts 
+    all values in the sequence to strings
+		during the merge. The 'placeholder' ({ }) has a specific format, namely it is contained in '{}'
+		and holds at least one identifier. It's easier to look at the complete format in point form, so here it is...</p>
 
 		<ol>
 
-			<li><code>%</code><br />
+			<li><code>{ identifier }</code><br />
 			
-			Conversion specifications <strong>must</strong> start with the '%'
-			symbol.</li>
+			Placeholders  <strong>must</strong> have { } around them with 
+      either a parameter number or parameter name inside.</li>
 
 			<li><code>(&lt;mapping/key name&gt;)</code>&nbsp;*optional<br />
 			
-			The '%' may be optionally followed by a key name from a dictionary
-			used in the interpolation (i.e. instead of a tuple or list). This
+			The parameter identifier may be optionally followed by a key name from a dictionary
+			used as a parameter (i.e. instead of a tuple or list). This
 			is <strong>required</strong> if you use a dictionary to
-			interpolate, as dictionary key order is not defined, so order
-			cannot be used to relate conversion specifications to their
-			respective elements in the dictionary.</li>
+			interpolate, as dictionary keys aren't returned in order (and therefore,
+      it doesn't make sense to use numbered parameters to decide where they go.
+<pre class='listing'>
+>>> s = "My {0[mood]} monkey jumps swiftly under {0[number]} planets".format(
+        {"mood": "playful", "number": 3, "something": "else"})
+>>> s
+'My playful monkey jumps swiftly under 3 planets'
+</pre></li>
+
+      <li><code>{identifier: format}</code>&nbsp;*optional<br />
+      It's also possible to include information on how you want parameters formatted.
+      This is done by including a : after the variable name and specifying the format.
+
+      <ul>
 
 			<li><code>#</code>, <code>0</code>, <code>-</code>,
 			<code>&nbsp;</code>, <code>+</code>&nbsp;*optional<br />
@@ -255,76 +272,64 @@ Traceback (most recent call last):
 
 			</li>
 
-			<li><code>&lt;field width&gt;</code>&nbsp;*optional<br />
+			<li><code>&lt;field width and justification&gt;</code>&nbsp;*optional<br />
 
 			An optional minimum field width. Whatever value is merged in at
 			this point in the string, is converted to a string that is at least
 			as wide as the field width, specified as an integer. Note, because
 			the number is inside a string it must be hard coded, and cannot be
-			an expression.</li>
+			an expression. You can also specifiy the justification for the string using
+      one of the following:</li>
+      <ul>
+          <li>< : (default) left align <</li>
+          <li>> : right align </li>
+          <li>^ : centre align</li>
+      </ul>
 
 			<li><code>.&lt;precision&gt;</code>&nbsp;*optional<br />
 			
 			An optional precision level can be specified (in digits). This will
-			ensure that the precision of floats is truncated to this length.
+			ensure that the precision of floats is shortened to this length.
 			Floats will not be padded.</li>
 
-			<li> <code>&lt;Conversion Type&gt;</code>&nbsp;mandatory<br />
+			<li> <code>&lt;Conversion Type&gt;</code>&<br />
 			
 				The conversion type character is a single character specifying
 				the type of value to convert into a string and how the
-				conversion should happen. The complete list of valid characters
-				can be found on the documentation page, but the important ones
+				conversion should happen. Some important ones
 				are
 
 				<ul>
-
-					<li>'i': convert an integer</li>
-
-					<li>'e': convert a float to scientific notation</li>
-
-					<li>'f': convert a float to decimal notation</li>
-
-					<li>'s': convert a string</li>
-
-					<li>'%': convert nothing, just insert a '%'</li>
-
+            <li>g: General format. This prints the number as a fixed-point number</li>
+            <li>b: Binary. Prints the number as binary.</li>
+            <li>e: Scientific notation.</li>
+            <li>%: Percentage. Multiplies number by 100 and displays followed by % sign</li>
+          
 				</ul>
 
 			</li>
+      </ul>
 
 		</ol>
 
 		<pre class='listing'>
-&gt;&gt;&gt; "An integer with field width of three: %3i"%(5,)
-'An integer with field width of three:   5'
+&gt;&gt;&gt; "An integer with field width of three: {0:3}".format(5)
+'An integer with field width of three:5   '
 &gt;&gt;&gt;
-&gt;&gt;&gt; "An integer left justified: %-3i"%(5,)
-'An integer left justified: 5  '
+&gt;&gt;&gt; "An integer right justified with a field length of 3: {0:3>}".format(5) 
+'An integer right justified with a field length of 3:   5'
 &gt;&gt;&gt;
-&gt;&gt;&gt; "An integer with leading zeros: %03i"%(5,)
+&gt;&gt;&gt; "An integer with leading zeros: {0:02}".format(5)
 'An integer with leading zeros: 005'
 &gt;&gt;&gt;
-&gt;&gt;&gt; "An integer right justified with forced +: %+3i"%(5,)
+&gt;&gt;&gt; "An integer right justified with forced +: {0:+>}".format(5)
 'An integer right justified with forced +:  +5'
 &gt;&gt;&gt;
-&gt;&gt;&gt; "A float: %f"%2.5
-'A float: 2.500000'
+&gt;&gt;&gt; "A number with precision 3: {0:.3f}".format(5)
+'A number with precision 3: 5.000'
 &gt;&gt;&gt;
-&gt;&gt;&gt; "A float: %.1f"%2.5
-'A float: 2.5'
-&gt;&gt;&gt;
-&gt;&gt;&gt; "A float: %4.1f"%2.5
-'A float:  2.5'
-&gt;&gt;&gt;
-&gt;&gt;&gt; "A float: %04.1f"%2.5
-'A float: 02.5'
-&gt;&gt;&gt;
-&gt;&gt;&gt; "A float in sci notation: %06.1e"%(0.0000025)
-'A float in sci notation: 2.5e-06'
-&gt;&gt;&gt;
-&gt;&gt;&gt; "A percentage symbol: %% %s"%(" ")
-'A percentage symbol: %  '
+&gt;&gt;&gt; "A number in scientific notation: {0:e}".format(0.0000025)
+'A number in scientific notation: 2.5e-06'
 &gt;&gt;&gt;
 </pre>
 
@@ -415,9 +420,9 @@ True
                         change a string variable, to for example to insert '-)'
                         after every colon?</li>
 
-                        <li>If we try to use the interpolation operator with a
+                        <li>If we try to use the .format() function with a
                         tuple, the tuple must have the same number of elements
-                        as there are '%' characters in the string. Is this the
+                        as there are { } identifiers in the string. Is this the
                         case with dictionaries?  Why?</li>
 
                         <li>Write a program that reads in names until a blank
@@ -426,22 +431,19 @@ True
                         the last name is preceded by the word 'and' instead of
                         a comma.</li>
 
-			<li>Write a program that reads in a line of space separated names,
-			after which it prints out an English style list, i.e. a comma
-			separated 
 
 			<li>What is the value of <code>"Laziness is a
-			%s."%("virtue")</code>?</li>
+			{0}.".format("virtue")</code>?</li>
 
-			<li>What is the value of <code>"%i days hath %s, %s, %s and %s. I
-			use my %s for the other %i, because I can't remember this rhyme for
-			%s"%(30, "September", "April", "June", "November", "knuckles", 8,
+			<li>What is the value of <code>"{0} days hath {1}, {2}, {3} and {4}. I
+			use my {5} for the other {6}, because I can't remember this rhyme for
+			{7}".format(30, "September", "April", "June", "November", "knuckles", 8,
 			"...")</code>?</li>
 
 			<li>What is the value of
-			<code>"%02i/%02i/%04i"%(10,3,2009)</code>?</li>
+			<code>"{0:02}/{1:02}/{2:04}".format(10,3,2009)</code>?</li>
 
-			<li>What is the value of <code>"%5.3f"%(3.1415)</code>?</li>
+			<li>What is the value of <code>"{0:5.3f}".format(3.1415)</code>?</li>
 
 			<li>How would you print a column of numbers so the line up right
 			justified for convenient addition?</li>
@@ -452,7 +454,7 @@ True
 			<li>Write a program that reads in the name, price, and quantity of
 			an item, and stores it in a list of tuples, repeating until a blank
 			product name is entered. It should then print out each item in a
-			nicely formatted manner, using string interpolations.</li>
+			nicely formatted manner, using string formatting.</li>
 
                         <li>Tougher Problem: Modify your answer to question 11
                         to use products from a dictionary of product codes
