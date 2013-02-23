@@ -42,7 +42,7 @@
 			<strong>A file is a name associated with an ordered collection of data on some storage medium</strong>
 		</div>
 
-		<p>Another concept that the GUIs of the 90s onwards have eroded
+		<p>Another concept that the computer interfaces of the 90s onwards have eroded
 		significantly is the idea of the filesystem. 
 		
 		Viewed on a physical storage device, we encounter a number of problems dealing directly with
@@ -55,7 +55,7 @@
 		multiple directories at once. Thus we have given files a
 		<strong>location</strong>. However, directories can also contain other
 		directories. This forms an ordered structure of files within
-		directories, within other directories, and so on.
+		directories, within other directories, within other directories, within ... and so on.
 		
 		Where does
 		it end? It does end, or rather it <em>starts</em> somewhere!</p>
@@ -64,7 +64,7 @@
 			<strong>A directory is an arbitrary unordered grouping of files</strong>
 		</div>
 
-		<p>Modern GUI operating systems make it very easy for us to navigate through folders on our computers, but how does a program see directories and files? Every filesystem has a starting point called the
+		<p>Modern GUI (graphical user interface) operating systems make it very easy for us to navigate through folders on our computers, but how does a program see directories and files? Every filesystem has a starting point called the
 		<strong>root</strong>. All directories on the filesystem will use this root to describe their location.
 		In Windows for example, each filesystem is assigned its own root using a
 		letter from the alphabet, as in <code>C:\</code>. Note the backslash!
@@ -164,11 +164,8 @@ I have nothing to do!
 
 		<h2>Opening Files</h2>
 
-		<p>Opening a file in Python is simple. We use the <a class="doclink"
-		href='http://docs.python.org/lib/built-in-funcs.html'>open
-		function</a>. The open function returns a <a class="doclink"
-		href='http://docs.python.org/lib/bltin-file-objects.html'>file
-		object</a>, given a path to a file in the form of string, and a string
+		<p>Opening a file in Python is simple. We use the <strong>open</strong> function.
+		The open function returns a file object, given a path to a file in the form of string, and a string
 		specifying whether to open the file for reading or writing.</p>
 
 		<p>All files in Python are treated as text files, meaning they are
