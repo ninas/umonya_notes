@@ -22,9 +22,7 @@
 
 		<h2>Tuples as Immutable Lists</h2>
 
-		<p>In many ways tuples and lists are very similar. In fact <a
-		class="doclink"
-		href="http://olympiad.cs.uct.ac.za/docs/python-docs-2.6/library/stdtypes.html#typesseq">tuples</a> are
+		<p>In many ways tuples and lists are very similar. In fact tuples are
 		basically immutable lists, that is, lists which cannot be changed. All
 		the same operators work on them: concatenation, repetition,
 		subscription, and slicing. All the comparison operators work in the
@@ -64,25 +62,25 @@
 
 		<ul>
 
-			<li><code>a + b</code> yields Concatenation.</li>
+			<li><code>a + b</code> concatenates two tuples.</li>
 
-			<li><code>a * i</code> yields Repetition.</li>
+			<li><code>a * i</code> repeats a tuple.</li>
 
-			<li><code>a[i]</code> yields Subscription, or the 'i'th element of
+			<li><code>a[i]</code> retrieves the 'i'th element of
 			'a'.</li>
 
-			<li><code>a[i:j:k]</code> yields Slicing, or a copy of the list 'a'
+			<li><code>a[i:j:k]</code> slices a tuples, or returns a copy of the tuple 'a'
 			from its 'i'th element to its (j-1)'th element, taking only every
 			'k'th element. If 'k' is omitted, every element in the range is
 			taken.</li>
 
 			<li><code>a[:i]</code> yields a slice from the beginning of the
-			list to (i-1)'th element of 'a'.</li>
+			tuple to (i-1)'th element of 'a'.</li>
 
 			<li><code>a[i:]</code> yields a slice from the 'i'th element to the
 			end of the tuple.</li>
 
-			<li><code>a[:]</code> yields a slice of the entire tuple.</li>
+			<li><code>a[:]</code> yields a copy of the entire tuple.</li>
 
 		</ul>
 
@@ -191,10 +189,6 @@
 		<h2>Exercises</h2>
 
 		<ol>
-
-			<li>If the use of a comma forms a tuple, then how do we indicate a
-			tuple as an expression to the print statement, rather than its
-			elements as separate expressions?</li>
 
 			<li>What is the difference between concatenation and addition of
 			tuples? Why is the python plus operator for tuples a concatenation
