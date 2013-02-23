@@ -65,8 +65,7 @@
 		When we exit the function, and take down the glass wall in doing so, we
 		also destroy all the papers used on the inside of the wall.</p> 
 
-		<p>More <a class="doclink"
-		href="http://docs.python.org/ref/naming.html">formally</a> speaking,
+		<p>More formally speaking,
 		when a name (i.e. not a reserved word, number, string or symbol) is
 		encountered python looks for the most recent definition of the
 		variable, object, or function that has that name in the current block
@@ -107,8 +106,8 @@
 					<span class='green'>total_height</span> = <span class='yellow'>total_height</span> + <span class='yellow'>height</span><br />
 				</div><br />
 				<strong>for</strong> <span class='blue'>i</span> <strong>in</strong> range(<span class='yellow'>height</span>):<br />
-				<span class='indent'><strong>print</strong> "*" * <span class='yellow'>height</span><br /></span> inc_total_height()<br />
-				<strong>print</strong><br />
+				<span class='indent'><strong>print</strong>("*" * <span class='yellow'>height</span><br /></span> inc_total_height())<br />
+				<strong>print()</strong><br />
 			</div><br />
 			<span class='yellow'>height</span> = 3<br />
 			triangle()<br />
@@ -138,7 +137,7 @@
 		knows to look for its value only in the green block in question, and
 		when it can't find it there causes an error ('total_height' not
 		defined) because it assume you are try to access 'total_height's value
-		before assigning it an initial value. In fact the fact that there is an
+		before assigning it an initial value. In fact, the fact that there is an
 		assignment in the green block causes 'total_height' to become a totally
 		new variable unrelated to the original one, which only exists in the
 		green block.  This effect is consistent throughout the green block,
@@ -172,8 +171,8 @@
 					<span class='yellow'>total_height</span> = <span class='yellow'>total_height</span> + <span class='yellow'>height</span><br />
 				</div><br />
 				<strong>for</strong> <span class='blue'>i</span> <strong>in</strong> range(<span class='yellow'>height</span>):<br />
-				<span class='indent'><strong>print</strong> "*" * <span class='blue'>i</span><br /></span> inc_total_height()<br />
-				<strong>print</strong><br />
+				<span class='indent'><strong>print</strong>("*" * <span class='blue'>i</span><br /></span> inc_total_height())<br />
+				<strong>print()</strong><br />
 			</div><br />
 			<strong>def</strong> square():<br />
 
@@ -186,7 +185,7 @@
 				</div><br />
 				<strong>for</strong> <span class='blue'>i</span> <strong>in</strong> range(<span class='yellow'>height</span>):<br />
 				<span class='indent'><strong>print</strong> "*" * <span class='yellow'>height</span><br /></span> inc_total_height()<br />
-				<strong>print</strong><br />
+				<strong>print()</strong><br />
 			</div><br />
 			<span class='yellow'>height</span> = 3<br />
 			triangle()<br />
