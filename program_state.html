@@ -31,7 +31,7 @@
 		<p>Variables each have a name, a type, and a value. A name is simply
 		what we choose to call a particular piece of data. For example, we
 		previously called the bit of data representing the total number of
-		apples held by everyone 'apples'. We stored a number in 'apples', so this would be its type. The value of 'apples' started at 0. As more people were input into the problem, the number of apples
+		apples held by everyone 'apples'. We stored a number in 'apples', so this would be its type. The value of 'apples' started at 0. As more people were added to the problem, the number of apples
 		increased. Accordingly, the value of our variable
 		'apples' changed.</p>
 
@@ -81,9 +81,8 @@
 </pre>
 
 		<p>Here we have created a new variable, whose name is 'name', and which
-		has the value <em>James</em>. Note, we did not explicitly state the type of
-		'name' to be a string. When
-		assigning a value to a variable, Python automatically sets the type of
+		has the value <em>James</em>. Note, we did not have to say that 'name' was of type string.
+		When assigning a value to a variable, Python automatically sets the type of
 		variable being assigned to the type of the value being assigned. If we
 		go on to assign name again, this time with a different value</p>
 
@@ -219,14 +218,12 @@ i = 2 and j = 1
 		multiplication operators is applied first? One might think the
 		operators are applied simply left to right, but as in maths, we
 		have a well defined order of <strong>precedence</strong> specifying
-		the order in which operators are applied. The complete list of
-		Python operators and their precedence can be found <a class="doclink"
-		href="http://olympiad.cs.uct.ac.za/docs/python-docs-2.6/reference/expressions.html#summary">here</a>. In general
-		Python arithmetic operates exactly as it would in normal
+		the order in which operators are applied. 
+		In general Python arithmetic operates exactly as it would in normal
 		mathematics.</p>
 
-		<p>In the same way variables have a type, so too expressions have a
-		type associated with their value. The type of the value of an
+		<p>We know that variables have a type, and so does the value of expressions.
+		The type of the value of an
 		expression is generally determined by the types comprising the
 		expression. For example, adding one integer to another in an expression
 		always yields an integer, so the expression's type is integer. But what
@@ -237,39 +234,17 @@ i = 2 and j = 1
 		integer, but the value 3 can be represented by a float as 3.0. Hence
 		adding a float to an integer means the integer gets promoted to a float
 		and the type of the expression's value as a whole will be a float.
-		Division however acts slightly differently:</p>
+		</p>
 
-		<pre class='listing'>
-&gt;&gt;&gt; print(4/2)
-2
-&gt;&gt;&gt; print(5/2)
-2
-&gt;&gt;&gt;
-</pre>
-
-		<p>Four divided by two is two, no problems there. But five divided two
-		is 2.5, not 2! Because both 5 and 2 are integers, python divides them
-		as integers, in much the same way as we did in junior school. The
-		number of times 2 goes into 5 completely is worked out, and the rest is
-		considered the remainder. Because an integer can't represent the
-		additional 0.5, it is simply dropped. If you want the exact value,
-		divide by a float instead, and force promotion of the expression to a
-		float:</p>
-
-		<pre class='listing'>
-&gt;&gt;&gt; print(5/2.0)
-2.5
-&gt;&gt;&gt;
-</pre>
-
-		<p>However, we often actually want the integer part of a division only,
+    <p>Python division allows us to do a number of things. We can divide two integers (say 5/2) and the result will be represented
+    as a float (2.5). However, we often actually want the integer part of a division only (that is, we want the decimal part dropped),
 		or the remainder. Python provides us with an operator to
-		get the remainder, namely modulo:</p>
+		get both the integer division value and the remainder. Using % is called getting the modulo of two numbers:</p>
 
 		<pre class='listing'>
 &gt;&gt;&gt; print(5 % 2)
 1
-&gt;&gt;&gt; print("5 divided by 2 is ", 5/2, "remainder", 5 % 2)
+&gt;&gt;&gt; print("5 divided by 2 is ", 5 // 2, "remainder", 5 % 2)
 5 divided by 2 is 2 remainder 1
 &gt;&gt;&gt;
 </pre>
