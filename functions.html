@@ -83,7 +83,7 @@ def triangle3():
     print "***"
 </pre>
 
-		<p>Henceforth, whenever python encounters <code>triangle3()</code> the
+		<p>Henceforth, whenever Python encounters <code>triangle3()</code> the
 		three print statements will be executed. Note the brackets! They
 		indicate triangle3 should be called, rather than treated as a variable.
 		Looking at triangle three, there's nothing we couldn't do without cut
@@ -133,7 +133,7 @@ TypeError: unsupported operand type(s) for /: 'str' and 'int'
 		functions and how they handle parameters. Firstly, the 'def statement'
 		is executed and 'minutes' is created as a function 'object', as
 		evidenced by the value returned after typing in 'minutes'. Note however
-		when we call it by typing 'minutes(71)', instead python actually
+		when we call it by typing 'minutes(71)', instead Python actually
 		executes the statements in the definition of the function 'minutes'.
 		The first statement in the definition prints out the value of seconds
 		as 71. But where did the value 71 come from?</p>
@@ -206,7 +206,7 @@ TypeError: unsupported operand type(s) for /: 'str' and 'int'
 		<h2>Composition of Functions in the Definition</h2>
 
 		<p>Of course, since we can do 'pretty much anything' in a function
-		definition, we can also call other functions, both python built in
+		definition, we can also call other functions, both Python built in
 		functions, and our own defined ones, as in an example to get two
 		coordinates from the user.</p>
 
@@ -230,7 +230,7 @@ def getcoords():
 		<p>Just as expressions can be composed to form more complex expression,
 		so can functions be composed in the strict mathematical sense, i.e.
 		given two functions 'f(a)' and 'g(b)', we can obtain a value for f of g
-		of x. Similarly in python we could say,</p>
+		of x. Similarly in Python we could say,</p>
 
 		<pre class='listing'>
 print minimum(5, minimum(int(input("&gt; ")), 8))
@@ -244,7 +244,7 @@ print minimum(5, minimum(int(input("&gt; ")), 8))
 		itself, and further with input.</p>
 
 		<p>In the same way that the range of 'g(b)' must fall within the domain
-		of 'f(a)', so too must we ensure in python when doing our function
+		of 'f(a)', so too must we ensure in Python when doing our function
 		compositions that the results of inner functions are of appropriate
 		type and value for use as parameters to outer functions.</p>
 
@@ -296,12 +296,12 @@ FF
 		first time, we only provide one parameter, so during the implicit tuple
 		unpacking, we get the equivalent of <code>number, r, case = 17,</code>
 		which would be problematic because the right hand tuple is not big
-		enough. In this case python fills up the tuple as necessary with the
+		enough. In this case Python fills up the tuple as necessary with the
 		default values, yielding in fact <code>number, r, case = 17, 16,
 		"upper"</code>.</p>
 
 		<p>Looking at our third call of the 'radix' function, we have provided
-		two parameters, so python unpacks the tuple as <code>number, r, case =
+		two parameters, so Python unpacks the tuple as <code>number, r, case =
 		17, 8,</code>, and fills up to the size required with default values,
 		so we get<br /> <code>number, r, case = 17, 8, "upper"</code>. Note how
 		the default values <strong>fill up their respective positions in the
@@ -330,7 +330,7 @@ def &lt;funcname&gt;([parameter 1][, parameter 2][...][[,] **kwargs]):
 
 		<p>Ending a parameter list in a function definition with the special
 		'expression' <code>**kwargs</code> (meaning key word arguments), means
-		that python will provide a dictionary inside function definition called
+		that Python will provide a dictionary inside function definition called
 		'kwargs', containing all the parameters passed in in keyword form. The
 		'**kwargs' can also be alone in the parameter list. Re-examining the
 		radix example we have</p>

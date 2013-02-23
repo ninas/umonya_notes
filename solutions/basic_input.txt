@@ -4,7 +4,7 @@
 2. A function is an expression in it's own right, and is a value. Also, when a
 function is called it always returns a value. So given a function called 'f',
 both 'f' and 'f()' are expressions. The former yields the value of the function
-itself, as python can use functions as first-order variables, the second has the
+itself, as Python can use functions as first-order variables, the second has the
 value return by the execution of 'f'.
 
 3. --- sum_two.py ---

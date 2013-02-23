@@ -48,8 +48,8 @@
 import &lt;module_name&gt;
 </pre>
 
-		<p>'module_name' is the name of a python file without the '.py'
-		extension. Any python program can be imported as a module, although
+		<p>'module_name' is the name of a Python file without the '.py'
+		extension. Any Python program can be imported as a module, although
 		most often modules contain function definitions and a minimum of
 		initialisation code, allowing us to keep commonly used function
 		definitions in a place where they can be reused without rewriting them,
@@ -59,7 +59,7 @@ import &lt;module_name&gt;
 
 		<h2>Namespaces</h2>
 
-		<p>If we have a python file which we wish to import, that has a global
+		<p>If we have a Python file which we wish to import, that has a global
 		variable 'i', into our main program, also with a global variable 'i',
 		there could be some confusion. The module's 'i' variable is in the
 		global scope of the module, but where is it in the scope of the program
@@ -134,7 +134,7 @@ dir(&lt;object&gt;)
 		to you yet, don't worry, we will cover it all in the sections on object
 		oriented programming. What we need to know now, is that although the
 		dir function is not very helpful in a program, it is <strong>incredibly
-		useful</strong> when using the python interactive interpreter. As
+		useful</strong> when using the Python interactive interpreter. As
 		modules are objects in python, in fact everything is an object, we can
 		call dir on a module at obtain a list of everything in the module that
 		can be referenced with the dot notation
@@ -206,7 +206,7 @@ bob: 4
 
 		<p>Ultimately, the true use of modules, is to get other people to do
 		the work for us. We are programmers, and thus laziness a virtue, after
-		all. The comprehensive list of standard python modules, i.e. modules
+		all. The comprehensive list of standard Python modules, i.e. modules
 		that come with a standard install of the latest version (currently
 		2.5), can be found <a class="doclink"
 		href='http://docs.python.org/modindex.html'>here</a>. Of particular
@@ -235,7 +235,7 @@ bob: 4
 			<dt>sys</dt>
 
 			<dd>Provides a large number of variables and functions dealing with
-			the internals of the python interpreter itself, and the environment
+			the internals of the Python interpreter itself, and the environment
 			in which it was invoked. Specific uses of various sys variables are
 			discussed shortly.</dd>
 
@@ -254,10 +254,10 @@ bob: 4
 		program is run from the command line, for example python, we can pass
 		the program itself parameters, as if it were a function. In operating
 		system shell speak they are known as arguments. We pass an argument to
-		python to tell it what python file to run,</p>
+		python to tell it what Python file to run,</p>
 
 		<pre class='listing'>
-sirlark@hephaestus ~ $ python my_file.py
+sirlark@hephaestus ~ $ Python my_file.py
 </pre>
 
 		<p>We can actually pass any number of arguments to a program we run
@@ -269,7 +269,7 @@ sirlark@hephaestus ~ $ python my_file.py
 		command line arguments.</p>
 
 		<div class="syncode">
-			sirlark@hephaestus ~ $ python my_prog.py <strong>somefile.fasta 7 "ACCTGT AGTCA"</strong>
+			sirlark@hephaestus ~ $ Python my_prog.py <strong>somefile.fasta 7 "ACCTGT AGTCA"</strong>
 		</div>
 
 		<p>In the example above, the program my_prog.py receives three command
@@ -313,25 +313,25 @@ print sys.argv
 </pre>
 
 		<pre class='listing'>
-sirlark@hephaestus ~/scratch $ python commargs.py Hello
+sirlark@hephaestus ~/scratch $ Python commargs.py Hello
 ['commargs.py', 'Hello']
-sirlark@hephaestus ~/scratch $ python commargs.py Hello There
+sirlark@hephaestus ~/scratch $ Python commargs.py Hello There
 ['commargs.py', 'Hello', 'There']
-sirlark@hephaestus ~/scratch $ python commargs.py "Hello There"
+sirlark@hephaestus ~/scratch $ Python commargs.py "Hello There"
 ['commargs.py', 'Hello There']
-sirlark@hephaestus ~/scratch $ python commargs.py "Hello There" 47
+sirlark@hephaestus ~/scratch $ Python commargs.py "Hello There" 47
 ['commargs.py', 'Hello There', '47']
 sirlark@hephaestus ~/scratch $
 </pre>
 
 		<p>Note how the first element of <code>sys.argv</code> is always the
-		name of our python program. Where after the arguments are those we gave
+		name of our Python program. Where after the arguments are those we gave
 		on the command line. Also note how all the elements, even the 47, are
 		in fact strings.</p>
 
 		<h2>The Standard Streams</h2>
 
-		<p>Whenever a python program is run, it opens three files
+		<p>Whenever a Python program is run, it opens three files
 		automatically, called standard input (stdin), standard output (stdout),
 		and standard error (stderr). Generally these files represent keyboard
 		input, screen output, and error output respectively, but they can be

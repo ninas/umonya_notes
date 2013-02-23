@@ -54,10 +54,10 @@
 
 		<p>The <a class="doclink"
 		href="http://docs.python.org/ref/assert.html">assert statement</a> is a
-		statement in python that checks whether a condition is True or not. If
+		statement in Python that checks whether a condition is True or not. If
 		the condition is False, then an error is forced immediately. The
-		benefit of the assert statement is that we can tell python to ignore
-		them for when the user runs our program, by requesting that python run
+		benefit of the assert statement is that we can tell Python to ignore
+		them for when the user runs our program, by requesting that Python run
 		in optimised mode using the '-O' argument. We use the assert statement
 		as follows</p>
 
@@ -65,7 +65,7 @@
 assert &lt;expression&gt;
 </pre>
 
-		<p>When python runs your script in non-optimised mode, and the assert
+		<p>When Python runs your script in non-optimised mode, and the assert
 		statement is encountered, the expression is evaluated. If it evaluates
 		to anything other than True, an AssertionError is caused.</p>
 
@@ -112,19 +112,19 @@ def debug_log(expr):
 		this purpose that so called 'debuggers' were built. Python's debugger
 		is called <a class="doclink"
 		href='http://docs.python.org/lib/module-pdb.html'>pdb</a>, and is
-		invoked by running python with the '-m pdb' option.</p>
+		invoked by running Python with the '-m pdb' option.</p>
 
 		<pre class='listing'>
-sirlark@hephaestus ~ $ python -m pdb myprog.py
+sirlark@hephaestus ~ $ Python -m pdb myprog.py
 </pre>
 
 		<p>A complete run down of pdb and its abilities would go on for pages,
-		and would be more completely described in the python documentation
+		and would be more completely described in the Python documentation
 		anyway. Instead, we will just explore the very basics of using a
 		debugger. When pdb is started, we are presented with</p>
 
 		<pre class='listing'>
-sirlark@hephaestus ~/scratch $ python -m pdb hannoi.py 
+sirlark@hephaestus ~/scratch $ Python -m pdb hannoi.py 
 &gt; /home/sirlark/scratch/hannoi.py(2)?()
 -&gt; import sys
 (Pdb) 
@@ -180,7 +180,7 @@ sirlark@hephaestus ~/scratch $ python -m pdb hannoi.py
 
 		</ul>
 
-		<p>In addition, pdb returns the value of any python expression we care
+		<p>In addition, pdb returns the value of any Python expression we care
 		to enter into its command line, within the context of the program being
 		debugged. So, if our program had a variable 'x', we could determine
 		'x's value at a the current point of execution by simply entering 'x'
@@ -190,8 +190,8 @@ sirlark@hephaestus ~/scratch $ python -m pdb hannoi.py
 
 		<h2>The Ideal Solution -- Using an Integrated Debugger</h2>
 
-		<p>The python debugger (pdb) is nice, but as debuggers go it is pretty
-		klunky. It was put into python as an afterthought, and it shows. The
+		<p>The Python debugger (pdb) is nice, but as debuggers go it is pretty
+		klunky. It was put into Python as an afterthought, and it shows. The
 		interface leaves a lot to be desired, but more importantly, it leaves
 		out some fairly important tools such as being able to split the output
 		of the debugger from that of our program.</p>

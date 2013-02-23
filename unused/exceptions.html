@@ -51,7 +51,7 @@
 		<strong>thrown</strong>. The exception is thrown outwards in terms of
 		scope. At each level of scope, it can be <strong>caught</strong>. If an
 		exception is uncaught by the time it hits the global scope, python
-		catches it. But python does nasty things when it catches exceptions. It
+		catches it. But Python does nasty things when it catches exceptions. It
 		prints out tracebacks and stops running our program. So we want to
 		catch errors before they get to the global scope. To do this we use the
 		try statement.</p>
@@ -82,7 +82,7 @@ except [varname] [exception class]:
 		reached an except clause, the exception in considered caught, and won't
 		continue outwards to the global scope. Of course, if in our handling of
 		the exception in the except clause, we throw another exception, then we
-		must catch that too, or have python get rude on us.</p>
+		must catch that too, or have Python get rude on us.</p>
 
 		<pre class='listing'>
 #a small program to demonstrate exception handling
@@ -127,8 +127,8 @@ except ValueError:
 		after all 'except clauses' in a try statement. The code of the finally
 		clause is executed after all of the main clauses code and any except
 		clause code that needs to be executed. Note that the finally clause can
-		only be used in conjuntion with an except clause from python 2.5
-		onwards. Before python 2.5 try statements can have either an except
+		only be used in conjuntion with an except clause from Python 2.5
+		onwards. Before Python 2.5 try statements can have either an except
 		clause or a finally clause, not both.</p>
 
 		<h2>Throwing Our Own Tantrums</h2>
