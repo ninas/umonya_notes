@@ -21,13 +21,13 @@
 
 		<h2>Booleans</h2>
 		
-		<p> Up to now, our programs have been pretty straightforward. The computer has simply executed each statement, in order, one after the other. There has been no variation, no change in behaviour, no awesomeness. In life, we are able to vary our behaviour based on our circumstances, ie we don't do <strong>exactly</strong> the same thing every day, day after day. Here are some everyday situations you might find yourself in, and some of the actions you might take as a  result:</p>
+		<p> Up to now, our programs have been pretty straightforward. The computer has simply executed each statement, in order, one after the other. There has been no variation, no change in behaviour, no awesomeness. In life, we are able to vary our behaviour based on our circumstances, i.e. we don't do <strong>exactly</strong> the same thing every day, day after day. Here are some everyday situations you might find yourself in, and some of the actions you might take as a  result:</p>
 
 		<ul>
 
 			<li>If it's raining or snowing for that matter, you won't go out, not without an umbrella at least.</li>
 
-			<li>If its dark and your lights are off, you'll turn them on, provided you're not trying to sleep.</li>
+			<li>If it's dark and your lights are off, you'll turn them on, provided you're not trying to sleep.</li>
 
 			<li>If you're hungry, and you have food at your disposal, or you have money to buy food, you'll eat something.</li>
 
@@ -41,7 +41,7 @@
 			<li> How wet will I get?</li>
 			<li> How much trouble will I get into?</li>
 		</ul>
-		<p> Computers on the other hand can not. Whilst we can weigh up different pros and cons and are capable of bending our own rules and even after hours of deliberating we're still capable of remaining unsure, a computer decides iether yes or no. There is no in between feelings, doubts or changing its mind.
+		<p> Computers on the other hand can not. Whilst we can weigh up different pros and cons and are capable of bending our own rules and even after hours of deliberating we're still capable of remaining unsure, a computer decides either yes or no. There are no in-between feelings, doubts or changing its mind.
 		The logic computers use to make their decisions is called boolean logic. For a computer, something can only have two states, <strong>True</strong> or <strong> False</strong>. A computer will ask these questions instead:</p>
 		<ul>
 			<li> Do I want to?</li>
@@ -49,7 +49,7 @@
 			<li> Will I get wet?</li>
 			<li> Will I get into trouble?</li>
 		</ul>		
-		<p> A computer can analyze certain conditions, determine if they are true or false, and then act accordingly. There is no room for leeway, no randomness, the computer is always sure that what its doing is correct. How does it know that it's correct? Because you told it it was.</p>
+		<p> A computer can analyse certain conditions, determine if they are true or false, and then act accordingly. There is no room for leeway, no randomness, the computer is always sure that what it's doing is correct. How does it know that it's correct? Because you told it it was.</p>
 
 		<p>In addition to computers only being aware of two conditions,
 		programming languages generally have very few ways of determining what
@@ -117,7 +117,7 @@ False
 		sub-propositions have the same truth value at the time the expression
 		is evaluated.</p>
 
-		<p>So back to our program to decide if we want to go to the party, we don't want to go to lame parties with too few people. So we only go to the party if there are more than 5 people there, ie if <code>numOfPeople&gt;5</code>. But what if we don't like crowded parties either? We could evaluate if <code>numOfPeople&lt;40</code>, so as to avoid parties with more than 40 people. But if only there were a way to combine them, so that we only go to parties that have a couple people <strong>AND</strong> are not too crowded. Say hello to <strong>logical operators</strong>, also known
+		<p>So back to our program to decide if we want to go to the party, we don't want to go to lame parties with too few people. So we only go to the party if there are more than 5 people there, i.e. if <code>numOfPeople&gt;5</code>. But what if we don't like crowded parties either? We could evaluate if <code>numOfPeople&lt;40</code>, so as to avoid parties with more than 40 people. But if only there were a way to combine them, so that we only go to parties that have a couple people <strong>AND</strong> are not too crowded. Say hello to <strong>logical operators</strong>, also known
 		as <strong>boolean operators</strong> (operators which apply to boolean expressions). There
 		are only three logical operators, listed below. If 'expr1' and 'expr2'
 		are both propositions:</p>
@@ -136,11 +136,11 @@ False
 			versa</i>.</li>
 
 		</ul>
-		<p> You can use boolean operators to string together multiple statements. eg. to decide whether or not to go to a party you might use the following conditions</p>
+		<p> You can use boolean operators to string together multiple statements. e.g. to decide whether or not to go to a party you might use the following conditions</p>
 		<p><code>numOfPeople>5 <strong>and</strong> numOfPeople&lt;40 <strong>and</strong> (day=='Friday' <strong>or</strong> day=='Saturday')</code></p>
-		<p> This will produce true if the party has between 5 and 40 people, and its iether a Friday or a Saturday. <strong>Note the brackets around the parts next to the or</strong>. Brackets are used here to define which expression to evaluate first. This is because the evaluation of boolean algebra also follows a hierachy system, </strong>BODMASCNAO.</strong> Your standard operations on numbers and variables come first. Then comes your conditions (>,==,<,in) then comes <strong>not</strong> then <strong>and</strong> and finally comes <strong>or</strong>. So if we left out the brackets and only had: </P
+		<p> This will produce true if the party has between 5 and 40 people, and it's either a Friday or a Saturday. <strong>Note the brackets around the parts next to the or</strong>. Brackets are used here to define which expression to evaluate first. This is because the evaluation of boolean algebra also follows a hierarchic system, </strong>BODMASCNAO.</strong> Your standard operations on numbers and variables come first. Then comes your conditions (>,==,<,in) then comes <strong>not</strong> then <strong>and</strong> and finally comes <strong>or</strong>. So if we left out the brackets and only had: </P
 		<p><code>numOfPeople>5 <strong>and</strong> numOfPeople&lt;40 <strong>and</strong> day=='Friday' <strong>or</strong> day=='Saturday'</code></p>
-		<p> This could be interpreted as yes if the party has between 5 and 40 people and its a Friday, or its a Saturday (In which case the number of people doesn't matter). Hence its very important to get your BODMAS right else you're going to be going to lame parties with only 2 other people, just because its a Saturday. Lets look at some examples:</p>
+		<p> This could be interpreted as yes if the party has between 5 and 40 people and it's a Friday, or it's a Saturday (In which case the number of people doesn't matter). Hence it's very important to get your BODMAS right else you're going to be going to lame parties with only 2 other people, just because it's a Saturday. Lets look at some examples:</p>
 		<pre class='listing'>		
 >>> 3>4 and 25==20
 False
@@ -212,9 +212,9 @@ if &lt;expression&gt;:
 
 		<ul>
 
-			<li><em>If</em> there are between 5 and 40 people, and its iether a friday or a saturday, then <strong> go to the party</strong>
+			<li><em>If</em> there are between 5 and 40 people, and it's either a Friday or a Saturday, then <strong> go to the party</strong>
 			<li><em>If</em> you'll get wet, <strong>don't go outside</strong></li>
-			<li><em>If</em> its dark in your room, and the lights are off, <strong>turn them on</strong></li>
+			<li><em>If</em> it's dark in your room, and the lights are off, <strong>turn them on</strong></li>
 		</ul>
 
 		<p>We can now express them in python as follows</p>
@@ -397,7 +397,7 @@ True
 &gt;&gt;&gt;
 </pre>
 
-		<h2>Nested if's vs complex boolean expressions</h2>
+		<h2>Nested ifs vs complex boolean expressions</h2>
 		<p> Lets re-examine our party scenario. We could use nested <em>if</em>s to specify when to go to the party as such:</p>
 		<pre class='listing'>
 if numOfPeople>5:
@@ -407,7 +407,7 @@ if numOfPeople>5:
 		if day=='Saturday':
 			print "Go to party"
 		</pre>
-		<p> This method will work, but it is cumbersome. Too many nested if's can lead to confusion, and if you wanted to change your program later so that it printed "You should go to the party", you might change it in one place but not the other. As such it would be much better to write that algorithm as follows:</p>
+		<p> This method will work, but it is cumbersome. Too many nested ifs can lead to confusion, and if you wanted to change your program later so that it printed "You should go to the party", you might change it in one place but not the other. As such it would be much better to write that algorithm as follows:</p>
 		<pre class='listing'>
 if numOfPeople>5 and numOfPeople&lt;40 and (day=='Friday' or day=='Saturday):
 	print "Go to the party"
@@ -485,7 +485,7 @@ sirlark@hephaestus ~/scratch $
 		<p>The third run illustrates nicely that in fact strings in python are
 		case sensitive too. Not just the language, but the data we manipulate
 		with it is considered case sensitive. 'Orange' and 'orange' are different
-		strings, hence niether the if, nor any of the elifs execute. As a last resort, the block after the else executes.</p>
+		strings, hence neither the if, nor any of the elifs execute. As a last resort, the block after the else executes.</p>
 
 		<h2>Formal Summary</h2>
 
@@ -500,7 +500,7 @@ sirlark@hephaestus ~/scratch $
 			<li>'If statements' can specify alternative conditions and the code to execute under those conditions using 'elif'.</li>
 
 			<li>'If statements' can specify what to execute if none of the conditions specified are true using 'else'.</li>
-			<li>A collection of statements can be grouped together in the same code block, by indentating them</li>
+			<li>A collection of statements can be grouped together in the same code block, by indenting them</li>
 
 			<li>The complete syntax of the if statement follows, where sections enclosed in square braces are optional.</li>
 
@@ -533,10 +533,10 @@ if &lt;expression&gt;:
 			<li>Give a condition to check whether a number <em>x</em> is divisible by another number, <em>y</em>? <br><i>Hint: what does the operator <em>%</em> do?</i></li>
 
 			<li>Given the English phrase, "If you're not on the VIP list or
-			the staff list, you can't come in.", write down an equivalent python/psuedo code
+			the staff list, you can't come in.", write down an equivalent python/pseudo code
 			condition.</li>
 			
-			<li>Write a program that reads in a number and halves it, unless its an odd number, in which cass it must print a suitable error  message.</li>
+			<li>Write a program that reads in a number and halves it, unless it's an odd number, in which case it must print a suitable error  message.</li>
 			
 			<li>Do you think the following is true or false?
 			<pre class='list'>'Two' < 'Three'</pre>
@@ -571,12 +571,12 @@ Write a program with the above code. Run it and give it 1 as an input. Does the 
 			prints the smallest number entered.</li>
 
 			<li>Write a program that asks the user to enter 3 numbers, and
-			prints the largest even number entered, and displays a suitable error message if no even numbers are entered, or if there is no one largest number (ie. if the two biggest numbers are the same)</li>
+			prints the largest even number entered, and displays a suitable error message if no even numbers are entered, or if there is no one largest number (i.e. if the two biggest numbers are the same)</li>
 
 			<li>Write a program that reads in a sentence and a keyword and tells you if that keyword is in that sentence.</li>
 
 			<li>Write a program that asks the user to enter a four digit year,
-			and prints out whether that year is a leap year or not. Hint: Its a leap year if the year is divisible by four, except if its divisible by 100, in which case its not, except if its divisible by 400, in which case it is. ie. 1900 was not a leap year but 2000 was</li>
+			and prints out whether that year is a leap year or not. Hint: It's a leap year if the year is divisible by four, except if it's divisible by 100, in which case it's not, except if it's divisible by 400, in which case it is. i.e. 1900 was not a leap year but 2000 was</li>
 			
 			 <li>Write a program that asks for the names, and the birthdays of two people. (Ask for year, month and then date of birth)The program must determine which of the two people is oldest.</li>
 
