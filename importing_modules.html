@@ -254,7 +254,7 @@ bob: 4
 		python to tell it what Python file to run,</p>
 
 		<pre class='listing'>
-sirlark@hephaestus ~ $ Python my_file.py
+sirlark@hephaestus ~ $ python my_file.py
 </pre>
 
 		<p>We can actually pass any number of arguments to a program we run
@@ -266,7 +266,7 @@ sirlark@hephaestus ~ $ Python my_file.py
 		command line arguments.</p>
 
 		<div class="syncode">
-			sirlark@hephaestus ~ $ Python my_prog.py <strong>somefile.fasta 7 "ACCTGT AGTCA"</strong>
+			sirlark@hephaestus ~ $ python my_prog.py <strong>somefile.fasta 7 "ACCTGT AGTCA"</strong>
 		</div>
 
 		<p>In the example above, the program my_prog.py receives three command
@@ -310,13 +310,13 @@ print sys.argv
 </pre>
 
 		<pre class='listing'>
-sirlark@hephaestus ~/scratch $ Python commargs.py Hello
+sirlark@hephaestus ~/scratch $ python commargs.py Hello
 ['commargs.py', 'Hello']
-sirlark@hephaestus ~/scratch $ Python commargs.py Hello There
+sirlark@hephaestus ~/scratch $ python commargs.py Hello There
 ['commargs.py', 'Hello', 'There']
-sirlark@hephaestus ~/scratch $ Python commargs.py "Hello There"
+sirlark@hephaestus ~/scratch $ python commargs.py "Hello There"
 ['commargs.py', 'Hello There']
-sirlark@hephaestus ~/scratch $ Python commargs.py "Hello There" 47
+sirlark@hephaestus ~/scratch $ python commargs.py "Hello There" 47
 ['commargs.py', 'Hello There', '47']
 sirlark@hephaestus ~/scratch $
 </pre>
