@@ -114,14 +114,14 @@ UnboundLocalError: local variable 'total_height' referenced before assignment
                 <pre class="listing">
 for i in range(0, 10):
 ...     b = i
-...   print i
+...   print(i)
   File "<stdin>", line 3
     print i
           ^
 IndentationError: unindent does not match any outer indentation level</pre>
                 
                 <p>IndentationError is actually a special type of SyntaxError. You get this error when your indentation is not consistent. In the 
-                example <code>b = i</code> has 4 leading spaces but <code>print i</code> only has 2. If <code>print i</code> needs to be executed
+                example <code>b = i</code> has 4 leading spaces but <code>print(i)</code> only has 2. If <code>print(i)</code> needs to be executed
                 for every iteration of the 'for' loop, then it needs to have the same level of indentation as the inner block, i.e. the same as <code>b = i</code>.
                 Otherwise, if it is only meant to execute after the 'for' loop, it needs to have 0 leading spaces.</p>
 
@@ -147,7 +147,7 @@ Traceback (most recent call last):
 IndexError: list index out of range</pre>
                 
                 <p>This error is an easy one to understand. In the example the list 'i' only has 2 elements. Those elements
-                have index 0 and 1 (or -2 and -1 if you use reverse indices). Thus index 2 is 'out of range' because it is too large.
+                have index 0 and 1 (or -2 and -1 if you use reverse indices). Thus index 2 is 'out of range' because it is too large - there is no value in the list at this index.
                 IndexError will happen for any index that is too large or too small.</p>
 
                 <h3>SyntaxError</h3>
