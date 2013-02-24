@@ -21,7 +21,7 @@
 
 		<h2>Booleans</h2>
 		
-		<p> Up to now, our programs have been pretty straightforward. The computer has simply executed each statement, in order, one after the other. There has been no variation, no change in behaviour, no awesomeness. In life, we are able to vary our behaviour based on our circumstances, i.e. we don't do <strong>exactly</strong> the same thing every day, day after day. Here are some everyday situations you might find yourself in, and some of the actions you might take as a  result:</p>
+		<p> Up to now, our programs have been pretty straightforward. The computer has simply executed each statement, in order, one after the other. There has been no variation, no change in behaviour, no awesomeness. In life, we are able to change our behaviour based on our circumstances, i.e. we don't do <strong>exactly</strong> the same thing every day, day after day. Here are some everyday situations you might find yourself in, and some of the actions you might take as a  result:</p>
 
 		<ul>
 
@@ -30,18 +30,18 @@
 			<li>If it's dark and your lights are off, you'll turn them on, provided you're not trying to sleep.</li>
 
 			<li>If you're hungry, and you have food at your disposal, or you have money to buy food, you'll eat something.</li>
-
+                        
 		</ul>
 
 		<p>We are capable of using our reasoning and intuition, when deciding what to do. Computers however don't have intuition, and the only reasoning they have is the reasoning <strong>you</strong> provide them with.
-		When analysing a situation we are capable of taking various complicated aspects into consideration. For example:</p>
+		When analysing a situation we are capable of taking various complicated aspects into consideration. For example, when you are invited to a party you need to decide:</p>
 		<ul>
 			<li> How badly do I want to?</li>
 			<li> How many people we be there?</li>
 			<li> How wet will I get?</li>
 			<li> How much trouble will I get into?</li>
 		</ul>
-		<p> Computers on the other hand can not. Whilst we can weigh up different pros and cons and are capable of bending our own rules and even after hours of deliberating we're still capable of remaining unsure, a computer decides either yes or no. There are no in-between feelings, doubts or changing its mind.
+		<p> Computers on the other hand are not capable of this sort of reasoning. Whilst we can weigh up different pros and cons, are able to bend our own rules and are even capable of remaining unsure, a computer can only decide either yes or no. There are no in between feelings, doubts or possibilities for changing its mind.
 		The logic computers use to make their decisions is called boolean logic. For a computer, something can only have two states, <strong>True</strong> or <strong> False</strong>. A computer will ask these questions instead:</p>
 		<ul>
 			<li> Do I want to?</li>
@@ -71,13 +71,19 @@ False
 
 		<p>'True' and 'False' are special words to python, known as
 		<strong>reserved words</strong>, meaning they have been reserved for a
-		particular purpose. Other reserved words we have encountered include
-		'print', and 'if'. The complete list of python's reserved words can be
-		found <a class="doclink"
-		href="http://olympiad.cs.uct.ac.za/docs/python-docs-2.6/reference/lexical_analysis.html#keywords">here</a>.</p>
-
+		particular purpose. Other reserved words we have already encountered include
+		'print', and 'if'. Reserved words in python are:</p>
+                <pre class="listing">
+and       del       from      not       while
+as        elif      global    or        with
+assert    else      if        pass      yield
+break     except    import    print
+class     exec      in        raise
+continue  finally   is        return
+def       for       lambda    try
+                </pre>
 		<p>Note that when forming our proposition we used a specific operator,
-		the greater than sign ('&gt;'). When forming propositions we can use a
+		the greater than sign "&gt;". When forming propositions we can use a
 		specific set of operators, called <strong>comparison
 		operators</strong>. If both 'a' and 'b' are expressions of any
 		type:</p>
@@ -104,8 +110,8 @@ False
 			'a' greater than or equal to 'b'?</li>
 
 			<li><code>a in b</code> proposes that the <strong>string</strong> a
-			is a substring of, i.e. exists <strong>in</strong>side, the
-			<strong>string</strong> 'b'. This can also be used in lists as Marco will explain later.
+			is a substring of, i.e. exists <strong>inside</strong>, the
+			<strong>string</strong> 'b'. This can also be used in lists as you will see in a later chapter.</li>
 
 		</ul>
 
@@ -138,9 +144,9 @@ False
 		</ul>
 		<p> You can use boolean operators to string together multiple statements. e.g. to decide whether or not to go to a party you might use the following conditions</p>
 		<p><code>numOfPeople>5 <strong>and</strong> numOfPeople&lt;40 <strong>and</strong> (day=='Friday' <strong>or</strong> day=='Saturday')</code></p>
-		<p> This will produce true if the party has between 5 and 40 people, and it's either a Friday or a Saturday. <strong>Note the brackets around the parts next to the or</strong>. Brackets are used here to define which expression to evaluate first. This is because the evaluation of boolean algebra also follows a hierarchic system, </strong>BODMASCNAO.</strong> Your standard operations on numbers and variables come first. Then comes your conditions (>,==,<,in) then comes <strong>not</strong> then <strong>and</strong> and finally comes <strong>or</strong>. So if we left out the brackets and only had: </P
+		<p> This will produce true if the party has between 5 and 40 people, and it is either a Friday or a Saturday. <strong>Note the brackets around the parts next to the or</strong>. Brackets are used here to define which expression to evaluate first. This is because the evaluation of boolean algebra also follows a hierarchy system, </strong>BODMASCNAO.</strong> Your standard BODMAS operations on numbers and variables come first. Then comes your conditions (>,==,<,in) then comes <strong>not</strong> then <strong>and</strong> and finally comes <strong>or</strong>. So if we left out the brackets and only had: </P
 		<p><code>numOfPeople>5 <strong>and</strong> numOfPeople&lt;40 <strong>and</strong> day=='Friday' <strong>or</strong> day=='Saturday'</code></p>
-		<p> This could be interpreted as yes if the party has between 5 and 40 people and it's a Friday, or it's a Saturday (In which case the number of people doesn't matter). Hence it's very important to get your BODMAS right else you're going to be going to lame parties with only 2 other people, just because it's a Saturday. Lets look at some examples:</p>
+		<p> This could be interpreted as yes if the party has between 5 and 40 people and its a Friday, or if its a Saturday (In which case the number of people doesn't matter). Hence its very important to get your BODMAS right else you're going to be going to lame parties with only 2 other people, just because its a Saturday. Lets look at some examples:</p>
 		<pre class='listing'>		
 >>> 3>4 and 25==20
 False
@@ -160,15 +166,17 @@ True
 		</pre>
 		<p><i>Note how in that example we stored the result of a boolean expression to a variable (variables a and b), and when we called them later they acted just like any other boolean expression.</i><br> So now we know how to determine from a set of conditions whether or not something is true. We know whether or not to go to the party, but that isn't the end of the story: we have to actually use that information to do something about it.</p>
 	
-		<p>Python specifically has three methods to act upon such information, the most prevalent of which is the <a class="doclink"
-		href="http://olympiad.cs.uct.ac.za/docs/python-docs-2.6/reference/compound_stmts.html#if">if statement</a>. Put the
+		<p>Python specifically has three methods to act upon such information, the most prevalent of which is the <emph>if</emph> statement. The format that an if statement
+                takes is the keyword "if" followed by an expression to be evaluated and a block of code to execute if (and only if) that expression evaluates to true. If the expression evaluates to false
+                then the block of code will be completely skipped when the program is run and none of it will be executed.
+                Put the
 		following in a file called 'second.py':</p>
 
 		<pre class='listing'>
 x = input("Enter a number: ")
 if x &gt; '3':
-    print "You entered", x
-    print "'x' is larger than 3"
+    print ("You entered", x)
+    print ("'x' is larger than 3")
 </pre>
 
 		<p>Now run your program using <code>python second.py</code> and enter
@@ -230,7 +238,7 @@ if weather=='Raining' and 'raincoat' not in thingsImWearing:
 </pre>
 <pre class='listing'>
 if dark and lightSwitch='off':
-	print "Go turn on your light"
+	print ("Go turn on your light")
 </pre>
 		<p>Note the statement <code>pass</code>. Pass
 		is another reserved word in python, and means quite simply 'do
@@ -256,7 +264,7 @@ if dark and lightSwitch='off':
 			<li>English: If the premises contain more than 3 persons and no
 			children or pets - <i>This is actually a very ambiguous statement</i><br>
 			<span class='red'>
-				Wrong: if adults > 3 and children or pets =	0
+				Wrong: if adults > 3 and children or pets ==	0
 			</span><br />
 			<span class='green'>
 				Correct: if persons > 3 and (children == 0 and pets == 0)
@@ -273,9 +281,8 @@ if dark and lightSwitch='off':
 
 		</ul>
 
-		<p>Check out the <a class="doclink"
-		href="http://olympiad.cs.uct.ac.za/docs/python-docs-2.6/reference/expressions.html#Booleans">python documentation
-		page on boolean operators</a> for more detailed information.</p>
+		<p>Why is this the case? Well, rememeber BODMASCNAO? The boolean operations ('not', 'and', 'or') have the lowest priority of all Python operations so they
+                will happen last.</p>
 
 		<h2>Executing Multiple Statements Conditionally</h2>
 
@@ -316,31 +323,31 @@ if dark and lightSwitch='off':
   9: #get the first number
  10: first = int(input("Enter the first number: "))
  11: if first % 2 == 0:
- 12:     print "The first number is even"
+ 12:     print ("The first number is even")
  13:     even = even + 1
  14:     if first &lt; 0:
- 15:         print "The first number is negative"
+ 15:         print ("The first number is negative")
  16:         negative = negative + 1
  17: 
  18: #get the second number
  19: second = int(input("Enter the second number: "))
  20: if second % 2 == 0:
- 21:     print "The second number is even"
+ 21:     print ("The second number is even")
  22:     even = even + 1
  23:     if second &lt; 0:
- 24:         print "The second number is negative"
+ 24:         print ("The second number is negative")
  25:         negative = negative + 1
  26: 
  27: #get the third number
  28: third = int(input("Enter the third number: "))
  29: if third % 2 == 0:
- 30:     print "The third number is even"
+ 30:     print ("The third number is even")
  31:     even = even + 1
  32:     if third &lt; 0:
- 33:         print "The third number is negative"
+ 33:         print ("The third number is negative")
  34:         negative = negative + 1
  35: 
- 36: print "There were", even, "even numbers and", negative, "of those were negative"
+ 36: print ("There were", even, "even numbers and", negative, "of those were negative")
 </pre>
 
 		<p>Running this program and giving the numbers 2, -4, and 7 as input
@@ -362,8 +369,8 @@ There were 2 even numbers and 1 of those were negative
 		the if statement on line 11. Thus these lines form a block of
 		statements. Since this block is immediately after an if statement, all
 		the statements in the block will only be executed if the if statement's
-		expression is True. For the first number we gave as input (2), this is
-		the case, so we start executing the block. When we get to line 14 we
+		expression is True. For the first number we gave as input (2), this means the first
+                if statement evaluates to True, so we start executing the block. When we get to line 14 we
 		encounter a second if statement. This second if statement is
 		<strong>nested</strong> inside the first, because it will only be
 		executed if the outer if statement (line 11) has an expression that
@@ -403,14 +410,14 @@ True
 if numOfPeople>5:
 	if numOfPeople&lt;40:
 		if day=='Friday':
-			print "Go to party"
+			print ("Go to party")
 		if day=='Saturday':
-			print "Go to party"
+			print ("Go to party")
 		</pre>
 		<p> This method will work, but it is cumbersome. Too many nested ifs can lead to confusion, and if you wanted to change your program later so that it printed "You should go to the party", you might change it in one place but not the other. As such it would be much better to write that algorithm as follows:</p>
 		<pre class='listing'>
 if numOfPeople>5 and numOfPeople&lt;40 and (day=='Friday' or day=='Saturday):
-	print "Go to the party"
+	print ("Go to the party")
 		</pre>
 		<p> This is a much more elegant solution, and is preferable. You would only use nesting when you want to do slightly different things depending on the situation. When programming, less is more. <strong>You should almost always strive for less code</strong> (so long as the program still does what it should).<p>
 		<h2>Specifying Execution Code for Alternate Conditions</h2>
@@ -424,9 +431,9 @@ if numOfPeople>5 and numOfPeople&lt;40 and (day=='Friday' or day=='Saturday):
 		<pre class='listing'>
 1: first = int(input("Enter a number: "))
 2: if first % 2 == 0:
-3:     print first, "is even"
+3:     print (first, "is even")
 4: else:
-5:     print first, "is odd"
+5:     print (first, "is odd")
 </pre>
 
 		<p>Now, if 'first' is not even, the program will print a message saying
@@ -443,16 +450,16 @@ if numOfPeople>5 and numOfPeople&lt;40 and (day=='Friday' or day=='Saturday):
 		<pre class='listing'>
  1: colour = input("Enter the name of a colour: ")
  2: if colour == "Red":
- 3:     print "Stop!"
+ 3:     print ("Stop!")
  4: elif colour == "Orange":
- 5:     print "Try to stop if possible."
+ 5:     print ("Try to stop if possible.")
  6: elif colour == "Green":
- 7:     print "Go! Go! GO!"
+ 7:     print ("Go! Go! GO!")
  8: else:
- 9:     print colour, "Stop! You're obviously drunk."
+ 9:     print (colour, "Stop! You're obviously drunk.")
 </pre>
 
-		<p>Running this a couple of with various inputs we get</p>
+		<p>Running this a couple of times with various inputs we get</p>
 
 		<pre class='listing'>
 sirlark@hephaestus ~/scratch $ python illus.py 
@@ -546,7 +553,7 @@ if &lt;expression&gt;:
 a=1
 b=input()
 if a==b:
-	print "You inputted 1!"
+	print ("You input 1!")
 </pre>
 Write a program with the above code. Run it and give it 1 as an input. Does the program do as you expected? Why not? Try and fix it.
 			</li>
@@ -576,18 +583,18 @@ Write a program with the above code. Run it and give it 1 as an input. Does the 
 			<li>Write a program that reads in a sentence and a keyword and tells you if that keyword is in that sentence.</li>
 
 			<li>Write a program that asks the user to enter a four digit year,
-			and prints out whether that year is a leap year or not. Hint: It's a leap year if the year is divisible by four, except if it's divisible by 100, in which case it's not, except if it's divisible by 400, in which case it is. i.e. 1900 was not a leap year but 2000 was</li>
+			and prints out whether that year is a leap year or not. Hint: It's a leap year if the year is divisible by four, except if it's divisible by 100, in which case it's not, except if it's divisible by 400, in which case it is. ie. 1900 was not a leap year but 2000 was</li>
 			
-			 <li>Write a program that asks for the names, and the birthdays of two people. (Ask for year, month and then date of birth)The program must determine which of the two people is oldest.</li>
+			 <li>Write a program that asks for the names, and the birthdays of two people. (Ask for year, month and then date of birth) The program must determine which of the two people is oldest.</li>
 
 			<li>Write a program that asks the user to enter 3 names, then
 			outputs them sorted alphabetically.</li>
 			
 			<li>
-<pre class='listing>
+<pre class='listing'>
 inport random
 a=random.randrange(10)
-print a
+print (a)
 </pre> The above code prints a random number between 0 and 10. Use the above code in a program that asks the user to guess what number the computer is "thinking of". Then tell the user if he was right, or wrong, and if so, whether his guess was too high or too low.</i>
 
 
