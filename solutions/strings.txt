@@ -10,22 +10,22 @@ keys may go completely unreferenced.
 
 3. --- names_list.py ---
 names = []
-name = raw_input('Enter a name')
+name = input('Enter a name')
 while name != '':
 	names.append(name)
-	name = raw_input('Enter a name')
+	name = input('Enter a name')
 
 print ",".join(names[:-1])+" and "+name[-1]
 --- end names_list.py ---
 
 4. --- till_slip.py ---
 till = []
-product = raw_input('Product: ')
+product = input('Product: ')
 while product != '':
-	price = float(raw_input('Price: '))
-	qty = int(raw_input('Quantity: '))
+	price = float(input('Price: '))
+	qty = int(input('Quantity: '))
 	till.append((qty, product, price))
-	product = raw_input('Product: ')
+	product = input('Product: ')
 
 for item in till:
 	print "%i %30s @%7.2f"%(item)
@@ -33,13 +33,13 @@ for item in till:
 
 5. --- unique_count.py ---
 d = {}
-s = raw_input('Enter a name: ').lower().capitalize()
+s = input('Enter a name: ').lower().capitalize()
 while s != '':
 	if s in d:
 		d[s] += 1
 	else:
 		d[s] = 1
-	s = raw_input('Enter a name: ').lower().capitalize()
+	s = input('Enter a name: ').lower().capitalize()
 print d
 --- end unique_count.py ---
 

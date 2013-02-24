@@ -1,6 +1,6 @@
 1. The interpreter will output the value of a/b which is 3.
 
-2. Running as script produces no output, because python does not implicitly
+2. Running as script produces no output, because Python does not implicitly
 output the values of expression when running a script, as it does when running
 in interactive mode.
 

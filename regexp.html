@@ -143,7 +143,7 @@
 		<p>Of course, since we are now using various characters to indicate operators, we come across the familiar problem of matching those characters themselves. The, by now familiar, solution is of course to escape those characters using '\', to remove their
 		special meaning. As a result '\\' is used to match a backslash.</p>
 
-		<p>The outline of operators listed here is by no means complete, but it does cover most of the PCRE standard. Python includes a number of python specific extensions to the standard, which can be explored at leisure in the <a class="doclink" href=
+		<p>The outline of operators listed here is by no means complete, but it does cover most of the PCRE standard. Python includes a number of Python specific extensions to the standard, which can be explored at leisure in the <a class="doclink" href=
 		"http://docs.python.org/lib/re-syntax.html">python docs</a>.</p>
 
 		<h2>Greedy Versus Non-greedy</h2>
@@ -202,7 +202,7 @@
 			empty list is returned. Note however that empty matches are returned, i.e. <b>a*</b> would return '' in between two 'b's ("bb") because technically a has appeared zero times which matches the 'zero or more' repetition.</li>
 
 			<li><code>&lt;regular expression object&gt;.sub(&lt;replacement&gt;,&lt;string&gt;)</code> returns the string with every non-overlapping occurrence of the pattern compiled into the regular expression object (counted from the left) replaced by the
-			replacement string. There's a lot more to this method, so read the python docs when you are ready.</li>
+			replacement string. There's a lot more to this method, so read the Python docs when you are ready.</li>
 		</ul>
 
 		<p>For one-shot uses of regular expressions, the re module provides
@@ -249,7 +249,7 @@ None
 &gt;&gt;&gt;
 </pre>
 
-		<p>The second use for groups, is that they allow us in python to match lines of text, and extract sub-sections of those lines out using groups, in a single function call. We can access the groups of a match object using the following syntax</p>
+		<p>The second use for groups, is that they allow us in Python to match lines of text, and extract sub-sections of those lines out using groups, in a single function call. We can access the groups of a match object using the following syntax</p>
 
 		<ul>
 			<li><code>&lt;match object&gt;.groups()</code> returns a tuple containing the groups as strings in the order they were in the regular expression. Group order is defined as the order in which their open brackets are encountered from left to

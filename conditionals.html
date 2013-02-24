@@ -85,7 +85,7 @@ False
 		<ul>
 
 			<li><code>a == b</code> proposes Equivalence. Is 'a' equal to 'b'?
-			<strong>Note the double equals</strong>. In python '=' means
+			<strong>Note the double equals</strong>. In Python '=' means
 			assignment, and '==' means is 'a' equal to 'b'?.</li>
 
 			<li><code>a != b</code> proposes Non-equivalence. Is 'a' not equal
@@ -165,7 +165,7 @@ True
 		following in a file called 'second.py':</p>
 
 		<pre class='listing'>
-x = raw_input("Enter a number: ")
+x = input("Enter a number: ")
 if x &gt; '3':
     print "You entered", x
     print "'x' is larger than 3"
@@ -175,7 +175,7 @@ if x &gt; '3':
 		'2' when prompted.</p>
 
 		<pre class='listing'>
-sirlark@hephaestus ~/scratch $ python second.py 
+sirlark@hephaestus ~/scratch $ Python second.py 
 Enter a number: 2
 </pre>
 
@@ -186,7 +186,7 @@ Enter a number: 2
 		Run the program again, but this time enter '5' at the prompt.</p>
 
 		<pre class='listing'>
-sirlark@hephaestus ~/scratch $ python second.py 
+sirlark@hephaestus ~/scratch $ Python second.py 
 Enter a number: 5
 You entered 5
 'x' is larger than 3
@@ -217,7 +217,7 @@ if &lt;expression&gt;:
 			<li><em>If</em> it's dark in your room, and the lights are off, <strong>turn them on</strong></li>
 		</ul>
 
-		<p>We can now express them in python as follows</p>
+		<p>We can now express them in Python as follows</p>
 
 		<pre class='listing'>
 if numOfPeople>5 and numOfPeople&lt;40 and (day=='Friday' or day=='Saturday'):
@@ -296,7 +296,7 @@ if dark and lightSwitch='off':
 		blocks can be treated as a single statement for the purposes of if
 		statements, and others we will encounter soon.</p>
 
-		<p>Unlike most other languages python allows us to specify blocks using
+		<p>Unlike most other languages Python allows us to specify blocks using
 		<strong>indentation</strong> <i>(Spacing)</i>. Lines of code that have the same
 		indentation are considered to be members of the same block. Blocks can
 		also be <strong>nested</strong> inside one another, such lines
@@ -314,7 +314,7 @@ if dark and lightSwitch='off':
   7: negative = 0
   8: 
   9: #get the first number
- 10: first = int(raw_input("Enter the first number: "))
+ 10: first = int(input("Enter the first number: "))
  11: if first % 2 == 0:
  12:     print "The first number is even"
  13:     even = even + 1
@@ -323,7 +323,7 @@ if dark and lightSwitch='off':
  16:         negative = negative + 1
  17: 
  18: #get the second number
- 19: second = int(raw_input("Enter the second number: "))
+ 19: second = int(input("Enter the second number: "))
  20: if second % 2 == 0:
  21:     print "The second number is even"
  22:     even = even + 1
@@ -332,7 +332,7 @@ if dark and lightSwitch='off':
  25:         negative = negative + 1
  26: 
  27: #get the third number
- 28: third = int(raw_input("Enter the third number: "))
+ 28: third = int(input("Enter the third number: "))
  29: if third % 2 == 0:
  30:     print "The third number is even"
  31:     even = even + 1
@@ -347,7 +347,7 @@ if dark and lightSwitch='off':
 		produces</p>
 
 		<pre class='listing'>
-sirlark@hephaestus ~/scratch $ python illus.py 
+sirlark@hephaestus ~/scratch $ Python illus.py 
 Enter the first number: 2
 The first number is even
 Enter the second number: -4
@@ -375,13 +375,13 @@ There were 2 even numbers and 1 of those were negative
 		<p>Despite the fact that this example is an order of magnitude larger
 		than any previous examples, there are only two new things. The first
 		being indentation and nesting, the second being the use of
-		<code>int()</code> around our raw_input functions.  Remember that
-		raw_input() returns a string. So even if the user types in 2,
-		raw_input() returns not 2 but the string '2'. Strings and numbers don't
+		<code>int()</code> around our input functions.  Remember that
+		input() returns a string. So even if the user types in 2,
+		input() returns not 2 but the string '2'. Strings and numbers don't
 		really play nice together, especially when they're being compared to
 		one another, so we need to convert the string into an integer. This is
 		known as <strong>type casting</strong> or <strong>coercion</strong>. We
-		can do it for any basic python type ...</p>
+		can do it for any basic Python type ...</p>
 
 		<pre class='listing'>
 &gt;&gt;&gt; float("3.1415")
@@ -422,7 +422,7 @@ if numOfPeople>5 and numOfPeople&lt;40 and (day=='Friday' or day=='Saturday):
 		isn't met. We could simply follow our first <em>if</em> with another <em>if</em> that has the opposite expression (using not), but this isn't a very elegant solution. Enter the <em>if ... else</em> statement.</p>
 
 		<pre class='listing'>
-1: first = int(raw_input("Enter a number: "))
+1: first = int(input("Enter a number: "))
 2: if first % 2 == 0:
 3:     print first, "is even"
 4: else:
@@ -441,7 +441,7 @@ if numOfPeople>5 and numOfPeople&lt;40 and (day=='Friday' or day=='Saturday):
 		cut, not so black and white.</p>
 
 		<pre class='listing'>
- 1: colour = raw_input("Enter the name of a colour: ")
+ 1: colour = input("Enter the name of a colour: ")
  2: if colour == "Red":
  3:     print "Stop!"
  4: elif colour == "Orange":
@@ -455,13 +455,13 @@ if numOfPeople>5 and numOfPeople&lt;40 and (day=='Friday' or day=='Saturday):
 		<p>Running this a couple of with various inputs we get</p>
 
 		<pre class='listing'>
-sirlark@hephaestus ~/scratch $ python illus.py 
+sirlark@hephaestus ~/scratch $ Python illus.py 
 Enter the name of a colour: Red
 Stop!
-sirlark@hephaestus ~/scratch $ python illus.py 
+sirlark@hephaestus ~/scratch $ Python illus.py 
 Enter the name of a colour: Green
 Go! Go! GO!
-sirlark@hephaestus ~/scratch $ python illus.py 
+sirlark@hephaestus ~/scratch $ Python illus.py 
 Enter the name of a colour: orange
 Stop! You're obviously drunk.
 sirlark@hephaestus ~/scratch $
@@ -482,7 +482,7 @@ sirlark@hephaestus ~/scratch $
 		earlier conditions haven't been met. So we get to the 'elif' on line 4.
 		<em>Green</em> is not <em>Orange</em> so we don't execute line 5, instead we go onto line 6, which is still part of the same if-else group. <em>Green</em> is equal to <em>Green</em> so that will return true and we will run line 7.</p>
 
-		<p>The third run illustrates nicely that in fact strings in python are
+		<p>The third run illustrates nicely that in fact strings in Python are
 		case sensitive too. Not just the language, but the data we manipulate
 		with it is considered case sensitive. 'Orange' and 'orange' are different
 		strings, hence neither the if, nor any of the elifs execute. As a last resort, the block after the else executes.</p>
@@ -544,7 +544,7 @@ if &lt;expression&gt;:
 
 			<li><pre class='listing'>
 a=1
-b=raw_input()
+b=input()
 if a==b:
 	print "You inputted 1!"
 </pre>

@@ -291,12 +291,12 @@ FF
 		first time, we only provide one parameter, so during the implicit tuple
 		unpacking, we get the equivalent of <code>number, r, case = 17,</code>
 		which would be problematic because the right hand tuple is not big
-		enough. In this case python fills up the tuple as necessary with the
+		enough. In this case Python fills up the tuple as necessary with the
 		default values, yielding in fact <code>number, r, case = 17, 16,
 		"upper"</code>.</p>
 
 		<p>Looking at our third call of the 'radix' function, we have provided
-		two parameters, so python unpacks the tuple as <code>number, r, case =
+		two parameters, so Python unpacks the tuple as <code>number, r, case =
 		17, 8,</code>, and fills up to the size required with default values,
 		so we get<br /> <code>number, r, case = 17, 8, "upper"</code>. Note how
 		the default values <strong>fill up their respective positions in the
@@ -325,7 +325,7 @@ def &lt;funcname&gt;([parameter 1][, parameter 2][...][[,] **kwargs]):
 
 		<p>Ending a parameter list in a function definition with the special
 		'expression' <code>**kwargs</code> (meaning key word arguments), means
-		that python will provide a dictionary inside function definition called
+		that Python will provide a dictionary inside function definition called
 		'kwargs', containing all the parameters passed in in keyword form. The
 		'**kwargs' can also be alone in the parameter list. Re-examining the
 		radix example we have</p>

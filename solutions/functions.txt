@@ -29,7 +29,7 @@ def showcomment(comment):
 
 database = {}
 
-name = raw_input("Please enter your name: ")
+name = input("Please enter your name: ")
 while name != 'quit':
 	if name == 'showcomments':
 		for customer in database:
@@ -39,11 +39,11 @@ while name != 'quit':
 			print "Welcome back", name.capitalize()
 			print "\t%s"%(showcomment(database[name.lower()]))
 		comment = ""
-		commentline = raw_input("Please enter your comment: ")
+		commentline = input("Please enter your comment: ")
 		while commentline != "":
 			comment += commentline.rstrip()+" "
-			commentline = raw_input("> ")
+			commentline = input("> ")
 		if comment != "":
 			database[name.lower()] = comment
-	name = raw_input("Please enter your name: ")
+	name = input("Please enter your name: ")
 --- end multiline_guestbook.py ---

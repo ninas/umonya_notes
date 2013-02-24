@@ -67,7 +67,7 @@
 
 		<p>More formally speaking,
 		when a name (i.e. not a reserved word, number, string or symbol) is
-		encountered python looks for the most recent definition of the
+		encountered Python looks for the most recent definition of the
 		variable, object, or function that has that name in the current block
 		(i.e. the block in which execution is currently happening), and failing
 		finding a definition in the current block will search outwardly in a
@@ -126,7 +126,7 @@
 		python tries to find height's value within the green block. When it
 		can't find it, it tries the next block outwards, namely the blue block,
 		and failing there, finally tries the last block (the yellow one, where
-		it finds height. If python fails to find a value in the outermost
+		it finds height. If Python fails to find a value in the outermost
 		block, it cause an error, stating that the variable has not been
 		defined.  Hence, 'height', for example, is yellow, because it was
 		defined in the yellow block by it's initial assignment. Similarly 'i'
@@ -146,11 +146,11 @@
 		<h2>Forcing Global Scope for a Particular Variable</h2>
 
 		<p>To override python's redefinition effect applied to 'total_height'
-		we can tell python explicitly to use the 'total_height' variable from
+		we can tell Python explicitly to use the 'total_height' variable from
 		outside the local block. We do this by declaring that variable name to
 		be global, using the <strong>global statement</strong>, which takes the
 		form <code>global &lt;variable name&gt;</code>. The global statement
-		tells python to use the innermost variable of the given name, instead
+		tells Python to use the innermost variable of the given name, instead
 		of creating a new locally available variable. So let's change our
 		program slightly so does what we expect, i.e. doesn't break, and counts
 		the total number of lines outputted as a square or triangle.</p>

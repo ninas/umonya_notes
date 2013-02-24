@@ -15,13 +15,13 @@ a, b, c = b, c, a
 a = ()
 b = ()
 
-i = raw_input('Enter a number for vector a: ')
+i = input('Enter a number for vector a: ')
 while i != '':
 	a += (i, )
-	i = int(raw_input('Enter a number for vector a: '))
+	i = int(input('Enter a number for vector a: '))
 
 for j in range(len(a)):
-	b += (int(raw_input('Enter a number for vector b: ')), )
+	b += (int(input('Enter a number for vector b: ')), )
 
 c = ()
 for i in range(len(a)):
@@ -32,12 +32,12 @@ for i in range(len(a)):
 names = []
 ages = []
 
-name = raw_input('Enter a name: ')
+name = input('Enter a name: ')
 while name != '':
 	names.append(name)
-	age = int(raw_input('Enter age for '+name+': '))
+	age = int(input('Enter age for '+name+': '))
 	ages.append(age)
-	name = raw_input('Enter a name: ')
+	name = input('Enter a name: ')
 
 result = []
 for i in range(len(names)):

@@ -20,10 +20,10 @@
 		</div>
 
 		<p>Now that we have a grip on SQL and its use via a database client, we
-		want to be able to do the thing from within a python script. Ideally we
+		want to be able to do the thing from within a Python script. Ideally we
 		we would like to extract information from the database into native
 		python data structures, rather than as text we have to parse, and in
-		fact there are a variety of python modules available that allow us to do
+		fact there are a variety of Python modules available that allow us to do
 		exactly this. Different modules are required for different RDBMSs, but
 		python has defined a standard interface for such modules, called the
 		Python DB API. All modules subscribing to this interface standard
@@ -70,11 +70,11 @@
 		<h2>Cursors</h2>
 
 		<p>While RDBMSs are capable of treating collections of rows as singular
-		units, procedural languages like python are often forced to deal with
+		units, procedural languages like Python are often forced to deal with
 		such collections rows by row. The concept of a <strong>cursor</strong>
 		was introduced, which provides a method of iterating through collections
 		of rows. For the most part the technicalities of cursors are
-		unimportant, their just a way for python to get rows one at a time.</p>
+		unimportant, their just a way for Python to get rows one at a time.</p>
 
 		<p>We still need to create a cursor to use though, which we do by using
 		the connection object to instantiate a cursor object.</p>
@@ -132,7 +132,7 @@
 		we are changing or creating foreign keys specifically, we want some
 		queries to be treated as a single transaction. For example, we don't
 		want to create a book entry, but then have the connection cut before an
-		associated authorship entry is created. The python DB API does not
+		associated authorship entry is created. The Python DB API does not
 		automatically commit any queries that change the database until we
 		explicitly tell it do so by using the commit method of the connection
 		object. First we'll look at the PostgreSQL method, then the MySQL method</p>
@@ -175,7 +175,7 @@
 		currval('&lt;sequence name&gt;');</code>. PostgreSQL chooses this method
 		because a single table may may multiple serial columns. MySQL, on the
 		other hand, only allows a single AUTO_INCREMENT column, which must be a
-		primary key. As a result, a MySQL cursor object in python has the method
+		primary key. As a result, a MySQL cursor object in Python has the method
 		<code>&lt;cursor object&gt;.insert_id()</code> which is an integer equal
 		to the integer primary key of the last row inserted by the cursor
 		object.<p>
