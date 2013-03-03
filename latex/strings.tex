@@ -1,0 +1,278 @@
+\section{Strings as Sequences}
+
+Strings can be thought of as sequences (as lists are sequences) of   characters. As such, many of the methods that work on lists work on   strings. Strings in fact have more functionality associated with them,   because when manipulating text, many more tasks   involving character (as opposed to values of arbitrary type) are common   and useful. We'll start with the ones familiar from lists. Note that   the complete list of methods associated with strings is available \href{http://docs.python.org/lib/string-methods.html}{in the Python   documentation}, which describes additional optional parameters not   discussed here.
+\begin{itemize}
+	\item 
+\texttt{$<$string$>$.count($<$substring$>$)} returns    the number of times substring (portion of the string) occurs within the string.
+	\item 
+\texttt{$<$string$>$.find($<$substring$>$)} returns the    index (position) within the string of the first (from the left) occurrence of    'substring'. Returns -1 if substring cannot be found.
+	\item 
+\texttt{$<$string$>$.rfind($<$substring$>$)} returns    the index within the string of the last (from the left) occurrence    of 'substring'. Returns -1 if substring cannot be found.
+	\item 
+\texttt{$<$string$>$.index($<$substring$>$)} returns    the index within the string of the first (from the left) occurrence    of 'substring'. Causes an error if substring cannot be found.
+	\item 
+\texttt{$<$string$>$.rindex($<$substring$>$)} returns    the index within the string of the last (from the left) occurrence    of 'substring'. Causes an error if substring cannot be found.
+\end{itemize}
+\begin{lstlisting}
+
+>>> s = "The quick brown fox jumps slowly over the lazy cow"
+>>> s.count("ow")
+3
+>>> s.find("brown")
+10
+>>> s.find("not here")
+-1
+>>> s.find("ow")
+12
+>>> s.rfind("ow")
+48
+>>> s.index("ow")
+12
+>>> s.rindex("ow")
+48
+>>> s.rindex("not here")
+Traceback (most recent call last):
+    File "$>$stdin$<$", line 1, in ?
+    ValueError: substring not found
+>>>
+\end{lstlisting}
+
+\section{Formatting Strings using String Methods}
+
+The most commonly used methods on strings are those to change the   format of text. With these methods we can change the case of various   characters in the text, according to common patterns, pad the text with   spaces on the left and right to justify it appropriately or even centre   it across a given width, and strip out whitespace in various ways.
+\begin{itemize}
+	\item 
+\texttt{$<$string$>$.capitalize()} returns a copy of the    string with only the first character in uppercase.
+	\item 
+\texttt{$<$string$>$.swapcase()} returns a copy of the    string with every character's case inverted (swapped).
+	\item 
+\texttt{$<$string$>$.center($<$width$>$)} returns a    string of width 'width' with the original string centred, i.e.       the string in the middle of an equal number of spaces on the left       and right.
+	\item 
+\texttt{$<$string$>$.ljust($<$width$>$)} returns the    original string left justified (on the left) within a string of width 'width',    i.e. padded with spaces up to length 'width'.
+	\item 
+\texttt{$<$string$>$.rjust($<$width$>$)} returns the    original string right justified (on the right) within a string of width 'width',    i.e. padded on the left with spaces to make a string of length    'width'.
+	\item 
+\texttt{$<$string$>$.lower()} returns a copy of the    original string, but with all characters in lowercase.
+	\item 
+\texttt{$<$string$>$.upper()} returns a copy of the    original string, but with all characters in uppercase.
+	\item 
+\texttt{$<$string$>$.strip()} returns a copy of the    string with all whitespace at the beginning and end of the string    stripped away.
+	\item 
+\texttt{$<$string$>$.lstrip()} returns a copy of the    string with all whitespace at the beginning of the string stripped    away.
+	\item 
+\texttt{$<$string$>$.rstrip()} returns a copy of the    string with all whitespace at the end of the string stripped    away.
+	\item 
+\texttt{$<$string$>$.replace($<$old$>$, $<$new$>$)}    returns a copy of the string where all occurences of 'old'       have been replaced with 'new'.
+\end{itemize}
+\begin{lstlisting}
+
+>>> "a sentence poorly capitalized".capitalize()
+'A sentence poorly capitalized'
+>>>
+>>> "aBcD".swapcase()
+'AbCd'
+>>>
+>>> "center me please".center(60)
+'                      center me please                      '
+>>>
+>>> "I need some justification here".ljust(60)
+'I need some justification here                              '
+>>>
+>>> "No! Real Justification, the RIGHT justification".rjust(60)
+'             No! Real Justification, the RIGHT justification'
+>>>
+>>> "LOWER me Down".lower()
+'lower me down'
+>>>
+>>> "raise Me UP".upper()
+'RAISE ME UP'
+>>>
+>>> "     I put my whitespace left, I put my whitespace right     ".strip()
+'I put my whitespace left, I put my whitespace right'
+>>>
+>>> "Sung to the tune of 'The h0ky p0ky'".replace("0ky","okey")
+"Sung to the tune of 'The hokey pokey'"
+>>>
+>>> "     Losing whitespace on the left.      ".lstrip()
+'Losing whitespace on the left.     '
+>>>
+>>> "      Losing whitespace on the right.     ".rstrip()
+"      Losing whitespace on the right." 
+&>>>
+\end{lstlisting}
+
+\section{Advanced String Formatting}
+
+After all that, let's cut to the chase. The .format() fucntion.   This allows us to use interpolation (which is explained below) and provides the majority of string   formatting operations in a single consistent pattern.  Learn it,   understand it, appreciate its inner beauty!
+
+This is done using the .format() function. Formally put, this interpolates (or inserts) a sequence of   values (i.e. a list, tuple, or in some special cases a dictionary) into   a string containing interpolation points (placeholders). Wowsers we   say? Again in English? The .format() function combines a string   containing certain codes and a sequence containing values, such that   those values are inserted into their respective positions within the   string, defined by the position of the codes, formatted according to   the specification of those codes, and replacing those codes... Ok, perhaps just an example   then...
+\begin{lstlisting}
+
+>>> s = "My very {0} monkey jumps swiftly under {1} planets".format("energetic", 9)
+>>> s
+'My very energetic monkey jumps swiftly under 9 planets'
+>>>
+\end{lstlisting}
+
+Examining the above example, we had a string containing two \{number\} thingies.      The format function was called on this, with two parameters.    This function served to merge the string at the points where   the \{number\} thingies were, with the first parameter replace \{0\}, the second \{1\} and so on.     
+
+However, instead of having to put parameters in the exact order you wanted to insert     them, you can also use named variables, and let Python figure it out for you. 
+\begin{lstlisting}
+
+>>> s = "My very {mood} monkey jumps swiftly under {number} planets".format(number=5, mood="sad")
+>>> s
+'My very sad monkey jumps swiftly under 5 planets'
+\end{lstlisting}
+
+Time to get technical. And thingie is not a technical term, except   amongst electrical engineers and biochemists. The .format() function converts      all values in the sequence to strings   during the merge. The 'placeholder' (\{ \}) has a specific format, namely it is contained in '\{\}'   and holds at least one identifier. It's easier to look at the complete format in point form, so here it is...
+\begin{enumerate}
+	\item 
+\texttt{\{ identifier \}}
+\\        Placeholders  \textbf{must} have \{ \} around them with        either a parameter number or parameter name inside.
+	\item 
+\texttt{($<$mapping/key name$>$)}\nolinebreak*optional
+\\        The parameter identifier may be optionally followed by a key name from a dictionary    used as a parameter (i.e. instead of a tuple or list). This    is \textbf{required} if you use a dictionary to    interpolate, as dictionary keys aren't returned in order (and therefore,       it doesn't make sense to use numbered parameters to decide where they go. 
+\begin{lstlisting}
+
+>>> s = "My {0[mood]} monkey jumps swiftly under {0[number]} planets".format(
+        {"mood": "playful", "number": 3, "something": "else"})
+>>> s
+'My playful monkey jumps swiftly under 3 planets'
+\end{lstlisting}
+	\item 
+\texttt{\{identifier: format\}}\nolinebreak*optional
+\\       It's also possible to include information on how you want parameters formatted.       This is done by including a : after the variable name and specifying the format.        
+\begin{itemize}
+	\item 
+\texttt{\#}, 
+\texttt{0}, 
+\texttt{-},    
+\texttt{\nolinebreak}, 
+\texttt{+}\nolinebreak*optional
+\\        An optional conversion flag may be used to specify justification    and signedness options. Any number of '0', '-', '+', and '\nolinebreak'    can be used in a given conversion specification, and the important    ones are;      
+\begin{itemize}
+	\item '0': left pad with zeroes, useful for month      numbers
+	\item '-': right pad with spaces, overrides '0' if both      given
+	\item '+': force the use of a plus sign in front of positive      numbers
+	\item '\nolinebreak': insert a space in front of positive numbers      (used to line up with negative numbers where a minus is      placed in front.)
+\end{itemize}
+	\item 
+\texttt{$<$field width and justification$>$}\nolinebreak*optional
+\\     An optional minimum field width. Whatever value is merged in at    this point in the string, is converted to a string that is at least    as wide as the field width, specified as an integer. Note, because    the number is inside a string it must be hard coded, and cannot be    an expression. You can also specifiy the justification for the string using       one of the following:
+\begin{itemize}
+	\item 
+	\item > : right align 
+	\item \textasciicircum : centre align
+\end{itemize}
+	\item 
+\texttt{.$<$precision$>$}\nolinebreak*optional
+\\        An optional precision level can be specified (in digits). This will    ensure that the precision of floats is shortened to this length.    Floats will not be padded.
+	\item 
+\texttt{$<$Conversion Type$>$}&
+\\         The conversion type character is a single character specifying     the type of value to convert into a string and how the     conversion should happen. Some important ones     are      
+\begin{itemize}
+	\item g: General format. This prints the number as a fixed-point number
+	\item b: Binary. Prints the number as binary.
+	\item e: Scientific notation.
+	\item \%: Percentage. Multiplies number by 100 and displays followed by \% sign
+\end{itemize}
+\end{itemize}
+\end{enumerate}
+\begin{lstlisting}
+
+>>> "An integer with field width of three: {0:3}".format(5)
+'An integer with field width of three:5   '
+>>>
+>>> "An integer right justified with a field length of 3: {0:3>}".format(5) 
+'An integer right justified with a field length of 3:   5'
+>>>
+>>> "An integer with leading zeros: {0:02}".format(5)
+'An integer with leading zeros: 005'
+>>>
+>>> "An integer right justified with forced +: {0:+>}".format(5)
+'An integer right justified with forced +:  +5'
+>>>
+>>> "A number with precision 3: {0:.3f}".format(5)
+'A number with precision 3: 5.000'
+>>>
+>>> "A number in scientific notation: {0:e}".format(0.0000025)
+'A number in scientific notation: 2.5e-06'
+>>>
+\end{lstlisting}
+
+\section{Miscellaneous String Methods}
+
+Finally, there are a few miscellaneous methods that prove very   useful when dealing with strings. These include
+\begin{itemize}
+	\item 
+\texttt{$<$string$>$.isupper()} return True if the string    contains only uppercase characters.
+	\item 
+\texttt{$<$string$>$.islower()} return True if the string    contains only lowercase characters.
+	\item 
+\texttt{$<$string$>$.isalpha()} return True if the string    contains only alphabetic characters.
+	\item 
+\texttt{$<$string$>$.isalnum()} return True if the string    contains only alphabetic characters and/or digits.
+	\item 
+\texttt{$<$string$>$.isdigit()} return True if the string    contains only digits.
+	\item 
+\texttt{$<$string$>$.isspace()} return True if the string    contains only whitespace characters.
+	\item 
+\texttt{$<$string$>$.endswith($<$substring$>$)} returns    True if the string ends with 'substring'.
+	\item 
+\texttt{$<$string$>$.startswith($<$substring$>$)}    returns True if the string starts with 'substring'.
+	\item 
+\texttt{$<$string$>$.join($<$sequence$>$)} returns the    elements of 'sequence' (which must be strings) concatenated in    order with the string between each element.
+	\item 
+\texttt{$<$string$>$.split([substring])} returns a list    of strings, such that the string is split by 'substring' and each    portion is an element of the returned list. If substring is not    specified, the string is split on whitespace.
+	\item 
+\texttt{$<$string$>$.rsplit([substring])}; the same as    split, but the search for the split string is performed from right    to left
+\end{itemize}
+\begin{lstlisting}
+
+>>> "The quick brown fox".endswith("dog")
+False
+>>>
+>>> "The quick brown fox".endswith("fox")
+True
+>>>
+>>> "The quick brown fox".startswith("A")
+False
+>>>
+>>> "The quick brown fox".startswith("The ")
+True
+>>>
+>>> ", ".join(['1', '2', '3', '4'])
+'1, 2, 3, 4'
+>>> 
+>>> "a, b, c, d".split(',')
+['a', ' b', ' c', ' d']
+>>>
+>>> "a, b, c, d".split(', ')
+['a', 'b', 'c', 'd']
+>>> 
+>>> "abababa".split("bab")
+['a', 'aba']
+>>>
+>>> "abababa".rsplit("bab")
+['aba', 'a']
+>>>
+\end{lstlisting}
+
+\section{Exercises}
+\begin{enumerate}
+	\item Strings are immutable - the value of a string                         cannot be modified, but a new string can be created and                         assigned to the same variable name.  How would one thus                         change a string variable, to for example to insert '-)'                         after every colon?
+	\item If we try to use the .format() function with a                         tuple, the tuple must have the same number of elements                         as there are \{ \} identifiers in the string. Is this the                         case with dictionaries?  Why?
+	\item Write a program that reads in names until a blank                         line is encountered, after which it prints out an                         English style list, i.e. a comma separated list, where                         the last name is preceded by the word 'and' instead of                         a comma.
+	\item What is the value of 
+\texttt{"Laziness is a    \{0\}.".format("virtue")}?
+	\item What is the value of 
+\texttt{"\{0\} days hath \{1\}, \{2\}, \{3\} and \{4\}. I    use my \{5\} for the other \{6\}, because I can't remember this rhyme for    \{7\}".format(30, "September", "April", "June", "November", "knuckles", 8,    "...")}?
+	\item What is the value of    
+\texttt{"\{0:02\}/\{1:02\}/\{2:04\}".format(10,3,2009)}?
+	\item What is the value of 
+\texttt{"\{0:5.3f\}".format(3.1415)}?
+	\item How would you print a column of numbers so the line up right    justified for convenient addition?
+	\item How would you print a user entered string centred in the    middle of the console?
+	\item Write a program that reads in the name, price, and quantity of    an item, and stores it in a list of tuples, repeating until a blank    product name is entered. It should then print out each item in a    nicely formatted manner, using string formatting.
+	\item Tougher Problem: Modify your answer to question 11                         to use products from a dictionary of product codes                         mapped to product descriptions. Invalid codes should                         print a warning, and product codes should be integers.                         The print out at the end should print the full name of                         the item, followed in brackets by it's code, as well as                         price and quantity.
+\end{enumerate} 

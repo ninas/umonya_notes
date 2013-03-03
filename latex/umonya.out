@@ -1,0 +1,17 @@
+\BOOKMARK [0][-]{chapter.1}{Basic concepts}{}
+\BOOKMARK [1][-]{section.1.1}{What is a Program?}{chapter.1}
+\BOOKMARK [1][-]{section.1.2}{Everyone can program!}{chapter.1}
+\BOOKMARK [1][-]{section.1.3}{Data representation and translation of real world problems}{chapter.1}
+\BOOKMARK [1][-]{section.1.4}{Exercises}{chapter.1}
+\BOOKMARK [0][-]{chapter.2}{Invocation}{}
+\BOOKMARK [1][-]{section.2.1}{Starting the interactive shell}{chapter.2}
+\BOOKMARK [1][-]{section.2.2}{Running a saved Python Script}{chapter.2}
+\BOOKMARK [1][-]{section.2.3}{Exercises}{chapter.2}
+\BOOKMARK [0][-]{chapter.3}{Basic output}{}
+\BOOKMARK [1][-]{section.3.1}{The print\(\) Statement}{chapter.3}
+\BOOKMARK [1][-]{section.3.2}{Some String Basics}{chapter.3}
+\BOOKMARK [1][-]{section.3.3}{Exercises}{chapter.3}
+\BOOKMARK [0][-]{chapter.4}{Basic Input}{}
+\BOOKMARK [1][-]{section.4.1}{Literal Values}{chapter.4}
+\BOOKMARK [1][-]{section.4.2}{The input\(\) Function}{chapter.4}
+\BOOKMARK [1][-]{section.4.3}{Exercises}{chapter.4}

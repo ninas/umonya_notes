@@ -1,0 +1,134 @@
+
+\section{Starting the interactive shell}
+
+Starting Python is easy.
+\begin{enumerate}
+    \item We will be using IDLE to get things started
+    \item On the Desktop you will see a link named "Python"
+    \item To open the Interpreter click on \textbf{"Run" > "Python Shell"}
+    \item The screen will open up and look similar to the following
+\end{enumerate}
+% <p>Similarly from a terminal in Linux simply type <code>python</code> and press Enter.</p>
+
+\begin{lstlisting}
+Python 3.3.0 (v3.3.0:bd8afb90ebf2, Sep 29 2012, 01:25:11) 
+[GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
+Type "copyright", "credits" or "license()" for more information.
+>>> WARNING: The version of Tcl/Tk (8.5.9) in use may be unstable.
+Visit http://www.python.org/download/mac/tcltk/ for current information.
+>>>
+\end{lstlisting}
+
+What you see now is known as the Python interactive shell. The first   line tells you what version of Python you are running. The second line   gives you some information about how this particular copy of Python was   built, and on what system it is running. The third line lists some   commands you can use to get more information. Whilst in the interactive   shell, you can enter Python expressions and see their results   immediately. Try it now, type in a simple mathematical expression such   as 
+\texttt{4 + 7}.
+\begin{lstlisting}
+>>> 4 + 7
+11
+>>>
+\end{lstlisting}
+
+As you can see, the answer or result of the expression is printed   out, and you are returned to the prompt \texttt{>>>}. Now try   something different: type in 
+\texttt{a = 2 + 7}.  Then, on the   next line, type just 
+\texttt{a}.
+\begin{lstlisting}
+>>> a = 2 + 7
+>>> a
+9
+>>>
+\end{lstlisting}
+
+This should be somewhat familiar from the end of the basic concepts   section, where we were assigning a value to a name. In this case the   name is \texttt{a} and the value is the result of \texttt{2 + 7}. Note that no value   is printed out immediately after the assignment. The interactive shell   always prints out the value of expressions, but not of statements. This   means however that the labels to which we assign values, more correctly   called \textbf{variables}, are expressions that evaluate to a   value, which is why it printed out 
+\texttt{9} when we input \texttt{a}.
+
+\section{Running a saved Python Script}
+
+Whilst ideal as a calculator and for exploring new ideas quickly, it   would be pretty tedious if we had to re-enter our program into the   interactive shell every time we wanted to run it. So instead we can,   and in fact most often will, save our program code to a file. Program   source code is plain raw text. As such word processors like Microsoft   Word, Wordperfect, Open Office etc... are not suitable to the task. We will   look for Idle which is specifically geared towards creating Python programs,   and comes with   Python. 
+
+So now, instead of running the interactive shell, let's write our   first Python program, this is also known as a script. Open up the fist   window again and do the following
+\begin{enumerate}
+    \item Click on \textbf{File $>$ Save}
+    \item Navigate to /home/\textit{username}/Desktop
+    \item Save the file as \textbf{hello.py}
+    \item Type the following:
+\end{enumerate}
+\begin{lstlisting}
+print "Hello World!"
+\end{lstlisting}
+
+Hit F5, or Click \textbf{Run $>$ Run Module} to    run your program.
+
+
+\begin{lstlisting}
+>>>
+Hello World!
+>>>
+\end{lstlisting}
+
+This is a very simple program, but it should help you get the    idea. The computer is only following the instructions you provided   to it. Lets convert the test we did on the Interpreter to a program.   Save it as \textbf{second.py}.   
+\begin{lstlisting}
+#My second Python program
+4 + 7 #This should add two numbers and output the result
+a = 2 + 7
+a
+\end{lstlisting}
+
+Notice the first and second lines. They contain what are called   \textbf{comments}. Any text following a hash character on a   line in a Python program is a comment, including the hash itself.   Comments are completely ignored by Python, and are there purely to   annotate code and make things easier for humans reading the code. We   use comments to place small reminders within the code for ourselves, or   explain the logic behind particularly tricky sections. As we   progress through the course, you will find the code examples used are   sprinkled more and more liberally with comments explaining how they   work.
+
+Now it would be reasonable to expect that if we ran this program we   would get the same results as given to us by the interactive shell. So,   let's try it.     
+\begin{lstlisting}
+>>>
+>>>
+\end{lstlisting}
+
+No output? Nothing? The Python interpreter (python), when called   without a file name following, starts up in the interactive shell. Only   then will it output the results of expressions entered. When invoked   with a file name following, and that file contains Python code, Python   will only produce output if explicitly told to do so. So lets use a trick    from our first program. Modify the code so it looks like the following:
+\begin{lstlisting}
+#My second Python program
+4 + 7 #This should add two numbers and output the result
+a = 2 + 7
+print a
+>>>
+9
+>>>
+\end{lstlisting}
+
+Ah, that's better. Again, you should recognise the print statement   from the end of the basic concepts section. The print statement will be   explained in greater detail the next section.
+
+One more important consideration is that Python is \textbf{case   sensitive}. A variable \texttt{a} and another variable \texttt{A} are not the   same, as illustrated below ...
+\begin{lstlisting}
+#This program illustrates how Python is case sensitive
+
+a = 3 # assign a the value 3
+A = "Hi" # assign A the value "Hi"
+
+# Check whether assigning to A has changed a
+print a
+
+# Check that A and a are still different
+print "A = ", A, " and  a = ", a
+\end{lstlisting}
+
+Running this produces the output:
+\begin{lstlisting}
+3
+A = Hi  and  a = 3
+\end{lstlisting}
+
+\section{Exercises}
+\begin{enumerate}
+    \item Start the Python interpreter 
+    \item Try using the interpreter as a calculator 
+    \item Write the Hello World program. 
+    \item Write the second program. 
+    \item Write a program that prints out your name. 
+    \item Consider the following lines of code:
+\begin{lstlisting}
+a = 9
+b = 3
+a/b\end{lstlisting}
+        \begin{enumerate}
+            \item For each of these three lines, which are expressions and     which are statements?
+            \item What will the output be if these lines are entered into the     python interactive interpreter?
+            \item What will the output be if I run these lines from a     file/script?
+            \item What changes need to be made to produce output when I run     these lines from a file/script?
+        \end{enumerate}
+\end{enumerate}

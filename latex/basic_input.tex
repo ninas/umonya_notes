@@ -1,0 +1,67 @@
+
+\section{Literal Values}
+
+So far our programs have been pretty uninteresting. They     consistently produce the same results because they consistently act on     the same data, or input, which we have specified by \textbf{hard       coding} values for our inputs in the form of     \textbf{literals}. A 'constant' or 'literal' is sort of the opposite to a     variable, in that its value does not change over the course of program     execution, and more importantly, its value is specified     \textit{literally}, within the program code.
+
+As mentioned before, Python understands a fairly limited set of key     words and symbols as basic statements or operators. Previously, we     said that python treats unrecognised words (used is a very loose sense)     as variable names, but this is not strictly true. Python treats     unrecognised words as expressions, and attempts to determine their     value. Now, the word can specify a value directly, in which case it     called a literal value, or simply 'literal' for short. 
+\begin{lstlisting}
+
+#An example differentiating literals and variables
+a = 3                #a is a variable name, 3 is an integer literal
+b = 'b'              #b is a variable name, 'b' is a string literal
+c = True             #c is a variable name, True is a boolean literal
+if 3*'b' == a*b:     #3 and 'b' are literals, a and b are variables
+    print(c)         #is c literal or variable?
+else:                
+    print "False"    #is "False" a literal or a variable?
+
+#Are False and "False" the same?
+\end{lstlisting}
+
+\section{The input() Function}
+
+It's not very helpful to us if we must change our programs every     time we want to change the data they work with. So instead we want to     be able to tell our program to get input from somewhere. The simplest     place to get input from is the keyboard, in the form of text entered by     the user. Python provides a \textbf{function} to do just this,     called input():
+\begin{lstlisting}
+
+>>> name = input("What is your name? ")
+What is your name? James
+>>> print(name)
+James
+>>>
+\end{lstlisting}
+
+We've seen 'input' before in the basic concepts section, and     there really isn't much to it. Just a few things to note.     Firstly, input is a function. A function is a defined collection of     statements that produce or \textbf{return} a value when     executed. You could think of them as a way of turning a small set of     statements into an expression. We will learn how to define our own     functions later on in the course, but Python provides quite a few basic     built in ones which we are going to be using before that, so let's look     briefly at how they work.
+\begin{itemize}
+	\item 
+\texttt{input} is the name of the function. Like       variables, functions have names to identify them. Like a variable,       a function name is a label that points to the collection of       statements to be executed.
+	\item To execute the statements in a function, better known as       \textbf{calling a function} we write the function's name       followed by round brackets. 
+\texttt{input()}
+	\item Using the name just by itself treats the function like a       variable. 
+	\item 
+\texttt{"What is your name? "} is a parameter to the       function. Functions are like mini programs. They always do the same       thing, but they can do the same thing to different data. We put the       data we want a function to operate on in between the brackets when       we call it. Expressions and variables \textbf{passed} to       functions in this way are temporarily known as       \textbf{parameters}. Multiple parameters can be passed to a       function by separating them with commas, and in general any valid       expression is a valid parameter; e.g.
+\\
+\texttt{minimum(6, 2,         3+4, 4**2, 8.3, 3*1)}
+\\ has six parameters, some of which       are not just simple expressions like plain numbers.
+	\item Despite the fact that any valid expression is a valid       parameter, functions are usually quite picky about the parameters       they can work with. For example, we couldn't find them minimum of a       collection of strings. That only really works with integers and       floats. Functions usually specify the \textit{number} of parameters       they accept. Often functions may accept less parameters than they       specifically ask for, by substituting default values for the       parameters not provided. 
+\end{itemize}
+
+Back to 'input'! 'input' captures a single line of text from     the keyboard, as entered by the user. It returns a string containing     the captured text, leaving out the "$\backslash$n" produced when the user hits the     Enter key. In addition, it takes one optional parameter, which is     displayed as a prompt prior to accepting input from keyboard. If this     parameter is left out, the default prompt is an empty string, so     nothing is printed.
+
+\section{Exercises}
+\begin{enumerate}
+	\item If there is a function named \textit{my\_function}, how do I call       it?
+	\item Are functions expressions or statements? What about when they       are called?
+	\item Start the python interactive interpreter:        
+\begin{enumerate}
+	\item Assign what the user types to a variable called           's'.
+	\item Print the value of the variable s.
+	\item Print 's'.
+	\item Use input() to prompt the user for a number, get that number, and assign it to a variable called 'n'.
+	\item Print double the value of the variable 'n'.
+\end{enumerate}        Exit the python interactive interpreter.      
+	\item Write a program that asks the user for their name and       stores it in a variable. Then output "Hello", followed by the       user's name
+	\item Write a program that asks the user to enter two numbers, and       prints the sum of those two numbers.
+	\item Write a program that asks the user to enter two numbers, and       prints the difference of those two numbers.
+	\item Write a program that asks the user to enter two numbers, and       prints the product of those two numbers. Are you sensing a pattern       here?
+	\item Write a program that asks the user for some text, and a number.       The program prints out the text a number of times equal to the       number entered, without line breaks or spaces in between each       repetition.
+\end{enumerate}   

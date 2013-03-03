@@ -1,0 +1,83 @@
+\section{The Concept of Scope}
+
+The concept of scope refers to the idea that variables have a   limited availability according to the block of statements in which they   were originally defined. We could say that the structure of blocks of   statements in a Python program resembles a set of bulleted lists lying   variously within one another. On the outside we have our number list   (our 'main block'), and all other lists (blocks), are contained   in it, either directly or sub-contained within another inner   block.\textbf{The scope of a variable is the set of blocks within which    it is available, i.e. defined.}
+
+The outermost block, i.e. our main program, or everything beginning   in column 1 of our code, is generally referred to as \textbf{the global   scope}.
+
+\section{Pythons Golden Exception err... Rule}
+
+Python in general sets the scope of a variable to be the block in   which it is defined and consequently all blocks inside of that block,   to any arbitrary level.  This means that if some variable 'a' has been   defined in a block, and I wish to use it's value in that block or any   other block inside of that block, I can. 'a' will be there.
+
+One analogy is that of the program as a large open room. Variables   are slips of paper on which values are written on one side, and the   variables' names on the other. Whenever we need the value of a   variable, for example when a variable is referenced in an expression,   we can quickly scan through the papers in the room for the one with the   right name, and read the value off the other side. But when we call a   function, it's like putting up a wall of one way glass that divides the   room in half, behind us as we walk into the function's area. We can   look back through the glass, and still see all the papers that were in   the room originally, and thus their names and values, but someone   standing on the other side can't see any papers we may use inside the   function enclosure, i.e. variables assigned values in the function.   When we exit the function, and take down the glass wall in doing so, we   also destroy all the papers used on the inside of the wall.
+
+More formally speaking,   when a name (i.e. not a reserved word, number, string or symbol) is   encountered Python looks for the most recent definition of the   variable, object, or function that has that name in the current block   (i.e. the block in which execution is currently happening), and failing   finding a definition in the current block will search outwardly in a   block wise fashion to the outermost block.
+
+Note that the fact that the \textbf{most recent} definition   is searched for means that if an assignment is made (essentially a   re-definition) in the current block (\textbf{known as the local   block}) overrides a definition or value assigned in an outer   block, \textbf{even before the assignment is encountered}.\#!/usr/bin/python
+\\    \#A script to illustrate variable scope in python
+\\
+\\total\_height = 0
+\\
+\\\textbf{def} triangle():
+\\\textbf{def} inc\_total\_height():
+\\total\_height = total\_height + height
+\\
+\\\textbf{for}i\textbf{in} range(height):
+\\\textbf{print} "*" * i
+\\ inc\_total\_height()
+\\\textbf{print}
+\\
+\\\textbf{def} square():
+\\\textbf{def} inc\_total\_height():
+\\total\_height = total\_height + height
+\\
+\\\textbf{for}i\textbf{in} range(height):
+\\\textbf{print}("*" * height
+\\ inc\_total\_height())
+\\\textbf{print()}
+\\
+\\height = 3
+\\    triangle()
+\\height = 4
+\\    square()
+\\height = 5
+\\    triangle()
+\\
+
+In the example above we are looking at the variables and their   respective scope. The scope of a variable is indicated by its colour.   Variables of a particular colour are available only in the block of   that colour, and that block's inner blocks. The two inner blue blocks   are separate from one another, as are their respective inner green   blocks. In the green blocks, when the variable 'height' is encountered,   python tries to find height's value within the green block. When it   can't find it, it tries the next block outwards, namely the blue block,   and failing there, finally tries the last block (the yellow one, where   it finds height. If Python fails to find a value in the outermost   block, it cause an error, stating that the variable has not been   defined.  Hence, 'height', for example, is yellow, because it was   defined in the yellow block by it's initial assignment. Similarly 'i'   is blue, and \textbf{unavailable} in the yellow block, and the   other blue block. 'total\_height' is yellow, except in the green blocks,   where it occurs in yellow and green, but why? The assignment statement   in the green blocks causes 'total\_height' to be redefined, so python   knows to look for its value only in the green block in question, and   when it can't find it there causes an error ('total\_height' not   defined) because it assume you are try to access 'total\_height's value   before assigning it an initial value. In fact, the fact that there is an   assignment in the green block causes 'total\_height' to become a totally   new variable unrelated to the original one, which only exists in the   green block.  This effect is consistent throughout the green block,   even before the assignment statement has been executed.
+
+\section{Forcing Global Scope for a Particular Variable}
+
+To override python's redefinition effect applied to 'total\_height'   we can tell Python explicitly to use the 'total\_height' variable from   outside the local block. We do this by declaring that variable name to   be global, using the \textbf{global statement}, which takes the   form 
+\texttt{global $<$variable name$>$}. The global statement   tells Python to use the innermost variable of the given name, instead   of creating a new locally available variable. So let's change our   program slightly so does what we expect, i.e. doesn't break, and counts   the total number of lines outputted as a square or triangle.\#!/usr/bin/python
+\\    \#A script to illustrate variable scope in python
+\\
+\\total\_height = 0
+\\
+\\\textbf{def} triangle():
+\\\textbf{def} inc\_total\_height():
+\\\textbf{global}total\_height
+\\total\_height = total\_height + height
+\\
+\\\textbf{for}i\textbf{in} range(height):
+\\\textbf{print}("*" * i
+\\ inc\_total\_height())
+\\\textbf{print()}
+\\
+\\\textbf{def} square():
+\\\textbf{def} inc\_total\_height():
+\\\textbf{global}total\_height
+\\total\_height = total\_height + height
+\\
+\\\textbf{for}i\textbf{in} range(height):
+\\\textbf{print} "*" * height
+\\ inc\_total\_height()
+\\\textbf{print()}
+\\
+\\height = 3
+\\    triangle()
+\\height = 4
+\\    square()
+\\height = 5
+\\    triangle()
+\\
+\\

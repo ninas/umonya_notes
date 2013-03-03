@@ -1,0 +1,449 @@
+
+ Up to now, our programs have been pretty straightforward. The computer has simply executed each statement, in order, one after the other. There has been no variation, no change in behaviour, no awesomeness. In life, we are able to change our behaviour based on our circumstances, i.e. we don't do \textbf{exactly} the same thing every day, day after day. Here are some everyday situations you might find yourself in, and some of the actions you might take as a  result:
+\begin{itemize}
+	\item If it's raining or snowing for that matter, you won't go out, not without an umbrella at least.
+	\item If it's dark and your lights are off, you'll turn them on, provided you're not trying to sleep.
+	\item If you're hungry, and you have food at your disposal, or you have money to buy food, you'll eat something.
+\end{itemize}
+
+We are capable of using our reasoning and intuition, when deciding what to do. Computers however don't have intuition, and the only reasoning they have is the reasoning \textbf{you} provide them with.   When analysing a situation we are capable of taking various complicated aspects into consideration. For example, when you are invited to a party you need to decide:
+\begin{itemize}
+	\item  How badly do I want to?
+	\item  How many people we be there?
+	\item  How wet will I get?
+	\item  How much trouble will I get into?
+\end{itemize}
+
+ Computers on the other hand are not capable of this sort of reasoning. Whilst we can weigh up different pros and cons, are able to bend our own rules and are even capable of remaining unsure, a computer can only decide either yes or no. There are no in between feelings, doubts or possibilities for changing its mind.   The logic computers use to make their decisions is called boolean logic. For a computer, something can only have two states, \textbf{True} or \textbf{ False}. A computer will ask these questions instead:
+\begin{itemize}
+	\item  Do I want to?
+	\item  Will there be more than 5 people there?
+	\item  Will I get wet?
+	\item  Will I get into trouble?
+\end{itemize}
+
+ A computer can analyse certain conditions, determine if they are true or false, and then act accordingly. There is no room for leeway, no randomness, the computer is always sure that what it's doing is correct. How does it know that it's correct? Because you told it it was.
+
+In addition to computers only being aware of two conditions,   programming languages generally have very few ways of determining what   those conditions are and acting upon them. Lets have a look at that second example, "Will there be more than 5 people there":
+
+
+\begin{lstlisting}
+
+>>> numOfPeople=7
+>>> numOfPeople>5
+True
+>>> numOfPeople=-3
+>>> numOfPeople>5
+False
+>>> numOfPeople=5
+>>> numOfPeople>5
+False
+>>> 
+
+		\end{lstlisting}
+
+In the above example, we set the numOfPeople first to 7, then to -3 then to 5. See how the expression 
+\texttt{numOfPeople>5} only returns 
+\texttt{True} when the value stored in the expression is \textbf{more} than 5, and returns 
+\texttt{False} otherwise.    
+
+'True' and 'False' are special words to python, known as   \textbf{reserved words}, meaning they have been reserved for a   particular purpose. A reserved word we have already encountered is   'if'. Reserved words in Python are:
+\begin{lstlisting}
+
+and       del       from      not       with
+as        elif      global    or        yield
+assert    else      if        pass      
+break     except    import    raise
+class     exec      in        return
+continue  finally   is        try
+def       for       lambda    while
+                \end{lstlisting}
+
+Note that when forming our proposition we used a specific operator,   the greater than sign "$>$". When forming propositions we can use a   specific set of operators, called \textbf{comparison   operators}. If both 'a' and 'b' are expressions of any   type:
+\begin{itemize}
+	\item 
+\texttt{a == b} proposes Equivalence. Is 'a' equal to 'b'?    \textbf{Note the double equals}. In Python '=' means    assignment, and '==' means is 'a' equal to 'b'?.
+	\item 
+\texttt{a != b} proposes Non-equivalence. Is 'a' not equal    to 'b'?
+	\item 
+\texttt{a $<$ b} proposes Less Than. Is 'a' less than    'b'?
+	\item 
+\texttt{a $>$ b} proposes Greater Than. Is 'a' greater    than 'b'?
+	\item 
+\texttt{a $<$= b} proposes Less Than OR Equal To. Is 'a'    less than or equal to 'b'?
+	\item 
+\texttt{a $>$= b} proposes Greater Than OR Equal To. Is    'a' greater than or equal to 'b'?
+	\item 
+\texttt{a in b} proposes that the \textbf{string} a    is a substring of, i.e. exists \textbf{inside}, the    \textbf{string} 'b'. This can also be used in lists as you will see in a later chapter.
+\end{itemize}
+
+Propositions, being expressions themselves, follow the usual rules   for composition of expressions. This means that we can have an   expression, 
+\texttt{(x $>$ 3) == (y $<$ 4)}, in which we have two   propositions 'x $>$ 3' and 'y $<$ 4' which have been composed into   the total expression by using the third proposition which proposes that both sides have the same value. The entire proposition is true only if both the   sub-propositions have the same truth value at the time the expression   is evaluated.
+
+So back to our program to decide if we want to go to the party, we don't want to go to lame parties with too few people. So we only go to the party if there are more than 5 people there, i.e. if 
+\texttt{numOfPeople$>$5}. But what if we don't like crowded parties either? We could evaluate if 
+\texttt{numOfPeople$<$40}, so as to avoid parties with more than 40 people. But if only there were a way to combine them, so that we only go to parties that have a couple people \textbf{AND} are not too crowded. Say hello to \textbf{logical operators}, also known   as \textbf{boolean operators} (operators which apply to boolean expressions). There   are only three logical operators, listed below. If 'expr1' and 'expr2'   are both propositions:
+\begin{itemize}
+	\item 
+\texttt{expr1 and expr2} is True if both 'expr1'    \textbf{and} 'expr2' are True when the proposition is    evaluated.
+	\item 
+\texttt{expr1 or expr2} is True if either 'expr1'    \textbf{or} 'expr2' are True when the proposition is    evaluated.
+	\item 
+\texttt{not expr1} is True if 'expr1' is False, and \textit{vice    versa}.
+\end{itemize}
+
+ You can use boolean operators to string together multiple statements. e.g. to decide whether or not to go to a party you might use the following conditions
+
+
+\texttt{numOfPeople>5 \textbf{and} numOfPeople$<$40 \textbf{and} (day=='Friday' \textbf{or} day=='Saturday')}
+
+ This will produce true if the party has between 5 and 40 people, and it is either a Friday or a Saturday. \textbf{Note the brackets around the parts next to the or}. Brackets are used here to define which expression to evaluate first. This is because the evaluation of boolean algebra also follows a hierarchy system, BODMASCNAO. Your standard BODMAS operations on numbers and variables come first. Then comes your conditions (>,==,not then \textbf{and} and finally comes \textbf{or}. So if we left out the brackets and only had: 
+\texttt{numOfPeople>5 \textbf{and} numOfPeople$<$40 \textbf{and} day=='Friday' \textbf{or} day=='Saturday'}
+
+ This could be interpreted as yes if the party has between 5 and 40 people and its a Friday, or if its a Saturday (In which case the number of people doesn't matter). Hence its very important to get your BODMAS right else you're going to be going to lame parties with only 2 other people, just because its a Saturday. Lets look at some examples:
+\begin{lstlisting}
+		
+>>> 3>4 and 25==20
+False
+>>> a=2==1 or 4+2>=6 and  not 5%2==0
+>>> a
+True
+>>> b=True and 1==1 and (3!=3 or 14-2>5 and 5==2*2)
+>>> b
+False
+>>> 'ell' in "Hello There"
+True
+>>> b or a and 4$<$=3
+False
+>>> a or b or 2!=2
+True
+>>>
+		\end{lstlisting}
+
+\textit{Note how in that example we stored the result of a boolean expression to a variable (variables a and b), and when we called them later they acted just like any other boolean expression.}
+\\ So now we know how to determine from a set of conditions whether or not something is true. We know whether or not to go to the party, but that isn't the end of the story: we have to actually use that information to do something about it.
+
+Python specifically has three methods to act upon such information, the most prevalent of which is the if statement. The format that an if statement                 takes is the keyword "if" followed by an expression to be evaluated and a block of code to execute if (and only if) that expression evaluates to true. If the expression evaluates to false                 then the block of code will be completely skipped when the program is run and none of it will be executed.                 Put the   following in a file called 'second.py':
+\begin{lstlisting}
+
+x = input("Enter a number: ")
+if x $>$ '3':
+    print ("You entered", x)
+    print ("'x' is larger than 3")
+\end{lstlisting}
+
+Now run your program using 
+\texttt{python second.py} and enter   '2' when prompted.
+\begin{lstlisting}
+
+sirlark@hephaestus ~/scratch $ python second.py 
+Enter a number: 2
+\end{lstlisting}
+
+Hmmmm! Why didn't our print statements execute? If, as we believe,   the program executes from top to bottom, the print statements should   have been executed. Obviously, that 
+\texttt{if x $>$ '3':} is   doing something we are unaware of, so let's experiment a little more.   Run the program again, but this time enter '5' at the prompt.
+\begin{lstlisting}
+
+sirlark@hephaestus ~/scratch $ python second.py 
+Enter a number: 5
+You entered 5
+'x' is larger than 3
+\end{lstlisting}
+
+Okay! Our program just acted differently based on the input we gave   it, or rather, based on the conditions determined by the input. Looking   back at the last three lines of our program, there's a lot of new stuff   in there that needs explanation, so we'll break it down. The if   statement takes the format:
+\begin{lstlisting}
+
+if $<$expression$>$:
+    statement
+    statement
+    ...
+\end{lstlisting}
+
+What 'if' does, is check whether the expression provided has a value   of \textit{True}, and if so, the statement immediately following the 'if' is   executed, otherwise it is not executed.    Taking our previously expressed English examples:
+\begin{itemize}
+	\item \textit{If} there are between 5 and 40 people, and it's either a Friday or a Saturday, then \textbf{ go to the party}
+	\item \textit{If} you'll get wet, \textbf{don't go outside}
+	\item \textit{If} it's dark in your room, and the lights are off, \textbf{turn them on}
+\end{itemize}
+
+We can now express them in Python as follows
+\begin{lstlisting}
+
+if numOfPeople>5 and numOfPeople$<$40 and (day=='Friday' or day=='Saturday'):
+    whatYoureDoing="going to the party"
+\end{lstlisting}
+\begin{lstlisting}
+
+if weather=='Raining' and 'raincoat' not in thingsImWearing: 
+    pass #In other words, don't go outside
+\end{lstlisting}
+\begin{lstlisting}
+
+if dark and lightSwitch='off':
+	print ("Go turn on your light")
+\end{lstlisting}
+
+Note the statement 
+\texttt{pass}. Pass   is another reserved word in python, and means quite simply 'do   nothing'. We need it because 'if statements' \textbf{require} a   statement to execute if the expression they evaluate is True.
+
+\subsection{Pitfalls in Translation}
+
+We need to be aware of some common pitfalls that we will encounter   when translating English language logic (forgive the oxymoron) into   mathematical or computer logic. Examine the following examples:
+\begin{itemize}
+	\item English: If both first name and surname are not blank
+\\     Wrong: if firstname and surname != ''    
+\\     Correct: if (firstname != '') and (surname != '')    
+	\item English: If the premises contain more than 3 persons and no    children or pets - \textit{This is actually a very ambiguous statement}
+\\     Wrong: if adults > 3 and children or pets == 0    
+\\     Correct: if persons > 3 and (children == 0 and pets == 0)    
+	\item English: If the type is not 5 or 6
+\\     Wrong: if type != 5 or 6    
+\\     Correct: if type != 5 and type != 6
+\\     Correct: if not (type==5 or type==6)     
+\end{itemize}
+
+Why is this the case? Well, rememeber BODMASCNAO? The boolean operations ('not', 'and', 'or') have the lowest priority of all Python operations so they                 will happen last.
+
+\section{Executing Multiple Statements Conditionally}     What 'if' does, is check whether the expression provided has a    value of \textit{True}, and if so, the statement immediately    following is executed, otherwise it is not executed.    
+
+Examining what we said previously, we notice nasty phrases like 'the   statement', indicating one, singular, statement. However, most of the   time we'll have a number of statements that we'll only want to execute when certain   conditions have been met. Python, like most programming languages,   provides us with the ability to group collections of statements into   \textbf{blocks}, much like composition of expressions. Such   blocks can be treated as a single statement for the purposes of if   statements, and others we will encounter soon.
+
+Unlike most other languages Python allows us to specify blocks using   \textbf{indentation}\textit{(Spacing)}. Lines of code that have the same   indentation are considered to be members of the same block. Blocks can   also be \textbf{nested} inside one another, such lines   constituting inner blocks are also members of their encompassing outer   blocks. This is best illustrated using an example. (line numbers are   not part of the code)
+\begin{lstlisting}
+
+  1: #this program takes three numbers as input, and counts how many of
+  2: #those numbers is even, and how many even numbers are negative
+  3: #if an even number is entered, if it is negative, a message is printed
+  4: 
+  5: #set the counts for even and negative to 0
+  6: even = 0
+  7: negative = 0
+  8: 
+  9: #get the first number
+ 10: first = int(input("Enter the first number: "))
+ 11: if first % 2 == 0:
+ 12:     print ("The first number is even")
+ 13:     even = even + 1
+ 14:     if first $<$ 0:
+ 15:         print ("The first number is negative")
+ 16:         negative = negative + 1
+ 17: 
+ 18: #get the second number
+ 19: second = int(input("Enter the second number: "))
+ 20: if second % 2 == 0:
+ 21:     print ("The second number is even")
+ 22:     even = even + 1
+ 23:     if second $<$ 0:
+ 24:         print ("The second number is negative")
+ 25:         negative = negative + 1
+ 26: 
+ 27: #get the third number
+ 28: third = int(input("Enter the third number: "))
+ 29: if third % 2 == 0:
+ 30:     print ("The third number is even")
+ 31:     even = even + 1
+ 32:     if third $<$ 0:
+ 33:         print ("The third number is negative")
+ 34:         negative = negative + 1
+ 35: 
+ 36: print ("There were", even, "even numbers and", negative, "of those were negative")
+\end{lstlisting}
+
+Running this program and giving the numbers 2, -4, and 7 as input   produces
+\begin{lstlisting}
+
+sirlark@hephaestus ~/scratch $ python illus.py 
+Enter the first number: 2
+The first number is even
+Enter the second number: -4
+The second number is even
+The second number is negative
+Enter the third number: -7
+There were 2 even numbers and 1 of those were negative
+\end{lstlisting}
+
+Firstly, let's get the indentation and nesting thing out of the way.   Looking at lines 12 through to 16 we see they are more indented than   the if statement on line 11. Thus these lines form a block of   statements. Since this block is immediately after an if statement, all   the statements in the block will only be executed if the if statement's   expression is True. For the first number we gave as input (2), this means the first                 if statement evaluates to True, so we start executing the block. When we get to line 14 we   encounter a second if statement. This second if statement is   \textbf{nested} inside the first, because it will only be   executed if the outer if statement (line 11) has an expression that   evaluates to True. Lines 15 and 16 form a \textbf{nested   block}, but are not executed because 2 is not negative, or more   specifically because 2 is not less than 0. Conversely, lines 24 and 25   will be executed because -4 is less than 0. Although -7 is negative, lines 33 and 34 won't be executed, because the if statement on line 32 is part of the block from 30-34 that never gets executed
+
+Despite the fact that this example is an order of magnitude larger   than any previous examples, there are only two new things. The first   being indentation and nesting, the second being the use of   
+\texttt{int()} around our input functions.  Remember that   input() returns a string. So even if the user types in 2,   input() returns not 2 but the string '2'. Strings and numbers don't   really play nice together, especially when they're being compared to   one another, so we need to convert the string into an integer. This is   known as \textbf{type casting} or \textbf{coercion}. We   can do it for any basic Python type ...
+\begin{lstlisting}
+
+>>> float("3.1415")
+3.1415
+>>> str(143)
+'143'
+>>> bool(None)
+False
+>>> bool(-1)
+True
+>>> int(1.4142)
+1
+>>>
+\end{lstlisting}
+
+\section{Nested ifs vs complex boolean expressions}
+
+ Lets re-examine our party scenario. We could use nested \textit{if}s to specify when to go to the party as such:
+\begin{lstlisting}
+
+if numOfPeople>5:
+	if numOfPeople$<$40:
+		if day=='Friday':
+			print ("Go to party")
+		if day=='Saturday':
+			print ("Go to party")
+		\end{lstlisting}
+
+ This method will work, but it is cumbersome. Too many nested ifs can lead to confusion, and if you wanted to change your program later so that it printed "You should go to the party", you might change it in one place but not the other. As such it would be much better to write that algorithm as follows:
+\begin{lstlisting}
+
+if numOfPeople>5 and numOfPeople$<$40 and (day=='Friday' or day=='Saturday):
+	print ("Go to the party")
+		\end{lstlisting}
+
+ This is a much more elegant solution, and is preferable. You would only use nesting when you want to do slightly different things depending on the situation. When programming, less is more. \textbf{You should almost always strive for less code} (so long as the program still does what it should).
+
+
+
+\section{Specifying Execution Code for Alternate Conditions}
+
+So now we have a handle on basic if statements, we come up against   the next hurdle. If our condition isn't met, our if block statements   simply aren't executed. But what if we want something   \textbf{else} executed instead of nothing when the condition   isn't met. We could simply follow our first \textit{if} with another \textit{if} that has the opposite expression (using not), but this isn't a very elegant solution. Enter the \textit{if ... else} statement.
+\begin{lstlisting}
+
+1: first = int(input("Enter a number: "))
+2: if first % 2 == 0:
+3:     print (first, "is even")
+4: else:
+5:     print (first, "is odd")
+\end{lstlisting}
+
+Now, if 'first' is not even, the program will print a message saying   it is odd, instead of doing nothing. The indentation is of key   importance here again. Note that 'else' is at the same indentation   level as the 'if' and is also followed by a colon (':'). The statement   to be executed if 'first' is not even, on line 5, is known as the   \textbf{else clause}, as the statement on line 3 is known as   the \textbf{if clause}.
+
+Finally we have to deal with the case where things are not as clear   cut, not so black and white.
+\begin{lstlisting}
+
+ 1: colour = input("Enter the name of a colour: ")
+ 2: if colour == "Red":
+ 3:     print ("Stop!")
+ 4: elif colour == "Orange":
+ 5:     print ("Try to stop if possible.")
+ 6: elif colour == "Green":
+ 7:     print ("Go! Go! GO!")
+ 8: else:
+ 9:     print (colour, "Stop! You're obviously drunk.")
+\end{lstlisting}
+
+Running this a couple of times with various inputs we get
+\begin{lstlisting}
+
+sirlark@hephaestus ~/scratch $ python illus.py 
+Enter the name of a colour: Red
+Stop!
+sirlark@hephaestus ~/scratch $ python illus.py 
+Enter the name of a colour: Green
+Go! Go! GO!
+sirlark@hephaestus ~/scratch $ python illus.py 
+Enter the name of a colour: orange
+Stop! You're obviously drunk.
+sirlark@hephaestus ~/scratch $
+\end{lstlisting}
+
+The first run things happen as expected; We get to line 2, the value   of colour is \textit{Red}, the expression for the if statement is True,   we execute line 3 ... and then the program finishes! This is because   line 4 is not part of the block constituting line 2's if clause,   because it has a lower indentation level. Also line's 4, 6 and 8 are   all still part of the same if statement. Let's look at the second run a   little more closely to see what happens.
+
+We get to line 2, the value of colour is \textit{Green}.   \textit{Green} is not equal to \textit{Red}, so we don't execute line   3. Instead we jump to the else ... hang on! What is 'elif'? 'elif' is   short for 'else if' and allows one to set up alternate conditions if   earlier conditions haven't been met. So we get to the 'elif' on line 4.   \textit{Green} is not \textit{Orange} so we don't execute line 5, instead we go onto line 6, which is still part of the same if-else group. \textit{Green} is equal to \textit{Green} so that will return true and we will run line 7.
+
+The third run illustrates nicely that in fact strings in Python are   case sensitive too. Not just the language, but the data we manipulate   with it is considered case sensitive. 'Orange' and 'orange' are different   strings, hence neither the if, nor any of the elifs execute. As a last resort, the block after the else executes.
+
+\section{Formal Summary}
+\begin{itemize}
+	\item Conditions are specified using propositions, i.e. expressions that have a value of either True or False.
+	\item Propositions are expressions and can be composed using other expressions combined with logical operators.
+	\item The 'if statement' is used to execute certain statements only if certain conditions are true when the 'if statement' is executed.
+	\item 'If statements' can specify alternative conditions and the code to execute under those conditions using 'elif'.
+	\item 'If statements' can specify what to execute if none of the conditions specified are true using 'else'.
+	\item A collection of statements can be grouped together in the same code block, by indenting them
+	\item The complete syntax of the if statement follows, where sections enclosed in square braces are optional.
+\end{itemize}
+\begin{lstlisting}
+
+if $<$expression$>$:
+    statement
+    statement
+    ...
+[elif $<$expression$>$:
+    statement
+    statement
+    ...]
+[elif $<$expression$>$:
+    statement
+    statement
+    ...]
+[...]
+[else:
+    statement
+    statement
+    ...]
+\end{lstlisting}
+
+\section{Exercises}
+\begin{enumerate}
+	\item Give a condition to check whether a number \textit{x} is divisible by another number, \textit{y}? 
+\\\textit{Hint: what does the operator \textit{\%} do?}
+	\item Given the English phrase, "If you're not on the VIP list or    the staff list, you can't come in.", write down an equivalent python/pseudo code    condition.
+	\item Write a program that reads in a number and halves it, unless it's an odd number, in which case it must print a suitable error  message.
+	\item Do you think the following is true or false?    
+\begin{lstlisting}
+'Two' 
+			Evaluate it. Is the answer what you expected? How are strings compared to each other?
+
+			
+	\item 
+\begin{lstlisting}
+
+a=1
+b=input()
+if a==b:
+	print ("You input 1!")
+\end{lstlisting}
+Write a program with the above code. Run it and give it 1 as an input. Does the program do as you expected? Why not? Try and fix it.
+			
+% <li>Think of a random person. Evaluate if the following returns true or false with regards to that person:
+%       <pre class='list'>
+% (MyGender!=TheirGender and TheirAge>=MyAge/2+7 and TheirAge&lt;=(MyAge-7)*2 
+%     and TheirAttractiveness+MyBloodAlcohol>=MyAttractiveness and 
+%     TheirAttractiveness-MyBloodAlcohol<=MyConfidence and (TheirSchoolMark<'C' 
+%     or TheirBreastOrMuscleSize>'C')
+% </pre></li>
+
+	\item Write a program that asks the user to enter two numbers. If the
+			second number is not zero, print the quotient (the one number divided by the other) of the two numbers,
+			otherwise print a message to the effect of not being able to divide
+			by zero.
+	\item What does the following equate to? Try figure it out for yourself before you code it up. If you're still not sure why the answer is as it is, try breaking it up into smaller bits and evaluate them individually.
+			 
+\begin{lstlisting}
+True and not True or (True or False and False) and False == (not True or False)\end{lstlisting}
+	\item Write a program that asks the user to enter 4 numbers, and
+			prints the smallest number entered.
+	\item Write a program that asks the user to enter 3 numbers, and
+			prints the largest even number entered, and displays a suitable error message if no even numbers are entered, or if there is no one largest number (i.e. if the two biggest numbers are the same)
+	\item Write a program that reads in a sentence and a keyword and tells you if that keyword is in that sentence.
+	\item Write a program that asks the user to enter a four digit year,
+			and prints out whether that year is a leap year or not. Hint: It's a leap year if the year is divisible by four, except if it's divisible by 100, in which case it's not, except if it's divisible by 400, in which case it is. ie. 1900 was not a leap year but 2000 was
+	\item Write a program that asks for the names, and the birthdays of two people. (Ask for year, month and then date of birth) The program must determine which of the two people is oldest.
+	\item Write a program that asks the user to enter 3 names, then
+			outputs them sorted alphabetically.
+	\item 
+\begin{lstlisting}
+
+inport random
+a=random.randrange(10)
+print (a)
+\end{lstlisting} The above code prints a random number between 0 and 10. Use the above code in a program that asks the user to guess what number the computer is "thinking of". Then tell the user if he was right, or wrong, and if so, whether his guess was too high or too low.
+	\item Write a program that asks the user to enter a number, then
+			prints out all the numbers from 1 to 10 by which the entered number
+			is divisible.
+	\item Think about that last program you wrote and how much of the code was repeated. Write a better version of the same program in your own pseudo-code.
+
+		\end{lstlisting}
+\end{enumerate}    

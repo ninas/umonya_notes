@@ -1,0 +1,141 @@
+\section{The print() Statement}
+
+The most basic statement in Python is \texttt{print()}. The \texttt{print()}   statement causes whatever is between the brackets to be outputted to the screen.   We've already encountered it previously, now it's time to understand   how it works. Start up the python interactive shell, and let's explore.   Type the following:
+\begin{lstlisting}
+
+>>> print(1)
+1
+>>> print(173+92)
+265
+>>> print(173+92.0)
+265.0
+>>> print("hello")
+hello
+>>>
+\end{lstlisting}
+
+As one can see, the \texttt{print()} statement outputs the   \textbf{value} of the expression immediately following it to   the screen, and moves to the next line. Note that the third print   statement produces slightly different output, namely the extra '.0'.   This is because 92.0 and 92 are different to a computer. 92 is an   integer, whilst 92.0 is a real number, or in computing terms a   \textbf{floating point number} or \textbf{float} for short. The   differences will be covered later.
+
+Also of importance is the expression "hello" (note the double   quotes). The value of "hello" is \textit{hello}, and this is what is   outputted to the screen by the \texttt{print()} statement. \textit{hello} is   designated as a \textbf{string} by enclosing it in quotes. Try   
+\texttt{print(hello)} without the quotes and see what happens.
+\begin{lstlisting}
+>>> print(hello)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in ?
+NameError: name 'hello' is not defined
+>>>
+\end{lstlisting}
+
+What's going on? Welcome to your first bug! We will soon learn to dissect and   understand what all that means, but for the moment it is sufficient to   understand that something has gone wrong. But what? Recall from basic   concepts we were able to store values in \textit{labels} or \textit{variables}.   Python consists of a limited set of key words that have special   meaning. These key words form the list of basic (atomic) statements and   expressions that python knows how to handle. Whenever python encounters   a word is doesn't recognise, it treats this as a label name. It   obviously doesn't recognise 'hello' as a statement, and thus treats it as   a \textbf{variable}. Variables must have a value, because   variables are expressions in and of themselves. But we haven't told   Python what the value of hello is, hence it complains \texttt{'hello' is not defined}.
+
+The \texttt{print()} statement is not so plain and boring as it seems. It can   do a few more things that are worth mentioning. Try entering 
+\texttt{print("Jane     has", 7, "apples.")}
+\begin{lstlisting}
+>>> print("Jane has", 7, "apples")
+Jane has 7 apples
+>>>
+\end{lstlisting}
+
+Of course we could just as easily use 
+\texttt{print("Jane has 7   apples")} and get the same result. However, separating the number   7 out illustrates two important things about the \texttt{print()} statement.   Firstly, we can in fact output the values of any number of expressions   in a comma separated list, and secondly the outputs of each of the   expressions in the comma separated list are separated by a single space   each.
+
+Finally, you will notice that the \texttt{print()} statement always ends off   the line, and starts a new one. Simply leaving a comma on the end   prevents this, e.g. 
+\texttt{print("Enter your name:",)}. In summary:
+\begin{itemize}
+	\item The \texttt{print()} statement prints out the \textit{values}  between the     brackets and then prints a new line
+	\item An empty texttt{print()} statement ends the current line and starts a new     one.
+	\item The \texttt{print()} statement can print multiple expressions if they are     given in a \textit{comma separated} list. In this case, a space is     included between each expression's outputted value.
+	\item The automatic newline outputted by texttt{print()} can be avoided by     putting a trailing comma in the expression list. This will print a     trailing space instead.
+	\item If a texttt{print()} statement with a trailing comma is followed by an     \textit{empty} texttt{print()} statement, the trailing space is     suppressed.
+\end{itemize}
+
+\section{Some String Basics}
+
+Python treats all text in units called \textbf{strings}. A \textbf{string} is formed   by enclosing some text in quotes. Double quotes, or single quotes may   be used. There is a small limitation to this however, being that a   string cannot be broken across multiple lines.
+\begin{lstlisting}
+'this is a string of text'
+"this is also a string of text"
+'this string will
+    cause an error, because it spans multiple lines'
+\end{lstlisting}
+
+Trying to enter the third string into the interactive shell yields
+\begin{lstlisting}
+>>> 'this string will
+    File "<stdin>", line 1
+            'this string will
+                            ^
+SyntaxError: EOL while scanning single-quoted string
+>>>
+\end{lstlisting}
+
+EOL meaning End Of Line. If we want to introduce line breaks into   strings we can use two methods. The first, and simplest, is to use   \textit{triple quotes}, meaning three double or three single quotes to indicate   both the beginning and the end of the string, as in
+\begin{lstlisting}
+>>> """this string will not
+...  cause an error
+...    just because it is split over three lines"""
+'this string will not\n  cause an error\n    just because it is split over three lines'
+>>>
+\end{lstlisting}
+
+The immediately obvious disadvantage is that everything between the   triple quotes is taken as-is, meaning the second and third lines of my   string which I indented to line up with the beginning of the first line   are indented in the string itself in the form of three spaces after   those \texttt{$\backslash$n} thingies. Speaking of which, what the hell are those things?   Why does our string contain stuff we didn't put there? Well let's try   to print the string out ...
+\begin{lstlisting}
+>>> print("""this string will not
+...    cause an error
+...    just because it is split over three lines""")
+this string will not
+   cause an error
+   just because it is split over three lines
+>>>
+\end{lstlisting}
+
+Well the \texttt{$\backslash$n}s are gone, but what were they? Strings are sequences   of characters and are one dimensional. They have no   \textbf{implicit} way to specify a line break, or relative   position, or which characters are where relative to which other   characters in the string in two dimensions, as displayed on a screen.   Hence we get the second method of specifying line breaks within a   string. There are special characters known as \textbf{escape     characters} which mean special things inside strings. They all   start with a backslash \texttt{$\backslash$} which escapes the following character from   the string, or in layman's terms means the following character in the   string is not a 'normal' character and should be treated specially.   Some important escape characters are
+\begin{description}
+	\item[$\backslash$n] line break or New line (n from the n in new line)
+	\item[$\backslash$t] tab
+	\item[$\backslash$$\backslash$] a plain backslash
+\end{description}
+
+You will see that because a backslash already has a special meaning,   namely "treat the next character specially", we can't simply put a   backslash into our string. So we escape the backslash with a second   backslash, meaning we actually want a backslash and not a special   character.
+
+Finally, how do we actually put quotes inside a string since they   indicate the \textbf{end} of a string. The easiest solution is   to mix your quotes. If you want a single quote in a string, define the   string with double quotes, e.g.  
+\texttt{"I've got this escape thing all figured out!"}. Alternatively, you can actually escape quotes   within strings, to give them the special meaning that they don't end   the string, e.g. 
+\texttt{'I$\backslash$'ve got this escaped thing totally figured out!'}
+
+\section{Exercises}
+\begin{enumerate}
+	\item What does the \texttt{print()} statement do generally?
+	\item Start the Python interactive interpreter:     
+\begin{enumerate}
+	\item Output your first name.
+	\item Output your surname.
+	\item Output your first name followed by a space followed by         your surname.
+	\item Create a variable called \texttt{firstname} and put your first         name into it.
+	\item Create a variable called \texttt{surname} and put your surname         into it.
+	\item Using only the variables you have created, print your         first name and surname again, making sure there is exactly         one space between your two names.
+\end{enumerate}     Quit the Python interactive interpreter.
+	\item Which special rules does the print statement adhere to regarding     trailing spaces and newlines?
+    \item Consider the following code...
+\begin{lstlisting}
+print("MUCH madness is divinest sense,")
+print("To a discerning eye;")
+print("Much sense the starkest madness.")
+print("'T is the majority","In this, as all, prevails")
+print("Assent, and you are sane;")
+print("Demur,-you're straightway dangerous",)
+print()
+print("And handled with a chain.")\end{lstlisting}
+\begin{enumerate}
+	\item What output, exactly, does the above code produce? Indicate     spaces with underscores.
+\end{enumerate}
+\item Write a program that prints "Hello".
+\item Write a program that outputs a favourite piece of poetry or other     prose, over multiple lines.
+\item How can you print a value stored in the variable \texttt{x}?
+\item How can you print the values of multiple expressions on one line?
+\item Write a program that outputs your name, age, and height in     metres in the following format. Make sure age is an integer, and     height is a float, and not simply part of your string.
+\\
+\texttt{My name is James, I am 30 years old and 1.78 metres       tall.}
+\item Explain three possible ways to print a string containing an     apostrophe, for example the string
+\\
+\texttt{The cat's       mat}.
+\end{enumerate}   

@@ -1,0 +1,431 @@
+\section{Abstracting Common Tasks with Functions}
+
+So now we've been programming for nearly two days. You've probably come   across a number of tedious tasks that we must 'program repeatedly', as   opposed to 'program to repeat'; e.g. looping until a blank line is   entered. Often these common tasks are similar, but not exactly the   same, e.g. different things need to be done in the loop until a blank   line is reached. Ideally we want a labour saving device, and thus we   turn to the \href{
+		http://olympiad.cs.uct.ac.za/docs/python-docs-2.6/reference/compound_stmts.html#function}{function}. We have   already been introduced to the use of functions by calling various   built in functions, but ultimately we want to be able to make our own   functions.
+
+\section{Defining New Functions}
+
+We define a new function using the \textbf{def} statement,   which takes the form
+\begin{lstlisting}
+
+def $<$funcname$>$([parameter name][, parameter name][, ...]):
+    statement
+    [statement]
+    [...]
+\end{lstlisting}
+
+When this statement is executed, a new object with the name   'funcname' is created. Whenever this object is used followed by pair of   round braces, the statements listed in the 'def' statement, commonly   called the \textbf{function definition}, are executed, and once   completed, execution continues from where it was before the function   statements were entered. This process is known as \textbf{calling a   function}.
+
+It is important to understand that functions provide us with a   radically different way to influence the sequence or flow in which our   programs execute. Conditions and loops still progress in a roughly top   to bottom fashion, but functions allow us to 'dive into' a small block   of statements, and come back up to where we were just prior to our   dive, more of an in and out form of control.
+
+Of great use is that functions can return a value. In fact in   Python, all functions return a value, even if not given a value to   return (in which case the return value is None). This is done by the   use of the \textbf{return} statement. The return statement,   when used within a function definition, simply causes that function to   return the value of the expression immediately following the 'return'.   Formally, return statements take the form
+\begin{lstlisting}
+
+    return $<$expression$>$
+\end{lstlisting}
+
+As an example, here is the definition of a simple function to print   a triangle of height 3.
+\begin{lstlisting}
+
+def triangle3():
+    print("*")
+    print("**")
+    print("***")
+\end{lstlisting}
+
+Henceforth, whenever Python encounters 
+\texttt{triangle3()} the   three print statements will be executed. Note the brackets! They   indicate triangle3 should be called, rather than treated as a variable.   Looking at triangle3, there's nothing we couldn't do without cut   and paste, so why bother? Well recall that way back in the Basic Input   section we said that functions are like mini-programs, in that they   take input and produce output. Well that would mean a function could   produce different output depending on its input. How do we give a   function input?
+
+\section{Passing and Receiving Parameters by Position}
+
+Functions receive their input from parameters, which are values   given in a comma separated list (i.e. a tuple) when calling the   function, and are unpacked within the function automatically. We have   to define how many parameters a function takes, and what each ones   name is, so we can give a function appropriate parameters later   on. For example, let's define a function that accepts one parameter,   called 'seconds', and returns how many complete minutes are in that many   seconds.
+\begin{lstlisting}
+
+>>> def minutes(seconds):
+...    print(seconds)
+...    return seconds/60
+...
+>>> minutes
+$<$function minutes at 0xb7cfcdbc$>$
+>>> minutes(71)
+71
+1
+>>> minutes(71.0)
+71.0
+1.1833333333333333
+>>> minutes("bob")
+bob
+Traceback (most recent call last):
+  File "$<$stdin$>$", line 1, in ?
+  File "$<$stdin$>$", line 2, in minutes
+TypeError: unsupported operand type(s) for /: 'str' and 'int'
+>>>
+\end{lstlisting}
+
+In the above example we can already see a number of things about   functions and how they handle parameters. Firstly, the 'def statement'   is executed and 'minutes' is created as a function 'object', as   evidenced by the value returned after typing in 'minutes'. When we call 'minutes' by typing 'minutes(71)', Python   executes all the statements contained in the function 'minutes'.   The first statement in the definition prints out the value of seconds   as 71. But where did the value 71 come from?
+
+Well, thinking back to tuples, let's treat everything between the   open and close brackets in a function call as if it were forming a   tuple, so in the case of the function call 
+\texttt{minutes(71)} we   have formed a tuple '(71, )'. Before the first statement of the   function definition is executed, the tuple created by calling the   function is unpacked using the names in the function definition's   parameter list \textbf{in order}. In our case this creates an   implicit line before 
+\texttt{print(seconds)} which looks like
+\begin{lstlisting}
+
+		seconds, = 71,
+\end{lstlisting}
+
+Note in the example transcript how the type of the parameter   'seconds' changes according to the type of the value used in the   function. In fact in the third function call made, the type used   actually causes an error, which makes sense since we cannot divide a   string by the integer 60. In the error case, we see that the first   statement in the function definition (
+\texttt{print(seconds)}) is   executed without error, and that the error occurs later. This means we can see the order of execution within a function.     More than that, functions are not atomic. This means that if there's an error in your function, all the      statements before the error will be executed regardless.
+
+The concepts of parameter passing are best illustrated in the case   of multiple parameters. For example, let us define a function which   takes two parameters, prints out both and returns the smaller of the two parameters ...
+\begin{lstlisting}
+
+>>> def minimum(a, b):
+...    print(a)
+...    print(b)
+...    if a $<$ b:
+...        return a
+...    else:
+...        return b
+...
+>>> minimum(9, 3)
+9
+3
+3
+>>>
+\end{lstlisting}
+
+Okay, we're taking a few extra baby steps here... let's look at what   we've done. We've defined a new function called 'minimum', it has two   parameters, 'a' and 'b'. By virtue of putting 
+\texttt{a, b} in the   parameter list in the function definition, we are implicitly putting   the line 
+\texttt{a, b = $<$passed in tuple$>$} in as the first   line, where the passed in tuple is formed by the function call itself,   rather than the function definition. Next we notice that we can branch   execution flow using an \textbf{if} statement within a function definition. We   can also loop, in fact we can do pretty much anything we want within a   function definition. Finally let's focus on the 'return statement'.   Each return statement exits the function immediately, and replaces the   value of the function call with the value of the expression following   the reserved word 'return'. So following 
+\texttt{minimum(9,3)} we   see that program execution 'dives into' the function 'minimum', sets   'a' and 'b' to 9 and 3 respectively via the implicit tuple unpacking,   prints 'a', prints 'b', and never executes 
+\texttt{return a} but   instead executes 
+\texttt{return b}, at which point execution leaves   the function definition, and returns to the   point of the function call. The value of the function call is thus   \textit{3}.
+
+\section{Composition of Functions in the Definition}
+
+Of course, since we can do pretty much anything in a function   definition, we can also call other functions, both Python built in   functions, and our own defined ones, as in an example to get two   coordinates from the user.
+\begin{lstlisting}
+
+def getcoords():
+    x = input("Enter an X coordinate: ")
+    y = input("Enter a Y coordinate: ")
+    print("The smaller coordinate is {0}".format( minimum(int(x), int(y)) ))
+    return x, y
+\end{lstlisting}
+
+So here we have called both a built in function (input) and our   own previously defined function (minimum) within the function   definition. Also note that we form a tuple in our return statement. We   wish to return two values, but the 'return statement' can only return   the value of a singe expression, so to return multiple values, that   expression must be a tuple (or list) of values.
+
+\section{Composition of Functions in Parameter Lists}
+
+Just as expressions can be composed to form more complex expression,   so can functions be composed in the strict mathematical sense, i.e.   given two functions 'f(a)' and 'g(b)', we can obtain a value for f of g   of x. Similarly in Python we could say
+\begin{lstlisting}
+
+print(minimum(5, minimum(int(input("$>$ ")), 8)))
+\end{lstlisting}
+
+Remember that expressions are evaluated inside to outside, so the   value of input is determined first, then it is converted to an   integer, then compared against 8 in the inner minimum function, and   finally the value of the inner minimum function is compared against 5   in the outer minimum function. Thus we have composed minimum with   itself, and further with input.
+
+In the same way that the range of 'g(b)' must fall within the domain   of 'f(a)', so too must we ensure in Python when doing our function   compositions that the results of inner functions are of appropriate   type and value for use as parameters to outer functions.
+% <h2>Providing Default Values for Parameters</h2>
+% 
+% 		<p>Considering programming is all about being lazy and getting
+% 		computers to do the work for us, we find that entering every single
+% 		parameter every time we call a function gets tedious. Especially if 90%
+% 		of the time we are entering the same values. We want to be able to
+% 		specify a default value to assume when we feel lazy and want to leave
+% 		those parameters out. We do this by 'assigning' a default value when
+% 		specifying the parameter list in the function definition.</p>
+% 
+% 		<pre class='listing'>
+% #a simple function to change the radix (base) of a number, and return a string
+% #representing the number in the chosen radix
+% #this is most commonly used for hexadecimal notation, hence the default of 16
+% 
+% def radix(number, r = 16, case = "upper"):
+%     upper = "0123456789ABCDEF"
+%     lower = "0123456789abcdef"
+%     if case == "upper":
+%         digits = upper
+%     else:
+%         digits = lower
+%     ret = ""
+%     while number &gt; 0:
+%         ret = digits[number % r] + ret
+%         number /= r
+%     return ret
+% 
+% print radix(17)
+% print radix(255)
+% print radix(17,8)
+% print radix(17,2)
+% </pre>
+% 
+% 		<p>The example above produces the following output</p>
+% 
+% 		<pre class='listing'>
+% 11
+% FF
+% 21
+% 10001
+% </pre>
+% 
+% 		<p>Deconstruction time! Note first how we define the parameter list of
+% 		the 'radix' function. We assign defaults. When we call 'radix' the
+% 		first time, we only provide one parameter, so during the implicit tuple
+% 		unpacking, we get the equivalent of <code>number, r, case = 17,</code>
+% 		which would be problematic because the right hand tuple is not big
+% 		enough. In this case Python fills up the tuple as necessary with the
+% 		default values, yielding in fact <code>number, r, case = 17, 16,
+% 		"upper"</code>.</p>
+% 
+% 		<p>Looking at our third call of the 'radix' function, we have provided
+% 		two parameters, so Python unpacks the tuple as <code>number, r, case =
+% 		17, 8,</code>, and fills up to the size required with default values,
+% 		so we get<br /> <code>number, r, case = 17, 8, "upper"</code>. Note how
+% 		the default values <strong>fill up their respective positions in the
+% 		tuple</strong>, and not from left to right, i.e. the first missing
+% 		parameter ('case') is filled up not with the first default parameter
+% 		(16), but rather the default for the parameter at the missing position
+% 		('upper'). Because passed in values are not associated by name to the
+% 		parameter names in the function definition, but rather by position, it
+% 		is imperative that we specify default values (thus allowing optional
+% 		parameters) <strong>after all mandatory parameters</strong>. Finally,
+% 		and obviously, if all the parameters are provided, no defaults are
+% 		used.</p>
+% 
+% 		<h2>Handling Keyword Arguments for Parameters</h2>
+% 
+% 		<p>There is one more way in which parameters can be passed. That being
+% 		by keyword. Python uses a very specific format for specifying the
+% 		passing of parameters by keyword,</p>
+% 
+% 		<pre class='definition'>
+% def &lt;funcname&gt;([parameter 1][, parameter 2][...][[,] **kwargs]):
+%     statement
+%     [statement]
+%     [...]
+% </pre>
+% 
+% 		<p>Ending a parameter list in a function definition with the special
+% 		'expression' <code>**kwargs</code> (meaning key word arguments), means
+% 		that Python will provide a dictionary inside function definition called
+% 		'kwargs', containing all the parameters passed in in keyword form. The
+% 		'**kwargs' can also be alone in the parameter list. Re-examining the
+% 		radix example we have</p>
+% 
+% 		<pre class='listing'>
+% #a simple function to change the radix (base) of a number, and return a string
+% #representing the number in the chosen radix
+% #this is most commonly used for hexadecimal notation, hence the default of 16
+% 
+% def radix(number, **kwargs):
+%     upper = "0123456789ABCDEF"
+%     lower = "0123456789abcdef"
+%     if "radix" in kwargs:
+%         r = kwargs["radix"]
+%     else:
+%         r = 16
+%     digits = lower
+%     if "case" in kwargs:
+%         if kwargs["case"] == "upper":
+%             digits = upper
+% 
+%     ret = ""
+%     while number &gt; 0:
+%         ret = digits[number % r] + ret
+%         number /= r
+%     return ret
+% 
+% print radix(17)
+% print radix(255, case = "upper")
+% print radix(17, radix = 8)
+% print radix(17, radix = 2)
+% print radix(17, case = "upper", radix = 12)
+% </pre>
+% 
+% 		<p>Which gives us the following output</p>
+% 
+% 		<pre class='listing'>
+% 11
+% ff
+% 21
+% 10001
+% </pre>
+% 
+% 		<p>Using <code>**kwargs</code> allows us to call the function and name
+% 		the parameters we will assign values to explicitly, as opposed to
+% 		implicitly by position. But for the same reasons default parameters
+% 		must be specified after mandatory parameters, '**kwargs' must appear
+% 		after default parameters (if any), otherwise after mandatory
+% 		parameters.</p>
+% 
+% 		<h2>Functions as Variable Values</h2>
+% 
+% 		<p>As we have seen, we can refer to the function itself, as a value,
+% 		without calling it by using the name of the function without round
+% 		brackets and a parameter list. If we can refer to the function as a
+% 		value, then we can assign that value to variable. Then we can use the
+% 		variable to call the function. First a toy example for explanatory
+% 		purposes.</p>
+% 
+% 		<pre class='listing'>
+% #!/usr/bin/python
+% 
+% def plus(a, b):
+%     return a + b
+% 
+% def prod(a, b):
+%     return a * b
+% 
+% f = plus
+% f(4,5)
+% f = prod
+% f(4,5)
+% </pre>
+% 
+% 		<p>As we can see, we are able to assign a function to a variable;
+% 		<code>f = plus</code>. Next we see that we can call the function
+% 		<strong>currently</strong> assigned to 'f' by using the same call
+% 		syntax we would use with a function proper, namely using round braces
+% 		and a parameter list; <code>f(4,5)</code>. Note that assigning a
+% 		different function to 'f', and 'calling' 'f' again, we are in fact
+% 		calling the newly assigned function.</p>
+% 
+% 		<p>At first we might think this merely serves to confuse things, but
+% 		there is a use for the concept of <strong>function pointers</strong> as
+% 		they are called. Suppose we have a list, and we wish to apply a
+% 		function to every to every element in that list, such that we obtain a
+% 		new list containing the result of the function applied to the
+% 		respective element in the original list. We could create an empty list,
+% 		loop over the original list, and call the chosen function with each
+% 		element of the original list as a parameter, appending the results to
+% 		the new list. Now suppose we find that we perform this activity on a
+% 		regular basis, so regular a basis that we would want to make a function
+% 		to do this. The only problem is that the function we would want applied
+% 		to the list changes. Which means we can't hard code it into our
+% 		'application' function definition, but we must somehow accept the
+% 		function to apply as a parameter to our 'application' function. Using
+% 		function pointers we can do exactly this...</p>
+% 
+% 		<pre class='listing'>
+% #!/usr/bin/python
+% 
+% #a short program to demonstrate the use of function pointer
+% 
+% #we define a functions that 'applies' a function to each element in a list, and
+% #returns a list of the results of that function. Both the list and the function
+% #are specified as parameters
+% 
+% def apply(f, l):
+%     ret = []
+%     for e in l:
+%         ret.append(f(e))
+%     return ret
+% 
+% #imagine we had received four 'numbers' from input calls, which means they
+% #are in fact strings
+% inputs = ["1", "2", "3", "4"]
+% 
+% #but we need them as integers
+% int_list = apply(int, inputs)
+% print int_list
+% 
+% #or perhaps even as floats
+% float_list = apply(float, inputs)
+% 
+% #or even converted to names of numbers
+% 
+% def nameofnum(n):
+%     return ["one", "two", "three", "four", "five"][int(n)-1]
+% 
+% name_list = apply(nameofnum, inputs)
+% </pre>
+% 
+% 		<p>Try running this program and see what the output is.</p>
+
+
+\section{Exercises}
+\begin{enumerate}
+	\item Loops and conditionals both alter the flow of a program. Functions also alter the flow of a program, but in a different way. What is the difference?
+% <p>Given the code:</p>
+% 
+% <pre class='listing'>def suffix(m, s, chop = None):
+%     if chop == None:
+% 		chop = -len(m)
+%     return m[:-(chop)]+s
+% 
+% def prefix(m, p):
+% 	return p+m
+% 
+% s = "hand"
+% print suffix(s, "y")
+% print suffix("conceivable", "y", 1)
+% print prefix("conceivable", "in")
+% </pre>
+% 
+% 		<ol start='2'>
+% 
+% 			<li>How many parameters does each function take?</li>
+% 
+% 			<li>What is the value of the variable <em>s</em> outside of
+% 			<em>suffix</em>?</li>
+% 
+% 			<li>What is the value of the variable <em>s</em> inside of
+% 			<em>suffix</em>? How is this value assigned?</li>
+% 
+% 			<li>What is the value of the variable <em>s</em> inside of
+% 			<em>prefix</em>?</li>
+% 
+% 			<li>Compose the <em>suffix</em> and <em>prefix</em> functions using
+% 			parameter composition (i.e. traditional mathematical composition)
+% 			to create the word "inconceivably".</li>
+% 
+% 			<li>Rewrite either the <em>suffix</em> or the <em>prefix</em>
+% 			function as a defined composition of the other so that it returns a
+% 			word with both the prefix and the suffix concatenated.</li>
+% 
+% 			<li>Make the suffix parameter of your new function default to the
+% 			empty string, so that only prefixes need be specified if no suffix
+% 			is desired.</li>
+% 
+% 			<li>Make the prefix, suffix, and chop parameters keyword arguments
+% 			so that they can be specified in any order and all are
+% 			optional.</li>
+
+	\item Write a function that computes the sum of squares of two    numbers.
+	\item Write a function that computes the sum of squares of two or    three numbers.
+% <li>Write a function that accepts a single integer parameter, and
+% 			returns True if the number is prime, otherwise False.</li>
+
+% <li>Write a function that accepts a single integer parameter, and
+% 			returns a list of the prime numbers from 2 to the number.</li>
+
+% <li>Write a function that accepts a single integer parameter, and
+% 			returns a list of the prime factors of that number.</li>
+
+% <li>Write a function that accepts a list of numbers, and returns
+% 			their mean.</li>
+
+	\item Write a function that accepts a list of numbers, and returns    the sum of their squares.
+	\item Write a program that asks the user for a space separated list    of data points (i.e. floating point numbers), then uses your    function from the previous question to output the sum of squares of    those numbers.
+% <li>Write a program that asks the user for a space separated list
+% 			of data points (i.e. floating point numbers), then uses appropriate
+% 			functions from previous questions to calculate and output the
+% 			standard deviation of those numbers.</li>
+
+% <li>Write a function that accepts a list of numbers, a gradient and
+% 			an intercept, ala the linear function. Assume each number in the
+% 			list is a y value for the corresponding x value equal to the
+% 			numbers index position in the list, i.e. 0, 1, 2 etc... The
+% 			function should return the sum of squares of the residuals (the
+% 			difference between the data point or y value and the value of the
+% 			linear function at the corresponding x value).</li>
+
+% <li>Write a program that asks the user for a space separated list
+% 			of data points, (i.e. floating point numbers), then output the
+% 			gradient and y intercept of the linear equation that best fits the
+% 			data, and the quantitative fit value for the proposed linear model.
+% 			Hint: Check the <a
+% 			href="http://en.wikipedia.org/wiki/Linear_least_squares">WikiPedia
+% 			article</a> on Least Squares Regression for formulae.</li>
+
+\end{enumerate}    

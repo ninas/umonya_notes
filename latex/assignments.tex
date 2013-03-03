@@ -1,0 +1,158 @@
+\section{Introductory Programming in Python
+\\   Assignments}    [\href{index.html}{Course Outline}]
+\\    [\href{solutions}{Solutions}]   
+
+\hypertarget{assignment1}{Assignment 1}
+\begin{enumerate}
+	\item Write an accountants calculator. The user may enter a number, an operator (+, -, *, /), a blank line, or the word 'quit'. The first entry must be a number. Every time a number is entered, it is added to the current total (which    starts at 0), unless the previous line was an operator, in which case, instead of adding, use the operator given to combine the number entered and the total to form a new total. Every time a blank line is entered, print a line of dashes followed by    a line containing the current total. If the entry is the word 'quit' the program ends. Here is an example of output for the input; 4, 9, blank line, *, 2, -, 6, /, 10, blank line, quit     
+\begin{lstlisting}
+
+4
+9
+
+-----
+13
+*
+2
+-
+6
+/
+10
+
+-----
+2
+quit
+\end{lstlisting}
+\end{enumerate}
+
+\hypertarget{assignment2}{Assignment 2}
+\begin{enumerate}
+	\item Write a simple noughts and crosses    game, with a simple artificial intelligence, i.e. the computer    will always place their nought or cross to win the game if    possible, otherwise it will prevent the player forming a line,    or where there are multiple choices, the computer chooses    randomly.  The player should be able to decide who is noughts    and who is crosses, with crosses always starting first.  To get    the players move, allow them to enter their move in the format    "A2", where the alphabetic character represents the column, and    the number the row. Check that the input is valid, but allow    the alphabetic character to be in any case. If the input isn't    valid (too many characters, out of bounds, etc...), let the    player enter their move again. Entering the word 'quit' allows    the player to forfeit the game early. Output should present a    grid showing the state of the game at each of the players    turns.     
+\begin{lstlisting}
+
+Noughts (0) or Crosses (X): X
+  A B C
+ |-|-|-|
+1| | | |
+ |-|-|-|
+2| | | |
+ |-|-|-|
+3| | | |
+ |-|-|-|
+Your move? B2
+  A B C
+ |-|-|-|
+1| | | |
+ |-|-|-|
+2| |X|O|
+ |-|-|-|
+3| | | |
+ |-|-|-|
+Your move? D3x
+Input not valid, too many characters. Try again: D3
+Input not valid, out of bounds. Try again: C3
+  A B C
+ |-|-|-|
+1|O| | |
+ |-|-|-|
+2| |X|O|
+ |-|-|-|
+3| | |X|
+ |-|-|-|
+Your move? B3
+  A B C
+ |-|-|-|
+1|O|O| |
+ |-|-|-|
+2| |X|O|
+ |-|-|-|
+3| |X|X|
+ |-|-|-|
+Your move? A3
+  A B C
+ |-|-|-|
+1|O|O| |
+ |-|-|-|
+2| |X|O|
+ |-|-|-|
+3|X|X|X|
+ |-|-|-|
+You win!
+\end{lstlisting}
+\end{enumerate}
+
+\hypertarget{assignment3}{Assignment 3}
+\begin{enumerate}
+	\item A wet lab has given you the task of    writing a program to do some basic statistics on their data. Every    now and then they sequence oligos from different organisms. Their    wet lab machinery provides them with a file for each organism they    sequence containing the date of the sequencing, the name of the    organism sequenced, a short name for it with no spaces or    punctuation, and the list of oligos obtained, and their starting    positions in the genome. There may or may not be 100\% coverage of    the entire genome. No oligo is greater than 12 base pairs in    length. They want the following functionality, using command line    parameters.     
+\begin{itemize}
+	\item Given a new file, of the format following, they wish to be able to merge it's data into the database if organism hasn't been merged already, i.e. the short name doesn't already exist in the database. (--merge $<$filename$>$)
+	\item They want to know for a given oligo which organisms it occurred in, and their positions (--belongs $<$oligo sequence$>$)
+	\item They want to know for a given organism, all of the oligos belonging to it, in order (--genome $<$organism short name$>$)
+	\item They want to know any shared oligos between two specified organisms, and their positions in each oligo, displayed in a neat table (--shared $<$organism short name 1$>$ $<$organism short name 2$>$)
+	\item They want to know the frequency of a given oligo in the entire database (--freq $<$oligo sequence$>$)
+\end{itemize}\textbf{Notes:}
+\begin{itemize}
+	\item You will need to use a file to store the database, and you will need to modify its contents. You can either overwrite the entire thing (easiest), or modify it in place (+3 bonus marks above 100\%, can offset poor marks from previous assignments). Your decision heavily influences the format of database file.
+	\item Remember to use command line parameters for input exclusively, this means no input()...
+	\item There is no reason your database can't consist of more than one file
+	\item Oligos must match exactly. Do not combine adjacent oligos, nor search for for sub-oligos within the ones in the database
+	\item You may \textbf{not} use any form of database module, \textit{inter alia}; any relational database, the shelve or pickle modules, berkdb, ODBC etc... flat standard Python files only.
+\end{itemize}     Following are 2 example files and the example outputs for the    program using various command line parameters.  
+\begin{lstlisting}
+31 Mar 2008: Bugblatter of Traal Neuron
+BugBlatNeuron
+AACGATCTTACG 0
+TGTTGAGACA   16
+GCAGATGTCGA  43
+CCGAGGCG     86
+TGCAGACCATC  111
+CACAAACCC    145\end{lstlisting}
+\begin{lstlisting}
+02 Apr 2008: Babel Fish Brain Matrix Neuron
+BabelMatrix
+AGCTAGCATGC  3
+CATGATGACGAT 45
+TACGAGGA     78
+CCGAGGCG     109
+GTCCCAG      205\end{lstlisting}
+\begin{lstlisting}
+$ oligodb --merge bugblatter.dat
+$ oligodb --merge babel.dat
+$ oligodb --genome BabelMatrix
+AGCTAGCATGC (3)
+CATGATGACGAT (45)
+TACGAGGA (78)
+CCGAGGCG (109)
+GTCCCAG (205)
+$ oligodb --freq GTCCCAG
+1
+$ oligodb --belongs CCGAGGCG
+BugBlatNeuron: 86
+BabelMatrix: 109
+$ oligodb --shared BugBlatNeuron BabelMatrix
+                BugBlatNeuron  BabelMatrix
+CCGAGGCG        86             109\end{lstlisting}
+\end{enumerate}
+
+\hypertarget{assignment4}{Assignment 4}
+\begin{enumerate}
+	\item A local laboratory is doing    experiments in accelerated mutation. Taking starting unicellular    organisms, they bombard them with radiation causing increased    mutation rates, then place the offspring on a medium containing    cellulose. For those organisms that digest the cellulose, the    process is repeated this time with the offspring as the initial    organisms, and the final medium containing a slightly higher    cellulose content. The lab has already identified a site on the    various organisms genomes of interest, 10 base pairs    long. For each surviving organism they have recorded in a file (\href{data/assignment4.dat}{assignment.dat}):        
+\begin{itemize}
+	\item The lab code for the individual organism (unique)
+	\item The date the organism was sequenced
+	\item The sequence of interest from the organism
+	\item The percentage of cellulose digested by the organism in a given time
+	\item The ancestry of the organism by its relative indentation
+\end{itemize}        While the organisms do exhibit increased cellulose degradation    capabilities, they also exhibit a variety of undesirable    phenotypes. The lab now needs to identify individual SNPs that    cause the greatest average positive changes in cellulose    consumption percentages (CCP), so they can focus on those mutations    to achieve only the cellulose degradation phenotype. Your crack    team of programmers has just been awarded the contract, the deposit    cheque is in your sweaty little palms, the data file is available    for download, get coding.     
+\begin{itemize}
+	\item Your program should process files specified on the command line, and merge them into one large dataset for processing
+	\item A change in CCP is the difference in a child's CCP and its parent's CCP (child - parent), for a given sequence position
+	\item Only if a nucleotide is changed from parent to child in a given position, does that change in CCP contribute to the average change in CCP for that position
+	\item Your program should output in descending order of average CCP change, the value of the average CCP change, and the nucleotide position relative to the start of the gene of interest
+	\item 
+	\item Create a slide show presentation of \textbf{maximum} 5 minutes, explaining your approach to the problem. Be prepared for question from myself, and the class.
+	\item The mark for the assignment is out of 10, 5 from the presentation and questions, 5 from the code. You will be expected to demonstrate your code, on screen during your presentation, using the example file.
+\end{itemize}     Example output from the given example input file follows...    
+\end{enumerate}   Copyright \copyright James Dominy 2007-2008; Released under the \href{http://www.gnu.org/copyleft/fdl.html}{GNU Free Documentation License}
+\\\href{intropython.tar.gz}{Download the tarball}
+

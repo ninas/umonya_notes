@@ -1,0 +1,101 @@
+\section{What is a Program?}
+
+Simply put, a program is a set of instructions on \textbf{how} to    take some \textbf{input} data and produce    \textbf{output} data. Programs can be written in many   languages, such as PERL, Python, C, Ruby, Pascal, etc... Even a   stylised form of natural languages such as English, known as pseudo   code, can be used to describe a program effectively.
+
+\begin{center}\textbf{Input -$>$ Program -$>$ Output}\end{center}
+
+It is important to realise that the \textbf{program}   determines what input is satisfactory, and what input will cause error.   Input cannot be used to change how a program works. Similarly, the program   defines what output will be produced. If you need a program to handle   input differently, you need to write a new program. Likewise, if the   output isn't what you need, you will need to change the program too.
+
+Ultimately a program, no matter what language it is written in,   consists of a some atomic actions/instructions, each one an instruction   that cannot be divided into a sequence of 'smaller' or 'less complex'   instructions. These instructions are composed (as in mathematical   composition) in various manners, usually by issuing them in sequential order,   but also by defining the result of one instruction as the operand of   another.
+
+Instructions (or sets of composed instructions) can be divided into   two groups, those that produce a result, and those that   don't. For example, adding two numbers, 3 and 4, together has a result   (7). More specifically, it has a \textbf{value}, i.e. some data   the program can continue to work with. Contrast this with an   instruction that puts a line of text on the screen. It produces no   value as a result. Instructions which produce a value are called   \textbf{expressions}, instructions which produce no value are   called \textbf{statements}
+
+In a similar manner to statements, expressions can be combined with   other expressions, to form complex expressions. Expressions are   combined using \textbf{operators} such as the mathematical   functions sum, difference, product, quotient, etc... Thus 1+1 is also   an expression that has \textbf{a single value} despite the fact   that it is a composite of multiple sub-expressions.
+
+Which we can compare to the much simpler version of the same thing   in python
+\begin{lstlisting}
+a = 12
+b = 12
+if a*b == 144:
+    a = 1
+\end{lstlisting}
+
+The basic point is to illustrate that programs are made up of small,   well defined, \textbf{easy to understand} steps in sequence. As   in chess, where each individual piece can only move in a very limited   number of ways, yielding a tiny number of potential moves per piece per   turn, these moves can be combined in a near infinite number of ways and   often grouped together into common techniques or strategies. So too can   the simple statements of a programming language be combined in infinite   ways to produce complex but meaningful results.
+
+\section{Everyone can program!}
+
+Believe it or not, you've programmed before. You've programmed your   friends, and do so every time you give them directions.  After all what   is a set of directions but a sequence of instructions.
+\begin{lstlisting}
+OUT OF Cape Town TAKE the N1
+TAKE the Sable rd. Offramp
+AT the fork VEER LEFT
+AT the traffic lights TURN LEFT
+AT the NEXT traffic lights TURN RIGHT 
+AT the traffic circle TURN LEFT
+AT the NEXT traffic circle TURN RIGHT 
+AT the t-junction TURN LEFT
+\end{lstlisting}
+
+You will note that some (in fact a hell of a lot) of the words in   the directions to my place are capitalised. In the language of giving   directions, these are pretty much our most basic instructions. That is, they are the \textbf{atomic} instructions of the program. This means that each of these instructions cannot be divided into a combination of more basic instructions For example, LEFT, on it's own doesn't make sense. Likewise, TURN alone is vague. Thus TURN LEFT would be considered an atomic instruction, which along with other atomic instructions could be used to build up a more complex program of instructions.
+
+The portion   of the directions left in lowercase are labels or names for things that   are not common to all sets of directions, most often places specific to   the set of directions being given. These have values, and would be our   expressions.
+
+Examining the directions we have
+\begin{description}
+	\item[OUT OF] meaning I must first be \textbf{in} a named place    before performing the next instruction
+	\item[TAKE] meaning to drive along, or turn off onto a named offramp
+	\item[AT] continue until the named place or situation is reached    \textbf{before} performing the next instruction
+	\item[VEER] meaning to stay in a particular lane as the road splits
+	\item[TURN LEFT, TURN RIGHT] self explanatory
+	\item[NEXT] meaning the next object of specified type encountered
+\end{description}
+
+At first the description of these concepts may seem obvious, but   recall that computers, the machines executing your programming   instructions, have an IQ of 0. They are not intelligent, fiendishly   annoying at times perhaps, but never intelligent, never aware, never   capable of the massive amounts of understanding and contextualization done   by the human brain in order to draw logical conclusions. They are designed and built to understand and   execute only specific very basic steps. So what is implicit in the   instructions contained in a set of directions given to us, must be   explicitly defined for a computer.
+
+\section{Data representation and translation of real world problems}
+
+Now that the concept of sequences of statements has been thoroughly   flogged to death, to what do these statements apply? They apply to   \textbf{data}! But data in a computer, like instructions, must   be simple and well defined, or at the very least able to be broken down   into multiple well defined simple pieces. In general computers work   only with numbers. The pictures you see on screen, the text you are   reading, the sound you hear when playing MP3s are all numbers. The   actual physical devices attached to the computer are what are   responsible for transforming the numbers with which the Central Processing Unit, or 'brain' of a computer, deals into   humanly recognisable phenomena such as sound waves and images. Until   the screen, or the speakers, are reached, everything is numbers.  So it   stands to reason that the most basic, atomic, unit of data in a   computer is a number. Fortunately, modern programming languages are   capable of dealing with numbers and sequences of numbers in a few   different ways. Integers and Reals can be considered atomic data units   in almost every modern computer language, as can text in the form of a   string of characters in sequence.
+
+As programs are usually written to solve problems occurring in the   real world, it falls to the programmer to translate the problem being   solved into something the computer can deal with, i.e. numbers. This is   a bit like those annoying word problems we encountered in junior   school mathematics.
+\begin{quotation}     Jane has seven apples, Mary has four, Bob has one. They pool their    resources, and divide the apples equally. How many apples does each    one receive?    
+\end{quotation}
+
+The most difficult concept to grasp when learning to program is the   ability to translate a problem expressed in words into a set of   instructions that describe the solution to the problem. Learning a   programming language doesn't teach one to program, it merely provides   one with a specific set of tools with which one can solve a problem.   Learning how to apply these tools is the true skill to programming, and   this comes primarily with experience. The problem set out above is   ridiculously simple, and you've already worked out the answer in your   head, but \textbf{how did you do it?} Describe the process! But   what if there were 1000 people involved, and many thousands of apples.   Working it out in your head becomes a tedious task, but the basic   process you followed in your head for three people applies equally well   to the case of a thousand people. And so for our first exercise in   programming let us translate the word problem into the atomic (most basic)   statements and atomic data units that can be used to provide us with   the answer. Assume we are provided with only the following statements   and expressions to work with, and that statements are numbered from 1   upwards in the order in which they appear in our program:
+\begin{itemize}
+	\item EXPRESSION -- \texttt{input()}: get a number from input
+	\item STATEMENT -- \texttt{labelname = \#}: Assign the value of number to    a label for storage
+	\item STATEMENT -- \texttt{labelname += \#}: Addition of the second number    to the number stored in labelname
+	\item STATEMENT -- \texttt{if \# != \# \{\}}: check if the two numbers    are not equal. If they are not equal perform any instructions    within the braces \texttt{\{\}}
+	\item STATEMENT -- \texttt{GOTO \#}: Instead of executing the next    statement, execute the statement numbered \texttt{\#}
+	\item STATEMENT -- \texttt{labelname /= \#}: Division of the number stored    in labelname by \texttt{\#}
+	\item STATEMENT -- \texttt{print(\#)}: Output of a number to the    screen
+\end{itemize}
+
+Note that \texttt{\#} can be either an actual number, the name of a   label storing a number, or the instruction \texttt{input()} which is the   number received as input.
+\begin{quotation}     Each of a number of people has at least one apple. They pool their    resources and divide the apples equally. For any given number of    people and the number of apples each of these people has, how many    apples will each person receive?    
+\end{quotation}
+
+Given only the above statements and expressions to work with, there   are some important questions that need answering
+\begin{itemize}
+	\item Do we need to know who started with how many apples?
+	\item How do we represent how many apples there are?
+	\item How can one determine the total number of people?
+\end{itemize}
+\begin{lstlisting}
+ 1: apples = 0
+ 2: people = 0
+ 3: a = input()
+ 4: people += 1
+ 5: if a != 0 {
+ 6:     apples += a
+ 7:     GOTO 3
+    }
+ 8: apples /= people
+ 9: print(apples)
+\end{lstlisting}
+
+\section{Exercises}
+\begin{enumerate}
+	\item What is a program?
+	\item What is the difference between an expression and a    statement?
+\end{enumerate}
