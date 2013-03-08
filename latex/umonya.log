@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.6)  3 MAR 2013 22:54
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.5.6)  8 MAR 2013 08:16
 entering extended mode
  %&-line parsing enabled.
 **umonya.tex
@@ -561,10 +561,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 7145 strings out of 495061
- 98005 string characters out of 1182622
+ 7148 strings out of 495061
+ 98039 string characters out of 1182622
  314960 words of memory out of 3000000
- 9977 multiletter control sequences out of 15000+50000
+ 9981 multiletter control sequences out of 15000+50000
  10205 words of font info for 37 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  38i,6n,40p,1321b,1786s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -577,9 +577,9 @@ lic/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
 b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sha
 re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-te
 xlive/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on umonya.pdf (18 pages, 217059 bytes).
+Output written on umonya.pdf (18 pages, 218530 bytes).
 PDF statistics:
- 434 PDF objects out of 1000 (max. 8388607)
- 241 named destinations out of 1000 (max. 500000)
- 105 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 444 PDF objects out of 1000 (max. 8388607)
+ 240 named destinations out of 1000 (max. 500000)
+ 137 words of extra memory for PDF output out of 10000 (max. 10000000)
 
