@@ -1,1 +1,4 @@
 /nbproject/private/
+/latex/*.log
+/latex/*.aux
+/latex/*.out
