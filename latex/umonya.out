@@ -22,3 +22,23 @@
 \BOOKMARK [1][-]{section.5.4}{Strings and common operators}{chapter.5}% 22
 \BOOKMARK [1][-]{section.5.5}{Formalisation of the Concepts of Statements and Expressions}{chapter.5}% 23
 \BOOKMARK [1][-]{section.5.6}{Exercises}{chapter.5}% 24
+\BOOKMARK [0][-]{chapter.6}{Conditionals}{}% 25
+\BOOKMARK [1][-]{section*.1}{Pitfalls in Translation}{chapter.6}% 26
+\BOOKMARK [1][-]{section.6.1}{Executing Multiple Statements Conditionally}{chapter.6}% 27
+\BOOKMARK [1][-]{section.6.2}{Nested ifs vs complex boolean expressions}{chapter.6}% 28
+\BOOKMARK [1][-]{section.6.3}{Specifying Execution Code for Alternate Conditions}{chapter.6}% 29
+\BOOKMARK [1][-]{section.6.4}{Formal Summary}{chapter.6}% 30
+\BOOKMARK [1][-]{section.6.5}{Exercises}{chapter.6}% 31
+\BOOKMARK [0][-]{chapter.7}{While loops}{}% 32
+\BOOKMARK [1][-]{section.7.1}{The while statement}{chapter.7}% 33
+\BOOKMARK [1][-]{section.7.2}{The break statement}{chapter.7}% 34
+\BOOKMARK [1][-]{section.7.3}{The continue statement}{chapter.7}% 35
+\BOOKMARK [1][-]{section.7.4}{else clauses in while loops}{chapter.7}% 36
+\BOOKMARK [1][-]{section.7.5}{Exercises}{chapter.7}% 37
+\BOOKMARK [0][-]{chapter.8}{Lists}{}% 38
+\BOOKMARK [1][-]{section.8.1}{The Necessity of lists}{chapter.8}% 39
+\BOOKMARK [1][-]{section.8.2}{Lists in Detail}{chapter.8}% 40
+\BOOKMARK [1][-]{section.8.3}{Assignment to elements of a list}{chapter.8}% 41
+\BOOKMARK [1][-]{section.8.4}{Comparing Lists}{chapter.8}% 42
+\BOOKMARK [1][-]{section.8.5}{Lists as objects}{chapter.8}% 43
+\BOOKMARK [1][-]{section.8.6}{Exercises}{chapter.8}% 44
