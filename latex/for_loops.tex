@@ -40,9 +40,9 @@ for <element> in <list>:
     ...
 \end{lstlisting}
 
-Where `element' is a variable name (not necessarily `element'),   which may be as yet unassigned (the for statement will assign a value   to it), or may be an already existing variable, in which case a new value   will be assigned to that variable by the for statement. `list' is an   expression whose value is of type list.
+Where \texttt{element} is a variable name (not necessarily \texttt{element}),   which may be as yet unassigned (the for statement will assign a value   to it), or may be an already existing variable, in which case a new value   will be assigned to that variable by the for statement. \texttt{list} is an   expression whose value is of type list.
 
-What this does exactly is execute the indented statements \textbf{once for each element in the list `list'}. Each time the statements are executed, the variable in the position of `element'   is assigned the value of the next element in `list', starting with the   first.
+What this does exactly is execute the indented statements \textit{once for each element in the list \texttt{list}}. Each time the statements are executed, the variable in the position of \texttt{element}   is assigned the value of the next element in \texttt{list}, starting with the   first.
 
 So, for example, the following program
 \begin{lstlisting}
@@ -88,7 +88,7 @@ Item number 5 is Jacket and it costs R 150
 range([start,] stop [, step])
 \end{lstlisting}
 
-What it does is returns a list of integers, starting with the number   given by `start' (or 0 if start is not given), up to but not including   the number given by `stop'. If `step' is given, the list will only   provide every step'th integer in the sequence. Examples probably   illustrate this better ...
+What it does is returns a list of integers, starting with the number   given by \texttt{start} (or 0 if \texttt{start} is not given), up to but not including   the number given by \texttt{stop}. If \texttt{step} is given, the list will only   provide every \texttt{step}'th integer in the sequence. Examples probably   illustrate this better ...
 \begin{lstlisting}
 >>> range(5)
 [0, 1, 2, 3, 4]
@@ -162,13 +162,13 @@ else:
 
 \section{Exercises}
 \begin{enumerate}
-	\item Write a program that asks the user to enter two (whole) numbers and outputs the product. However, do so without using * but rather by repeatedly adding.
+	\item Write a program that asks the user to enter two (whole) numbers and outputs the product. However, do so without using `*' but rather by repeatedly adding.
 	\item Write a program that prints out the string ``repeat" 100 times.
 	\item Write a program that asks the user for their name, and a    number, then prints out the user's name, with some motivational comment, that many times.
 	\item What is an expression, using the range function, that yields a    list of 10 consecutive integers starting at 0?
 	\item What is an expression, using the range function, that yields a    list of 100 consecutive integers starting from 1?
-	\item What is an expression, using the range function, that yields a    list of 100 consecutive \textbf{even} integers starting    from 2?
-	\item Write a program that prints the \textbf{odd} numbers from 1 to 100 each on    its own line.
+	\item What is an expression, using the range function, that yields a    list of 100 consecutive \textit{even} integers starting    from 2?
+	\item Write a program that prints the \textit{odd} numbers from 1 to 100 each on    its own line.
 	\item The triangular numbers are the numbers 1, 3, 6, 10, 15... The \textit{n}'th triangular number is the sum of all the integers from 1 till \textit{n}. e.g. the 4th triangular number is 1+2+3+4=10. Write a program that accepts an integer value for \textit{n} from the user, and prints the \textit{n}'th triangular number.
 	\item Write a program that accepts words from the user, storing them in a list, until the user enters the word ``end". The program must then print out all the words in reverse order.
 	\item Modify your answer to question 10 from ``Flow Control:    Conditionals", i.e. print out the numbers from 1 to 10 by which a    user entered number is divisible, to use a for loop instead of    multiple if statements.
