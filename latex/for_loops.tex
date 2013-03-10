@@ -14,7 +14,7 @@ In order to view the individual contents of that list, we could refer to them by
 `Motherboard'
 \end{lstlisting}
 
- In order to view all the items of our list, we could manually type in all the indexes, but what happens if you add more items later, or if you have 100 items? A better idea would be to use a while loop to change the index. We set the index to 0 to begin with, then while the index is less than length of the list, we print out the item in the list referenced by the index and increment the index.
+ In order to view all the items of our list, we could manually type in all the indexes, but what happens if you add more items later, or if you have 100 items? A better idea would be to use a \texttt{while} loop to change the index. We set the index to 0 to begin with, then while the index is less than length of the list, we print out the item in the list referenced by the index and increment the index.
 \begin{lstlisting}
 >>> index=0
 >>> while (index < len(shopping)):
@@ -27,12 +27,11 @@ Eggs
 Motherboard
 Cheese
 Jacket
->>> 
 \end{lstlisting}
 
 That works, but, once again Python provides us a better tool for the job in the form of the \texttt{for} statement.
 
-The \texttt{for} statement is also a looping statement, like the while statement, except that it loops   over the elements of a list rather than until a boolean expression is false. It looks like this
+The \texttt{for} statement is also a looping statement, like the \texttt{while} statement, except that it loops   over the elements of a list rather than until a boolean expression is false. It looks like this
 \begin{lstlisting}
 for <element> in <list>:
     statement
@@ -40,9 +39,9 @@ for <element> in <list>:
     ...
 \end{lstlisting}
 
-Where \texttt{element} is a variable name (not necessarily \texttt{element}),   which may be as yet unassigned (the for statement will assign a value   to it), or may be an already existing variable, in which case a new value   will be assigned to that variable by the for statement. \texttt{list} is an   expression whose value is of type list.
+Where \textit{element} is a variable name (not necessarily `element'),   which may be as yet unassigned (the \texttt{for} statement will assign a value   to it), or may be an already existing variable, in which case a new value   will be assigned to that variable by the for statement. \texttt{list} is an   expression whose value is of type list.
 
-What this does exactly is execute the indented statements \textit{once for each element in the list \texttt{list}}. Each time the statements are executed, the variable in the position of \texttt{element}   is assigned the value of the next element in \texttt{list}, starting with the   first.
+What this does exactly is execute the indented statements \textbf{once for each element in the list \texttt{list}}. Each time the statements are executed, the variable in the position of \texttt{element}   is assigned the value of the next element in \texttt{list}, starting with the   first.
 
 So, for example, the following program
 \begin{lstlisting}
@@ -62,7 +61,7 @@ Item: Cheese
 Item: Jacket
 \end{lstlisting}
 
-Well, that's pretty cool. Notice how the variable i changes on every iteration (every repeat of the loop). But what if we wanted to number the list too, or have two lists, one with the item and one with the price. What we could do is have a list of indexes, and use the for loop to go through them, printing out both the index and the item in the shopping list that corresponds to that number. We could do that as follows: 
+Well, that's pretty cool. Notice how the variable \texttt{i} changes on every iteration (every repeat of the loop). But what if we wanted to number the list too, or have two lists, one with the item and one with the price. What we could do is have a list of indexes, and use the for loop to go through them, printing out both the index and the item in the shopping list that corresponds to that number. We could do that as follows: 
 \begin{lstlisting}
 #a small program to display a numbered shopping list
 indexes=[0,1,2,3,4,5]
@@ -89,6 +88,7 @@ range([start,] stop [, step])
 \end{lstlisting}
 
 What it does is returns a list of integers, starting with the number   given by \texttt{start} (or 0 if \texttt{start} is not given), up to but not including   the number given by \texttt{stop}. If \texttt{step} is given, the list will only   provide every \texttt{step}'th integer in the sequence. Examples probably   illustrate this better ...
+
 \begin{lstlisting}
 >>> range(5)
 [0, 1, 2, 3, 4]
@@ -148,9 +148,9 @@ Animals  |  3  |  blah  |  2  |  True  |  for you  |
 H l o h w a e y u d i g
 \end{lstlisting}
 
-\section{else Clauses in for loops}
+\section{else clauses in for loops}
 
-\texttt{for} loop statements may also have an \texttt{else} clause, which is   executed when the list is finished, but not when the loop is   terminated by a break statement.
+\texttt{for} loop statements may also have an \texttt{else} clause, which is   executed when the list is finished, but not when the loop is   terminated by a \texttt{break} statement.
 \begin{lstlisting}
 for <variable> in <list>:
     <statement>
@@ -162,17 +162,17 @@ else:
 
 \section{Exercises}
 \begin{enumerate}
-	\item Write a program that asks the user to enter two (whole) numbers and outputs the product. However, do so without using `*' but rather by repeatedly adding.
-	\item Write a program that prints out the string ``repeat" 100 times.
+	\item Write a program that asks the user to enter two (whole) numbers and outputs the product. However, do so without using * but rather by repeatedly adding.
+	\item Write a program that prints out the string \texttt{"repeat"} 100 times.
 	\item Write a program that asks the user for their name, and a    number, then prints out the user's name, with some motivational comment, that many times.
-	\item What is an expression, using the range function, that yields a    list of 10 consecutive integers starting at 0?
-	\item What is an expression, using the range function, that yields a    list of 100 consecutive integers starting from 1?
-	\item What is an expression, using the range function, that yields a    list of 100 consecutive \textit{even} integers starting    from 2?
+	\item What is an expression, using the \texttt{range} function, that yields a    list of 10 consecutive integers starting at 0?
+	\item What is an expression, using the \texttt{range} function, that yields a    list of 100 consecutive integers starting from 1?
+	\item What is an expression, using the \texttt{range} function, that yields a    list of 100 consecutive \textit{even} integers starting    from 2?
 	\item Write a program that prints the \textit{odd} numbers from 1 to 100 each on    its own line.
 	\item The triangular numbers are the numbers 1, 3, 6, 10, 15... The \textit{n}'th triangular number is the sum of all the integers from 1 till \textit{n}. e.g. the 4th triangular number is 1+2+3+4=10. Write a program that accepts an integer value for \textit{n} from the user, and prints the \textit{n}'th triangular number.
 	\item Write a program that accepts words from the user, storing them in a list, until the user enters the word ``end". The program must then print out all the words in reverse order.
-	\item Modify your answer to question 10 from ``Flow Control:    Conditionals", i.e. print out the numbers from 1 to 10 by which a    user entered number is divisible, to use a for loop instead of    multiple if statements.
-	\item Write a program that asks the user for the height of a triangle.    It must then print out a right handed triangle, with the right-angle on the    bottom left, made of asterisks (`*') of a height equal to the    number entered. Example input/output follows ...      
+	\item Modify your answer to question 10 from ``Flow Control:    Conditionals", i.e. print out the numbers from 1 to 10 by which a    user entered number is divisible, to use a \texttt{for} loop instead of    multiple \texttt{if} statements.
+	\item Write a program that asks the user for the height of a triangle.    It must then print out a right handed triangle, with the right-angle on the    bottom left, made of asterisks (*) of a height equal to the    number entered. Example input/output follows ...      
 \begin{lstlisting}
 Enter triangle height: 3
 *
