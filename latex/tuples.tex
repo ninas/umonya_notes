@@ -1,12 +1,11 @@
-\section{Tuples as Immutable Lists}
+\section{Tuples as immutable lists}
 
-In many ways tuples and lists are very similar. In fact tuples are   basically immutable lists, that is, lists which cannot be changed. All   the same operators work on them: concatenation, repetition,   subscription, and slicing. All the comparison operators work in the   same way: equivalence, less than, greater than, 'is'. However,   \textbf{assignments to tuples cannot be made} as they are   immutable, or unchangeable.  Once a tuple has been formed, it cannot be   changed. New tuples can be formed from others using concatenation,   repetition, etc... but the operand tuples remain unchanged by the   operators.
+In many ways tuples and lists are very similar. In fact tuples are   basically immutable lists, that is, lists which cannot be changed. All   the same operators work on them: concatenation, repetition,   subscription, and slicing. All the comparison operators work in the   same way: equivalence, less than, greater than, \texttt{is}. However,   \textbf{assignments to tuples cannot be made} as they are   immutable, or unchangeable.  Once a tuple has been formed, it cannot be   changed. New tuples can be formed from others using concatenation,   repetition, etc... but the operand tuples remain unchanged by the   operators.
 
-\section{Forming a Tuple}
+\section{Forming a tuple}
 
-Tuples are technically formed in Python using a comma, although most   often they are found recorded in round braces. Tuples can be of any   length, and have their elements indexed from 0 to len(tuple)-1.
+Tuples are technically formed in Python using a comma, although most   often they are found recorded in round braces. Tuples can be of any   length, and have their elements indexed from \texttt{0} to \texttt{len(tuple)-1}.
 \begin{lstlisting}
-
 >>> 1, 2
 (1, 2)
 >>> 1, 
@@ -16,33 +15,17 @@ Tuples are technically formed in Python using a comma, although most   often the
 >>> (1, 2)
 (1, 2)
 >>> ("Tuples", "can", "have", "elements", "of", "more", "than", 1, "type")
-('Tuples', 'can', 'have', 'elements', 'of', 'more', 'than', 1, 'type')
+(`Tuples', `can', `have', `elements', `of', `more', `than', 1, `type')
 >>>
 \end{lstlisting}
 
-\section{Using Tuples}
+\section{Using tuples}
 
-Breaking it down we get to the old grind of operators, and in the   case of tuples a few new ideas. Let's get the operators out of the   way! If both 'a' and 'b' are tuples, 'v' is any expression, and 'i',   'j', and 'k' are integers then
+Breaking it down we get to the old grind of operators, and in the   case of tuples a few new ideas. Let's get the operators out of the   way! If both \texttt{a} and \texttt{b} are tuples, \texttt{v} is any expression, and \texttt{i},   \texttt{j}, and \texttt{k} are integers then
 \begin{itemize}
 	\item 
 \texttt{a + b} concatenates two tuples.
-	\item 
-\texttt{a * i} repeats a tuple.
-	\item 
-\texttt{a[i]} retrieves the 'i'th element of    'a'.
-	\item 
-\texttt{a[i:j:k]} slices a tuples, or returns a copy of the tuple 'a'    from its 'i'th element to its (j-1)'th element, taking only every    'k'th element. If 'k' is omitted, every element in the range is    taken.
-	\item 
-\texttt{a[:i]} yields a slice from the beginning of the    tuple to (i-1)'th element of 'a'.
-	\item 
-\texttt{a[i:]} yields a slice from the 'i'th element to the    end of the tuple.
-	\item 
-\texttt{a[:]} yields a copy of the entire tuple.
-\end{itemize}
-
-For completeness sake, here are examples ...
 \begin{lstlisting}
-
 >>> a = (1,2,3)
 >>> a+(4,5)
 (1, 2, 3, 4, 5)
@@ -50,8 +33,9 @@ For completeness sake, here are examples ...
 >>> (4,5)+a
 (4, 5, 1, 2, 3)
 \end{lstlisting}
+	\item 
+\texttt{a * i} repeats a tuple.
 \begin{lstlisting}
-
 >>> a*2
 (1, 2, 3, 1, 2, 3)
 >>>
@@ -65,39 +49,55 @@ For completeness sake, here are examples ...
 (1, 1, 1, 1, 1, 1)
 >>>
 \end{lstlisting}
+	\item 
+\texttt{a[i]} retrieves the \texttt{i}'th element of    \texttt{a}.
 \begin{lstlisting}
-
 >>> a[0]
 1
+\end{lstlisting}
+	\item 
+\texttt{a[i:j:k]} slices a tuples, or returns a copy of the tuple \texttt{a}    from its \texttt{i}'th element to its \texttt{(j-1)}'th element, taking only every    \texttt{k}'th element. If \texttt{k} is omitted, every element in the range is    taken.
+\begin{lstlisting}
 >>> a[1:3]
 (2, 3)
 >>> a = (1, 2, 3, 4, 5)
 >>> a[0:6:2]
 (1, 3, 5)
+\end{lstlisting}
+	\item 
+\texttt{a[:i]} yields a slice from the beginning of the    tuple to \texttt{(i-1)}'th element of \texttt{a}.
+\begin{lstlisting}
 >>> a[:3]
 (1, 2, 3)
+\end{lstlisting}
+	\item 
+\texttt{a[i:]} yields a slice from the \texttt{i}'th element to the    end of the tuple.
+\begin{lstlisting}
 >>> a[3:]
 (4, 5)
+\end{lstlisting}
+	\item 
+\texttt{a[:]} yields a copy of the entire tuple.
+\begin{lstlisting}
 >>> a[:]
 (1, 2, 3, 4, 5)
->>>
 \end{lstlisting}
+\end{itemize}
 
 The comparison of tuples to other tuples happens in the same way as   lists to lists.
 \begin{itemize}
 	\item 
 \texttt{a == b} yields Equivalence
 	\item 
-\texttt{a $<$ b} yields Less Than. Note that tuples are    compared in sequence order, meaning that 'a' is less then 'b' if    'a's first element is less than 'b's first element. If 'a's first    element and 'b's first element are equal, the second elements are    checked, etc...
+\texttt{a $<$ b} yields Less Than. Note that tuples are    compared in sequence order, meaning that \texttt{a} is less then \texttt{b} if    \texttt{a}'s first element is less than \texttt{b}'s first element. If \texttt{a}'s first    element and \texttt{b}'s first element are equal, the second elements are    checked, etc...
 	\item 
-\texttt{v in a} is True only if the tuple 'a' contains an    element whose value is that of the expression 'v'.
+\texttt{v in a} is True only if the tuple \texttt{a} contains an    element whose value is that of the expression \texttt{v}.
 	\item 
-\texttt{a is b} is True only if 'a' and 'b' are the same    tuple.
+\texttt{a is b} is True only if \texttt{a} and \texttt{b} are the same    tuple.
 \end{itemize}
 
-If tuples have a subset of the functionality of lists, why ever use   them? What can they do that lists cannot. Well, actually they provide a   very convenient way to package multiple variables together for passing   to a function as a parameter, or more likely returning from a function.   Technically speaking functions can only return one value, but since a   tuple is a single 'value' no matter how many elements it contains, a   tuple could be used in a function that returns a two-component piece of   data, for example an x:y coordinate. Even better, is that python   \textbf{implicitly unpacks tuples}. By unpack we mean the   assignment of multiple variables at once to their respective (based on   position) elements in a tuple, for example
+If tuples have a subset of the functionality of lists, why ever use   them? What can they do that lists cannot. Well, actually they provide a   very convenient way to package multiple variables together for passing   to a function as a parameter, or more likely returning from a function.   Technically speaking functions can only return one value, but since a   tuple is a single `value' no matter how many elements it contains, a   tuple could be used in a function that returns a two-component piece of   data, for example an x:y coordinate. Even better, is that Python   \textit{implicitly unpacks tuples}. By unpack we mean the   assignment of multiple variables at once to their respective (based on   position) elements in a tuple, for example
 \begin{lstlisting}
-
 >>> t = (1, 2, 3)
 >>> a, b, c = t
 >>> a
@@ -111,7 +111,6 @@ If tuples have a subset of the functionality of lists, why ever use   them? What
 
 And since tuples are formed by a comma, this provides us with a   nifty little method to swap the values of two variables,
 \begin{lstlisting}
-
 >>> a = 1
 >>> b = 2
 >>> b, a = a, b
@@ -119,28 +118,27 @@ And since tuples are formed by a comma, this provides us with a   nifty little m
 2
 >>> b
 1
->>>
 \end{lstlisting}
 
 \section{Exercises}
 \begin{enumerate}
 	\item What is the difference between concatenation and addition of    tuples? Why is the Python plus operator for tuples a concatenation    operator instead of an addition operator?
 	\item The code 
-\texttt{a, b = b, a} swaps the values of \textit{a}    and \textit{b}. What would happen if added a third variable to the    mix, \textit{c}, as in 
+\texttt{a, b = b, a} swaps the values of \texttt{a}    and \texttt{b}. What would happen if added a third variable to the    mix, \texttt{c}, as in 
 \texttt{a, b, c = b, c, a}? What would    happen if one repeated the statement indefinitely?
 	\item Given a variable with the value of the empty tuple (
-\texttt{a =    ()}), how does one 'append' an element to 'a'?
+\texttt{a =    ()}), how does one `append' an element to \texttt{a}?
 	\item Write a program that accepts a list of numbers terminated by a    blank line. Print out the entered numbers as elements of a tuple, in    the order they were entered.
-	\item Given a list of tuples each specifying a subject name and a    grade symbol ('A' - 'F') in the form 
-\texttt{[('Maths', 'D'),    ('Comp Sci', 'B'), ('English', 'C'), ('French', 'A'),    ('Science', 'B'), ('History', 'E')]}: 
+	\item Given a list of tuples each specifying a subject name and a    grade symbol (`A' - `F') in the form 
+\texttt{[(`Maths', `D'),    (`Comp Sci', `B'), (`English', `C'), (`Xhosa', `A'),    (`Science', `B'), (`History', `E')]}: 
 \begin{enumerate}
 	\item Write a program that prints out the subject with the highest     mark.
-	\item Write a program that outputs each subject and the grade     symbol in the format 'subject: symbol', with each subject on a     single line.
+	\item Write a program that outputs each subject and the grade     symbol in the format `subject: symbol', with each subject on a     single line.
 	\item Write a program that prints out a tab separated list of     subjects on the first line, and the corresponding grades, also     tab separated on the second line.
 \end{enumerate}
-	\item Write a program that accepts a list of numbers terminated by a    blank line, and stores the result in a tuple, \textit{a}. Repeat the    process to form a second user inputted tuple, \textit{b}, making    sure there are the same number of elements in \textit{b} as in    \textit{a}. Print out the result of the \textbf{mathematical    addition} (not concatenation) of the two tuples as a    tuple.
+	\item Write a program that accepts a list of numbers terminated by a    blank line, and stores the result in a tuple, \texttt{a}. Repeat the    process to form a second user inputted tuple, \texttt{b}, making    sure there are the same number of elements in \texttt{b} as in    \texttt{a}. Print out the result of the \textit{mathematical    addition} (not concatenation) of the two tuples as a    tuple.
 	\item Write a program that reads a name and an age for a person, until    the name is blank. As each name age pair is entered, store names in    a list, and ages in another. Print a list of tuples of paired names    and ages.
-	\item Write a program that reads a name and an age for a person, until    the name is blank. Once all names have been present the user with an    option to list the entered people in alphabetical order, or in    descending age order. For either choice, list each person's name    followed by their age on a single line. Make sure you output the    correct age for the correct person.
+	\item Write a program that reads a name and an age for a person, until    the name is blank. Once all names have been entered, present the user with an    option to list the entered people in alphabetical order, or in    descending age order. For either choice, list each person's name    followed by their age on a single line. Make sure you output the    correct age for the correct person.
 % 
 % 			<li>
 % 
