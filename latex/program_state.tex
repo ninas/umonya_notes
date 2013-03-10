@@ -2,12 +2,14 @@
 
 As we know, programs execute statements in sequential order. They flow through your code, left to right, top to bottom. As statements are executed, things happen: output is issued, calculations are done, and the \textbf{state} of your program changes. But what is state?   Loosely put, state refers to all the data your program is dealing with   and their \textbf{current} values at the point in time when a   particular statement is about to be executed. Since the entire point of a program is to transform input data into some meaningful output data, it stands to reason that the program's state will change as it executes statements. We need a way to record the state of our program in manageable units. We shall call these units   \textbf{variables}, since their values may vary as our program executes.
 
-Variables each have a name, a type, and a value. A name is simply   what we choose to call a particular piece of data. For example, we   previously called the bit of data representing the total number of   apples held by everyone 'apples'. We stored a number in 'apples', so this would be its type. The value of 'apples' started at 0. As more people were added to the problem, the number of apples   increased. Accordingly, the value of our variable   'apples' changed.
+Variables each have a name, a type, and a value. A name is simply   what we choose to call a particular piece of data. For example, we   previously called the bit of data representing the total number of   apples held by everyone `apples'. We stored a number in `apples', so this would be its type. The value of `apples' started at 0. As more people were added to the problem, the number of apples   increased. Accordingly, the value of our variable   `apples' changed.
 
-\textbf{Type} refers to the type of value a variable can   have. Text is not the same as a number, thus they are considered   different types. One could not for example add "apples" to the number   7. Python has five basic types:
+\textbf{Type} refers to the type of value a variable can   have. Text is not the same as a number, thus they are considered   different types. One could not for example add ``apples" to the number   7. 
+
+Python has five basic types:
 \begin{description}
 	\item[int] Integers, e.g. 1, 179835646, -3, 0
-	\item[string] Text strings, e.g. 'Alice', "The cat sat on the mat"
+	\item[string] Text strings, e.g. `Alice', ``The cat sat on the mat"
 	\item[float] Real numbers, e.g. 0.0, 48747.23501, -0.5
 	\item[bool] Boolean conditions, e.g. True, False
 	\item[None] None is used to specify a variable which has no type or actual value.
@@ -15,31 +17,27 @@ Variables each have a name, a type, and a value. A name is simply   what we choo
 
 \section{Assignment Statements}
 
-To create a new variable, we simply \textbf{assign}   it a value, by giving it a name and setting the name equal to the   value. We do this by using the \textbf{assignment statement}   which takes the form\textit{variable\_name = expression}
+To create a new variable, we simply \textbf{assign}   it a value, by giving it a name and setting the name equal to the   value. We do this by using the \textbf{assignment statement}   which takes the form \texttt{variable\_name = expression}
 \begin{lstlisting}
-
 >>> name = "James"
 >>>
 \end{lstlisting}
 
-Here we have created a new variable, whose name is 'name', and which   has the value \textit{James}. Note, we did not have to say that 'name' was of type string.   When assigning a value to a variable, Python automatically sets the type of   variable being assigned to the type of the value being assigned. If we   go on to assign name again, this time with a different value
+Here we have created a new variable, whose name is \texttt{name}, and which   has the value \textit{James}. Note, we did not have to say that \texttt{name} was of type string.   When assigning a value to a variable, Python automatically sets the type of   variable being assigned to the type of the value being assigned. If we   go on to assign name again, this time with a different value
 \begin{lstlisting}
-
 >>> name = "Jimbo"
 >>>
 \end{lstlisting}
 
-the value of 'name' will be changed. If we want to see what the value of   a variable is we can simply print it:
+the value of \texttt{name} will be changed. If we want to see what the value of   a variable is we can simply print it:
 \begin{lstlisting}
-
->>> print("name")
+>>> print(name)
 Jimbo
 >>>
 \end{lstlisting}
 
 James has disappeared. As far as the program is concerned James was   never there. There is no James! Assigning a new value to a variable   will obliterate the previous value of that variable. If you wish to   keep the old value of a variable you need to save a copy, in a   different variable.
 \begin{lstlisting}
-
 >>> i = 1
 >>> j = i
 >>> i = 2
@@ -52,41 +50,41 @@ Let's look at what we've done, step by step.
 \begin{enumerate}
 	\item 
 \texttt{i = 1}
-\\     We create a new variable, called 'i', assign it a value of    \textit{1}, and Python sets it's type to 'int'
+\\     We create a new variable, called \texttt{i}, assign it a value of    \textit{1}, and Python sets it's type to \texttt{int}
 	\item 
 \texttt{j = i}
-\\     We create another new variable, this time called 'j', assign it a    value of ... well what exactly? 
-\texttt{i} is not a string    because it's not in quotes, and it's not a number, so it's being    treated as a variable. But what is 'i'? Variables are implicitly    considered to be their current values. So 
+\\     We create another new variable, this time called \texttt{j}, assign it a    value of ... well what exactly? 
+\texttt{i} is not a string    because it's not in quotes, and it's not a number, so it's being    treated as a variable. But what is \texttt{i}? Variables are implicitly    considered to be their current values. So 
 \texttt{i} is    implicitly considered to be 1 (it's current value)
 	\item 
 \texttt{i = 2}
-\\     We assign a new value to 'i'. The old value of 'i' is    discarded.
+\\     We assign a new value to \texttt{i}. The old value of \texttt{i} is    discarded.
 	\item 
 \texttt{print("i =", i, "and j =", j)}
-\\     We output the current values of 'i' and 'j' respectively.
+\\     We output the current values of \texttt{i} and \texttt{j} respectively.
 \end{enumerate}
 
 Step 2 highlights a number of important points about assignment. The   assignment statement does something very specific. It changes the   current value of the variable being assigned to the value of the   expression to the right of the equals. This means that the value of the   expression is determined before actually changing the value of the   variable. As you can see from the output produced by our little   program, assignments do not behave in the same way as a   similar statement in maths does. 
-\texttt{j = i} does not mean that   'j' and 'i' are always equivalent. The only thing that can be certainly   said about the relationship between 'j' and 'i' is that they will be   equal directly after the assignment statement has been executed. Both   before and after that point in time, all bets are off.     An assignment is \textbf{not} a description of a    relationship between two expressions.
+\texttt{j = i} does not mean that   \texttt{j} and \texttt{i} are always equivalent. The only thing that can be certainly   said about the relationship between \texttt{j} and \texttt{i} is that they will be   equal directly after the assignment statement has been executed. Both   before and after that point in time, all bets are off.     An assignment is \textbf{not} a description of a    relationship between two expressions.
 \\ It effects a    \textbf{once off} change in the value of one variable.    
 
 Consider the assignment statement 
-\texttt{x = x + 1}. For those   of you with inner mathematicians that are screaming loudly to get out,   take a large stiff drink now! What we have is an assignment to a   variable ('x') the value of an expression ('x + 1'). Let us suppose   that currently the value of 'x' is 1. This assignment occurs as   follows.
+\texttt{x = x + 1}. For those   of you with inner mathematicians that are screaming loudly to get out,   prepare yourself! What we have is an assignment to a   variable (\texttt{x}) the value of an expression (\texttt{x + 1}). Let us suppose   that currently the value of \texttt{x} is 1. This assignment occurs as   follows.
 \begin{enumerate}
 	\item 
 \texttt{x = x + 1}
-\\     The value of the expression 'x + 1' is determined. Since 'x' is 1, we can transform the expression into '1 + 1' since variables in expressions are considered to have their    current value.
+\\     The value of the expression \texttt{x + 1} is determined. Since \texttt{x} is 1, we can transform the expression into \texttt{1 + 1} since variables in expressions are considered to have their    current value.
 	\item 
 \texttt{x = 1 + 1}
 \\     This is obviously 2, hence the value of the expression overall is    2.
 	\item 
 \texttt{x = 2}
-\\      2 is assigned as the \textbf{new} value of 'x'.
+\\      2 is assigned as the \textbf{new} value of \texttt{x}.
 \end{enumerate}
 
 \section{Integers, Floats and Arithmetic Expressions}
 
-Obviously we want to be able do more than simply assign values to   variables. We need to be able to manipulate and combine them in various   ways. For integers and floats this leads directly to arithmetic   notation, and its representations in Python. In general, basic arithmetic expressions can be formed in much the same way as one would express them mathematically. If 'x' and 'y' are either   integers or floats then
+Obviously we want to be able do more than simply assign values to   variables. We need to be able to manipulate and combine them in various   ways. For integers and floats this leads directly to arithmetic   notation, and its representations in Python. In general, basic arithmetic expressions can be formed in much the same way as one would express them mathematically. If \texttt{x} and \texttt{y} are either   integers or floats then
 \begin{itemize}
 	\item 
 \texttt{x + y} yields Addition
@@ -103,13 +101,12 @@ Obviously we want to be able do more than simply assign values to   variables. W
 \end{itemize}
 
 The above list describes various \textbf{operators} that can   be used to form arithmetic expressions. But, suppose we have the   expression 
-\texttt{2+3*4}. Which of the addition or the   multiplication operators is applied first? One might think the   operators are applied simply left to right, but as in maths, we   have a well defined order of \textbf{precedence} specifying   the order in which operators are applied.    In general Python arithmetic operates exactly as it would in normal   mathematics.
+\texttt{2 + 3 * 4}. Which of the addition or the   multiplication operators is applied first? One might think the   operators are applied simply left to right, but as in maths, we   have a well defined order of \textbf{precedence} specifying   the order in which operators are applied.    In general Python arithmetic operates exactly as it would in normal   mathematics.
 
-We know that variables have a type, and so does the value of expressions.   The type of the value of an   expression is generally determined by the types comprising the   expression. For example, adding one integer to another in an expression   always yields an integer, so the expression's type is integer. But what   happens when you mix two, or more, types in an expression? In general,   all participating sub-expressions have their type promoted to the most   general type. By general, we mean 'most capable of representing all   types involved'. For example, the value 0.5 cannot be represented by an   integer, but the value 3 can be represented by a float as 3.0. Hence   adding a float to an integer means the integer gets promoted to a float   and the type of the expression's value as a whole will be a float.   
+We know that variables have a type, and so does the value of expressions.   The type of the value of an   expression is generally determined by the types comprising the   expression. For example, adding one integer to another in an expression   always yields an integer, so the expression's type is integer. But what   happens when you mix two, or more, types in an expression? In general,   all participating sub-expressions have their type promoted to the most   general type. By general, we mean \textit{most capable of representing all   types involved}. For example, the value 0.5 cannot be represented by an   integer, but the value 3 can be represented by a float as 3.0. Hence   adding a float to an integer means the integer gets promoted to a float   and the type of the expression's value as a whole will be a float.   
 
 Python division allows us to do a number of things. We can divide two integers (say 5/2) and the result will be represented     as a float (2.5). However, we often actually want the integer part of a division only (that is, we want the decimal part dropped),   or the remainder. Python provides us with an operator to   get both the integer division value and the remainder. Using \% is called getting the modulo of two numbers:
 \begin{lstlisting}
-
 >>> print(5 % 2)
 1
 >>> print("5 divided by 2 is ", 5 // 2, "remainder", 5 % 2)
@@ -119,36 +116,36 @@ Python division allows us to do a number of things. We can divide two integers (
 
 \section{Strings and common operators}
 
-Strings can be manipulated too, but the operations we perform on   them are fundamentally different. Assuming 's1' and 's2' are strings,   and 'i' and 'j' are integers
+Strings can be manipulated too, but the operations we perform on   them are fundamentally different. Assuming \texttt{s1} and \texttt{s2} are strings,   and \texttt{i} and \texttt{j} are integers
 \begin{itemize}
 	\item 
 \texttt{s1 + s2} yields Concatenation
 \\    This joining of two strings in the order they are listed as operands    to from a single string; e.g. 
-\texttt{"a"+"b"} yields "ab"
+\texttt{"a" + "b"} yields \texttt{"ab"}
 	\item 
 \texttt{s1 * i} yields Repetition
-\\    The creation of a new string repeated 'i' times; e.g. 
-\texttt{"a" *    3} yields "aaa"
+\\    The creation of a new string repeated \textit{i} times; e.g. 
+\texttt{"a" * 3} yields \texttt{"aaa"}
 	\item 
 \texttt{s1[i]} yields Subscription (or indexing)
 \\    The extraction of a single character at a specific position in the    string, where the first character in the string is a position 0,    the second and position 1, and so on; e.g. 
-\texttt{"abc"[1]}    yields "b". 'i' may be any expression evaluating to an integer.    Negative numbers may be used, where 
+\texttt{"abc"[1]}    yields \texttt{"b"}. \textit{i} may be any expression evaluating to an integer.    Negative numbers may be used, where 
 \texttt{-i} means the i'th    last position.
 	\item 
 \texttt{s1[i:j:k]} yields Slicing
 \\    The extraction of a series of characters from a string starting at    the character in the i'th position and continuing until the    character just prior to the j'th position, extracting only every    k'th character, where positions are numbered from 0, and negative    numbers mean distance from end of string. Any of i, j, or k may be    omitted, in which case i is treated as 0, j as the string length, and    k as 1.  A k value of 1 means all characters in the    specified range are extracted. If j is omitted, the extraction is    from the i'th position to the end of the string.  Examples:
 \\
-\texttt{"The \textbf{quick brown fox}"[4:]} yields "quick brown fox"
+\texttt{"The \textbf{quick brown fox}"[4:]} yields \texttt{"quick brown fox"}
 \\
-\texttt{"The quick brown\textbf{ fox}"[-4:]} yields " fox"
+\texttt{"The quick brown\textbf{ fox}"[-4:]} yields \texttt{" fox"}
 \\
-\texttt{"\textbf{The }quick brown fox"[:4]} yields "The "
+\texttt{"\textbf{The }quick brown fox"[:4]} yields \texttt{"The "}
 \\
-\texttt{"The \textbf{quick} brown fox"[4:9]} yields "quick".
+\texttt{"The \textbf{quick} brown fox"[4:9]} yields \texttt{"quick"}.
 \\
-\texttt{"\textbf{T}h\textbf{e}\textbf{q}u\textbf{i}c\textbf{k}\textbf{b}r\textbf{o}w\textbf{n}\textbf{f}o\textbf{x}"[::2]} yields "Teqikbonfx"
+\texttt{"\textbf{T}h\textbf{e}\textbf{q}u\textbf{i}c\textbf{k}\textbf{b}r\textbf{o}w\textbf{n}\textbf{f}o\textbf{x}"[::2]} yields \texttt{"Teqikbonfx"}
 \\
-\texttt{"The \textbf{q}ui\textbf{c}k \textbf{b}ro\textbf{w}n fox"[4:15:3]} yields "qcbw".
+\texttt{"The \textbf{q}ui\textbf{c}k \textbf{b}ro\textbf{w}n fox"[4:15:3]} yields \texttt{"qcbw"}.
 \\
 	\item 
 \texttt{s1[:]} yields Slicing of the entire string,    essentially making a complete copy of the string.
@@ -170,22 +167,22 @@ To recap:
 \begin{enumerate}
 	\item What does the assignment statement do?
 	\item What are the five basic variable types in Python?
-	\item If the integer variable \textit{i} has the value 7, then what is    the value of the expression 
+	\item If the integer variable \texttt{i} has the value 7, then what is    the value of the expression 
 \texttt{7/4}. Why?
 	\item How does one calculate the remainder (modulo) of an integer when    divided by another number?
 	\item Write a program that asks the user for a number from 1 to 31.    Assume the first day of the month is a Sunday. Output the name of    the weekday of the day of month the user entered.
-	\item Write a program that outputs the letter "x" 1000 times on a    single line, without intervening spaces.
-	\item If \textit{s} is a string variable with the value "Harry's Hippie    Hoedown", then what is the value of
+	\item Write a program that outputs the letter ``x" 1000 times on a    single line, without intervening spaces.
+	\item If \texttt{s} is a string variable with the value \texttt{"Harry's Hippie Hoedown"}, then what is the value of
 \\
 \texttt{s + ": tickets only    \$5"}
-	\item If \textit{s} is a string variable with the value "Harry's Hippie    Hoedown", then what is the value of
+	\item If \texttt{s} is a string variable with the value \texttt{"Harry's Hippie Hoedown"}, then what is the value of
 \\
 \texttt{s + ": tickets only    \$" + "5"*3}
 	\item What is the value of 
 \texttt{"ABBA was a Swedish band popular during the    80's"[0:4]}?
 	\item What is the value of 
 \texttt{"ABBA was a Swedish band popular during the    80's"[-15:-7]}?
-	\item If the string variable \textit{s} has the value "ABBA was a    Swedish band popular during the 80s", then what is the value of    
+	\item If the string variable \texttt{s} has the value \texttt{"ABBA was a    Swedish band popular during the 80s"}, then what is the value of    
 \\
 \texttt{"BAAB"+s[4:11]+"Danish"+s[18:24]+"un"+s[24:-4]+"90's"}
 	\item What is your favourite sport? Write a program that inputs the score       units for this sport (e.g. for rugby: number of tries, conversions,       penalties, time played) and works out some statistics (e.g. the total       score, average points per minute, time remaining, expected final score).    
