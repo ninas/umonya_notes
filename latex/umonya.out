@@ -42,3 +42,8 @@
 \BOOKMARK [1][-]{section.8.4}{Comparing Lists}{chapter.8}% 42
 \BOOKMARK [1][-]{section.8.5}{Lists as objects}{chapter.8}% 43
 \BOOKMARK [1][-]{section.8.6}{Exercises}{chapter.8}% 44
+\BOOKMARK [0][-]{chapter.9}{Tuples}{}% 45
+\BOOKMARK [1][-]{section.9.1}{Tuples as immutable lists}{chapter.9}% 46
+\BOOKMARK [1][-]{section.9.2}{Forming a tuple}{chapter.9}% 47
+\BOOKMARK [1][-]{section.9.3}{Using tuples}{chapter.9}% 48
+\BOOKMARK [1][-]{section.9.4}{Exercises}{chapter.9}% 49
