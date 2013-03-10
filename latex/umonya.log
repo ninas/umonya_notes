@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.10)  10 MAR 2013 19:38
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.10)  10 MAR 2013 22:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -640,15 +640,19 @@ Overfull \hbox (6.04872pt too wide) in paragraph at lines 132--134
  (`English', `C'), (`Xhosa', `A'),
  []
 
-)
+) [55]
+Chapter 10.
+(./for_loops.tex [56
+
+] [57] [58] [59] [60])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 73.
- [55]
+ [61]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 73.
  (./umonya.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 73.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 73.
 Package rerunfilecheck Info: File `umonya.out' has not changed.
-(rerunfilecheck)             Checksum: 8778C7BD4D15FD6B922E1DC9CC67E628;3183.
+(rerunfilecheck)             Checksum: F54B50AFB647FFFDA06B877134FF3A28;3426.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -656,10 +660,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 73.
  ) 
 Here is how much of TeX's memory you used:
- 8817 strings out of 495059
- 122905 string characters out of 3182030
+ 9034 strings out of 495059
+ 125957 string characters out of 3182030
  436786 words of memory out of 3000000
- 10970 multiletter control sequences out of 15000+200000
+ 11013 multiletter control sequences out of 15000+200000
  10680 words of font info for 39 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  29i,6n,40p,1321b,1832s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -674,10 +678,10 @@ msfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 ti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.p
 fb>
-Output written on umonya.pdf (56 pages, 308659 bytes).
+Output written on umonya.pdf (62 pages, 327257 bytes).
 PDF statistics:
- 1527 PDF objects out of 1728 (max. 8388607)
- 1420 compressed objects within 15 object streams
- 924 named destinations out of 1000 (max. 500000)
- 393 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1766 PDF objects out of 2073 (max. 8388607)
+ 1651 compressed objects within 17 object streams
+ 1095 named destinations out of 1200 (max. 500000)
+ 425 words of extra memory for PDF output out of 10000 (max. 10000000)
 
