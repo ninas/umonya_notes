@@ -5,7 +5,7 @@ We are by now all familiar with the dreaded
 
 \section{The Call Stack}
 
-First we need to understand the concept of the \textit{call stack}. When we   are running our Python program, the execution point moves around, from   top to bottom, branching at if statements, looping with while or for   statements, or jumping inside functions...  but this causes issues. If   an error occurs in our main program block, it is easy to find the problem by                  looking at the line on which the error occurred. There is generally only one way for   execution to reach that line. But in a function, which can be called   from many places within our program, including itself or other   functions, knowing that the error occurred on a line in a particular   function definition doesn't help us understand how the flow of   execution led up to the error.
+First we need to understand the concept of the \textit{call stack}. When we   are running our Python program, the execution point moves around, from   top to bottom, branching at \texttt{if} statements, looping with \texttt{while} or \texttt{for}   statements, or jumping inside functions...  But this causes issues. If   an error occurs in our main program block, it is easy to find the problem by                  looking at the line on which the error occurred. There is generally only one way for   execution to reach that line. But in a function, which can be called   from many places within our program, including itself or other   functions, knowing that the error occurred on a line in a particular   function definition doesn't help us understand how the flow of   execution led up to the error.
 
 Enter the \textit{call stack}! Every time a   function is called, Python pushes it on to something called the \textit{call   stack}. Think of a stack like getting into the elevator in a crowded   mall. You get in first, and as more people enter the elevator, you are   forced to the back. When you arrive at your floor, the last person in,   now being closest to the door, exits first. If you want to get out in   the middle somewhere, everyone who got in after you must briefly step   out, to let you out, then go back in. This is exactly what happens with   the \textit{call stack}. As functions are called, their names are placed on the   stack, and as they finish, their names are removed.
 
@@ -14,11 +14,10 @@ The \textit{traceback} presents us with the list of called function, from the fi
 \begin{itemize}
 	\item the file where the call occurred,
 	\item the line in that file,
-	\item the name of the function the call was made from (or '?' if it isn't a function), and
+	\item the name of the function the call was made from (or `?' if it isn't a function), and
 	\item the line where the next function was called, or where the error occurred.
 \end{itemize}                 So let's go through the following traceback:
 \begin{lstlisting}
-
 Traceback (most recent call last):
   File "test.py", line 25, in ?
     triangle()
@@ -26,14 +25,14 @@ Traceback (most recent call last):
     inc_total_height()
   File "test.py", line 8, in inc_total_height
     total_height = total_height + height
-UnboundLocalError: local variable 'total_height' referenced before assignment
+UnboundLocalError: local variable `total_height' referenced before assignment
 \end{lstlisting}
 
-We see that execution started in the file test.py and proceeded to   line 25, where the function 'triangle' was called. Within the function   triangle, execution proceeded until line 12, where the function   'inc\_total\_height' was called. Within 'inc\_total\_height' and error   occurred on line 8.
+We see that execution started in the file test.py and proceeded to   line 25, where the function \texttt{triangle} was called. Within the function   \texttt{triangle}, execution proceeded until line 12, where the function   \texttt{inc\_total\_height} was called. Within \texttt{inc\_total\_height} and error   occurred on line 8.
 
 \section{So what went wrong?}
 
-The last line, or sometimes two lines, of the traceback describe   what actually went wrong. In Python, all errors are given a class, e.g.   input/output error, undefined variable or index out of range.   These classes are given names that are one word without spaces.                  The class name of the error describes roughly what type of   error occurred and it is printed first. Then everything following the   colon (':') is further description of the actual variables,   expressions, and statements involved in the error, and what they were   doing. So we can tell from the above example that the class was   'UnboundLocalError' and that the local variable 'total\_height' was   referenced, or evaluated, before a value was assigned to it.
+The last line, or sometimes two lines, of the traceback describe   what actually went wrong. In Python, all errors are given a class, e.g.   input/output error, undefined variable or index out of range.   These classes are given names that are one word without spaces.                  The class name of the error describes roughly what type of   error occurred and it is printed first. Then everything following the   colon (`:') is further description of the actual variables,   expressions, and statements involved in the error, and what they were   doing. So we can tell from the above example that the class was   \texttt{UnboundLocalError} and that the local variable \texttt{total\_height} was   referenced, or evaluated, before a value was assigned to it.
 
 Learning the meaning of the class names comes with time, but the   description following is usually sufficient to point you in the right   direction. At least now you can track down exactly what line is causing   the problem, and how the program got there.
 
@@ -43,9 +42,8 @@ As mentioned before, Python errors are divided into classes - lots of them!     
 
 \subsection{IndentationError}
 
-\paragraph{Example:}
-\begin{lstlisting}
 
+\begin{lstlisting}
 for i in range(0, 10):
 ...     b = i
 ...   print(i)
@@ -57,75 +55,65 @@ IndentationError: unindent does not match any outer indentation level\end{lstlis
 IndentationError is actually a special type of SyntaxError. You get this error when your indentation is not consistent. In the                  example 
 \texttt{b = i} has 4 leading spaces but 
 \texttt{print(i)} only has 2. If 
-\texttt{print(i)} needs to be executed                 for every iteration of the 'for' loop, then it needs to have the same level of indentation as the inner block, i.e. the same as 
-\texttt{b = i}.                 Otherwise, if it is only meant to execute after the 'for' loop, it needs to have 0 leading spaces.
+\texttt{print(i)} needs to be executed                 for every iteration of the \texttt{for} loop, then it needs to have the same level of indentation as the inner block, i.e. the same as 
+\texttt{b = i}.                 Otherwise, if it is only meant to execute after the \texttt{for} loop, it needs to have 0 leading spaces.
 
 \subsection{NameError}
 
-\paragraph{Example:}
 \begin{lstlisting}
-
 print(variable)
 Traceback (most recent call last):
   File "", line 1, in 
 NameError: name 'variable' is not defined\end{lstlisting}
 
-A 'NameError' occurs when you try to use a variable which does not exist in the current \textit{scope}. In other words                 it has not been defined in the scope you are trying to use it in. Perhaps you haven't defined it at all, or                 perhaps you misspelt the variable name.
+A \texttt{NameError} occurs when you try to use a variable which does not exist in the current \textit{scope}. In other words                 it has not been defined in the scope you are trying to use it in. Perhaps you haven't defined it at all, or                 perhaps you misspelt the variable name.
 
 \subsection{IndexError}
 
-\paragraph{Example:}
 \begin{lstlisting}
-
-i = ['hello', 'world']
+i = [`hello', `world']
 i[2]
 Traceback (most recent call last):
   File "", line 1, in 
 IndexError: list index out of range\end{lstlisting}
 
-This error is an easy one to understand. In the example the list 'i' only has 2 elements. Those elements                 have index 0 and 1 (or -2 and -1 if you use reverse indices). Thus index 2 is 'out of range' because it is too large - there is no value in the list at this index.                 IndexError will happen for any index that is too large or too small.
+This error is an easy one to understand. In the example the list \texttt{i} only has 2 elements. Those elements                 have index 0 and 1 (or -2 and -1 if you use reverse indices). Thus index 2 is \textit{out of range} because it is too large - there is no value in the list at this index.                 \texttt{IndexError} will happen for any index that is too large or too small.
 
 \subsection{SyntaxError}
 
-\paragraph{Example:}
 \begin{lstlisting}
-
-print('hello world!)
+print(`hello world!)
   File "", line 1
-    print('hello world!)
+    print(`hello world!)
                        ^
-SyntaxError: EOL while scanning string literal\end{lstlisting}
+SyntaxError: EOL while scanning string literal
+\end{lstlisting}
 \begin{lstlisting}
-
 answer = ((1 + 3) * 5 / 6.0 ;
   File "", line 1
     answer = ((1 + 3) * 5 / 6.0 ;
                                 ^
 SyntaxError: invalid syntax\end{lstlisting}
 
-Syntax errors occur when Python cannot understand your code because you didn't use the correct 'grammar'. While you can                 get away with the occasional grammar mistake in English, the same cannot be said of computer languages. Things have to be                 exactly right. Luckily syntax errors are easy to solve if you understand the error message. The '\textasciicircum' character in the error message                 points to the place where Python encountered the error. In the                 first example above, a closing single quote is missing. In the second example it is a closing bracket that is missing.                 Always check that you having matching closing and opening brackets and quotes.
+Syntax errors occur when Python cannot understand your code because you didn't use the correct `grammar'. While you can                 get away with the occasional grammar mistake in English, the same cannot be said of computer languages. Things have to be                 exactly right. Luckily syntax errors are easy to solve if you understand the error message. The `\textbf{\textasciicircum}' character in the error message                 points to the place where Python encountered the error. In the                 first example above, a closing single quote is missing. In the second example it is a closing bracket that is missing.                 Always check that you having matching closing and opening brackets and quotes.
 
-\paragraph{Example:}
 \begin{lstlisting}
-
 File "Desktop/errors.py", line 1
     for i in range(0, 10)
                         ^
 SyntaxError: invalid syntax\end{lstlisting}
 
-Another common syntax error is leaving out the colon (':') at the start of a code block. 'if', 'for' and 'while' statements, as well as function                 definitions, all start new code blocks. So those lines have to end with a colon.
+Another common syntax error is leaving out the colon (`\textbf{:}') at the start of a code block. \texttt{if}, \texttt{for} and \texttt{while} statements, as well as function                 definitions, all start new code blocks. So those lines have to end with a colon.
 
 \subsection{TypeError}
 
-\paragraph{Example:}
 \begin{lstlisting}
-
-'ab' * 'ab'
+`ab' * `ab'
 Traceback (most recent call last):
   File "", line 1, in 
-TypeError: can't multiply sequence by non-int of type 'str'\end{lstlisting}
+TypeError: can't multiply sequence by non-int of type `str'
+\end{lstlisting}
 \begin{lstlisting}
-
 def multiply(a, b):
     return a * b
 
@@ -134,20 +122,18 @@ Traceback (most recent call last):
   File "", line 1, in 
 TypeError: multiply() takes exactly 2 arguments (1 given)\end{lstlisting}
 
-When you use the wrong type of variable for something in Python, you will get a TypeError. In the first example, Python                 cannot multiply two variables that are strings. At least one of them needs to be a number. The second example is an altogether                 different TypeError. The function 
+When you use the wrong type of variable for something in Python, you will get a TypeError. In the first example, Python                 cannot multiply two variables that are strings. At least one of them needs to be a number. The second example is an altogether                 different \texttt{TypeError}. The function 
 \texttt{def multiply(a, b)} needs two arguments to be passed to it, e.g. 
 \texttt{multiply(10, 15)}.                 Too many or too few arguments will also cause a TypeError.
 
 \subsection{ValueError}
 
-\paragraph{Example:}
 \begin{lstlisting}
-
-int('abc')
+int(`abc')
 Traceback (most recent call last):
   File "", line 1, in 
-ValueError: invalid literal for int() with base 10: 'abc'\end{lstlisting}
+ValueError: invalid literal for int() with base 10: `abc'\end{lstlisting}
 
-Value errors can occur for many different reasons. It means that there is something 'wrong' about the value of a variable or                  literal. In the example above the value in question is 'abc' and the program is trying to turn 'abc' into an integer. How does one                 turn 'abc' into a number? I don't know and neither does Python. That is why a ValueError pops up.
-
+Value errors can occur for many different reasons. It means that there is something `wrong' about the value of a variable or                  literal. In the example above the value in question is \texttt{`abc'} and the program is trying to turn \texttt{`abc'} into an integer. How does one                 turn \texttt{`abc'} into a number? I don't know and neither does Python. That is why a \texttt{ValueError} pops up.
+\\ \\
 \textbf{Remember, if you cannot find an answer here, just copy-paste the error message into Google!} 
