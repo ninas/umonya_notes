@@ -1,32 +1,28 @@
 \section{Abstracting Common Tasks with Functions}
 
-So now we've been programming for nearly two days. You've probably come   across a number of tedious tasks that we must 'program repeatedly', as   opposed to 'program to repeat'; e.g. looping until a blank line is   entered. Often these common tasks are similar, but not exactly the   same, e.g. different things need to be done in the loop until a blank   line is reached. Ideally we want a labour saving device, and thus we   turn to the \href{
-		http://olympiad.cs.uct.ac.za/docs/python-docs-2.6/reference/compound_stmts.html#function}{function}. We have   already been introduced to the use of functions by calling various   built in functions, but ultimately we want to be able to make our own   functions.
+So now we've been programming for nearly two days. You've probably come   across a number of tedious tasks that we must `program repeatedly', as   opposed to `program to repeat'; e.g. looping until a blank line is   entered. Often these common tasks are similar, but not exactly the   same, e.g. different things need to be done in the loop until a blank   line is reached. Ideally we want a labour saving device, and thus we   turn to the \textit{function}. We have   already been introduced to the use of functions by calling various   built in functions, but ultimately we want to be able to make our own   functions.
 
 \section{Defining New Functions}
 
-We define a new function using the \textbf{def} statement,   which takes the form
+We define a new function using the \texttt{def} statement,   which takes the form
 \begin{lstlisting}
-
-def $<$funcname$>$([parameter name][, parameter name][, ...]):
+def <funcname>([parameter name][, parameter name][, ...]):
     statement
     [statement]
     [...]
 \end{lstlisting}
 
-When this statement is executed, a new object with the name   'funcname' is created. Whenever this object is used followed by pair of   round braces, the statements listed in the 'def' statement, commonly   called the \textbf{function definition}, are executed, and once   completed, execution continues from where it was before the function   statements were entered. This process is known as \textbf{calling a   function}.
+When this statement is executed, a new object with the name   \texttt{funcname} is created. Whenever this object is used followed by pair of   round braces, the statements listed in the \texttt{def} statement, commonly   called the \textit{function definition}, are executed, and once   completed, execution continues from where it was before the function   statements were entered. This process is known as \textit{calling a   function}.
 
-It is important to understand that functions provide us with a   radically different way to influence the sequence or flow in which our   programs execute. Conditions and loops still progress in a roughly top   to bottom fashion, but functions allow us to 'dive into' a small block   of statements, and come back up to where we were just prior to our   dive, more of an in and out form of control.
+It is important to understand that functions provide us with a   radically different way to influence the sequence or flow in which our   programs execute. Conditions and loops still progress in a roughly top   to bottom fashion, but functions allow us to `dive into' a small block   of statements, and come back up to where we were just prior to our   dive, more of an in and out form of control.
 
-Of great use is that functions can return a value. In fact in   Python, all functions return a value, even if not given a value to   return (in which case the return value is None). This is done by the   use of the \textbf{return} statement. The return statement,   when used within a function definition, simply causes that function to   return the value of the expression immediately following the 'return'.   Formally, return statements take the form
+Of great use is that functions can return a value. In fact in   Python, all functions return a value, even if not given a value to   return (in which case the return value is \texttt{None}). This is done by the   use of the \texttt{return} statement. The \texttt{return} statement,   when used within a function definition, simply causes that function to   return the value of the expression immediately following the `return'.   Formally, return statements take the form
 \begin{lstlisting}
-
-    return $<$expression$>$
+    return <expression>
 \end{lstlisting}
 
 As an example, here is the definition of a simple function to print   a triangle of height 3.
 \begin{lstlisting}
-
 def triangle3():
     print("*")
     print("**")
@@ -34,19 +30,18 @@ def triangle3():
 \end{lstlisting}
 
 Henceforth, whenever Python encounters 
-\texttt{triangle3()} the   three print statements will be executed. Note the brackets! They   indicate triangle3 should be called, rather than treated as a variable.   Looking at triangle3, there's nothing we couldn't do without cut   and paste, so why bother? Well recall that way back in the Basic Input   section we said that functions are like mini-programs, in that they   take input and produce output. Well that would mean a function could   produce different output depending on its input. How do we give a   function input?
+\texttt{triangle3()} the   three print statements will be executed. Note the brackets! They   indicate \texttt{triangle3} should be called, rather than treated as a variable.   Looking at \texttt{triangle3}, there's nothing we couldn't do without cut   and paste, so why bother? Well recall that way back in the Basic Input   section we said that functions are like mini-programs, in that they   take input and produce output. Well that would mean a function could   produce different output depending on its input. How do we give a   function input?
 
 \section{Passing and Receiving Parameters by Position}
 
-Functions receive their input from parameters, which are values   given in a comma separated list (i.e. a tuple) when calling the   function, and are unpacked within the function automatically. We have   to define how many parameters a function takes, and what each ones   name is, so we can give a function appropriate parameters later   on. For example, let's define a function that accepts one parameter,   called 'seconds', and returns how many complete minutes are in that many   seconds.
+Functions receive their input from \textit{parameters}, which are values   given in a comma separated list (i.e. a tuple) when calling the   function, and are unpacked within the function automatically. We have   to define how many parameters a function takes, and what each ones   name is, so we can give a function appropriate parameters later   on. For example, let's define a function that accepts one parameter,   called \texttt{seconds}, and returns how many complete minutes are in that many   seconds.
 \begin{lstlisting}
-
 >>> def minutes(seconds):
 ...    print(seconds)
 ...    return seconds/60
 ...
 >>> minutes
-$<$function minutes at 0xb7cfcdbc$>$
+<function minutes at 0xb7cfcdbc>
 >>> minutes(71)
 71
 1
@@ -56,28 +51,26 @@ $<$function minutes at 0xb7cfcdbc$>$
 >>> minutes("bob")
 bob
 Traceback (most recent call last):
-  File "$<$stdin$>$", line 1, in ?
-  File "$<$stdin$>$", line 2, in minutes
-TypeError: unsupported operand type(s) for /: 'str' and 'int'
+  File "<stdin>", line 1, in ?
+  File "<stdin>", line 2, in minutes
+TypeError: unsupported operand type(s) for /: `str' and `int'
 >>>
 \end{lstlisting}
 
-In the above example we can already see a number of things about   functions and how they handle parameters. Firstly, the 'def statement'   is executed and 'minutes' is created as a function 'object', as   evidenced by the value returned after typing in 'minutes'. When we call 'minutes' by typing 'minutes(71)', Python   executes all the statements contained in the function 'minutes'.   The first statement in the definition prints out the value of seconds   as 71. But where did the value 71 come from?
+In the above example we can already see a number of things about   functions and how they handle parameters. Firstly, the \texttt{def statement}   is executed and \texttt{minutes} is created as a function `object', as   evidenced by the value returned after typing in \texttt{minutes}. When we call \texttt{minutes} by typing \texttt{minutes(71)}, Python   executes all the statements contained in the function \texttt{minutes}.   The first statement in the definition prints out the value of seconds   as 71. But where did the value 71 come from?
 
 Well, thinking back to tuples, let's treat everything between the   open and close brackets in a function call as if it were forming a   tuple, so in the case of the function call 
-\texttt{minutes(71)} we   have formed a tuple '(71, )'. Before the first statement of the   function definition is executed, the tuple created by calling the   function is unpacked using the names in the function definition's   parameter list \textbf{in order}. In our case this creates an   implicit line before 
+\texttt{minutes(71)} we   have formed a tuple \texttt{(71, )}. Before the first statement of the   function definition is executed, the tuple created by calling the   function is unpacked using the names in the function definition's   parameter list \textit{in order}. In our case this creates an   implicit line before 
 \texttt{print(seconds)} which looks like
 \begin{lstlisting}
-
 		seconds, = 71,
 \end{lstlisting}
 
-Note in the example transcript how the type of the parameter   'seconds' changes according to the type of the value used in the   function. In fact in the third function call made, the type used   actually causes an error, which makes sense since we cannot divide a   string by the integer 60. In the error case, we see that the first   statement in the function definition (
+Note in the example transcript how the type of the parameter   \texttt{seconds} changes according to the type of the value used in the   function. In fact in the third function call made, the type used   actually causes an error, which makes sense since we cannot divide a   string by the integer 60. In the error case, we see that the first   statement in the function definition (
 \texttt{print(seconds)}) is   executed without error, and that the error occurs later. This means we can see the order of execution within a function.     More than that, functions are not atomic. This means that if there's an error in your function, all the      statements before the error will be executed regardless.
 
 The concepts of parameter passing are best illustrated in the case   of multiple parameters. For example, let us define a function which   takes two parameters, prints out both and returns the smaller of the two parameters ...
 \begin{lstlisting}
-
 >>> def minimum(a, b):
 ...    print(a)
 ...    print(b)
@@ -93,18 +86,17 @@ The concepts of parameter passing are best illustrated in the case   of multiple
 >>>
 \end{lstlisting}
 
-Okay, we're taking a few extra baby steps here... let's look at what   we've done. We've defined a new function called 'minimum', it has two   parameters, 'a' and 'b'. By virtue of putting 
+Okay, we're taking a few extra baby steps here... let's look at what   we've done. We've defined a new function called \texttt{minimum}, it has two   parameters, \texttt{a} and \texttt{b}. By virtue of putting 
 \texttt{a, b} in the   parameter list in the function definition, we are implicitly putting   the line 
-\texttt{a, b = $<$passed in tuple$>$} in as the first   line, where the passed in tuple is formed by the function call itself,   rather than the function definition. Next we notice that we can branch   execution flow using an \textbf{if} statement within a function definition. We   can also loop, in fact we can do pretty much anything we want within a   function definition. Finally let's focus on the 'return statement'.   Each return statement exits the function immediately, and replaces the   value of the function call with the value of the expression following   the reserved word 'return'. So following 
-\texttt{minimum(9,3)} we   see that program execution 'dives into' the function 'minimum', sets   'a' and 'b' to 9 and 3 respectively via the implicit tuple unpacking,   prints 'a', prints 'b', and never executes 
+\texttt{a, b = <passed in tuple>} in as the first   line, where the passed in tuple is formed by the function call itself,   rather than the function definition. Next we notice that we can branch   execution flow using an \texttt{if} statement within a function definition. We   can also loop, in fact we can do pretty much anything we want within a   function definition. Finally let's focus on the \texttt{return} statement.   Each return statement exits the function immediately, and replaces the   value of the function call with the value of the expression following   the reserved word \texttt{return}. So following 
+\texttt{minimum(9,3)} we   see that program execution `dives into' the function \texttt{minimum}, sets   \texttt{a} and \texttt{b} to 9 and 3 respectively via the implicit tuple unpacking,   prints \texttt{a}, prints \texttt{b}, and never executes 
 \texttt{return a} but   instead executes 
-\texttt{return b}, at which point execution leaves   the function definition, and returns to the   point of the function call. The value of the function call is thus   \textit{3}.
+\texttt{return b}, at which point execution leaves   the function definition, and returns to the   point of the function call. The value of the function call is thus   \texttt{3}.
 
 \section{Composition of Functions in the Definition}
 
 Of course, since we can do pretty much anything in a function   definition, we can also call other functions, both Python built in   functions, and our own defined ones, as in an example to get two   coordinates from the user.
 \begin{lstlisting}
-
 def getcoords():
     x = input("Enter an X coordinate: ")
     y = input("Enter a Y coordinate: ")
@@ -112,19 +104,18 @@ def getcoords():
     return x, y
 \end{lstlisting}
 
-So here we have called both a built in function (input) and our   own previously defined function (minimum) within the function   definition. Also note that we form a tuple in our return statement. We   wish to return two values, but the 'return statement' can only return   the value of a singe expression, so to return multiple values, that   expression must be a tuple (or list) of values.
+So here we have called both a built in function (input) and our   own previously defined function (minimum) within the function   definition. Also note that we form a tuple in our return statement. We   wish to return two values, but the \texttt{return} statement can only return   the value of a singe expression, so to return multiple values, that   expression must be a tuple (or list) of values.
 
 \section{Composition of Functions in Parameter Lists}
 
-Just as expressions can be composed to form more complex expression,   so can functions be composed in the strict mathematical sense, i.e.   given two functions 'f(a)' and 'g(b)', we can obtain a value for f of g   of x. Similarly in Python we could say
+Just as expressions can be composed to form more complex expression,   so can functions be composed in the strict mathematical sense, i.e.   given two functions \texttt{f(a)} and \texttt{g(b)}, we can obtain a value for f of g   of x. Similarly in Python we could say
 \begin{lstlisting}
-
-print(minimum(5, minimum(int(input("$>$ ")), 8)))
+print(minimum(5, minimum(int(input("> ")), 8)))
 \end{lstlisting}
 
 Remember that expressions are evaluated inside to outside, so the   value of input is determined first, then it is converted to an   integer, then compared against 8 in the inner minimum function, and   finally the value of the inner minimum function is compared against 5   in the outer minimum function. Thus we have composed minimum with   itself, and further with input.
 
-In the same way that the range of 'g(b)' must fall within the domain   of 'f(a)', so too must we ensure in Python when doing our function   compositions that the results of inner functions are of appropriate   type and value for use as parameters to outer functions.
+In the same way that the range of \texttt{g(b)} must fall within the domain   of \texttt{f(a)}, so too must we ensure in Python when doing our function   compositions that the results of inner functions are of appropriate   type and value for use as parameters to outer functions.
 % <h2>Providing Default Values for Parameters</h2>
 % 
 % 		<p>Considering programming is all about being lazy and getting
