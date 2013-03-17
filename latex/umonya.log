@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.10)  12 MAR 2013 22:05
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.10)  17 MAR 2013 14:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -457,39 +457,268 @@ Package: listings 2007/02/22 1.4 (Carsten Heinz)
 (/usr/share/texlive/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2001/04/09 non-zero parskip adjustments
 )
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+))
+(/usr/share/texmf/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/share/texmf/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/share/texmf/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/share/texmf/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks19
+)
+(/usr/share/texmf/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box31
+
+(/usr/share/texlive/texmf-dist/tex/latex/ms/everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+(/usr/share/texmf/tex/generic/pgf/utilities/pgfrcs.code.tex
+Package: pgfrcs 2010/10/25 v2.10 (rcs-revision 1.24)
+))
+Package: pgf 2008/01/15 v2.10 (rcs-revision 1.12)
+
+(/usr/share/texmf/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/share/texmf/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2010/06/30 v2.10 (rcs-revision 1.37)
+
+(/usr/share/texmf/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks20
+\pgfkeys@temptoks=\toks21
+
+(/usr/share/texmf/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
+\pgfkeys@tmptoks=\toks22
+))
+\pgf@x=\dimen115
+\pgf@y=\dimen116
+\pgf@xa=\dimen117
+\pgf@ya=\dimen118
+\pgf@xb=\dimen119
+\pgf@yb=\dimen120
+\pgf@xc=\dimen121
+\pgf@yc=\dimen122
+\w@pgf@writea=\write3
+\r@pgf@reada=\read1
+\c@pgf@counta=\count108
+\c@pgf@countb=\count109
+\c@pgf@countc=\count110
+\c@pgf@countd=\count111
+
+(/usr/share/texmf/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
+)
+Package pgfsys Info: Driver file for pgf: pgfsys-pdftex.def on input line 900.
+
+(/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2009/05/22  (rcs-revision 1.26)
+
+(/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2008/05/19  (rcs-revision 1.10)
+)))
+(/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2008/07/18  (rcs-revision 1.7)
+\pgfsyssoftpath@smallbuffer@items=\count112
+\pgfsyssoftpath@bigbuffer@items=\count113
+)
+(/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+))
+(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
+
+(/usr/share/texmf/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/share/texmf/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/usr/share/texmf/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/share/texmf/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen123
+\pgfmath@count=\count114
+\pgfmath@box=\box32
+\pgfmath@toks=\toks23
+\pgfmath@stack@operand=\toks24
+\pgfmath@stack@operation=\toks25
+)
+(/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.code.tex
+(/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex)
+(/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex)
+(/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.random.code.tex)
+(/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex)
+(/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.base.code.tex)
+(/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.round.code.tex)
+(/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex)))
+(/usr/share/texmf/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count115
+))
+(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2010/04/09  (rcs-revision 1.20)
+\pgf@picminx=\dimen124
+\pgf@picmaxx=\dimen125
+\pgf@picminy=\dimen126
+\pgf@picmaxy=\dimen127
+\pgf@pathminx=\dimen128
+\pgf@pathmaxx=\dimen129
+\pgf@pathminy=\dimen130
+\pgf@pathmaxy=\dimen131
+\pgf@xx=\dimen132
+\pgf@xy=\dimen133
+\pgf@yx=\dimen134
+\pgf@yy=\dimen135
+\pgf@zx=\dimen136
+\pgf@zy=\dimen137
+)
+(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2010/08/03  (rcs-revision 1.24)
+\pgf@path@lastx=\dimen138
+\pgf@path@lasty=\dimen139
+)
+(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2008/04/22  (rcs-revision 1.12)
+\pgf@shorten@end@additional=\dimen140
+\pgf@shorten@start@additional=\dimen141
+)
+(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2010/09/08  (rcs-revision 1.34)
+\pgfpic=\box33
+\pgf@hbox=\box34
+\pgf@layerbox@main=\box35
+\pgf@picture@serial@count=\count116
+)
+(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2008/04/22  (rcs-revision 1.9)
+\pgflinewidth=\dimen142
+)
+(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2009/06/10  (rcs-revision 1.11)
+\pgf@pt@x=\dimen143
+\pgf@pt@y=\dimen144
+\pgf@pt@temp=\dimen145
+)
+(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
+)
+(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2008/10/09  (rcs-revision 1.8)
+)
+(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2008/04/23  (rcs-revision 1.11)
+)
+(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2008/11/23  (rcs-revision 1.13)
+\pgf@max=\dimen146
+\pgf@sys@shading@range@num=\count117
+)
+(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2010/03/25  (rcs-revision 1.16)
+
+(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2010/09/01  (rcs-revision 1.17)
+\pgfexternal@startupbox=\box36
+))
+(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2010/08/27  (rcs-revision 1.2)
+)
+(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2008/01/17  (rcs-revision 1.2)
+)
+(/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2009/07/02  (rcs-revision 1.3)
+)))
+(/usr/share/texmf/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2010/09/09  (rcs-revision 1.13)
+\pgfnodeparttextbox=\box37
+)
+(/usr/share/texmf/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2010/10/22  (rcs-revision 1.8)
+)
+(/usr/share/texmf/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2007/07/03 v2.10 (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen147
+\pgf@nodesepend=\dimen148
+)
+(/usr/share/texmf/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2007/07/23 v2.10 (rcs-revision 1.1)
+))
+(/usr/share/texmf/tex/latex/pgf/utilities/pgffor.sty
+(/usr/share/texmf/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texmf/tex/generic/pgf/utilities/pgfkeys.code.tex))
+(/usr/share/texmf/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2010/03/23 v2.10 (rcs-revision 1.18)
+\pgffor@iter=\dimen149
+\pgffor@skip=\dimen150
+\pgffor@stack=\toks26
+\pgffor@toks=\toks27
+))
+(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2010/10/13 v2.10 (rcs-revision 1.76)
+
+(/usr/share/texmf/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2010/05/31 v2.10 (rcs-revision 1.15)
+\pgf@plot@mark@count=\count118
+\pgfplotmarksize=\dimen151
+)
+\tikz@lastx=\dimen152
+\tikz@lasty=\dimen153
+\tikz@lastxsaved=\dimen154
+\tikz@lastysaved=\dimen155
+\tikzleveldistance=\dimen156
+\tikzsiblingdistance=\dimen157
+\tikz@figbox=\box38
+\tikz@tempbox=\box39
+\tikztreelevel=\count119
+\tikznumberofchildren=\count120
+\tikznumberofcurrentchild=\count121
+\tikz@fig@count=\count122
+
+(/usr/share/texmf/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
+\pgfmatrixcurrentrow=\count123
+\pgfmatrixcurrentcolumn=\count124
+\pgf@matrix@numberofcolumns=\count125
+)
+\tikz@expandcount=\count126
+
+(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopat
+hs.code.tex
+File: tikzlibrarytopaths.code.tex 2008/06/17 v2.10 (rcs-revision 1.2)
+))) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
-) (./umonya.aux)
+)
+(./umonya.aux)
 \openout1 = `umonya.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+ (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count108
-\scratchdimen=\dimen115
-\scratchbox=\box31
-\nofMPsegments=\count109
-\nofMParguments=\count110
-\everyMPshowfont=\toks19
-\MPscratchCnt=\count111
-\MPscratchDim=\dimen116
-\MPnumerator=\count112
-\makeMPintoPDFobject=\count113
-\everyMPtoPDFconversion=\toks20
+\scratchcounter=\count127
+\scratchdimen=\dimen158
+\scratchbox=\box40
+\nofMPsegments=\count128
+\nofMParguments=\count129
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count130
+\MPscratchDim=\dimen159
+\MPnumerator=\count131
+\makeMPintoPDFobject=\count132
+\everyMPtoPDFconversion=\toks29
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -505,8 +734,8 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box32
-Package hyperref Info: Link coloring OFF on input line 32.
+\AtBeginShipoutBox=\box41
+Package hyperref Info: Link coloring OFF on input line 54.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
@@ -514,23 +743,24 @@ Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count114
+\c@section@level=\count133
 )
-LaTeX Info: Redefining \ref on input line 32.
-LaTeX Info: Redefining \pageref on input line 32.
-LaTeX Info: Redefining \nameref on input line 32.
+LaTeX Info: Redefining \ref on input line 54.
+LaTeX Info: Redefining \pageref on input line 54.
+LaTeX Info: Redefining \nameref on input line 54.
 
 (./umonya.out) (./umonya.out)
-\@outlinefile=\write3
-\openout3 = `umonya.out'.
+\@outlinefile=\write4
+\openout4 = `umonya.out'.
 
-\c@lstlisting=\count115
+\c@lstlisting=\count134
+ ABD: EveryShipout initializing macros
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 35.
+(Font)              <12> on input line 57.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 35.
+(Font)              <8> on input line 57.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 35.
+(Font)              <6> on input line 57.
 
 
 LaTeX Warning: No \author given.
@@ -542,30 +772,27 @@ Chapter 1.
 (./basic_concepts.tex
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <10.95> on input line 5.
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 16.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
+ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.18 b 
        = 12 [1
 
-] [2] [3]
+]
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 19.
+ [2] [3]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 65.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 65.
-LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 68.
-
-LaTeX Font Info:    No file OMScmtt.fd. on input line 68.
-
-
-LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 68.
-
-[4]) [5]
+ [4]) [5]
 Chapter 2.
 (./invocation.tex [6
 
@@ -587,24 +814,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 135--151
  []
 
 [21] [22]
-Overfull \hbox (13.68417pt too wide) in paragraph at lines 183--185
-[]\OT1/cmr/m/n/10.95 What is the value of \OT1/cmtt/m/n/10.95 "ABBA was a Swedi
-sh band popular during the 80's"[-15:-7]\OT1/cmr/m/n/10.95 ? 
+Overfull \hbox (7.91316pt too wide) in paragraph at lines 183--185
+[]\T1/cmr/m/n/10.95 What is the value of \T1/cmtt/m/n/10.95 "ABBA was a Swedish
+ band popular during the 80's"[-15:-7]\T1/cmr/m/n/10.95 ? 
  []
 
 ) [23]
 Chapter 6.
 (./conditionals.tex [24
 
-] [25]
-Overfull \hbox (0.46176pt too wide) in paragraph at lines 102--103
-[]\OT1/cmtt/m/n/10.95 numOfPeople>5 \OT1/cmtt/bx/n/10.95 and \OT1/cmtt/m/n/10.9
-5 numOfPeople$\OML/cmm/m/it/10.95 <$\OT1/cmtt/m/n/10.95 40 \OT1/cmtt/bx/n/10.95
- and \OT1/cmtt/m/n/10.95 (day==`Friday' \OT1/cmtt/bx/n/10.95 or \OT1/cmtt/m/n/1
-0.95 day==`Saturday') 
- []
-
-[26]
+] [25] [26]
 Underfull \hbox (badness 10000) in paragraph at lines 127--129
 
  []
@@ -623,24 +842,18 @@ Chapter 8.
 (./lists.tex [43
 
 ] [44] [45] [46] [47]
-Overfull \hbox (15.36018pt too wide) in paragraph at lines 240--242
-[]\OT1/cmr/m/n/10.95 Looking at the ex-am-ples we no-tice there is some new no-
-ta-tion, of the form $\OML/cmm/m/it/10.95 <$\OT1/cmtt/m/n/10.95 list$\OML/cmm/m
-/it/10.95 >$\OT1/cmtt/m/n/10.95 .$\OML/cmm/m/it/10.95 <$\OT1/cmtt/m/n/10.95 met
-hod$\OML/cmm/m/it/10.95 >$\OT1/cmtt/m/n/10.95 ()\OT1/cmr/m/n/10.95 .
+Overfull \hbox (12.18466pt too wide) in paragraph at lines 240--242
+[]\T1/cmr/m/n/10.95 Looking at the ex-am-ples we no-tice there is some new no-t
+a-tion, of the form $\OML/cmm/m/it/10.95 <$\T1/cmtt/m/n/10.95 list$\OML/cmm/m/i
+t/10.95 >$\T1/cmtt/m/n/10.95 .$\OML/cmm/m/it/10.95 <$\T1/cmtt/m/n/10.95 method$
+\OML/cmm/m/it/10.95 >$\T1/cmtt/m/n/10.95 ()\T1/cmr/m/n/10.95 .
  []
 
 [48] [49] [50]) [51]
 Chapter 9.
 (./tuples.tex [52
 
-] [53] [54]
-Overfull \hbox (6.04872pt too wide) in paragraph at lines 132--134
-\OT1/cmr/m/n/10.95 form \OT1/cmtt/m/n/10.95 [(`Maths', `D'), (`Comp Sci', `B'),
- (`English', `C'), (`Xhosa', `A'),
- []
-
-) [55]
+] [53] [54]) [55]
 Chapter 10.
 (./for_loops.tex [56
 
@@ -648,99 +861,87 @@ Chapter 10.
 Chapter 11.
 (./strings.tex [62
 
-] [63] [64] [65] [66] [67] [68]
-Overfull \hbox (60.76767pt too wide) in paragraph at lines 262--264
-\OT1/cmtt/m/n/10.95 the other \OMS/cmtt/m/n/10.95 f\OT1/cmtt/m/n/10.95 6\OMS/cm
-tt/m/n/10.95 g\OT1/cmtt/m/n/10.95 , because I can't remember this rhyme for \OM
-S/cmtt/m/n/10.95 f\OT1/cmtt/m/n/10.95 7\OMS/cmtt/m/n/10.95 g\OT1/cmtt/m/n/10.95
- ".format(30, "September",
+] [63] [64] [65] [66]
+Overfull \hbox (1.28513pt too wide) in paragraph at lines 209--211
+[]\T1/cmtt/m/n/10.95 <string>.isalnum() \T1/cmr/m/n/10.95 re-turn \T1/cmtt/m/n/
+10.95 True \T1/cmr/m/n/10.95 if the string con-tains only al-pha-betic char-ac-
+ters and/or
  []
 
-) [69]
+[67]
+Overfull \hbox (54.3661pt too wide) in paragraph at lines 262--264
+\T1/cmtt/m/n/10.95 the other {6}, because I can't remember this rhyme for {7}".
+format(30, "September",
+ []
+
+[68]) [69]
 Chapter 12.
-(./dictionaries.tex [70
+(./functions.tex [70
 
-] [71] [72] [73] [74]) [75]
+] [71] [72] [73]) [74]
 Chapter 13.
-(./understanding_errors.tex [76
+(./dictionaries.tex [75
 
-] [77] [78] [79])
-Underfull \hbox (badness 10000) in paragraph at lines 137--67
-
- []
-
-[80]
+] [76] [77] [78] [79]) [80]
 Chapter 14.
-(./exercises.tex
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 1.
-
-[81
+(./scope.tex [81
 
 ]
-Overfull \hbox (13.68417pt too wide) in paragraph at lines 68--70
-[]\OT1/cmr/m/n/10.95 What is the value of \OT1/cmtt/m/n/10.95 "ABBA was a Swedi
-sh band popular during the 80's"[-15:-7]\OT1/cmr/m/n/10.95 ? 
- []
-
-[82] [83] [84]
-Underfull \hbox (badness 10000) in paragraph at lines 176--185
+Underfull \hbox (badness 10000) in paragraph at lines 15--16
 
  []
 
+[82] [83]) [84]
+Chapter 15.
+(./importing_modules.tex
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 1.
+ [85
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--185
+] [86] [87] [88] [89] [90]) [91]
+Chapter 16.
+(./understanding_errors.tex [92
+
+] [93] [94] [95])
+Underfull \hbox (badness 10000) in paragraph at lines 137--89
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 176--185
-
- []
-
-[85]
-Overfull \vbox (195.88358pt too high) has occurred while \output is active []
-
-
-[86] [87] [88] [89])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 73.
- [90]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 73.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 93.
+[96]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 93.
  (./umonya.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 73.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 73.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 93.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 93.
 Package rerunfilecheck Info: File `umonya.out' has not changed.
-(rerunfilecheck)             Checksum: C33036E3B1CFB05A93EA415713B8461F;7167.
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 73.
+(rerunfilecheck)             Checksum: 72CA9E3CB198C6FAFCAF55C5CC2DCE39;6272.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 93.
  ) 
 Here is how much of TeX's memory you used:
- 9751 strings out of 495059
- 135516 string characters out of 3182030
- 436786 words of memory out of 3000000
- 11171 multiletter control sequences out of 15000+200000
- 10680 words of font info for 39 fonts, out of 3000000 for 9000
+ 17874 strings out of 495059
+ 299241 string characters out of 3182030
+ 575356 words of memory out of 3000000
+ 19011 multiletter control sequences out of 15000+200000
+ 16757 words of font info for 41 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 29i,6n,40p,1321b,1853s stack positions out of 5000i,500n,10000p,200000b,50000s
- </home/nyx/.texmf-var/fonts/pk/ljfour/public/cm/cmttb10.657pk></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-ti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.p
-fb>
-Output written on umonya.pdf (91 pages, 407319 bytes).
+ 56i,9n,55p,1912b,1868s stack positions out of 5000i,500n,10000p,200000b,50000s
+ </home/nyx/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1440.600pk> </home/nyx
+/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/nyx/.texmf-var/f
+onts/pk/ljfour/jknappen/ec/ecit1095.600pk> </home/nyx/.texmf-var/fonts/pk/ljfou
+r/jknappen/ec/ecti1095.600pk> </home/nyx/.texmf-var/fonts/pk/ljfour/jknappen/ec
+/ectt1095.600pk> </home/nyx/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600
+pk> </home/nyx/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home/ny
+x/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/nyx/.texmf-var/
+fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk> </home/nyx/.texmf-var/fonts/pk/ljfo
+ur/jknappen/ec/ecbx2074.600pk> </home/nyx/.texmf-var/fonts/pk/ljfour/jknappen/e
+c/ecrm1200.600pk> </home/nyx/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.60
+0pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on umonya.pdf (97 pages, 457643 bytes).
 PDF statistics:
- 2717 PDF objects out of 2984 (max. 8388607)
- 2564 compressed objects within 26 object streams
- 1642 named destinations out of 1728 (max. 500000)
- 929 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3278 PDF objects out of 3580 (max. 8388607)
+ 2630 compressed objects within 27 object streams
+ 1719 named destinations out of 1728 (max. 500000)
+ 773 words of extra memory for PDF output out of 10000 (max. 10000000)
 

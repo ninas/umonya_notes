@@ -12,72 +12,100 @@ One analogy is that of the program as a large open room. Variables   are slips o
 
 More formally speaking,   when a name (i.e. not a reserved word, number, string or symbol) is   encountered Python looks for the most recent definition of the   variable, object, or function that has that name in the current block   (i.e. the block in which execution is currently happening), and failing   finding a definition in the current block will search outwardly in a   block wise fashion to the outermost block.
 
-Note that the fact that the \textbf{most recent} definition   is searched for means that if an assignment is made (essentially a   re-definition) in the current block (\textbf{known as the local   block}) overrides a definition or value assigned in an outer   block, \textbf{even before the assignment is encountered}.\#!/usr/bin/python
-\\    \#A script to illustrate variable scope in python
-\\
-\\total\_height = 0
-\\
-\\\textbf{def} triangle():
-\\\textbf{def} inc\_total\_height():
-\\total\_height = total\_height + height
-\\
-\\\textbf{for}i\textbf{in} range(height):
-\\\textbf{print} "*" * i
-\\ inc\_total\_height()
-\\\textbf{print}
-\\
-\\\textbf{def} square():
-\\\textbf{def} inc\_total\_height():
-\\total\_height = total\_height + height
-\\
-\\\textbf{for}i\textbf{in} range(height):
-\\\textbf{print}("*" * height
-\\ inc\_total\_height())
-\\\textbf{print()}
-\\
-\\height = 3
-\\    triangle()
-\\height = 4
-\\    square()
-\\height = 5
-\\    triangle()
-\\
+Note that the fact that the \textbf{most recent} definition   is searched for means that if an assignment is made (essentially a   re-definition) in the current block (\textbf{known as the local   block}) overrides a definition or value assigned in an outer   block, \textbf{even before the assignment is encountered}. \\
 
-In the example above we are looking at the variables and their   respective scope. The scope of a variable is indicated by its colour.   Variables of a particular colour are available only in the block of   that colour, and that block's inner blocks. The two inner blue blocks   are separate from one another, as are their respective inner green   blocks. In the green blocks, when the variable 'height' is encountered,   python tries to find height's value within the green block. When it   can't find it, it tries the next block outwards, namely the blue block,   and failing there, finally tries the last block (the yellow one, where   it finds height. If Python fails to find a value in the outermost   block, it cause an error, stating that the variable has not been   defined.  Hence, 'height', for example, is yellow, because it was   defined in the yellow block by it's initial assignment. Similarly 'i'   is blue, and \textbf{unavailable} in the yellow block, and the   other blue block. 'total\_height' is yellow, except in the green blocks,   where it occurs in yellow and green, but why? The assignment statement   in the green blocks causes 'total\_height' to be redefined, so python   knows to look for its value only in the green block in question, and   when it can't find it there causes an error ('total\_height' not   defined) because it assume you are try to access 'total\_height's value   before assigning it an initial value. In fact, the fact that there is an   assignment in the green block causes 'total\_height' to become a totally   new variable unrelated to the original one, which only exists in the   green block.  This effect is consistent throughout the green block,   even before the assignment statement has been executed.
+\begin{lstlisting}[mathescape,escapechar=|]
+#!/usr/bin/python 
+#A script to illustrate variable scope in Python 
+
+|\textcolor{gray}{total\_height}| = 0
+
+def triangle(): 
+    |\btHL[fill=blue!30]\parbox{22em}{\textbf{def} inc\_total\_height():}|
+    |\btHL[fill=blue!30]\parbox{25px}{\hspace{25px}}
+         \btHL[fill=brown!30]\parbox{18em}{
+            \textcolor{brown}{total\_height} = \textcolor{gray}{total\_height} + \textcolor{gray}{height}
+         }
+        \btHL[fill=blue!30]\parbox{20px}{\hspace{20px}}|
+    |\btHL[fill=blue!30]\parbox{22em}{\hspace{150px} }|
+    |\btHL[fill=blue!30]\parbox{22em}{\textbf{for} \textcolor{blue}{i} \textbf{in} range(\textcolor{gray}{height}):}|
+    |\btHL[fill=blue!30]\parbox{22em}{\hspace{25px}    \textbf{print}("*" * \textcolor{blue}{i}) }|
+    |\btHL[fill=blue!30]\parbox{22em}{inc\_total\_height()}|
+    |\btHL[fill=blue!30]\parbox{22em}{\textbf{print}() }|
+
+def square():
+    |\btHL[fill=blue!30]\parbox{22em}{\textbf{def} inc\_total\_height():}|
+    |\btHL[fill=blue!30]\parbox{25px}{\hspace{25px}}
+         \btHL[fill=brown!30]\parbox{18em}{
+           \textcolor{brown}{total\_height} = \textcolor{gray}{total\_height} + \textcolor{gray}{height}
+        }
+        \btHL[fill=blue!30]\parbox{20px}{\hspace{20px}}|
+    |\btHL[fill=blue!30]\parbox{22em}{\hspace{150px} }|
+    |\btHL[fill=blue!30]\parbox{22em}{\textbf{for} \textcolor{blue}{i} \textbf{in} range(\textcolor{gray}{height}):}|
+    |\btHL[fill=blue!30]\parbox{22em}{\hspace{25px}    \textbf{print}("*" * \textcolor{gray}{height}) }|
+    |\btHL[fill=blue!30]\parbox{22em}{inc\_total\_height())}|
+    |\btHL[fill=blue!30]\parbox{22em}{\textbf{print}()}| 
+
+|\textcolor{gray}{height}| = 3
+triangle()
+|\textcolor{gray}{height}| = 4
+square()
+|\textcolor{gray}{height}| = 5
+triangle()
+\end{lstlisting}
+
+In the example above we are looking at the variables and their   respective scope. The scope of a variable is indicated by its colour.   Variables of a particular colour are available only in the block of   that colour, and that block's inner blocks. The two inner blue blocks   are separate from one another, as are their respective inner brown   blocks. In the brown blocks, when the variable \texttt{height} is encountered,   Python tries to find the value of \texttt{height} within the brown block. When it   can't find it, it tries the next block outwards, namely the blue block,   and failing there, finally tries the last block (the gray one), where   it finds height. If Python fails to find a value in the outermost   block, it cause an error, stating that the variable has not been   defined.  Therefore, \texttt{height}, for example, is gray, because it was   defined in the gray block by it's initial assignment. Similarly \texttt{i}   is blue, and \textbf{unavailable} in the gray block, and the   other blue block. \texttt{total\_height} is gray, except in the brown blocks,   where it occurs in gray and brown, but why? The assignment statement   in the brown blocks causes \texttt{total\_height} to be redefined (that is, created again), so Python   knows to look for its value only in the brown block in question, and   when it can't find it there, causes an error (\texttt{total\_height} not   defined) because it assume you are try to access the value of \texttt{total\_height}   before assigning it an initial value. In fact, the fact that there is an   assignment in the brown block causes \texttt{total\_height} to become a totally   new variable unrelated to the original one, which only exists in the   brown block.  This effect is consistent (the same) throughout the brown block,   even before the assignment statement has been executed.
 
 \section{Forcing Global Scope for a Particular Variable}
 
-To override python's redefinition effect applied to 'total\_height'   we can tell Python explicitly to use the 'total\_height' variable from   outside the local block. We do this by declaring that variable name to   be global, using the \textbf{global statement}, which takes the   form 
-\texttt{global $<$variable name$>$}. The global statement   tells Python to use the innermost variable of the given name, instead   of creating a new locally available variable. So let's change our   program slightly so does what we expect, i.e. doesn't break, and counts   the total number of lines outputted as a square or triangle.\#!/usr/bin/python
-\\    \#A script to illustrate variable scope in python
-\\
-\\total\_height = 0
-\\
-\\\textbf{def} triangle():
-\\\textbf{def} inc\_total\_height():
-\\\textbf{global}total\_height
-\\total\_height = total\_height + height
-\\
-\\\textbf{for}i\textbf{in} range(height):
-\\\textbf{print}("*" * i
-\\ inc\_total\_height())
-\\\textbf{print()}
-\\
-\\\textbf{def} square():
-\\\textbf{def} inc\_total\_height():
-\\\textbf{global}total\_height
-\\total\_height = total\_height + height
-\\
-\\\textbf{for}i\textbf{in} range(height):
-\\\textbf{print} "*" * height
-\\ inc\_total\_height()
-\\\textbf{print()}
-\\
-\\height = 3
-\\    triangle()
-\\height = 4
-\\    square()
-\\height = 5
-\\    triangle()
-\\
-\\
+To override Python's redefinition effect applied to \texttt{total\_height}   we can tell Python explicitly to use the \texttt{total\_height} variable from   outside the local block (that is, use the value from the gray block, rather than the brown one we are now in). We do this by declaring that variable name to   be \textbf{global}, using the \texttt{global} statement, which takes the   form 
+\texttt{global $<$variable name$>$}. The \texttt{global} statement   tells Python to use the innermost variable of the given name, instead   of creating a new locally available variable. So let's change our   program slightly so does what we expect, i.e. doesn't break, and counts   the total number of lines outputted as a square or triangle.
+\begin{lstlisting}[mathescape,escapechar=|]
+#!/usr/bin/python 
+#A script to illustrate variable scope in Python 
+
+|\textcolor{gray}{total\_height}| = 0
+
+def triangle(): 
+    |\btHL[fill=blue!30]\parbox{22em}{\textbf{def} inc\_total\_height():}|
+    |\btHL[fill=blue!30]\parbox{25px}{\hspace{25px}}
+         \btHL[fill=brown!30]\parbox{18em}{
+            \textbf{global} \textcolor{gray}{total\_height}
+         }
+        \btHL[fill=blue!30]\parbox{20px}{\hspace{20px}}|
+    |\btHL[fill=blue!30]\parbox{25px}{\hspace{25px}}
+         \btHL[fill=brown!30]\parbox{18em}{
+            \textcolor{gray}{total\_height} = \textcolor{gray}{total\_height} + \textcolor{gray}{height}
+         }
+        \btHL[fill=blue!30]\parbox{20px}{\hspace{20px}}|
+    |\btHL[fill=blue!30]\parbox{22em}{\hspace{150px} }|
+    |\btHL[fill=blue!30]\parbox{22em}{\textbf{for} \textcolor{blue}{i} \textbf{in} range(\textcolor{gray}{height}):}|
+    |\btHL[fill=blue!30]\parbox{22em}{\hspace{25px}    \textbf{print}("*" * \textcolor{blue}{i}) }|
+    |\btHL[fill=blue!30]\parbox{22em}{inc\_total\_height()}|
+    |\btHL[fill=blue!30]\parbox{22em}{\textbf{print}() }|
+
+def square():
+    |\btHL[fill=blue!30]\parbox{22em}{\textbf{def} inc\_total\_height():}|
+    |\btHL[fill=blue!30]\parbox{25px}{\hspace{25px}}
+         \btHL[fill=brown!30]\parbox{18em}{
+            \textbf{global} \textcolor{gray}{total\_height}
+         }
+        \btHL[fill=blue!30]\parbox{20px}{\hspace{20px}}|
+    |\btHL[fill=blue!30]\parbox{25px}{\hspace{25px}}
+         \btHL[fill=brown!30]\parbox{18em}{
+            \textcolor{gray}{total\_height} = \textcolor{gray}{total\_height} + \textcolor{gray}{height}
+         }
+        \btHL[fill=blue!30]\parbox{20px}{\hspace{20px}}|
+    |\btHL[fill=blue!30]\parbox{22em}{\hspace{150px} }|
+    |\btHL[fill=blue!30]\parbox{22em}{\textbf{for} \textcolor{blue}{i} \textbf{in} range(\textcolor{gray}{height}):}|
+    |\btHL[fill=blue!30]\parbox{22em}{\hspace{25px}    \textbf{print}("*" * \textcolor{gray}{height}) }|
+    |\btHL[fill=blue!30]\parbox{22em}{inc\_total\_height())}|
+    |\btHL[fill=blue!30]\parbox{22em}{\textbf{print}()}| 
+
+|\textcolor{gray}{height}| = 3
+triangle()
+|\textcolor{gray}{height}| = 4
+square()
+|\textcolor{gray}{height}| = 5
+triangle()
+\end{lstlisting}
