@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.10)  17 MAR 2013 14:06
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.10)  17 MAR 2013 14:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -686,27 +686,66 @@ File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopat
 hs.code.tex
 File: tikzlibrarytopaths.code.tex 2008/06/17 v2.10 (rcs-revision 1.2)
-))) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2004/09/05 1.3 listings language file
+))) (/usr/share/texmf/tex/latex/lm/lmodern.sty
+Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
 )
-(./umonya.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+) (./umonya.aux)
 \openout1 = `umonya.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
- (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 56.
+
+(/usr/share/texmf/tex/latex/lm/t1lmr.fd
+File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count127
 \scratchdimen=\dimen158
@@ -735,7 +774,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box41
-Package hyperref Info: Link coloring OFF on input line 54.
+Package hyperref Info: Link coloring OFF on input line 56.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
@@ -745,9 +784,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count133
 )
-LaTeX Info: Redefining \ref on input line 54.
-LaTeX Info: Redefining \pageref on input line 54.
-LaTeX Info: Redefining \nameref on input line 54.
+LaTeX Info: Redefining \ref on input line 56.
+LaTeX Info: Redefining \pageref on input line 56.
+LaTeX Info: Redefining \nameref on input line 56.
 
 (./umonya.out) (./umonya.out)
 \@outlinefile=\write4
@@ -755,12 +794,34 @@ LaTeX Info: Redefining \nameref on input line 54.
 
 \c@lstlisting=\count134
  ABD: EveryShipout initializing macros
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 57.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 57.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 57.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 59.
+
+(/usr/share/texmf/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 59.
+
+(/usr/share/texmf/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 59.
+
+
+(/usr/share/texmf/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 59.
+
+
+(/usr/share/texmf/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 59.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 59.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 59.
 
 
 LaTeX Warning: No \author given.
@@ -770,11 +831,11 @@ LaTeX Warning: No \author given.
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 Chapter 1.
 (./basic_concepts.tex
-LaTeX Font Info:    External font `cmex10' loaded for size
+LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 5.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 16.
- (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 16.
+ (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
  been already used, duplicate ignored
 <to be read again> 
@@ -783,15 +844,15 @@ l.18 b
        = 12 [1
 
 ]
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 19.
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 19.
  [2] [3]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 65.
- (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 65.
+ (/usr/share/texmf/tex/latex/lm/omslmr.fd
+File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 65.
+LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 65.
  [4]) [5]
 Chapter 2.
 (./invocation.tex [6
@@ -814,9 +875,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 135--151
  []
 
 [21] [22]
-Overfull \hbox (7.91316pt too wide) in paragraph at lines 183--185
-[]\T1/cmr/m/n/10.95 What is the value of \T1/cmtt/m/n/10.95 "ABBA was a Swedish
- band popular during the 80's"[-15:-7]\T1/cmr/m/n/10.95 ? 
+Overfull \hbox (13.70267pt too wide) in paragraph at lines 183--185
+[]\T1/lmr/m/n/10.95 What is the value of \T1/lmtt/m/n/10.95 "ABBA was a Swedish
+ band popular during the 80's"[-15:-7]\T1/lmr/m/n/10.95 ? 
  []
 
 ) [23]
@@ -842,18 +903,24 @@ Chapter 8.
 (./lists.tex [43
 
 ] [44] [45] [46] [47]
-Overfull \hbox (12.18466pt too wide) in paragraph at lines 240--242
-[]\T1/cmr/m/n/10.95 Looking at the ex-am-ples we no-tice there is some new no-t
-a-tion, of the form $\OML/cmm/m/it/10.95 <$\T1/cmtt/m/n/10.95 list$\OML/cmm/m/i
-t/10.95 >$\T1/cmtt/m/n/10.95 .$\OML/cmm/m/it/10.95 <$\T1/cmtt/m/n/10.95 method$
-\OML/cmm/m/it/10.95 >$\T1/cmtt/m/n/10.95 ()\T1/cmr/m/n/10.95 .
+Overfull \hbox (15.44113pt too wide) in paragraph at lines 240--242
+[]\T1/lmr/m/n/10.95 Looking at the ex-am-ples we no-tice there is some new no-t
+a-tion, of the form $\OML/lmm/m/it/10.95 <$\T1/lmtt/m/n/10.95 list$\OML/lmm/m/i
+t/10.95 >$\T1/lmtt/m/n/10.95 .$\OML/lmm/m/it/10.95 <$\T1/lmtt/m/n/10.95 method$
+\OML/lmm/m/it/10.95 >$\T1/lmtt/m/n/10.95 ()\T1/lmr/m/n/10.95 .
  []
 
 [48] [49] [50]) [51]
 Chapter 9.
 (./tuples.tex [52
 
-] [53] [54]) [55]
+] [53] [54]
+Overfull \hbox (6.13289pt too wide) in paragraph at lines 132--134
+\T1/lmr/m/n/10.95 form \T1/lmtt/m/n/10.95 [(`Maths', `D'), (`Comp Sci', `B'), (
+`English', `C'), (`Xhosa', `A'),
+ []
+
+) [55]
 Chapter 10.
 (./for_loops.tex [56
 
@@ -861,20 +928,13 @@ Chapter 10.
 Chapter 11.
 (./strings.tex [62
 
-] [63] [64] [65] [66]
-Overfull \hbox (1.28513pt too wide) in paragraph at lines 209--211
-[]\T1/cmtt/m/n/10.95 <string>.isalnum() \T1/cmr/m/n/10.95 re-turn \T1/cmtt/m/n/
-10.95 True \T1/cmr/m/n/10.95 if the string con-tains only al-pha-betic char-ac-
-ters and/or
- []
-
-[67]
-Overfull \hbox (54.3661pt too wide) in paragraph at lines 262--264
-\T1/cmtt/m/n/10.95 the other {6}, because I can't remember this rhyme for {7}".
+] [63] [64] [65] [66] [67] [68]
+Overfull \hbox (61.8662pt too wide) in paragraph at lines 262--264
+\T1/lmtt/m/n/10.95 the other {6}, because I can't remember this rhyme for {7}".
 format(30, "September",
  []
 
-[68]) [69]
+) [69]
 Chapter 12.
 (./functions.tex [70
 
@@ -894,8 +954,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--16
 [82] [83]) [84]
 Chapter 15.
 (./importing_modules.tex
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1.
  [85
 
 ] [86] [87] [88] [89] [90]) [91]
@@ -903,45 +963,41 @@ Chapter 16.
 (./understanding_errors.tex [92
 
 ] [93] [94] [95])
-Underfull \hbox (badness 10000) in paragraph at lines 137--89
+Underfull \hbox (badness 10000) in paragraph at lines 137--91
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 93.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 95.
 [96]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 93.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 95.
  (./umonya.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 93.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 93.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 95.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 95.
 Package rerunfilecheck Info: File `umonya.out' has not changed.
 (rerunfilecheck)             Checksum: 72CA9E3CB198C6FAFCAF55C5CC2DCE39;6272.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 93.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 95.
  ) 
 Here is how much of TeX's memory you used:
- 17874 strings out of 495059
- 299241 string characters out of 3182030
- 575356 words of memory out of 3000000
- 19011 multiletter control sequences out of 15000+200000
- 16757 words of font info for 41 fonts, out of 3000000 for 9000
+ 17994 strings out of 495059
+ 301626 string characters out of 3182030
+ 576464 words of memory out of 3000000
+ 19113 multiletter control sequences out of 15000+200000
+ 54668 words of font info for 44 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 56i,9n,55p,1912b,1868s stack positions out of 5000i,500n,10000p,200000b,50000s
- </home/nyx/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1440.600pk> </home/nyx
-/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/nyx/.texmf-var/f
-onts/pk/ljfour/jknappen/ec/ecit1095.600pk> </home/nyx/.texmf-var/fonts/pk/ljfou
-r/jknappen/ec/ecti1095.600pk> </home/nyx/.texmf-var/fonts/pk/ljfour/jknappen/ec
-/ectt1095.600pk> </home/nyx/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600
-pk> </home/nyx/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home/ny
-x/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/nyx/.texmf-var/
-fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk> </home/nyx/.texmf-var/fonts/pk/ljfo
-ur/jknappen/ec/ecbx2074.600pk> </home/nyx/.texmf-var/fonts/pk/ljfour/jknappen/e
-c/ecrm1200.600pk> </home/nyx/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.60
-0pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on umonya.pdf (97 pages, 457643 bytes).
+ 56i,9n,55p,1912b,1855s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dv
+ips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share
+/texmf/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf/fonts/type1/public/lm
+/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texm
+f/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr1
+0.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts
+/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb><
+/usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1
+/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtl10.pfb>
+Output written on umonya.pdf (97 pages, 504510 bytes).
 PDF statistics:
- 3278 PDF objects out of 3580 (max. 8388607)
- 2630 compressed objects within 27 object streams
+ 2745 PDF objects out of 2984 (max. 8388607)
+ 2609 compressed objects within 27 object streams
  1719 named destinations out of 1728 (max. 500000)
  773 words of extra memory for PDF output out of 10000 (max. 10000000)
 
