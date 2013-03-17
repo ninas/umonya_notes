@@ -57,39 +57,30 @@
 \BOOKMARK [1][-]{section.11.3}{Advanced String Formatting}{chapter.11}% 57
 \BOOKMARK [1][-]{section.11.4}{Miscellaneous String Methods}{chapter.11}% 58
 \BOOKMARK [1][-]{section.11.5}{Exercises}{chapter.11}% 59
-\BOOKMARK [0][-]{chapter.12}{Functions}{}% 60
-\BOOKMARK [1][-]{section.12.1}{Abstracting Common Tasks with Functions}{chapter.12}% 61
-\BOOKMARK [1][-]{section.12.2}{Defining New Functions}{chapter.12}% 62
-\BOOKMARK [1][-]{section.12.3}{Passing and Receiving Parameters by Position}{chapter.12}% 63
-\BOOKMARK [1][-]{section.12.4}{Composition of Functions in the Definition}{chapter.12}% 64
-\BOOKMARK [1][-]{section.12.5}{Composition of Functions in Parameter Lists}{chapter.12}% 65
-\BOOKMARK [1][-]{section.12.6}{Exercises}{chapter.12}% 66
-\BOOKMARK [0][-]{chapter.13}{Dictionaries}{}% 67
-\BOOKMARK [1][-]{section.13.1}{What are dictionaries}{chapter.13}% 68
-\BOOKMARK [1][-]{section.13.2}{Forming a Dictionary}{chapter.13}% 69
-\BOOKMARK [1][-]{section.13.3}{Using Dictionaries}{chapter.13}% 70
-\BOOKMARK [1][-]{section.13.4}{Exercises}{chapter.13}% 71
+\BOOKMARK [0][-]{chapter.12}{Dictionaries}{}% 60
+\BOOKMARK [1][-]{section.12.1}{What are dictionaries}{chapter.12}% 61
+\BOOKMARK [1][-]{section.12.2}{Forming a Dictionary}{chapter.12}% 62
+\BOOKMARK [1][-]{section.12.3}{Using Dictionaries}{chapter.12}% 63
+\BOOKMARK [1][-]{section.12.4}{Exercises}{chapter.12}% 64
+\BOOKMARK [0][-]{chapter.13}{Functions}{}% 65
+\BOOKMARK [1][-]{section.13.1}{Abstracting Common Tasks with Functions}{chapter.13}% 66
+\BOOKMARK [1][-]{section.13.2}{Defining New Functions}{chapter.13}% 67
+\BOOKMARK [1][-]{section.13.3}{Passing and Receiving Parameters by Position}{chapter.13}% 68
+\BOOKMARK [1][-]{section.13.4}{Composition of Functions in the Definition}{chapter.13}% 69
+\BOOKMARK [1][-]{section.13.5}{Composition of Functions in Parameter Lists}{chapter.13}% 70
+\BOOKMARK [1][-]{section.13.6}{Exercises}{chapter.13}% 71
 \BOOKMARK [0][-]{chapter.14}{Scope}{}% 72
 \BOOKMARK [1][-]{section.14.1}{The Concept of Scope}{chapter.14}% 73
 \BOOKMARK [1][-]{section.14.2}{Pythons Golden Exception err... Rule}{chapter.14}% 74
 \BOOKMARK [1][-]{section.14.3}{Forcing Global Scope for a Particular Variable}{chapter.14}% 75
-\BOOKMARK [0][-]{chapter.15}{Importing modules}{}% 76
-\BOOKMARK [1][-]{section.15.1}{The import Statement}{chapter.15}% 77
-\BOOKMARK [1][-]{section.15.2}{Namespaces}{chapter.15}% 78
-\BOOKMARK [1][-]{section.15.3}{The dir function}{chapter.15}% 79
-\BOOKMARK [1][-]{section.15.4}{The locals and globals Functions}{chapter.15}% 80
-\BOOKMARK [1][-]{section.15.5}{An Overview of Selected Standard Modules}{chapter.15}% 81
-\BOOKMARK [1][-]{section.15.6}{The sys Module}{chapter.15}% 82
-\BOOKMARK [1][-]{section.15.7}{The Standard Streams}{chapter.15}% 83
-\BOOKMARK [1][-]{section.15.8}{Exercises}{chapter.15}% 84
-\BOOKMARK [0][-]{chapter.16}{Understanding errors}{}% 85
-\BOOKMARK [1][-]{section.16.1}{Traceback most recent what?!?}{chapter.16}% 86
-\BOOKMARK [1][-]{section.16.2}{The Call Stack}{chapter.16}% 87
-\BOOKMARK [1][-]{section.16.3}{So what went wrong?}{chapter.16}% 88
-\BOOKMARK [1][-]{section.16.4}{Error types}{chapter.16}% 89
-\BOOKMARK [2][-]{section*.2}{IndentationError}{section.16.4}% 90
-\BOOKMARK [2][-]{section*.3}{NameError}{section.16.4}% 91
-\BOOKMARK [2][-]{section*.4}{IndexError}{section.16.4}% 92
-\BOOKMARK [2][-]{section*.5}{SyntaxError}{section.16.4}% 93
-\BOOKMARK [2][-]{section*.6}{TypeError}{section.16.4}% 94
-\BOOKMARK [2][-]{section*.7}{ValueError}{section.16.4}% 95
+\BOOKMARK [0][-]{chapter.15}{Understanding errors}{}% 76
+\BOOKMARK [1][-]{section.15.1}{Traceback most recent what?!?}{chapter.15}% 77
+\BOOKMARK [1][-]{section.15.2}{The Call Stack}{chapter.15}% 78
+\BOOKMARK [1][-]{section.15.3}{So what went wrong?}{chapter.15}% 79
+\BOOKMARK [1][-]{section.15.4}{Error types}{chapter.15}% 80
+\BOOKMARK [2][-]{section*.2}{IndentationError}{section.15.4}% 81
+\BOOKMARK [2][-]{section*.3}{NameError}{section.15.4}% 82
+\BOOKMARK [2][-]{section*.4}{IndexError}{section.15.4}% 83
+\BOOKMARK [2][-]{section*.5}{SyntaxError}{section.15.4}% 84
+\BOOKMARK [2][-]{section*.6}{TypeError}{section.15.4}% 85
+\BOOKMARK [2][-]{section*.7}{ValueError}{section.15.4}% 86

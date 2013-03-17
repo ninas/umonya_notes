@@ -22,7 +22,7 @@ Also of importance is the expression "hello" (note the double   quotes). The val
 >>> print(hello)
 Traceback (most recent call last):
   File "<stdin>", line 1, in ?
-NameError: name 'hello' is not defined
+NameError: name `hello' is not defined
 >>>
 \end{lstlisting}
 
@@ -53,17 +53,17 @@ Finally, you will notice that the \texttt{print()} statement always ends off   t
 
 Python treats all text in units called \textbf{strings}. A \textbf{string} is formed   by enclosing some text in quotes. Double quotes, or single quotes may   be used. There is a small limitation to this however, being that a   string cannot be broken across multiple lines.
 \begin{lstlisting}
-'this is a string of text'
+`this is a string of text'
 "this is also a string of text"
-'this string will
+`this string will
     cause an error, because it spans multiple lines'
 \end{lstlisting}
 
 Trying to enter the third string into the interactive shell yields
 \begin{lstlisting}
->>> 'this string will
+>>> `this string will
     File "<stdin>", line 1
-            'this string will
+            `this string will
                             ^
 SyntaxError: EOL while scanning single-quoted string
 >>>
@@ -74,7 +74,7 @@ EOL meaning End Of Line. If we want to introduce line breaks into   strings we c
 >>> """this string will not
 ...  cause an error
 ...    just because it is split over three lines"""
-'this string will not\n  cause an error\n    just because it is split over three lines'
+`this string will not\n  cause an error\n    just because it is split over three lines'
 >>>
 \end{lstlisting}
 
