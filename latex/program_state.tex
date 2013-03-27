@@ -9,7 +9,7 @@ Variables each have a name, a type, and a value. A name is simply   what we choo
 Python has five basic types:
 \begin{description}
 	\item[int] Integers, e.g. 1, 179835646, -3, 0
-	\item[string] Text strings, e.g. `Alice', ``The cat sat on the mat"
+	\item[string] Text strings, e.g. 'Alice', "The cat sat on the mat"
 	\item[float] Real numbers, e.g. 0.0, 48747.23501, -0.5
 	\item[bool] Boolean conditions, e.g. True, False
 	\item[None] None is used to specify a variable which has no type or actual value.
@@ -50,12 +50,12 @@ Let's look at what we've done, step by step.
 \begin{enumerate}
 	\item 
 \texttt{i = 1}
-\\     We create a new variable, called \texttt{i}, assign it a value of    \textit{1}, and Python sets it's type to \texttt{int}
+\\     We create a new variable, called \texttt{i}, assign it a value of    \textit{1}, and Python sets its type to \texttt{int}
 	\item 
 \texttt{j = i}
 \\     We create another new variable, this time called \texttt{j}, assign it a    value of ... well what exactly? 
 \texttt{i} is not a string    because it's not in quotes, and it's not a number, so it's being    treated as a variable. But what is \texttt{i}? Variables are implicitly    considered to be their current values. So 
-\texttt{i} is    implicitly considered to be 1 (it's current value)
+\texttt{i} is    implicitly considered to be 1 (its current value)
 	\item 
 \texttt{i = 2}
 \\     We assign a new value to \texttt{i}. The old value of \texttt{i} is    discarded.
@@ -143,7 +143,7 @@ Strings can be manipulated too, but the operations we perform on   them are fund
 \\
 \texttt{"The \textbf{quick} brown fox"[4:9]} yields \texttt{"quick"}.
 \\
-\texttt{"\textbf{T}h\textbf{e}\textbf{q}u\textbf{i}c\textbf{k}\textbf{b}r\textbf{o}w\textbf{n}\textbf{f}o\textbf{x}"[::2]} yields \texttt{"Teqikbonfx"}
+\texttt{"\textbf{T}h\textbf{e} \textbf{q}u\textbf{i}c\textbf{k} \textbf{b}r\textbf{o}w\textbf{n} \textbf{f}o\textbf{x}"[::2]} yields \texttt{"Teqikbonfx"}
 \\
 \texttt{"The \textbf{q}ui\textbf{c}k \textbf{b}ro\textbf{w}n fox"[4:15:3]} yields \texttt{"qcbw"}.
 \\
@@ -168,10 +168,10 @@ To recap:
 	\item What does the assignment statement do?
 	\item What are the five basic variable types in Python?
 	\item If the integer variable \texttt{i} has the value 7, then what is    the value of the expression 
-\texttt{7/4}. Why?
+\texttt{i/4}. Why?
 	\item How does one calculate the remainder (modulo) of an integer when    divided by another number?
 	\item Write a program that asks the user for a number from 1 to 31.    Assume the first day of the month is a Sunday. Output the name of    the weekday of the day of month the user entered.
-	\item Write a program that outputs the letter ``x" 1000 times on a    single line, without intervening spaces.
+	\item Write a program that outputs the letter ``x'' 1000 times on a    single line, without intervening spaces.
 	\item If \texttt{s} is a string variable with the value \texttt{"Harry's Hippie Hoedown"}, then what is the value of
 \\
 \texttt{s + ": tickets only    \$5"}

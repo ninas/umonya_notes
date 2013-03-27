@@ -14,7 +14,7 @@ We are capable of using our reasoning and intuition, when deciding what to do. C
 	\item  How much trouble will I get into?
 \end{itemize}
 
- Computers on the other hand are not capable of this sort of reasoning. Whilst we can weigh up different pros and cons, are able to bend our own rules and are even capable of remaining unsure, a computer can only decide either yes or no. There are no in between feelings, doubts or possibilities for changing its mind.   The logic computers use to make their decisions is called boolean logic. For a computer, something can only have two states, \textbf{True} or \textbf{ False}. A computer will ask these questions instead:
+ Computers on the other hand are not capable of this sort of reasoning. Whilst we can weigh up different pros and cons, are able to bend our own rules and are even capable of remaining unsure, a computer can only decide either yes or no. There are no in between feelings, doubts or possibilities for changing its mind.   The logic computers use to make their decisions is called boolean logic. For a computer, something can only have two states, \textbf{True} or \textbf{False}. A computer will ask these questions instead:
 \begin{itemize}
 	\item  Do I want to?
 	\item  Will there be more than 5 people there?
@@ -99,23 +99,23 @@ So back to our program to decide if we want to go to the party, we don't want to
  You can use boolean operators to string together multiple statements. e.g. to decide whether or not to go to a party you might use the following conditions
 
 
-\texttt{numOfPeople>5 {\bfseries and} numOfPeople$<$40 \textbf{and} (day==`Friday' \textbf{or} day==`Saturday')}
+\texttt{numOfPeople>5 {\bfseries and} numOfPeople$<$40 \textbf{and} (day=='Friday' \textbf{or} day=='Saturday')}
 
  This will produce \texttt{True} if the party has between 5 and 40 people, and it is either a Friday or a Saturday. \textbf{Note the brackets around the parts next to the or}. Brackets are used here to define which expression to evaluate first. This is because the evaluation of boolean algebra also follows a hierarchy system, \textit{BODMASCNAO}. Your standard BODMAS operations on numbers and variables come first. Then comes your conditions ($>$, $==$, \texttt{not} then \texttt{and} and finally comes \texttt{or}. So if we left out the brackets and only had: \\
-\texttt{numOfPeople>5 \textbf{and} numOfPeople$<$40 \textbf{and} day==`Friday' \textbf{or} day==`Saturday'}
+\texttt{numOfPeople>5 \textbf{and} numOfPeople$<$40 \textbf{and} day=='Friday' \textbf{or} day=='Saturday'}
 
- This could be interpreted as yes if the party has between 5 and 40 people and its a Friday, or if its a Saturday (In which case the number of people doesn't matter). Hence its very important to get your BODMAS right else you're going to be going to lame parties with only 2 other people, just because its a Saturday. Lets look at some examples:
+ This could be interpreted as yes if the party has between 5 and 40 people and its a Friday, or if its a Saturday (In which case the number of people doesn't matter). Hence it's very important to get your BODMAS right else you're going to be going to lame parties with only 2 other people, just because it's a Saturday. Lets look at some examples:
 \begin{lstlisting}
 	
 >>> 3>4 and 25==20
 False
->>> a=2==1 or 4+2>=6 and  not 5%2==0
+>>> a=2==1 or 4+2>=6 and not 5%2==0
 >>> a
 True
 >>> b=True and 1==1 and (3!=3 or 14-2>5 and 5==2*2)
 >>> b
 False
->>> `ell' in "Hello There"
+>>> 'ell' in "Hello There"
 True
 >>> b or a and 4$<$=3
 False
@@ -161,22 +161,22 @@ if <expression>:
 
 What \texttt{if} does, is check whether the expression provided has a value   of \texttt{True}, and if so, the statement immediately following the \texttt{if} is   executed, otherwise it is not executed.    Taking our previously expressed English examples:
 \begin{itemize}
-	\item \textit{If} there are between 5 and 40 people, and it's either a Friday or a Saturday, then \textbf{ go to the party}
+	\item \textit{If} there are between 5 and 40 people, and it's either a Friday or a Saturday, then \textbf{go to the party}
 	\item \textit{If} you'll get wet, \textbf{don't go outside}
 	\item \textit{If} it's dark in your room, and the lights are off, \textbf{turn them on}
 \end{itemize}
 
 We can now express them in Python as follows
 \begin{lstlisting}
-if numOfPeople>5 and numOfPeople$<$40 and (day==`Friday' or day==`Saturday'):
+if numOfPeople>5 and numOfPeople<40 and (day=='Friday' or day=='Saturday'):
     whatYoureDoing="going to the party"
 \end{lstlisting}
 \begin{lstlisting}
-if weather==`Raining' and `raincoat' not in thingsImWearing: 
+if weather=='Raining' and 'raincoat' not in thingsImWearing:
     pass #In other words, don't go outside
 \end{lstlisting}
 \begin{lstlisting}
-if dark and lightSwitch==`off':
+if dark and lightSwitch=='off':
     print("Go turn on your light")
 \end{lstlisting}
 
@@ -188,8 +188,8 @@ Note the statement
 We need to be aware of some common pitfalls that we will encounter   when translating English language logic (forgive the oxymoron) into   mathematical or computer logic. Examine the following examples:
 \begin{itemize}
 	\item English: If both first name and surname are not blank
-\\     Wrong: \texttt{if firstname and surname != `'}    
-\\     Correct: \texttt{if (firstname != `') and (surname != `')}   
+\\     Wrong: \texttt{if firstname and surname != ''}    
+\\     Correct: \texttt{if (firstname != '') and (surname != '')}   
 	\item English: If the premises contain more than 3 persons and no    children or pets (\textit{This is actually a very ambiguous statement})
 \\     Wrong: \texttt{if adults > 3 and children or pets == 0}    
 \\     Correct: \texttt{if persons > 3 and (children == 0 and pets == 0)}    
@@ -246,8 +246,8 @@ Unlike most other languages Python allows us to specify blocks using   \textbf{i
 \end{lstlisting}
 
 Running this program and giving the numbers 2, -4, and 7 as input   produces
-\begin{lstlisting}
-nyx@nyx-desktop:~/umonya_notes$ python illus.py 
+\begin{lstlisting}[keywords={}]
+nyx@nyx-desktop:~/umonya_notes$ python illus.py
 Enter the first number: 2
 The first number is even
 Enter the second number: -4
@@ -257,15 +257,15 @@ Enter the third number: -7
 There were 2 even numbers and 1 of those were negative
 \end{lstlisting}
 
-Firstly, let's get the indentation and nesting thing out of the way.   Looking at lines 12 through to 16 we see they are more indented than   the \texttt{if} statement on line 11. Thus these lines form a block of   statements. Since this block is immediately after an \texttt{if} statement, all   the statements in the block will only be executed if the \texttt{if} statement's   expression is \texttt{True}. For the first number we gave as input 2, this means the first                 \texttt{if} statement evaluates to \texttt{True}, so we start executing the block. When we get to line 14 we   encounter a second \texttt{if} statement. This second if statement is   \textbf{nested} inside the first, because it will only be   executed if the outer \texttt{if} statement (line 11) has an expression that   evaluates to \texttt{True}. Lines 15 and 16 form a \textbf{nested   block}, but are not executed because 2 is not negative, or more   specifically, because 2 is not less than 0. Conversely, lines 24 and 25   will be executed because -4 is less than 0. Although -7 is negative, lines 33 and 34 won't be executed, because the \texttt{if} statement on line 32 is part of the block from 30-34 that never gets executed
+Firstly, let's get the indentation and nesting thing out of the way.   Looking at lines 12 through to 16 we see they are more indented than   the \texttt{if} statement on line 11. Thus these lines form a block of   statements. Since this block is immediately after an \texttt{if} statement, all   the statements in the block will only be executed if the \texttt{if} statement's   expression is \texttt{True}. For the first number we gave as input 2, this means the first                 \texttt{if} statement evaluates to \texttt{True}, so we start executing the block. When we get to line 14 we   encounter a second \texttt{if} statement. This second if statement is   \textbf{nested} inside the first, because it will only be   executed if the outer \texttt{if} statement (line 11) has an expression that   evaluates to \texttt{True}. Lines 15 and 16 form a \textbf{nested   block}, but are not executed because 2 is not negative, or more   specifically, because 2 is not less than 0. Conversely, lines 24 and 25   will be executed because -4 is less than 0. Although -7 is negative, lines 33 and 34 won't be executed, because the \texttt{if} statement on line 32 is part of the block from 30--34 that never gets executed
 
 Despite the fact that this example is an order of magnitude larger   than any previous examples, there are only two new things. The first   being indentation and nesting, the second being the use of   
-\texttt{int()} around our input functions.  Remember that   \texttt{input()} returns a string. So even if the user types in 2,   \texttt{input()} returns not 2 but the string \texttt{`2'}. Strings and numbers don't   really play nice together, especially when they're being compared to   one another, so we need to convert the string into an integer. This is   known as \textbf{type casting} or \textbf{coercion}. We   can do it for any basic Python type ...
+\texttt{int()} around our input functions.  Remember that   \texttt{input()} returns a string. So even if the user types in 2,   \texttt{input()} returns not 2 but the string \texttt{'2'}. Strings and numbers don't   really play nice together, especially when they're being compared to   one another, so we need to convert the string into an integer. This is   known as \textbf{type casting} or \textbf{coercion}. We   can do it for any basic Python type ...
 \begin{lstlisting}
 >>> float("3.1415")
 3.1415
 >>> str(143)
-`143'
+'143'
 >>> bool(None)
 False
 >>> bool(-1)
@@ -281,9 +281,9 @@ True
 \begin{lstlisting}
 if numOfPeople>5:
 	if numOfPeople<40:
-		if day==`Friday':
+		if day=='Friday':
 			print("Go to party")
-		if day==`Saturday':
+		if day=='Saturday':
 			print("Go to party")
 \end{lstlisting}
 
@@ -377,11 +377,11 @@ The third run illustrates nicely that in fact strings in Python are   case sensi
 \begin{enumerate}
 	\item Give a condition to check whether a number \textit{x} is divisible by another number, \textit{y}? 
 \\\textit{Hint: what does the operator \textit{\%} do?}
-	\item Given the English phrase, ``If you're not on the VIP list or    the staff list, you can't come in.", write down an equivalent Python/pseudo code    condition.
+	\item Given the English phrase, ``If you're not on the VIP list or    the staff list, you can't come in.'', write down an equivalent Python/pseudo code    condition.
 	\item Write a program that reads in a number and halves it, unless it's an odd number, in which case it must print a suitable error  message.
 	\item Do you think the following is True or False?    
 \begin{lstlisting}
-`Two' 
+'Two' 
 \end{lstlisting}
 			Evaluate it. Is the answer what you expected? How are strings compared to each other?
 \item Write a program with the below code. Run it and give it 1 as an input. Does the program do as you expected? Why not? Try and fix it.
@@ -417,7 +417,7 @@ import random
 a=random.randrange(10)
 print (a)
 \end{lstlisting} 
-\item The above code prints a random number between 0 and 10. Use the above code in a program that asks the user to guess what number the computer is ``thinking of". Then tell the user if he was right, or wrong, and if so, whether his guess was too high or too low.
+\item The above code prints a random number between 0 and 10. Use the above code in a program that asks the user to guess what number the computer is ``thinking of''. Then tell the user if he was right, or wrong, and if so, whether his guess was too high or too low.
 	\item Write a program that asks the user to enter a number, then
 			prints out all the numbers from 1 to 10 by which the entered number
 			is divisible.
