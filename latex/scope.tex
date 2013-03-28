@@ -1,12 +1,12 @@
 \section{The Concept of Scope}
 
-The concept of scope refers to the idea that variables have a   limited availability according to the block of statements in which they   were originally defined. We could say that the structure of blocks of   statements in a Python program resembles a set of bulleted lists lying   variously within one another. On the outside we have our number list   (our 'main block'), and all other lists (blocks), are contained   in it, either directly or sub-contained within another inner   block.\textbf{The scope of a variable is the set of blocks within which    it is available, i.e. defined.}
+The concept of scope refers to the idea that variables have a   limited availability according to the block of statements in which they   were originally defined. We could say that the structure of blocks of   statements in a Python program resembles a set of bulleted lists lying   variously within one another. On the outside we have our number list   (our `main block'), and all other lists (blocks), are contained   in it, either directly or sub-contained within another inner   block. \textbf{The scope of a variable is the set of blocks within which    it is available, i.e. defined.}
 
 The outermost block, i.e. our main program, or everything beginning   in column 1 of our code, is generally referred to as \textbf{the global   scope}.
 
-\section{Pythons Golden Exception err... Rule}
+\section{Pythons Golden Exception err\ldots\ Rule}
 
-Python in general sets the scope of a variable to be the block in   which it is defined and consequently all blocks inside of that block,   to any arbitrary level.  This means that if some variable 'a' has been   defined in a block, and I wish to use it's value in that block or any   other block inside of that block, I can. 'a' will be there.
+Python in general sets the scope of a variable to be the block in   which it is defined and consequently all blocks inside of that block,   to any arbitrary level.  This means that if some variable `a' has been   defined in a block, and I wish to use its value in that block or any   other block inside of that block, I can. `a' will be there.
 
 One analogy is that of the program as a large open room. Variables   are slips of paper on which values are written on one side, and the   variables' names on the other. Whenever we need the value of a   variable, for example when a variable is referenced in an expression,   we can quickly scan through the papers in the room for the one with the   right name, and read the value off the other side. But when we call a   function, it's like putting up a wall of one way glass that divides the   room in half, behind us as we walk into the function's area. We can   look back through the glass, and still see all the papers that were in   the room originally, and thus their names and values, but someone   standing on the other side can't see any papers we may use inside the   function enclosure, i.e. variables assigned values in the function.   When we exit the function, and take down the glass wall in doing so, we   also destroy all the papers used on the inside of the wall.
 

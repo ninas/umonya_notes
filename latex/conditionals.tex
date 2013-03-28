@@ -24,7 +24,7 @@ We are capable of using our reasoning and intuition, when deciding what to do. C
 
  A computer can analyse certain conditions, determine if they are true or false, and then act accordingly. There is no room for leeway, no randomness, the computer is always sure that what it's doing is correct. How does it know that it's correct? Because you told it it was.
 
-In addition to computers only being aware of two conditions,   programming languages generally have very few ways of determining what   those conditions are and acting upon them. Lets have a look at that second example, ``Will there be more than 5 people there":
+In addition to computers only being aware of two conditions,   programming languages generally have very few ways of determining what   those conditions are and acting upon them. Lets have a look at that second example, ``Will there be more than 5 people there'':
 
 
 \begin{lstlisting}
@@ -41,7 +41,7 @@ False
 
 		\end{lstlisting}
 
-In the above example, we set the \texttt{numOfPeople} first to 7, then to -3 then to 5. See how the expression 
+In the above example, we set the \texttt{numOfPeople} first to 7, then to $-3$ then to 5. See how the expression 
 \texttt{numOfPeople>5} only returns 
 \texttt{True} when the value stored in the expression is \textbf{more} than 5, and returns 
 \texttt{False} otherwise.    
@@ -57,7 +57,7 @@ continue  finally   is        try
 def       for       lambda    while
                 \end{lstlisting}}
 
-Note that when forming our proposition we used a specific operator,   the greater than sign ``$>$". When forming propositions we can use a   specific set of operators, called \textbf{comparison   operators}. If both \texttt{a} and \texttt{b} are expressions of any   type:
+Note that when forming our proposition we used a specific operator,   the greater than sign ``$>$''. When forming propositions we can use a   specific set of operators, called \textbf{comparison   operators}. If both \texttt{a} and \texttt{b} are expressions of any   type:
 \begin{itemize}
 	\item 
 \texttt{a == b} proposes Equivalence. \\
@@ -188,8 +188,8 @@ Note the statement
 We need to be aware of some common pitfalls that we will encounter   when translating English language logic (forgive the oxymoron) into   mathematical or computer logic. Examine the following examples:
 \begin{itemize}
 	\item English: If both first name and surname are not blank
-\\     Wrong: \texttt{if firstname and surname != ''}    
-\\     Correct: \texttt{if (firstname != '') and (surname != '')}   
+\\     Wrong: \texttt{if firstname and surname != '{}'}    
+\\     Correct: \texttt{if (firstname != '{}') and (surname != '{}')}   
 	\item English: If the premises contain more than 3 persons and no    children or pets (\textit{This is actually a very ambiguous statement})
 \\     Wrong: \texttt{if adults > 3 and children or pets == 0}    
 \\     Correct: \texttt{if persons > 3 and (children == 0 and pets == 0)}    
@@ -257,7 +257,7 @@ Enter the third number: -7
 There were 2 even numbers and 1 of those were negative
 \end{lstlisting}
 
-Firstly, let's get the indentation and nesting thing out of the way.   Looking at lines 12 through to 16 we see they are more indented than   the \texttt{if} statement on line 11. Thus these lines form a block of   statements. Since this block is immediately after an \texttt{if} statement, all   the statements in the block will only be executed if the \texttt{if} statement's   expression is \texttt{True}. For the first number we gave as input 2, this means the first                 \texttt{if} statement evaluates to \texttt{True}, so we start executing the block. When we get to line 14 we   encounter a second \texttt{if} statement. This second if statement is   \textbf{nested} inside the first, because it will only be   executed if the outer \texttt{if} statement (line 11) has an expression that   evaluates to \texttt{True}. Lines 15 and 16 form a \textbf{nested   block}, but are not executed because 2 is not negative, or more   specifically, because 2 is not less than 0. Conversely, lines 24 and 25   will be executed because -4 is less than 0. Although -7 is negative, lines 33 and 34 won't be executed, because the \texttt{if} statement on line 32 is part of the block from 30--34 that never gets executed
+Firstly, let's get the indentation and nesting thing out of the way.   Looking at lines 12 through to 16 we see they are more indented than   the \texttt{if} statement on line 11. Thus these lines form a block of   statements. Since this block is immediately after an \texttt{if} statement, all   the statements in the block will only be executed if the \texttt{if} statement's   expression is \texttt{True}. For the first number we gave as input 2, this means the first                 \texttt{if} statement evaluates to \texttt{True}, so we start executing the block. When we get to line 14 we   encounter a second \texttt{if} statement. This second if statement is   \textbf{nested} inside the first, because it will only be   executed if the outer \texttt{if} statement (line 11) has an expression that   evaluates to \texttt{True}. Lines 15 and 16 form a \textbf{nested   block}, but are not executed because 2 is not negative, or more   specifically, because 2 is not less than 0. Conversely, lines 24 and 25   will be executed because -4 is less than 0. Although $-7$ is negative, lines 33 and 34 won't be executed, because the \texttt{if} statement on line 32 is part of the block from 30--34 that never gets executed
 
 Despite the fact that this example is an order of magnitude larger   than any previous examples, there are only two new things. The first   being indentation and nesting, the second being the use of   
 \texttt{int()} around our input functions.  Remember that   \texttt{input()} returns a string. So even if the user types in 2,   \texttt{input()} returns not 2 but the string \texttt{'2'}. Strings and numbers don't   really play nice together, especially when they're being compared to   one another, so we need to convert the string into an integer. This is   known as \textbf{type casting} or \textbf{coercion}. We   can do it for any basic Python type ...

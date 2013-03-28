@@ -76,7 +76,7 @@ Now we haven't kept a record of the numbers entered so how can we   tell how man
 \begin{lstlisting}
 even = 0
 number = input("Enter a number: ")
-while number != `':
+while number != '':
     number = input("Enter another number (or nothing to finish): ")
 \end{lstlisting}
 
@@ -84,7 +84,7 @@ Now at the end of our program we still have 0 even numbers, because   we haven't
 \begin{lstlisting}
 even = 0
 number = input("Enter a number: ")
-while number != `':
+while number != '':
     if int(number) % 2 == 0: #if number is even
         even = even + 1
     number = input("Enter another number (or nothing to finish): ")
@@ -99,10 +99,10 @@ The last piece of the problem description says we should also count   how many o
 even = 0
 negative = 0
 number = input("Enter a number: ")
-while number != `':
+while number != '':
     if int(number) % 2 == 0: #if number is even
         even = even + 1
-        if int(number) $<$ 0:
+        if int(number) < 0:
             negative = negative + 1
     number = input("Enter another number (or nothing to finish): ")
 print("There were", even, "even numbers, of which", negative, "were also negative")
@@ -118,12 +118,12 @@ Looking at the \texttt{while} statement, it seems that once we're in a block   o
 even = 0
 negative = 0
 number = input("Enter a number (or nothing or `quit' to quit): ")
-while number != `':
-    if number == `quit':
+while number != '':
+    if number == 'quit':
         break
     if int(number) % 2 == 0: #if number is even
         even = even + 1
-        if int(number) $<$ 0:
+        if int(number) < 0:
             negative = negative + 1
     number = input("Enter another number (or nothing to finish): ")
 print("There were", even, "even numbers, of which", negative, "were also negative")
@@ -138,15 +138,15 @@ If we wanted to get picky and consider 0 to not be even, we would   have to modi
 even = 0
 negative = 0
 number = input("Enter a number (or nothing or 'quit' to quit): ")
-while number != `':
-    if number == `quit':
+while number != '':
+    if number == 'quit':
         break
-    if number == `0':
-        number = input("Enter another number (or nothing or `'quit' to quit): ")
+    if number == '0':
+        number = input("Enter another number (or nothing or `quit' to quit): ")
         continue
     if int(number) % 2 == 0: #if number is even
         even = even + 1
-        if int(number) $<$ 0:
+        if int(number) < 0:
             negative = negative + 1
     number = input("Enter another number (or nothing or `quit' to quit): ")
 print("There were", even, "even numbers, of which", negative, "were also negative")

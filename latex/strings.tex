@@ -5,9 +5,9 @@ Strings can be thought of as sequences (as lists are sequences) of   characters.
 	\item 
 \texttt{<string>.count(<substring>)} returns    the number of times \texttt{substring} (portion of the string) occurs within the string.
 	\item 
-\texttt{<string>.find(<substring>)} returns the    index (position) within the string of the first (from the left) occurrence of    \texttt{substring}. Returns -1 if \texttt{substring} cannot be found.
+\texttt{<string>.find(<substring>)} returns the    index (position) within the string of the first (from the left) occurrence of    \texttt{substring}. Returns $-1$ if \texttt{substring} cannot be found.
 	\item 
-\texttt{<string>.rfind(<substring>)} returns    the index within the string of the last (from the left) occurrence    of \texttt{substring}. Returns -1 if \texttt{substring} cannot be found.
+\texttt{<string>.rfind(<substring>)} returns    the index within the string of the last (from the left) occurrence    of \texttt{substring}. Returns $-1$ if \texttt{substring} cannot be found.
 	\item 
 \texttt{<string>.index(<substring>)} returns    the index within the string of the first (from the left) occurrence    of \texttt{substring}. Causes an error if \texttt{substring} cannot be found.
 	\item 
@@ -66,37 +66,37 @@ The most commonly used methods on strings are those to change the   format of te
 \end{itemize}
 \begin{lstlisting}
 >>> "a sentence poorly capitalized".capitalize()
-`A sentence poorly capitalized'
+'A sentence poorly capitalized'
 >>>
 >>> "aBcD".swapcase()
-`AbCd'
+'AbCd'
 >>>
 >>> "center me please".center(60)
-`                      center me please                      '
+'                      center me please                      '
 >>>
 >>> "I need some justification here".ljust(60)
-`I need some justification here                              '
+'I need some justification here                              '
 >>>
 >>> "No! Real Justification, the RIGHT justification".rjust(60)
-`             No! Real Justification, the RIGHT justification'
+'             No! Real Justification, the RIGHT justification'
 >>>
 >>> "LOWER me Down".lower()
-`lower me down'
+'lower me down'
 >>>
 >>> "raise Me UP".upper()
-`RAISE ME UP'
+'RAISE ME UP'
 >>>
 >>> "     I put my whitespace left, I put my whitespace right     ".strip()
-`I put my whitespace left, I put my whitespace right'
+'I put my whitespace left, I put my whitespace right'
 >>>
 >>> "Sung to the tune of `The h0ky p0ky'".replace("0ky","okey")
 "Sung to the tune of `The hokey pokey'"
 >>>
->>> "     Losing whitespace on the left.      ".lstrip()
-`Losing whitespace on the left.     '
+>>> "     Losing whitespace on the left.   ".lstrip()
+'Losing whitespace on the left.     '
 >>>
->>> "      Losing whitespace on the right.     ".rstrip()
-`      Losing whitespace on the right.' 
+>>> "      Losing whitespace on the right.  ".rstrip()
+'      Losing whitespace on the right.' 
 >>>
 \end{lstlisting}
 
@@ -104,11 +104,11 @@ The most commonly used methods on strings are those to change the   format of te
 
 After all that, let's cut to the chase. The \texttt{.format()} function.   This allows us to use interpolation (which is explained below) and provides the majority of string   formatting operations in a single consistent pattern.  Learn it,   understand it, appreciate its inner beauty!
 
-This is done using the \texttt{.format()} function. Formally put, this interpolates (or inserts) a sequence of   values (i.e. a list, tuple, or in some special cases a dictionary) into   a string containing interpolation points (placeholders). Wowsers we   say? Again in English? The \texttt{.format()} function combines a string   containing certain codes and a sequence containing values, such that   those values are inserted into their respective positions within the   string, defined by the position of the codes, formatted according to   the specification of those codes, and replacing those codes... Ok, perhaps just an example   then...
+This is done using the \texttt{.format()} function. Formally put, this interpolates (or inserts) a sequence of   values (i.e. a list, tuple, or in some special cases a dictionary) into   a string containing interpolation points (placeholders). Wowsers we   say? Again in English? The \texttt{.format()} function combines a string   containing certain codes and a sequence containing values, such that   those values are inserted into their respective positions within the   string, defined by the position of the codes, formatted according to   the specification of those codes, and replacing those codes\ldots\ Ok, perhaps just an example   then\ldots
 \begin{lstlisting}
 >>> s = "My very {0} monkey jumps swiftly under {1} planets".format("energetic", 9)
 >>> s
-`My very energetic monkey jumps swiftly under 9 planets'
+'My very energetic monkey jumps swiftly under 9 planets'
 >>>
 \end{lstlisting}
 
@@ -118,22 +118,22 @@ However, instead of having to put parameters in the exact order you wanted to in
 \begin{lstlisting}
 >>> s = "My very {mood} monkey jumps swiftly under {number} planets".format(number=5, mood="sad")
 >>> s
-`My very sad monkey jumps swiftly under 5 planets'
+'My very sad monkey jumps swiftly under 5 planets'
 \end{lstlisting}
 
-Time to get technical. And thingie is not a technical term, except   amongst electrical engineers and biochemists. The \texttt{.format()} function converts      all values in the sequence to strings   during the merge. The \textit{placeholder} (`\{ \}') has a specific format, namely it is contained in `\{\}'   and holds at least one identifier. It's easier to look at the complete format in point form, so here it is...
+Time to get technical. And thingie is not a technical term, except   amongst electrical engineers and biochemists. The \texttt{.format()} function converts      all values in the sequence to strings   during the merge. The \textit{placeholder} (`\{ \}') has a specific format, namely it is contained in `\{\}'   and holds at least one identifier. It's easier to look at the complete format in point form, so here it is\ldots
 \begin{enumerate}
 	\item 
 \texttt{\{ identifier \}}
 \\        Placeholders  \textit{must} have `\{ \}' around them with        either a parameter number or parameter name inside.
 	\item 
 \texttt{(<mapping/key name>)} 
-\\        The parameter identifier may be optionally followed by a key name from a dictionary    used as a parameter (i.e. instead of a tuple or list). This    is \textit{required} if you use a dictionary to    interpolate, as dictionary keys aren't returned in order (and therefore,       it doesn't make sense to use numbered parameters to decide where they go. 
+\\        The parameter identifier may be optionally followed by a key name from a dictionary    used as a parameter (i.e. instead of a tuple or list). This    is \textit{required} if you use a dictionary to    interpolate, as dictionary keys aren't returned in order (and therefore,       it doesn't make sense to use numbered parameters to decide where they go). 
 \begin{lstlisting}
 >>> s = "My {0[mood]} monkey jumps swiftly under {0[number]} planets".format(
         {"mood": "playful", "number": 3, "something": "else"})
 >>> s
-`My playful monkey jumps swiftly under 3 planets'
+'My playful monkey jumps swiftly under 3 planets'
 \end{lstlisting}
 	\item 
 \texttt{\{identifier: format\}} *optional
@@ -176,22 +176,22 @@ Time to get technical. And thingie is not a technical term, except   amongst ele
 \end{enumerate}
 \begin{lstlisting}
 >>> "An integer with field width of three: {0:3}".format(5)
-`An integer with field width of three:5   '
+'An integer with field width of three:5   '
 >>>
 >>> "An integer right justified with a field length of 3: {0:3>}".format(5) 
-`An integer right justified with a field length of 3:   5'
+'An integer right justified with a field length of 3:   5'
 >>>
 >>> "An integer with leading zeros: {0:02}".format(5)
-`An integer with leading zeros: 005'
+'An integer with leading zeros: 005'
 >>>
 >>> "An integer right justified with forced +: {0:+>}".format(5)
-`An integer right justified with forced +:  +5'
+'An integer right justified with forced +:  +5'
 >>>
 >>> "A number with precision 3: {0:.3f}".format(5)
-`A number with precision 3: 5.000'
+'A number with precision 3: 5.000'
 >>>
 >>> "A number in scientific notation: {0:e}".format(0.0000025)
-`A number in scientific notation: 2.5e-06'
+'A number in scientific notation: 2.5e-06'
 >>>
 \end{lstlisting}
 
@@ -235,26 +235,26 @@ False
 >>> "The quick brown fox".startswith("The ")
 True
 >>>
->>> ", ".join([`1', `2', `3', `4'])
-`1, 2, 3, 4'
+>>> ", ".join(['1', '2', '3', '4'])
+'1, 2, 3, 4'
 >>> 
->>> "a, b, c, d".split(`,')
-[`a', ` b', ` c', ` d']
+>>> "a, b, c, d".split(',')
+['a', ' b', ' c', ' d']
 >>>
->>> "a, b, c, d".split(`, ')
-[`a', `b', `c', `d']
+>>> "a, b, c, d".split(', ')
+['a', 'b', 'c', 'd']
 >>> 
 >>> "abababa".split("bab")
-[`a', `aba']
+['a', 'aba']
 >>>
 >>> "abababa".rsplit("bab")
-[`aba', `a']
+['aba', 'a']
 >>>
 \end{lstlisting}
 
 \section{Exercises}
 \begin{enumerate}
-	\item Strings are immutable - the value of a string                         cannot be modified, but a new string can be created and                         assigned to the same variable name.  How would one thus                         change a string variable, to for example to insert `-)'                         after every colon?
+	\item Strings are immutable --- the value of a string                         cannot be modified, but a new string can be created and                         assigned to the same variable name.  How would one thus                         change a string variable, to for example to insert `-)'                         after every colon?
 	\item If we try to use the \texttt{.format()} function with a                         tuple, the tuple must have the same number of elements                         as there are \{ \} identifiers in the string. Is this the                         case with dictionaries?  Why?
 	\item Write a program that reads in names until a blank                         line is encountered, after which it prints out an                         English style list, i.e. a comma separated list, where                         the last name is preceded by the word `and' instead of                         a comma.
 	\item What is the value of 
@@ -265,8 +265,8 @@ True
 \texttt{"\{0:02\}/\{1:02\}/\{2:04\}".format(10,3,2009)}?
 	\item What is the value of 
 \texttt{"\{0:5.3f\}".format(3.1415)}?
-	\item How would you print a column of numbers so the line up right    justified for convenient addition?
-	\item How would you print a user entered string centred in the    middle of the console?
+	\item How would you print a column of numbers so they line up right    justified for convenient addition?
+	\item How would you print a user-entered string centred in the    middle of the console?
 	\item Write a program that reads in the name, price, and quantity of    an item, and stores it in a list of tuples, repeating until a blank    product name is entered. It should then print out each item in a    nicely formatted manner, using string formatting.
 	\item Tougher Problem: Modify your answer to question 11                         to use products from a dictionary of product codes                         mapped to product descriptions. Invalid codes should                         print a warning, and product codes should be integers.                         The print out at the end should print the full name of                         the item, followed in brackets by it's code, as well as                         price and quantity.
 \end{enumerate} 
