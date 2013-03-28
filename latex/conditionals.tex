@@ -299,7 +299,7 @@ if numOfPeople>5 and numOfPeople<40 and (day==`Friday' or day==`Saturday):
 
 \section{Specifying Execution Code for Alternate Conditions}
 
-So now we have a handle on basic \texttt{if} statements, we come up against   the next hurdle. If our condition isn't met, our if block statements   simply aren't executed. But what if we want something   \textbf{else} executed instead of nothing when the condition   isn't met. We could simply follow our first \texttt{if} with another \texttt{if} that has the opposite expression (using not), but this isn't a very elegant solution. Enter the \texttt{if ... else} statement.
+So now we have a handle on basic \texttt{if} statements, we come up against   the next hurdle. If our condition isn't met, our if block statements   simply aren't executed. But what if we want something   \textbf{else} executed instead of nothing when the condition   isn't met. We could simply follow our first \texttt{if} with another \texttt{if} that has the opposite expression (using not), but this isn't a very elegant solution. Enter the \texttt{if \ldots\ else} statement.
 \begin{lstlisting}
 1: first = int(input("Enter a number: "))
 2: if first % 2 == 0:
@@ -337,9 +337,9 @@ Stop! You're obviously drunk.
 nyx@nyx-desktop:~/umonya_notes$
 \end{lstlisting}
 
-The first run things happen as expected; We get to line 2, the value   of colour is \textit{Red}, the expression for the \texttt{if} statement is \texttt{True},   we execute line 3 ... and then the program finishes! This is because   line 4 is not part of the block constituting line 2's \texttt{if} clause,   because it has a lower indentation level. Also lines 4, 6 and 8 are   all still part of the same \texttt{if} statement. Let's look at the second run a   little more closely to see what happens.
+The first run things happen as expected; We get to line 2, the value   of colour is \textit{Red}, the expression for the \texttt{if} statement is \texttt{True},   we execute line 3 \ldots\ and then the program finishes! This is because   line 4 is not part of the block constituting line 2's \texttt{if} clause,   because it has a lower indentation level. Also lines 4, 6 and 8 are   all still part of the same \texttt{if} statement. Let's look at the second run a   little more closely to see what happens.
 
-We get to line 2, the value of colour is \textit{Green}.   \textit{Green} is not equal to \textit{Red}, so we don't execute line   3. Instead we jump to the \texttt{else} ... hang on! What is \texttt{elif}? \texttt{elif} is   short for \textit{else if} and allows one to set up alternate conditions if   earlier conditions haven't been met. So we get to the \texttt{elif} on line 4.   \textit{Green} is not \textit{Orange} so we don't execute line 5, instead we go onto line 6, which is still part of the same if-else group. \textit{Green} is equal to \textit{Green} so that will return true and we will run line 7.
+We get to line 2, the value of colour is \textit{Green}.   \textit{Green} is not equal to \textit{Red}, so we don't execute line   3. Instead we jump to the \texttt{else} \ldots\ hang on! What is \texttt{elif}? \texttt{elif} is   short for \textit{else if} and allows one to set up alternate conditions if   earlier conditions haven't been met. So we get to the \texttt{elif} on line 4.   \textit{Green} is not \textit{Orange} so we don't execute line 5, instead we go onto line 6, which is still part of the same if-else group. \textit{Green} is equal to \textit{Green} so that will return true and we will run line 7.
 
 The third run illustrates nicely that in fact strings in Python are   case sensitive too. Not just the language, but the data we manipulate   with it is considered case sensitive. \textit{Orange} and \textit{orange} are different   strings, hence neither the \texttt{if}, nor any of the \texttt{elif}s execute. As a last resort, the block after the \texttt{else} executes.
 

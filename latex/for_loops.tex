@@ -82,12 +82,12 @@ Item number 5 is Jacket and it costs R 150
 \lstset{keywordstyle=\textbf}
 \textit{Note that if you were printing this for your mother, she might not understand why milk is the 0th item and not the 1st, so you might want to} \texttt{print(i+1)} \textit{so that it seems to start at 1.}
 
- That works alright. But if we were dealing with larger lists,   like of 19 items, or even thousands of items, we really don't   want to have to type out the list of possible indexes ([0, 1, 2, ...,   19]) every time. Python again comes to the rescue with another built in   function, \texttt{range}.   \texttt{range} returns a list of numbers within a given range, and defined as   follows
+ That works alright. But if we were dealing with larger lists,   like of 19 items, or even thousands of items, we really don't   want to have to type out the list of possible indexes ([0, 1, 2, \ldots, 19]) every time. Python again comes to the rescue with another built in   function, \texttt{range}.   \texttt{range} returns a list of numbers within a given range, and defined as   follows
 \begin{lstlisting}
 range([start,] stop [, step])
 \end{lstlisting}
 
-What it does is returns a list of integers, starting with the number   given by \texttt{start} (or 0 if \texttt{start} is not given), up to but not including   the number given by \texttt{stop}. If \texttt{step} is given, the list will only   provide every \texttt{step}'th integer in the sequence. Examples probably   illustrate this better ...
+What it does is returns a list of integers, starting with the number   given by \texttt{start} (or 0 if \texttt{start} is not given), up to but not including   the number given by \texttt{stop}. If \texttt{step} is given, the list will only   provide every \texttt{step}'th integer in the sequence. Examples probably   illustrate this better \ldots
 
 \begin{lstlisting}
 >>> range(5)
@@ -169,10 +169,10 @@ else:
 	\item What is an expression, using the \texttt{range} function, that yields a    list of 100 consecutive integers starting from 1?
 	\item What is an expression, using the \texttt{range} function, that yields a    list of 100 consecutive \textit{even} integers starting    from 2?
 	\item Write a program that prints the \textit{odd} numbers from 1 to 100 each on    its own line.
-	\item The triangular numbers are the numbers 1, 3, 6, 10, 15... The \textit{n}'th triangular number is the sum of all the integers from 1 till \textit{n}. e.g. the 4th triangular number is 1+2+3+4=10. Write a program that accepts an integer value for \textit{n} from the user, and prints the \textit{n}'th triangular number.
-	\item Write a program that accepts words from the user, storing them in a list, until the user enters the word ``end". The program must then print out all the words in reverse order.
-	\item Modify your answer to question 10 from ``Flow Control:    Conditionals", i.e. print out the numbers from 1 to 10 by which a    user entered number is divisible, to use a \texttt{for} loop instead of    multiple \texttt{if} statements.
-	\item Write a program that asks the user for the height of a triangle.    It must then print out a right handed triangle, with the right-angle on the    bottom left, made of asterisks (*) of a height equal to the    number entered. Example input/output follows ...      
+	\item The triangular numbers are the numbers 1, 3, 6, 10, 15\ldots\ The \textit{n}'th triangular number is the sum of all the integers from 1 till \textit{n}. e.g. the 4th triangular number is $1+2+3+4=10$. Write a program that accepts an integer value for \textit{n} from the user, and prints the \textit{n}'th triangular number.
+	\item Write a program that accepts words from the user, storing them in a list, until the user enters the word ``end''. The program must then print out all the words in reverse order.
+	\item Modify your answer to question 10 from ``Flow Control:    Conditionals'', i.e. print out the numbers from 1 to 10 by which a    user entered number is divisible, to use a \texttt{for} loop instead of    multiple \texttt{if} statements.
+	\item Write a program that asks the user for the height of a triangle.    It must then print out a right-angled triangle, with the right angle on the    bottom left, made of asterisks (*) of a height equal to the    number entered. Example input/output follows \ldots
 \begin{lstlisting}
 Enter triangle height: 3
 *
@@ -187,7 +187,7 @@ Enter triangle height: 5
 ****
 *****
 \end{lstlisting}
-	\item Do the same as above, except now with the right-angle in the top right, and after you have printed the first triangle, you must start all over again until the user enters a blank line for input. Example ...      
+	\item Do the same as above, except now with the right angle in the top right, and after you have printed the first triangle, you must start all over again until the user enters a blank line for input. Example \ldots
 \begin{lstlisting}
 Enter triangle height: 3
 ***

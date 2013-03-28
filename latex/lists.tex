@@ -24,7 +24,7 @@ A list is a \textbf{type} of variable. To create a new   variable of type list i
 \end{lstlisting}
 	\item The elements of a list can be expressions of any type    (including another list) and different elements in the same list    can be of different types, e.g. \texttt{mixed} has three elements; the    first element is a string (\texttt{"a string"}), the second element is an    integer (\texttt{143}), and the third element is another list (\texttt{[341]}).
 	\item Lists can contain no elements, in which case they are known as    \textit{empty}, e.g. \texttt{empty} contains no elements, but is still a list!
-	\item Individual elements of a list are indexed according to their    position in the list. The first position has an index of 0, the    second position an index of 1, etc...
+	\item Individual elements of a list are indexed according to their    position in the list. The first position has an index of 0, the    second position an index of 1, etc\ldots
 	\item We can access a specific element in a list by using a special    operator in an expression with the format    
 \texttt{list[index]}. This expression evaluates to the element    in the index'th position of the list. e.g. 
 \texttt{mylist[0]}    is 1, 
@@ -165,7 +165,7 @@ The comparison of lists to other lists, and other types is also   slightly diffe
 It returns true if all the elements of \texttt{a} are the same as the elements of \texttt{b}.
 	\item 
 \texttt{a < b} yields Less Than. \\
-Note that lists are    compared in sequence order, meaning that \texttt{a} is less than \texttt{b} if    \texttt{a}'s first element is less than \texttt{b}'s first element. If \texttt{a}'s first    element and \texttt{b}'s first element are equal, the second elements are    checked, etc...
+Note that lists are    compared in sequence order, meaning that \texttt{a} is less than \texttt{b} if    \texttt{a}'s first element is less than \texttt{b}'s first element. If \texttt{a}'s first    element and \texttt{b}'s first element are equal, the second elements are    checked, etc\ldots
 	\item 
 \texttt{v in a} is True only if the list a contains an    element whose value is that of the expression \texttt{v}.
 	\item 
@@ -427,7 +427,7 @@ That being said, let's round off our knowledge of lists by   going through the l
 % 
 
 	\item Write a program that outputs the position of every \texttt{`t'} in the    list \texttt{[`a', `c', `g', `t', `t', `a', `t']}. Use the index method,    don't do it manually.
-	\item Write a program that asks the user to enter a sequence of up to    5 x:y coordinates with both x and y in the range 0 to 4, ending    their sequence entry by providing a blank line for the x    coordinate. Then display a five by five grid of `\#' characters,    with the points in the grid entered by the user left blank. Assume    x increases from left to right, and y increases from top to bottom.    Example input/output is given ...          
+	\item Write a program that asks the user to enter a sequence of up to    5 x:y coordinates with both x and y in the range 0 to 4, ending    their sequence entry by providing a blank line for the x    coordinate. Then display a five by five grid of `\#' characters,    with the points in the grid entered by the user left blank. Assume    x increases from left to right, and y increases from top to bottom.    Example input/output is given \ldots          
 \begin{lstlisting}
 Coordinates range from 0 to 4!
 Please enter pair of coordinates (x:y), leave x blank to terminate sequence.
