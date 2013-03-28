@@ -91,17 +91,23 @@ What it does is returns a list of integers, starting with the number   given by 
 
 \begin{lstlisting}
 >>> range(5)
+range(0, 5)
+>>> list(range(5))
 [0, 1, 2, 3, 4]
->>> range(4,10)
+>>> list(range(4,10))
 [4, 5, 6, 7, 8, 9]
->>> range(-3,3)
+>>> list(range(-3,3))
 [-3, -2, -1, 0, 1, 2]
->>> range(0,10,2)
+>>> list(range(0,10,2))
 [0, 2, 4, 6, 8]
->>> range(10,20,3)
+>>> list(range(10,20,3))
 [10, 13, 16, 19]
->>>
 \end{lstlisting}
+What is going on here? In the first example, we see that \texttt{range()}
+doesn't actually return a list. It returns a special object that
+\emph{behaves} like a list when used in a \texttt{for} loop. But if we want a
+real list, we have to coerce it --- just like when we coerce a string to an
+integer by calling \texttt{int('3')}.
 
 So we can change our previous program slightly, as follows
 \begin{lstlisting}
