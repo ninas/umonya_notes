@@ -34,7 +34,7 @@ Henceforth, whenever Python encounters
 
 \section{Passing and Receiving Parameters by Position}
 
-Functions receive their input from \textit{parameters}, which are values   given in a comma separated list (i.e. a tuple) when calling the   function, and are unpacked within the function automatically. We have   to define how many parameters a function takes, and what each ones   name is, so we can give a function appropriate parameters later   on. For example, let's define a function that accepts one parameter,   called \texttt{seconds}, and returns how many complete minutes are in that many   seconds.
+Functions receive their input from \textit{parameters}, which are values   given in a comma separated list (i.e. a tuple) when calling the   function, and are unpacked within the function automatically. We have   to define how many parameters a function takes, and what each one's   name is, so we can give a function appropriate parameters later   on. For example, let's define a function that accepts one parameter,   called \texttt{seconds}, and returns how many complete minutes are in that many   seconds.
 \begin{lstlisting}
 >>> def minutes(seconds):
 ...    print(seconds)
@@ -69,12 +69,12 @@ Well, thinking back to tuples, let's treat everything between the   open and clo
 Note in the example transcript how the type of the parameter   \texttt{seconds} changes according to the type of the value used in the   function. In fact in the third function call made, the type used   actually causes an error, which makes sense since we cannot divide a   string by the integer 60. In the error case, we see that the first   statement in the function definition (
 \texttt{print(seconds)}) is   executed without error, and that the error occurs later. This means we can see the order of execution within a function.     More than that, functions are not atomic. This means that if there's an error in your function, all the      statements before the error will be executed regardless.
 
-The concepts of parameter passing are best illustrated in the case   of multiple parameters. For example, let us define a function which   takes two parameters, prints out both and returns the smaller of the two parameters ...
+The concepts of parameter passing are best illustrated in the case   of multiple parameters. For example, let us define a function which   takes two parameters, prints out both and returns the smaller of the two parameters \ldots
 \begin{lstlisting}
 >>> def minimum(a, b):
 ...    print(a)
 ...    print(b)
-...    if a $<$ b:
+...    if a < b:
 ...        return a
 ...    else:
 ...        return b
@@ -86,7 +86,7 @@ The concepts of parameter passing are best illustrated in the case   of multiple
 >>>
 \end{lstlisting}
 
-Okay, we're taking a few extra baby steps here... let's look at what   we've done. We've defined a new function called \texttt{minimum}, it has two   parameters, \texttt{a} and \texttt{b}. By virtue of putting 
+Okay, we're taking a few extra baby steps here \ldots\ let's look at what   we've done. We've defined a new function called \texttt{minimum}, it has two   parameters, \texttt{a} and \texttt{b}. By virtue of putting 
 \texttt{a, b} in the   parameter list in the function definition, we are implicitly putting   the line 
 \texttt{a, b = <passed in tuple>} in as the first   line, where the passed in tuple is formed by the function call itself,   rather than the function definition. Next we notice that we can branch   execution flow using an \texttt{if} statement within a function definition. We   can also loop, in fact we can do pretty much anything we want within a   function definition. Finally let's focus on the \texttt{return} statement.   Each return statement exits the function immediately, and replaces the   value of the function call with the value of the expression following   the reserved word \texttt{return}. So following 
 \texttt{minimum(9,3)} we   see that program execution `dives into' the function \texttt{minimum}, sets   \texttt{a} and \texttt{b} to 9 and 3 respectively via the implicit tuple unpacking,   prints \texttt{a}, prints \texttt{b}, and never executes 
@@ -397,7 +397,7 @@ In the same way that the range of \texttt{g(b)} must fall within the domain   of
 % 			their mean.</li>
 
 	\item Write a function that accepts a list of numbers, and returns    the sum of their squares.
-	\item Write a program that asks the user for a space separated list    of data points (i.e. floating point numbers), then uses your    function from the previous question to output the sum of squares of    those numbers.
+	\item Write a program that asks the user for a space-separated list    of data points (i.e. floating point numbers), then uses your    function from the previous question to output the sum of squares of    those numbers.
 % <li>Write a program that asks the user for a space separated list
 % 			of data points (i.e. floating point numbers), then uses appropriate
 % 			functions from previous questions to calculate and output the

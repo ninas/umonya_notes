@@ -7,11 +7,11 @@ As mentioned before, Python understands a fairly limited set of key     words an
 \begin{lstlisting}
 #An example differentiating literals and variables
 a = 3                #a is a variable name, 3 is an integer literal
-b = `b'              #b is a variable name, `b' is a string literal
+b = 'b'              #b is a variable name, 'b' is a string literal
 c = True             #c is a variable name, True is a boolean literal
-if 3*`b' == a*b:     #3 and `b' are literals, a and b are variables
+if 3*'b' == a*b:     #3 and 'b' are literals, a and b are variables
     print(c)         #is c literal or variable?
-else:                
+else:
     print "False"    #is "False" a literal or a variable?
 
 #Are False and "False" the same?
@@ -41,7 +41,7 @@ We've seen \textit{input} before in the basic concepts section, and     there re
 \\
 \texttt{minimum(6, 2,         3+4, 4**2, 8.3, 3*1)}
 \\ has six parameters, some of which       are not just simple expressions like plain numbers.
-	\item Despite the fact that any valid expression is a valid       parameter, functions are usually quite picky about the parameters       they can work with. For example, we couldn't find them minimum of a       collection of strings. That only really works with integers and       floats. Functions usually specify the \textit{number} of parameters       they accept. Often functions may accept less parameters than they       specifically ask for, by substituting default values for the       parameters not provided. 
+	\item Despite the fact that any valid expression is a valid       parameter, functions are usually quite picky about the parameters       they can work with. For example, we couldn't find the minimum of a       collection of strings. That only really works with integers and       floats. Functions usually specify the \textit{number} of parameters       they accept. Often functions may accept less parameters than they       specifically ask for, by substituting default values for the       parameters not provided. 
 \end{itemize}
 
 Back to \texttt{input}! \texttt{input()} captures a single line of text from     the keyboard, as entered by the user. It returns a string containing     the captured text, leaving out the \texttt{$\backslash$n} produced when the user hits the     Enter key. In addition, it takes one optional parameter, which is     displayed as a prompt prior to accepting input from keyboard. If this     parameter is left out, the default prompt is an empty string, so     nothing is printed.
@@ -58,7 +58,7 @@ Back to \texttt{input}! \texttt{input()} captures a single line of text from    
 	\item Use \texttt{input()} to prompt the user for a number, get that number, and assign it to a variable called \texttt{n}.
 	\item Print double the value of the variable \texttt{n}.
 \end{enumerate}        Exit the Python interactive interpreter.      
-	\item Write a program that asks the user for their name and       stores it in a variable. Then output ``Hello", followed by the       user's name
+	\item Write a program that asks the user for their name and       stores it in a variable. Then output ``Hello'', followed by the       user's name
 	\item Write a program that asks the user to enter two numbers, and       prints the sum of those two numbers.
 	\item Write a program that asks the user to enter two numbers, and       prints the difference of those two numbers.
 	\item Write a program that asks the user to enter two numbers, and       prints the product of those two numbers. Are you sensing a pattern       here?

@@ -6,7 +6,7 @@ Let us for the sake of originality work on a new problem.
 
 For each student we need to record their name, field of study, and a   description of their research project. This means three values we need   to store for each student, or 38 variables in total. Surely there's a   better way. There is, and Python yet again provides us with the perfect   tool for job, the \textbf{list}!
 
-A list is a \textbf{type} of variable. To create a new   variable of type list in Python simply assign a variable to a list.   Lists are formed using square brackets surrounding a comma separated   sequence of the elements of the list.  Example:
+A list is a \textbf{type} of variable. To create a new   variable of type list in Python simply assign a list to a variable.   Lists are formed using square brackets surrounding a comma-separated   sequence of the elements of the list.  Example:
 \begin{lstlisting}
 >>> mylist = [1, 2, 3]
 >>> anotherlist = ["Alice", "Bob", "Carl", "Mallory"]
@@ -24,7 +24,7 @@ A list is a \textbf{type} of variable. To create a new   variable of type list i
 \end{lstlisting}
 	\item The elements of a list can be expressions of any type    (including another list) and different elements in the same list    can be of different types, e.g. \texttt{mixed} has three elements; the    first element is a string (\texttt{"a string"}), the second element is an    integer (\texttt{143}), and the third element is another list (\texttt{[341]}).
 	\item Lists can contain no elements, in which case they are known as    \textit{empty}, e.g. \texttt{empty} contains no elements, but is still a list!
-	\item Individual elements of a list are indexed according to their    position in the list. The first position has an index of 0, the    second position an index of 1, etc...
+	\item Individual elements of a list are indexed according to their    position in the list. The first position has an index of 0, the    second position an index of 1, etc\ldots
 	\item We can access a specific element in a list by using a special    operator in an expression with the format    
 \texttt{list[index]}. This expression evaluates to the element    in the index'th position of the list. e.g. 
 \texttt{mylist[0]}    is 1, 
@@ -165,7 +165,7 @@ The comparison of lists to other lists, and other types is also   slightly diffe
 It returns true if all the elements of \texttt{a} are the same as the elements of \texttt{b}.
 	\item 
 \texttt{a < b} yields Less Than. \\
-Note that lists are    compared in sequence order, meaning that \texttt{a} is less than \texttt{b} if    \texttt{a}'s first element is less than \texttt{b}'s first element. If \texttt{a}'s first    element and \texttt{b}'s first element are equal, the second elements are    checked, etc...
+Note that lists are    compared in sequence order, meaning that \texttt{a} is less than \texttt{b} if    \texttt{a}'s first element is less than \texttt{b}'s first element. If \texttt{a}'s first    element and \texttt{b}'s first element are equal, the second elements are    checked, etc\ldots
 	\item 
 \texttt{v in a} is True only if the list a contains an    element whose value is that of the expression \texttt{v}.
 	\item 
@@ -205,10 +205,10 @@ True
 >>>
 \end{lstlisting}
 
-Note how the second line of the second example contradicts our basic idea   of assignment, which was: The assignment statement assigns the value of   the expression on the right to the variable on the left. But clearly,   we are not just assigning the value (\texttt{[1,2]}), because later when we   change the first element of \texttt{b} to 3, we also appear to change the   first element of \texttt{a}. Weird. There is a technical explanation for this,   but is really not worth knowing at this point as it is more likely to   confuse than clarify. If you are interested, ask one of thew tutors to explain this. What this does mean however is that we need to be   aware of the special case of assignment to a single variable of   types that can be changed!     When, in an assignment statement 
-\texttt{a = b}, if \texttt{b} is of    \textbf{mutable type}(a type that can have its values     changed), the assignment statement    \textbf{makes \texttt{a} a synonym of \texttt{b}}, i.e. they become    different names for the same variable.    
+Note how the second line of the second example contradicts our basic idea   of assignment, which was: The assignment statement assigns the value of   the expression on the right to the variable on the left. But clearly,   we are not just assigning the value (\texttt{[1,2]}), because later when we   change the first element of \texttt{b} to 3, we also appear to change the   first element of \texttt{a}. Weird. There is a technical explanation for this,   but is really not worth knowing at this point as it is more likely to   confuse than clarify. If you are interested, ask one of the tutors to explain this. What this does mean however is that we need to be   aware of the special case of assignment to a single variable of   types that can be changed!     When, in an assignment statement 
+\texttt{a = b}, if \texttt{b} is of    \textbf{mutable type} (a type that can have its values     changed), the assignment statement    \textbf{makes \texttt{a} a synonym of \texttt{b}}, i.e. they become    different names for the same variable.    
 
-Also note how we assigned a value to an element of the list,   changing some of it's contents. Python is quite advanced in terms of   how it can handle assignments involving lists, so let's explore its   features a bit. If \texttt{a} is the list \texttt{[1, 2, 3]}, \texttt{b} is some expression of   any value, and \texttt{l} is some expression of type list.
+Also note how we assigned a value to an element of the list,   changing some of its contents. Python is quite advanced in terms of   how it can handle assignments involving lists, so let's explore its   features a bit. If \texttt{a} is the list \texttt{[1, 2, 3]}, \texttt{b} is some expression of   any value, and \texttt{l} is some expression of type list.
 \begin{itemize}
 	\item 
 \texttt{a[0] = b} assigns the value of \texttt{b} to the 0'th    element of \texttt{a}. (The mutable type special case applies)
@@ -251,17 +251,17 @@ That being said, let's round off our knowledge of lists by   going through the l
 \\     Appends the value of $<$expression$>$ to the end of     $<$list$>$.      
 \begin{lstlisting}
 >>> a = []
->>> a.append(`one')
+>>> a.append('one')
 >>> a
-[`one']
+['one']
 >>>
 \end{lstlisting}
 	\item 
 \texttt{$<$list$>$.count($<$expression$>$)}
 \\     Returns the number of elements in $<$list$>$ with same value     as that of $<$expression$>$.      
 \begin{lstlisting}
->>> a = [`a', `c', `g', `t', `t', `a']
->>> a.count(`a')
+>>> a = ['a', 'c', 'g', 't', 't', 'a']
+>>> a.count('a')
 2
 >>>
 \end{lstlisting}
@@ -269,8 +269,8 @@ That being said, let's round off our knowledge of lists by   going through the l
 \texttt{$<$list$>$.index($<$expression$>$)}
 \\     Returns the index of the first element in $<$list$>$ that has     the same value as $<$expression$>$.      
 \begin{lstlisting}
->>> a = [`a', `c', `g', `t', `t', `a']
->>> a.index(`t')
+>>> a = ['a', 'c', 'g', 't', 't', 'a']
+>>> a.index('t')
 3
 >>>
 \end{lstlisting}
@@ -278,51 +278,51 @@ That being said, let's round off our knowledge of lists by   going through the l
 \texttt{$<$list$>$.insert($<$index expression$>$, $<$object     expression$>$)}
 \\ Inserts the value of $<$object     expression$>$ \textbf{before} the element at the     position indicated by $<$index expression$>$.      
 \begin{lstlisting}
->>> a = [`a', `c', `g', `t', `t', `a']
->>> a.insert(2,`newitem')
+>>> a = ['a', 'c', 'g', 't', 't', 'a']
+>>> a.insert(2,'newitem')
 >>> a
-[`a', `c', `newitem', `g', `t', `t', `a']
+['a', 'c', 'newitem', 'g', 't', 't', 'a']
 >>>
 \end{lstlisting}
 	\item 
 \texttt{$<$list$>$.pop()}
 \\ Removes the last element     from the end of the list, and returns it's value.      
 \begin{lstlisting}
->>> a = [`a', `c', `g', `t', `t', `a']
+>>> a = ['a', 'c', 'g', 't', 't', 'a']
 >>> a.pop()
-`a'
+'a'
 >>> a
-[`a', `c', `g', `t', `t']
+['a', 'c', 'g', 't', 't']
 >>>
 \end{lstlisting}
 	\item 
 \texttt{$<$list$>$.remove($<$expression$>$)}
 \\     Removes the first element in $<$list$>$ that has the same     value as $<$expression$>$.      
 \begin{lstlisting}
->>> a = [`a', `c', `newitem', `g', `t', `t', `a']
+>>> a = ['a', 'c', 'newitem', 'g', 't', 't', 'a']
 >>> a.remove('newitem')
 >>> a
-[`a', `c', `g', `t', `t', `a']
+['a', 'c', 'g', 't', 't', 'a']
 >>>
 \end{lstlisting}
 	\item 
 \texttt{$<$list$>$.reverse()}
 \\ Reverses the order of     elements in $<$list$>$.      
 \begin{lstlisting}
->>> a = [`alpha', `beta', `gamma', `delta']
+>>> a = ['alpha', 'beta', 'gamma', 'delta']
 >>> a.reverse()
 >>> a
-[`delta', `gamma', `beta', `alpha']
+['delta', 'gamma', 'beta', 'alpha']
 >>>
 \end{lstlisting}
 	\item 
 \texttt{$<$list$>$.sort()}
 \\ Sorts the elements of     $<$list$>$.      
 \begin{lstlisting}
->>> a = [`delta', `gamma', `beta', `alpha']
+>>> a = ['delta', 'gamma', 'beta', 'alpha']
 >>> a.sort()
 >>> a
-[`alpha', `beta', `delta', `gamma']
+['alpha', 'beta', 'delta', 'gamma']
 >>>
 \end{lstlisting}
 \end{itemize}
@@ -396,7 +396,7 @@ That being said, let's round off our knowledge of lists by   going through the l
 
 \begin{enumerate}
 \item Given the list 
-\texttt{l = [`There', `are', 9000000, `bicycles', `in', `Beijing']}
+\texttt{l = ['There', 'are', 9000000, 'bicycles', 'in', 'Beijing']}
 \begin{enumerate}
 	\item How many elements does the list have? How would one find this    out programatically?
 	\item What is the index of the non-string element?
@@ -427,7 +427,7 @@ That being said, let's round off our knowledge of lists by   going through the l
 % 
 
 	\item Write a program that outputs the position of every \texttt{`t'} in the    list \texttt{[`a', `c', `g', `t', `t', `a', `t']}. Use the index method,    don't do it manually.
-	\item Write a program that asks the user to enter a sequence of up to    5 x:y coordinates with both x and y in the range 0 to 4, ending    their sequence entry by providing a blank line for the x    coordinate. Then display a five by five grid of `\#' characters,    with the points in the grid entered by the user left blank. Assume    x increases from left to right, and y increases from top to bottom.    Example input/output is given ...          
+	\item Write a program that asks the user to enter a sequence of up to    5 x:y coordinates with both x and y in the range 0 to 4, ending    their sequence entry by providing a blank line for the x    coordinate. Then display a five by five grid of `\#' characters,    with the points in the grid entered by the user left blank. Assume    x increases from left to right, and y increases from top to bottom.    Example input/output is given \ldots          
 \begin{lstlisting}
 Coordinates range from 0 to 4!
 Please enter pair of coordinates (x:y), leave x blank to terminate sequence.

@@ -12,7 +12,7 @@ But we are not happy with just three numbers, so let's re-describe   the behavio
 \begin{quotation}     The user may \textbf{enter} a number.    \textbf{Until} the user enters a blank line, the program    continues accepting numbers. After a blank line has been entered    the program \textbf{outputs} the number of numbers entered    by the user \textbf{which} were even, as well as the number    of numbers \textbf{which} were \textbf{both} even \textbf{and}    negative.    
 \end{quotation}
 
-Much like how in junior school we were taught to look for key words   in word problems to help us formulate the problem mathematically, we   can and should do the same with descriptions of problems and their   translation into program code. Everything in programming comes down to   one of three \textit{structures}...
+Much like how in junior school we were taught to look for key words   in word problems to help us formulate the problem mathematically, we   can and should do the same with descriptions of problems and their   translation into program code. Everything in programming comes down to   one of three \textit{structures}\ldots
 \begin{itemize}
 	\item A sequence of steps
 	\item A condition that selects which sequence of steps to    execute
@@ -25,7 +25,7 @@ In the problem description above, we can identify some key words   already hint 
 	\item[until] Indicates \textbf{repetition} based on the fulfilment    of a \textbf{condition} -- \texttt{while} 
 	\item[output] Indicates \textbf{output} -- \texttt{print()}
 	\item[which] Indicates a \textbf{condition without repetition} -- \texttt{if}    
-	\item[both ... and ...] Indicates a \textbf{composition of conditions} -- \texttt{and}    
+        \item[both \ldots\ and \ldots] Indicates a \textbf{composition of conditions} -- \texttt{and}    
 \end{description}
 
 We'll now step through the problem description, sentence by sentence   and convert it into a Python program, using the keywords as hints, and   the tools we have already come across. Also we'll introduce the syntax   of the while statement.
@@ -58,7 +58,7 @@ while <expression>:
     ...
 \end{lstlisting}
 
-See how we \textit{indent} statements we want executed repetitively and   conditionally under the \texttt{while} statement, in the same way as we do with   \texttt{if} statements. The \texttt{while} statement checks the expression, and if it is   \texttt{True}, will execute those indented statements once, after which it will   check the expression again, and execute the statements again, etc ... If the   expression is ever \texttt{False}, execution of the program continues at the   first un-indented statement after the indented block.
+See how we \textit{indent} statements we want executed repetitively and   conditionally under the \texttt{while} statement, in the same way as we do with   \texttt{if} statements. The \texttt{while} statement checks the expression, and if it is   \texttt{True}, will execute those indented statements once, after which it will   check the expression again, and execute the statements again, etc \ldots\ If the   expression is ever \texttt{False}, execution of the program continues at the   first un-indented statement after the indented block.
 
 There's a little more to the while loop than pure syntax. Every   loop needs three things; A start point, an end point, and a way to get   from one point to another. More importantly there needs to be a   relationship between these three things, in the form of a variable. The   start point takes the form of assigning a value (the starting value) to   a variable, which we'll call the counter. The while loop's condition   specifies the stop point of the loop, by specifying a condition under   which the loop should terminate \textbf{in terms of the counter   variable}. Finally, the loop needs a way to get from start to   finish in a stepwise manner, i.e. a way to take a single step. This   means the value of the counter variable must change   \textbf{inside} the repeated block of statements, otherwise   value of the loop condition won't change, and the loop will repeat   forever. Commonly, the statement that changes the counter's   value is placed at the \textit{end} of the repeated block of   statements, because this means it is changed immediately before the   counter variable is checked in the loop condition again. This gives us   the pattern:
 \begin{lstlisting}
@@ -66,7 +66,7 @@ counter = <start_value> #Initialise the counter
 while <expression>: #<expression> specifies when the loop will stop in terms of counter
     statement
     statement
-    ...
+    \
     counter = <new value of counter> #changes the value of counter
 \end{lstlisting}
 \begin{quotation}     After a blank line has been entered the program outputs the total amount    of numbers entered by the user which were even.    
@@ -76,7 +76,7 @@ Now we haven't kept a record of the numbers entered so how can we   tell how man
 \begin{lstlisting}
 even = 0
 number = input("Enter a number: ")
-while number != `':
+while number != '':
     number = input("Enter another number (or nothing to finish): ")
 \end{lstlisting}
 
@@ -84,7 +84,7 @@ Now at the end of our program we still have 0 even numbers, because   we haven't
 \begin{lstlisting}
 even = 0
 number = input("Enter a number: ")
-while number != `':
+while number != '':
     if int(number) % 2 == 0: #if number is even
         even = even + 1
     number = input("Enter another number (or nothing to finish): ")
@@ -94,15 +94,15 @@ A few things about our two new lines deserve mention. Firstly, as we   are alrea
 \begin{quotation}    as well as the number of numbers which were both even and negative.   
 \end{quotation}
 
-The last piece of the problem description says we should also count   how many of the input numbers are negative as well as even. And we need   to put some output at the end once we've counted everything. Well, this   is very similar to the previous segment, so let's recycle the idea and   see what we get...
+The last piece of the problem description says we should also count   how many of the input numbers are negative as well as even. And we need   to put some output at the end once we've counted everything. Well, this   is very similar to the previous segment, so let's recycle the idea and   see what we get\ldots
 \begin{lstlisting}
 even = 0
 negative = 0
 number = input("Enter a number: ")
-while number != `':
+while number != '':
     if int(number) % 2 == 0: #if number is even
         even = even + 1
-        if int(number) $<$ 0:
+        if int(number) < 0:
             negative = negative + 1
     number = input("Enter another number (or nothing to finish): ")
 print("There were", even, "even numbers, of which", negative, "were also negative")
@@ -113,17 +113,17 @@ So we've included a new variable, \texttt{negative}, which counts the   number o
 
 \section{The break statement}
 
-Looking at the \texttt{while} statement, it seems that once we're in a block   of statements to be executed repeatedly, known as a   \textbf{loop}, we can't get out of the loop except when the   expression after \texttt{while} (known as the \textbf{loop condition}) is \texttt{False}.   Python provides us with a statement for breaking out of a loop,   conveniently called \texttt{break}. Suppose we   wanted our program for counting even numbers to end not only when a   blank line was entered, but also if the user enters the string \texttt{`quit'}.   We could simply add two lines ...
+Looking at the \texttt{while} statement, it seems that once we're in a block   of statements to be executed repeatedly, known as a   \textbf{loop}, we can't get out of the loop except when the   expression after \texttt{while} (known as the \textbf{loop condition}) is \texttt{False}.   Python provides us with a statement for breaking out of a loop,   conveniently called \texttt{break}. Suppose we   wanted our program for counting even numbers to end not only when a   blank line was entered, but also if the user enters the string \texttt{`quit'}.   We could simply add two lines \ldots
 \begin{lstlisting}
 even = 0
 negative = 0
 number = input("Enter a number (or nothing or `quit' to quit): ")
-while number != `':
-    if number == `quit':
+while number != '':
+    if number == 'quit':
         break
     if int(number) % 2 == 0: #if number is even
         even = even + 1
-        if int(number) $<$ 0:
+        if int(number) < 0:
             negative = negative + 1
     number = input("Enter another number (or nothing to finish): ")
 print("There were", even, "even numbers, of which", negative, "were also negative")
@@ -138,15 +138,15 @@ If we wanted to get picky and consider 0 to not be even, we would   have to modi
 even = 0
 negative = 0
 number = input("Enter a number (or nothing or 'quit' to quit): ")
-while number != `':
-    if number == `quit':
+while number != '':
+    if number == 'quit':
         break
-    if number == `0':
-        number = input("Enter another number (or nothing or `'quit' to quit): ")
+    if number == '0':
+        number = input("Enter another number (or nothing or `quit' to quit): ")
         continue
     if int(number) % 2 == 0: #if number is even
         even = even + 1
-        if int(number) $<$ 0:
+        if int(number) < 0:
             negative = negative + 1
     number = input("Enter another number (or nothing or `quit' to quit): ")
 print("There were", even, "even numbers, of which", negative, "were also negative")
@@ -166,7 +166,7 @@ else:
 
 \section{Exercises}
 
-Given the code ...
+Given the code \ldots
 \begin{lstlisting}
 i = 1
 while i 
