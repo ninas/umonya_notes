@@ -45,8 +45,12 @@ Finally, you will notice that the \texttt{print()} statement always ends off   t
 	\item The \texttt{print()} statement prints out the \textit{values}  between the     brackets and then prints a new line
 	\item An empty \texttt{print()} statement ends the current line and starts a new     one.
 	\item The \texttt{print()} statement can print multiple expressions if they are     given in a \textit{comma separated} list. In this case, a space is     included between each expression's outputted value.
-	\item The automatic newline outputted by \texttt{print()} can be avoided by     putting a trailing comma in the expression list. This will print a     trailing space instead.
-	\item If a \texttt{print()} statement with a trailing comma is followed by an     \textit{empty} \texttt{print()} statement, the trailing space is     suppressed.
+	\item By default, the \texttt{print()} statement outputs a `newline', which moves the cursor to the next line so that the next \texttt{print()} statement will start on the new line. This can be changed by appending \lstinline{end = ''} to prevent the newline e.g.,
+\begin{lstlisting}
+>>> print('Part 1', end = ''); print('Part 2')
+Part 1Part 2
+\end{lstlisting}
+You can use any string to end the line, not just \texttt{'{}'}.
 \end{itemize}
 
 \section{Some String Basics}
@@ -114,7 +118,6 @@ Finally, how do we actually put quotes inside a string since they   indicate the
 	\item Create a variable called \texttt{surname} and put your surname         into it.
 	\item Using only the variables you have created, print your         first name and surname again, making sure there is exactly         one space between your two names.
 \end{enumerate}     Quit the Python interactive interpreter.
-	\item Which special rules does the print statement adhere to regarding     trailing spaces and newlines?
     \item Consider the following code\ldots
 \begin{lstlisting}
 print("MUCH madness is divinest sense,")
@@ -122,7 +125,7 @@ print("To a discerning eye;")
 print("Much sense the starkest madness.")
 print("'T is the majority","In this, as all, prevails")
 print("Assent, and you are sane;")
-print("Demur,-you're straightway dangerous",)
+print("Demur,-you're straightway dangerous",end="")
 print()
 print("And handled with a chain.")\end{lstlisting}
 \begin{enumerate}
