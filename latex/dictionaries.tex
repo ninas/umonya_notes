@@ -1,11 +1,11 @@
 \section{What are dictionaries}
 
-Dictionaries in Python are known in other languages by other names,   including ``associative arrays" and ``mappings". The latter being perhaps   the more explanatory term. Dictionaries are basically a set of mappings   from a \textit{key} to a \textit{value}. Keys can be of   any non-mutable (not changeable) type, and values can be of any type including other   dictionaries, lists, or tuples. Dictionaries specify a set of \textit{key:value}   pairs. In this sense, their name is quite descriptive. When thinking of a dictionary of words, each entry contains the word - or key, and it's explanation - or value.     Thus, knowing the key allows access to its value. In the case of Python, when the dictionary is accessed using a key it   contains, the value associated with that pair is returned.
+Dictionaries in Python are known in other languages by other names,   including ``associative arrays'' and ``mappings''. The latter being perhaps   the more explanatory term. Dictionaries are basically a set of mappings   from a \textit{key} to a \textit{value}. Keys can be of   any non-mutable (not changeable) type, and values can be of any type including other   dictionaries, lists, or tuples. Dictionaries specify a set of \textit{key:value}   pairs. In this sense, their name is quite descriptive. When thinking of a dictionary of words, each entry contains the word --- or key, and its explanation --- or value.     Thus, knowing the key allows access to its value. In the case of Python, when the dictionary is accessed using a key it   contains, the value associated with that pair is returned.
 
 \section{Forming a Dictionary}
 
-Dictionaries are formed using curly braces (
-\texttt{\{ \}}), and   providing a comma separated list of key:value pairs between the open   and close braces.
+Dictionaries are formed using curly braces (%
+\texttt{\{ \}}), and   providing a comma-separated list of key:value pairs between the open   and close braces.
 \lstset{keywordstyle=\ttfamily}
 \begin{lstlisting}
 >>> a = {
@@ -20,7 +20,7 @@ Dictionaries are formed using curly braces (
 \lstset{keywordstyle=\textbf}
 
 Here we have a new dictionary, which we have assigned to a variable   \texttt{a}. The dictionary contains five key:value pairs, each specified using   the format 
-\texttt{<key> : <value>} within a comma   separated list within curly braces. Note how keys can be of multiple   different types within the same dictionary. \textit{Key order is not   guaranteed by Python}. In other words, it doesn't matter what order you put items into the dictionary, as this order is not maintained.     Similarly values can be of any type, and   types can be mixed within one dictionary. Also note the existence of   the empty dictionary ...
+\texttt{<key> : <value>} within a comma-separated list within curly braces. Note how keys can be of multiple   different types within the same dictionary. \textit{Key order is not   guaranteed by Python}. In other words, it doesn't matter what order you put items into the dictionary, as this order is not maintained.     Similarly values can be of any type, and   types can be mixed within one dictionary. Also note the existence of   the empty dictionary\ldots
 \begin{lstlisting}
 >>> b = {}
 >>>
@@ -33,11 +33,11 @@ Presumably, the first thing we would want to be able to do after   forming a dic
 \lstset{keywordstyle=\ttfamily}
 \begin{lstlisting}
 >>> a[0]
-`This is the value for key 0'
+'This is the value for key 0'
 >>> a["3"]
-`See how keys can also be strings'
+'See how keys can also be strings'
 >>> a[4,5]
-`Or even tuples'
+'Or even tuples'
 >>>
 \end{lstlisting}
 \lstset{keywordstyle=\textbf}
@@ -47,23 +47,23 @@ In a similar way to lists we can change the contents of a   dictionary, meaning 
 \begin{lstlisting}
 >>> a["3"] = "Told you keys could also be strings"
 >>> a["3"]
-`Told you keys could also be strings'
+'Told you keys could also be strings'
 >>>
 \end{lstlisting}
 
-Similarly, a simple assignment statement can add a new key:value   pair to a dictionary, as long as the key doesn't already exist in the   dictionary. If the key does already exist, it's value is simply changed   as in the assignment statement above.
+Similarly, a simple assignment statement can add a new key:value   pair to a dictionary, as long as the key doesn't already exist in the   dictionary. If the key does already exist, its value is simply changed   as in the assignment statement above.
 \lstset{keywordstyle=\ttfamily}
 \begin{lstlisting}
 >>> a["new"] = "a new pair has been added"
 >>> a
-{0: `This is the value for key 0', 1: `This is the value for key 1', `3': `Told
-you keys could also be strings', `new': `a new pair has been added', (4, 5): `Or
+{0: 'This is the value for key 0', 1: 'This is the value for key 1', '3': 'Told
+you keys could also be strings', 'new': 'a new pair has been added', (4, 5): 'Or
 even tuples'}
 >>>
 \end{lstlisting}
 \lstset{keywordstyle=\textbf}
 
-It is important to realise that adding a new key:value pair, where the key already exists, means that the value is simply replaced. This means that all key values in a dictionary are unique - that is, no two keys are the same. Also, note   that attempting to access a key that doesn't exist causes an   error...
+It is important to realise that adding a new key:value pair, where the key already exists, means that the value is simply replaced. This means that all key values in a dictionary are unique --- that is, no two keys are the same. Also, note   that attempting to access a key that doesn't exist causes an   error\ldots
 \lstset{keywordstyle=\ttfamily}
 \begin{lstlisting}
 >>> a[3]
@@ -79,7 +79,7 @@ Which means that before we can add to the value of a particular key   using an a
 Entire dictionaries can be compared using the standard comparison   operators. If \texttt{a} and \texttt{b} are both dictionaries
 \begin{itemize}
 	\item 
-\texttt{a == b} is \texttt{True} (that is, they are seen as equalivalent) only if both    \texttt{a} and \texttt{b} contain exactly the same set of key:value pairs.
+\texttt{a == b} is \texttt{True} (that is, they are seen as equivalent) only if both    \texttt{a} and \texttt{b} contain exactly the same set of key:value pairs.
 	\item 
 \texttt{a is b} is \texttt{True} only if \texttt{a} and \texttt{b} are synonyms    for the same dictionary.
 \end{itemize}
@@ -134,8 +134,8 @@ Finally, we can extract various structures from a dictionary in the   form of li
 \texttt{<dictionary>.values()} returns a view of      all values in the dictionary. The order of these     values is not guaranteed.      
 \begin{lstlisting}
 >>> a.values()
-dict_values([`This is the value for key 0', `This is the value for key 1', `Told you keys
-could also be strings', `a new pair has been added', `Or even tuples'])
+dict_values(['This is the value for key 0', 'This is the value for key 1', 'Told you keys
+could also be strings', 'a new pair has been added', 'Or even tuples'])
 >>>
 \end{lstlisting}
 	\item 
@@ -189,13 +189,13 @@ d = {
 \texttt{d["dairy"][2]}?
 	\item How do you access ``spinach" using the dictionary \texttt{d}?
 	\item How do you add a new fruit?
-	\item Consider the set of key:value pairs?     
+	\item Consider the set of key:value pairs
 \begin{itemize}
-	\item ``Hitchhiker's Guide to the Galaxy": 1
-	\item ``The Restaurant at the End of the Universe": 2
-	\item ``Life, the Universe, and Everything": 3
-	\item ``So Long, and Thanks for all the Fish!": 4
-	\item ``Mostly Harmless": 5
+	\item ``Hitchhiker's Guide to the Galaxy'': 1
+	\item ``The Restaurant at the End of the Universe'': 2
+	\item ``Life, the Universe, and Everything'': 3
+	\item ``So Long, and Thanks for all the Fish!'': 4
+	\item ``Mostly Harmless'': 5
 \end{itemize}
 \begin{enumerate}
 	\item How do you create this set as a dictionary in      Python?
@@ -206,7 +206,7 @@ d = {
 \end{enumerate}
 	\item Write a program that reads in names until a blank line is    entered, and prints out each unique name and the number of times    it was entered.
 	\item Write a program the reads strings until a blank line is    encountered. For each string entered, treat the portion of the    string up to the first colon (or the entire string if no colon is    present) as a key name, and everything after the first colon as a    value. If the key portion has been entered before, print out the old    value paired with that key, and then change the value to the newly    entered one. After the blank line, print out a neat list of key    value pairs.
-	\item A small arts and crafts store owner in the middle of the Karoo    has recently upgraded to a computerised point of sale system, and    wants to do the same for his guest book. Customers have previously    left their names a small paragraph of comment in the book. The owner    would like his customers to be able to walk up to a computer near    the exit, type in their names, and enter a brief comment. He's only    interested in a customer's most recent comments, and doesn't want    store old comments. So repeat customer's must be able to update    their previous comments. When a repeat customer types in their name,    their previous comment is displayed back to them, and they can       enter a new comment. Should they enter a    blank line instead of a comment, their previous comment is    preserved. Also, if instead of a customer name the special command    `quit' is entered, the program exits. Similarly the command    `showcomments' causes all customers' names to be displayed, followed    by their comments slightly indented. Customer's must be able to    enter their names in a case insensitive manner.
+	\item A small arts and crafts store owner in the middle of the Karoo    has recently upgraded to a computerised point of sale system, and    wants to do the same for his guest book. Customers have previously    left their names and a small paragraph of comment in the book. The owner    would like his customers to be able to walk up to a computer near    the exit, type in their names, and enter a brief comment. He's only    interested in a customer's most recent comments, and doesn't want    to store old comments. So repeat customers must be able to update    their previous comments. When a repeat customer types in their name,    their previous comment is displayed back to them, and they can       enter a new comment. Should they enter a    blank line instead of a comment, their previous comment is    preserved. Also, if instead of a customer name the special command    `quit' is entered, the program exits. Similarly the command    `showcomments' causes all customers' names to be displayed, followed    by their comments slightly indented. Customers must be able to    enter their names in a case insensitive manner.
 	\item Extend your solution to the previous problem, by allowing    customers to enter multi-line comments, and to terminate their    comments by entering a blank line. If the comment is entirely    blank, i.e. the first line is blank, then it does not overwrite the    former comment if any. Also, ensure that when the comments are    outputted back, either because of the `showcomments' command, or a    repeat customer entering their name, that the line width of the    outputted comments does not exceed 60 characters, nor break a word    in two, i.e. lines are only broken on white space.
 	\item What happens if you make an element of a dictionary point to    itself?
 \end{enumerate}   
