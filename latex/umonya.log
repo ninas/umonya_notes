@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.10)  17 MAR 2013 14:51
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.10)  4 APR 2013 08:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -916,8 +916,8 @@ Chapter 9.
 
 ] [53] [54]
 Overfull \hbox (6.13289pt too wide) in paragraph at lines 132--134
-\T1/lmr/m/n/10.95 form \T1/lmtt/m/n/10.95 [(`Maths', `D'), (`Comp Sci', `B'), (
-`English', `C'), (`Xhosa', `A'),
+\T1/lmr/m/n/10.95 form \T1/lmtt/m/n/10.95 [('Maths', 'D'), ('Comp Sci', 'B'), (
+'English', 'C'), ('Xhosa', 'A'),
  []
 
 ) [55]
@@ -973,64 +973,31 @@ Package rerunfilecheck Warning: File `umonya.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `umonya.out':
-(rerunfilecheck)             Before: 72CA9E3CB198C6FAFCAF55C5CC2DCE39;6272
-(rerunfilecheck)             After:  D8FE0BBD2AA2068DD12402487B4898E2;5665.
+(rerunfilecheck)             Before: D8FE0BBD2AA2068DD12402487B4898E2;5665
+(rerunfilecheck)             After:  07356C1F2E8221DFA02C518FA4C3A341;5666.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 95.
  ) 
 Here is how much of TeX's memory you used:
- 17851 strings out of 495059
- 299440 string characters out of 3182030
- 576464 words of memory out of 3000000
- 19090 multiletter control sequences out of 15000+200000
+ 17792 strings out of 495059
+ 298806 string characters out of 3182030
+ 576463 words of memory out of 3000000
+ 19039 multiletter control sequences out of 15000+200000
  54350 words of font info for 43 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 56i,9n,55p,1912b,1855s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{section.16.4} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.16.3} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.16.2} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.16.1} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter.16} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{section.15.8} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.15.7} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.15.6} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.15.5} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.12.6} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.12.5} has been referenced but does not exis
-t, replaced by a fixed one
-
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvip
-s/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/t
-exmf/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf/fonts/type1/public/lm/l
-mbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/
-fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.
-pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/t
-ype1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></u
-sr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/p
-ublic/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtl10.pfb>
-Output written on umonya.pdf (90 pages, 482480 bytes).
+ 56i,9n,55p,1913b,1857s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dv
+ips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share
+/texmf/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf/fonts/type1/public/lm
+/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texm
+f/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr1
+0.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts
+/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb><
+/usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1
+/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtl10.pfb>
+Output written on umonya.pdf (90 pages, 483426 bytes).
 PDF statistics:
- 2579 PDF objects out of 2984 (max. 8388607)
- 2452 compressed objects within 25 object streams
- 1602 named destinations out of 1728 (max. 500000)
- 773 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2543 PDF objects out of 2984 (max. 8388607)
+ 2416 compressed objects within 25 object streams
+ 1594 named destinations out of 1728 (max. 500000)
+ 701 words of extra memory for PDF output out of 10000 (max. 10000000)
 
