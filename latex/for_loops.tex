@@ -3,15 +3,15 @@ In lesson 8 we introduced the concept of lists.
 
 A list is a type of variable that contains other elements. For instance we could create a shopping list. 
 \begin{lstlisting}
->>> shopping=[`Milk',`Bread',`Eggs',`Motherboard',`Cheese',`Jacket']
+>>> shopping=['Milk','Bread','Eggs','Motherboard','Cheese','Jacket']
 \end{lstlisting}
 
 In order to view the individual contents of that list, we could refer to them by index
 \begin{lstlisting}
 >>> shopping[0]
-`Milk'
+'Milk'
 >>> shopping[3]
-`Motherboard'
+'Motherboard'
 \end{lstlisting}
 
  In order to view all the items of our list, we could manually type in all the indexes, but what happens if you add more items later, or if you have 100 items? A better idea would be to use a \texttt{while} loop to change the index. We set the index to 0 to begin with, then while the index is less than length of the list, we print out the item in the list referenced by the index and increment the index.
@@ -46,7 +46,7 @@ What this does exactly is execute the indented statements \textbf{once for each 
 So, for example, the following program
 \begin{lstlisting}
 #a small program to display your shopping list
-shopping=[`Milk',`Bread',`Eggs',`Motherboard',`Cheese',`Jacket']
+shopping=['Milk','Bread','Eggs','Motherboard','Cheese','Jacket']
 for i in shopping:
     print("Item:",i)
 \end{lstlisting}
@@ -65,8 +65,8 @@ Well, that's pretty cool. Notice how the variable \texttt{i} changes on every it
 \begin{lstlisting}
 #a small program to display a numbered shopping list
 indexes=[0,1,2,3,4,5]
-shopping=[`Milk',`Bread',`Eggs',`Motherboard',`Cheese',`Jacket']
-prices=[`8',`6',`10',`800',`30',`150']
+shopping=['Milk','Bread','Eggs','Motherboard','Cheese','Jacket']
+prices=['8','6','10','800','30','150']
 for i in indexes:
     print("Item number",i,"is",shopping[i],"and it costs R",prices[i])
 \end{lstlisting}   produces the following output  
@@ -112,7 +112,7 @@ integer by calling \texttt{int('3')}.
 So we can change our previous program slightly, as follows
 \begin{lstlisting}
 #a small program to display a numbered shopping list
-shopping=[`Milk',`Bread',`Eggs',`Motherboard',`Cheese',`Jacket']
+shopping=['Milk','Bread','Eggs','Motherboard','Cheese','Jacket']
 for i in range(len(shopping)):
     print("Item number",i,"is",shopping[i])
 \end{lstlisting}

@@ -5,7 +5,7 @@ We are by now all familiar with the dreaded
 
 \section{The Call Stack}
 
-First we need to understand the concept of the \textit{call stack}. When we   are running our Python program, the execution point moves around, from   top to bottom, branching at \texttt{if} statements, looping with \texttt{while} or \texttt{for}   statements, or jumping inside functions...  But this causes issues. If   an error occurs in our main program block, it is easy to find the problem by                  looking at the line on which the error occurred. There is generally only one way for   execution to reach that line. But in a function, which can be called   from many places within our program, including itself or other   functions, knowing that the error occurred on a line in a particular   function definition doesn't help us understand how the flow of   execution led up to the error.
+First we need to understand the concept of the \textit{call stack}. When we   are running our Python program, the execution point moves around, from   top to bottom, branching at \texttt{if} statements, looping with \texttt{while} or \texttt{for}   statements, or jumping inside functions\ldots\  But this causes issues. If   an error occurs in our main program block, it is easy to find the problem by                  looking at the line on which the error occurred. There is generally only one way for   execution to reach that line. But in a function, which can be called   from many places within our program, including itself or other   functions, knowing that the error occurred on a line in a particular   function definition doesn't help us understand how the flow of   execution led up to the error.
 
 Enter the \textit{call stack}! Every time a   function is called, Python pushes it on to something called the \textit{call   stack}. Think of a stack like getting into the elevator in a crowded   mall. You get in first, and as more people enter the elevator, you are   forced to the back. When you arrive at your floor, the last person in,   now being closest to the door, exits first. If you want to get out in   the middle somewhere, everyone who got in after you must briefly step   out, to let you out, then go back in. This is exactly what happens with   the \textit{call stack}. As functions are called, their names are placed on the   stack, and as they finish, their names are removed.
 
@@ -38,7 +38,7 @@ Learning the meaning of the class names comes with time, but the   description f
 
 \section{Error types}
 
-As mentioned before, Python errors are divided into classes - lots of them!                 Luckily only a handful are very common. These are listed here, in alphabetical order,                 so that you can figure out what you did wrong when you encounter one of these errors. Remember that                 there are various things that cause these errors. Only the most common reasons are mentioned here. Copy and paste the error message                 right into a Google search and you are sure to find an answer. And don't worry -                  everyone, even experienced software engineers, run into these on a regular basis.
+As mentioned before, Python errors are divided into classes --- lots of them!                 Luckily only a handful are very common. These are listed here, in alphabetical order,                 so that you can figure out what you did wrong when you encounter one of these errors. Remember that                 there are various things that cause these errors. Only the most common reasons are mentioned here. Copy and paste the error message                 right into a Google search and you are sure to find an answer. And don't worry ---                  everyone, even experienced software engineers, run into these on a regular basis.
 
 \subsection{IndentationError}
 
@@ -71,7 +71,7 @@ A \texttt{NameError} occurs when you try to use a variable which does not exist 
 \subsection{IndexError}
 
 \begin{lstlisting}
-i = [`hello', `world']
+i = ['hello', 'world']
 i[2]
 Traceback (most recent call last):
   File "", line 1, in 
@@ -82,7 +82,7 @@ This error is an easy one to understand. In the example the list \texttt{i} only
 \subsection{SyntaxError}
 
 \begin{lstlisting}
-print(`hello world!)
+print('hello world!)
   File "", line 1
     print(`hello world!)
                        ^
@@ -108,7 +108,7 @@ Another common syntax error is leaving out the colon (`\textbf{:}') at the start
 \subsection{TypeError}
 
 \begin{lstlisting}
-`ab' * `ab'
+'ab' * 'ab'
 Traceback (most recent call last):
   File "", line 1, in 
 TypeError: can't multiply sequence by non-int of type `str'
@@ -129,10 +129,10 @@ When you use the wrong type of variable for something in Python, you will get a 
 \subsection{ValueError}
 
 \begin{lstlisting}
-int(`abc')
+int('abc')
 Traceback (most recent call last):
   File "", line 1, in 
-ValueError: invalid literal for int() with base 10: `abc'\end{lstlisting}
+ValueError: invalid literal for int() with base 10: 'abc'\end{lstlisting}
 
 Value errors can occur for many different reasons. It means that there is something `wrong' about the value of a variable or                  literal. In the example above the value in question is \texttt{`abc'} and the program is trying to turn \texttt{`abc'} into an integer. How does one                 turn \texttt{`abc'} into a number? I don't know and neither does Python. That is why a \texttt{ValueError} pops up.
 \\ \\
