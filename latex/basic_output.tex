@@ -43,27 +43,31 @@ Finally, you will notice that the \texttt{print()} statement always ends off   t
 \texttt{print("Enter your name:",)}. In summary:
 \begin{itemize}
 	\item The \texttt{print()} statement prints out the \textit{values}  between the     brackets and then prints a new line
-	\item An empty texttt{print()} statement ends the current line and starts a new     one.
+	\item An empty \texttt{print()} statement ends the current line and starts a new     one.
 	\item The \texttt{print()} statement can print multiple expressions if they are     given in a \textit{comma separated} list. In this case, a space is     included between each expression's outputted value.
-	\item The automatic newline outputted by texttt{print()} can be avoided by     putting a trailing comma in the expression list. This will print a     trailing space instead.
-	\item If a texttt{print()} statement with a trailing comma is followed by an     \textit{empty} texttt{print()} statement, the trailing space is     suppressed.
+	\item By default, the \texttt{print()} statement outputs a `newline', which moves the cursor to the next line so that the next \texttt{print()} statement will start on the new line. This can be changed by appending \lstinline{end = ''} to prevent the newline e.g.,
+\begin{lstlisting}
+>>> print('Part 1', end = ''); print('Part 2')
+Part 1Part 2
+\end{lstlisting}
+You can use any string to end the line, not just \texttt{'{}'}.
 \end{itemize}
 
 \section{Some String Basics}
 
 Python treats all text in units called \textbf{strings}. A \textbf{string} is formed   by enclosing some text in quotes. Double quotes, or single quotes may   be used. There is a small limitation to this however, being that a   string cannot be broken across multiple lines.
 \begin{lstlisting}
-`this is a string of text'
+'this is a string of text'
 "this is also a string of text"
-`this string will
+'this string will
     cause an error, because it spans multiple lines'
 \end{lstlisting}
 
 Trying to enter the third string into the interactive shell yields
 \begin{lstlisting}
->>> `this string will
+>>> 'this string will
     File "<stdin>", line 1
-            `this string will
+            'this string will
                             ^
 SyntaxError: EOL while scanning single-quoted string
 >>>
@@ -74,11 +78,11 @@ EOL meaning End Of Line. If we want to introduce line breaks into   strings we c
 >>> """this string will not
 ...  cause an error
 ...    just because it is split over three lines"""
-`this string will not\n  cause an error\n    just because it is split over three lines'
+'this string will not\n  cause an error\n    just because it is split over three lines'
 >>>
 \end{lstlisting}
 
-The immediately obvious disadvantage is that everything between the   triple quotes is taken as-is, meaning the second and third lines of my   string which I indented to line up with the beginning of the first line   are indented in the string itself in the form of three spaces after   those \texttt{$\backslash$n} thingies. Speaking of which, what the hell are those things?   Why does our string contain stuff we didn't put there? Well let's try   to print the string out ...
+The immediately obvious disadvantage is that everything between the   triple quotes is taken as-is, meaning the second and third lines of my   string which I indented to line up with the beginning of the first line   are indented in the string itself in the form of three spaces after   those \texttt{$\backslash$n} thingies. Speaking of which, what the hell are those things?   Why does our string contain stuff we didn't put there? Well let's try   to print the string out \ldots
 \begin{lstlisting}
 >>> print("""this string will not
 ...    cause an error
@@ -89,14 +93,14 @@ this string will not
 >>>
 \end{lstlisting}
 
-Well the \texttt{$\backslash$n}s are gone, but what were they? Strings are sequences   of characters and are one dimensional. They have no   \textbf{implicit} way to specify a line break, or relative   position, or which characters are where relative to which other   characters in the string in two dimensions, as displayed on a screen.   Hence we get the second method of specifying line breaks within a   string. There are special characters known as \textbf{escape     characters} which mean special things inside strings. They all   start with a backslash \texttt{$\backslash$} which escapes the following character from   the string, or in layman's terms means the following character in the   string is not a 'normal' character and should be treated specially.   Some important escape characters are
+Well the \texttt{$\backslash$n}s are gone, but what were they? Strings are sequences   of characters and are one dimensional. They have no   \textbf{implicit} way to specify a line break, or relative   position, or which characters are where relative to which other   characters in the string in two dimensions, as displayed on a screen.   Hence we get the second method of specifying line breaks within a   string. There are special characters known as \textbf{escape     characters} which mean special things inside strings. They all   start with a backslash \texttt{$\backslash$} which escapes the following character from   the string, or in layman's terms means the following character in the   string is not a `normal' character and should be treated specially.   Some important escape characters are
 \begin{description}
 	\item[$\backslash$n] line break or New line (n from the n in new line)
 	\item[$\backslash$t] tab
 	\item[$\backslash$$\backslash$] a plain backslash
 \end{description}
 
-You will see that because a backslash already has a special meaning,   namely "treat the next character specially", we can't simply put a   backslash into our string. So we escape the backslash with a second   backslash, meaning we actually want a backslash and not a special   character.
+You will see that because a backslash already has a special meaning,   namely ``treat the next character specially'', we can't simply put a   backslash into our string. So we escape the backslash with a second   backslash, meaning we actually want a backslash and not a special   character.
 
 Finally, how do we actually put quotes inside a string since they   indicate the \textbf{end} of a string. The easiest solution is   to mix your quotes. If you want a single quote in a string, define the   string with double quotes, e.g.  
 \texttt{"I've got this escape thing all figured out!"}. Alternatively, you can actually escape quotes   within strings, to give them the special meaning that they don't end   the string, e.g. 
@@ -114,15 +118,14 @@ Finally, how do we actually put quotes inside a string since they   indicate the
 	\item Create a variable called \texttt{surname} and put your surname         into it.
 	\item Using only the variables you have created, print your         first name and surname again, making sure there is exactly         one space between your two names.
 \end{enumerate}     Quit the Python interactive interpreter.
-	\item Which special rules does the print statement adhere to regarding     trailing spaces and newlines?
-    \item Consider the following code...
+    \item Consider the following code\ldots
 \begin{lstlisting}
 print("MUCH madness is divinest sense,")
 print("To a discerning eye;")
 print("Much sense the starkest madness.")
 print("'T is the majority","In this, as all, prevails")
 print("Assent, and you are sane;")
-print("Demur,-you're straightway dangerous",)
+print("Demur,-you're straightway dangerous",end="")
 print()
 print("And handled with a chain.")\end{lstlisting}
 \begin{enumerate}
