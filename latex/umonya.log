@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.10)  4 APR 2013 08:08
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.3.10)  11 APR 2013 19:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -794,50 +794,65 @@ LaTeX Info: Redefining \nameref on input line 56.
 
 \c@lstlisting=\count134
  ABD: EveryShipout initializing macros
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 59.
-
-(/usr/share/texmf/tex/latex/lm/ot1lmr.fd
+(./titlepage.tex
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 9.
+ (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 59.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 9.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 59.
-
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 9.
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 59.
-
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 9.
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 59.
+(Font)              <10.95> on input line 9.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 59.
+(Font)              <8> on input line 9.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 59.
+(Font)              <6> on input line 9.
 
+<./cc-logo.jpg, id=352, 36.135pt x 36.135pt>
+File: ./cc-logo.jpg Graphic file (type jpg)
+ <use ./cc-logo.jpg>
+Package pdftex.def Info: ./cc-logo.jpg used on input line 19.
+(pdftex.def)             Requested size: 66.39536pt x 66.39873pt.
 
-LaTeX Warning: No \author given.
+<./attribution-by.png, id=353, 64.3203pt x 64.3203pt>
+File: ./attribution-by.png Graphic file (type png)
 
-[1
+<use ./attribution-by.png>
+Package pdftex.def Info: ./attribution-by.png used on input line 20.
+(pdftex.def)             Requested size: 66.39536pt x 66.40276pt.
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Chapter 1.
-(./basic_concepts.tex
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 5.
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 16.
+<./share-alike-sa.png, id=355, 64.3203pt x 64.3203pt>
+File: ./share-alike-sa.png Graphic file (type png)
+
+<use ./share-alike-sa.png>
+Package pdftex.def Info: ./share-alike-sa.png used on input line 21.
+(pdftex.def)             Requested size: 66.39536pt x 66.40276pt.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 23.
  (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
- been already used, duplicate ignored
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 23.
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./cc-logo.jpg> <./attribut
+ion-by.png> <./share-alike-sa.png>])
+Chapter 1.
+(./basic_concepts.texpdfTeX warning (ext4): destination with the same identifie
+r (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.18 b 
@@ -966,38 +981,32 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 95.
  (./umonya.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 95.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 95.
-
-
-Package rerunfilecheck Warning: File `umonya.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `umonya.out':
-(rerunfilecheck)             Before: D8FE0BBD2AA2068DD12402487B4898E2;5665
-(rerunfilecheck)             After:  07356C1F2E8221DFA02C518FA4C3A341;5666.
+Package rerunfilecheck Info: File `umonya.out' has not changed.
+(rerunfilecheck)             Checksum: 07356C1F2E8221DFA02C518FA4C3A341;5666.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 95.
  ) 
 Here is how much of TeX's memory you used:
- 17792 strings out of 495059
- 298806 string characters out of 3182030
- 576463 words of memory out of 3000000
- 19039 multiletter control sequences out of 15000+200000
- 54350 words of font info for 43 fonts, out of 3000000 for 9000
+ 17817 strings out of 495059
+ 299243 string characters out of 3182030
+ 576444 words of memory out of 3000000
+ 19056 multiletter control sequences out of 15000+200000
+ 66044 words of font info for 48 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  56i,9n,55p,1913b,1857s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dv
 ips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share
 /texmf/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf/fonts/type1/public/lm
 /lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texm
-f/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr1
-0.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts
-/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb><
-/usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1
-/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtl10.pfb>
-Output written on umonya.pdf (90 pages, 483426 bytes).
+f/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmm
+i10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fon
+ts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb>
+</usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type
+1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtk10.pfb></usr
+/share/texmf/fonts/type1/public/lm/lmtl10.pfb>
+Output written on umonya.pdf (90 pages, 556895 bytes).
 PDF statistics:
- 2543 PDF objects out of 2984 (max. 8388607)
- 2416 compressed objects within 25 object streams
+ 2554 PDF objects out of 2984 (max. 8388607)
+ 2421 compressed objects within 25 object streams
  1594 named destinations out of 1728 (max. 500000)
- 701 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 716 words of extra memory for PDF output out of 10000 (max. 10000000)
 

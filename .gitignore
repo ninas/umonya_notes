@@ -2,3 +2,5 @@
 /latex/*.log
 /latex/*.aux
 /latex/*.out
+*~
+*.texe
